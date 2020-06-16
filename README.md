@@ -2,13 +2,14 @@
 MercadoMEME - Trabajo Integrador
 
 
-https://www.maspresentes.com.ar/
+Producto
 https://flashcookie.com/
 https://www.threadless.com/
+https://www.tiendakitsch.com/
 
-https://sustancia.mitiendanube.com/remeras/
 
-
+Referencias memes
+https://sustancia.mitiendanube.com/
 https://www.memegenerator.es/
 https://www.kapwing.com/meme-maker
 
