@@ -1,11 +1,28 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  
-  /* agrego un bg red para ver que funcione el css */
-  background-color: red;
+/*=====IMPORTS====*/
+@import 'partials/styleIndex.css';
+
+/*====VARIABLES=====*/
+:root {
+--colorOrange: #FCA86B;
 }
 
-a {
-  color: #00B7FF;
+/*====GENERAL=====*/
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font: 14px "Lato", Helvetica, Arial, sans-serif;
 }
+
+/*====HEADER=====*/
+
+
+
+/*====BODY=====*/
+
+
+
+/*====FOOTER=====*/
+
+/*====MEDIAQUERIES=====*/
