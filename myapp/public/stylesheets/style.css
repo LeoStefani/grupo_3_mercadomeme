@@ -1,6 +1,9 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
+  /* agrego un bg red para ver que funcione el css */
+  background-color: red;
 }
 
 a {

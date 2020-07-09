@@ -1,13 +1,15 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+// cambie var por const
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/indexRouter');
-var usersRouter = require('./routes/usersRouter');
+const indexRouter = require('./routes/indexRouter');
+const usersRouter = require('./routes/usersRouter');
+const productsRouter = require('./routes/productsRouter');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -17,9 +19,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+// En esta linea tuve que agregar ../ ya que al mover todo a src, public queda un nivel arriba de donde esta app.js
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/', indexRouter);
+// Agrego el enrutador de productos en productsRouter
+app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
