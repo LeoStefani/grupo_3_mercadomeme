@@ -12,23 +12,17 @@ header.main-header {
 
 header div div a img {
     height: 100px;
-    align-self: center;
+    /* align-self: center; */
 }
 
-header div div nav {
-    flex-grow: 1;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
 
 header div div nav ul li{
     text-decoration: none;
     list-style: none;
     padding: 10px;
     margin-right: 10px;
-
 }
+
 header div div nav ul li:last-child{
     margin-right: 0px;
 }
@@ -42,24 +36,4 @@ header div div nav ul li a{
 header div div nav ul li a i{
     font-size: 1.2em;
     color: var(--colorBlack);
-
 }
-
-
-header .left-navbar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0;
-
-  }
-
-header .right-navbar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0;
-
-  }
