@@ -12,7 +12,8 @@ footer div div nav ul li{
     text-decoration: none;
     list-style: none;
     padding: 0px;
-    margin: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     margin-right: 15px;
     align-items: center;
 }
@@ -32,7 +33,9 @@ footer div div nav ul li a i{
 
 footer nav p {
     align-self: flex-end;
+    text-align: center;
     margin: 0;
+    margin-top: 5px;
     color: var(--colorBlack);
 
 }

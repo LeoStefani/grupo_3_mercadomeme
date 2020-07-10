@@ -5,10 +5,10 @@
 body {
     background-color: var(--colorGray);
 }
-
-h1.product-title {
+/* 
+h2.product-title {
     text-align: center;
-}
+} */
 
 div.product-selector {
     background: var(--colorWhite);
@@ -19,7 +19,7 @@ div.dropdown img {
 }
 
 div.dropdown div.long {
-    width: 400px;
+    width: 280px;
 }
 
 div.dropdown div.long a{
