@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+
+<body>
+    <%- include('partials/header') %>
+    <div class="container">
+        <div class="row ">
+            <div class="firstColumn col-8">
+                <div class="firstBlock">
+                    <form action="">
+                        <button class="btn btn-warning btn-sm">EDITAR EXISTENTE</button>
+                        <button class="btn btn-warning btn-sm">AGREGAR NUEVO</button>
+                        <div class="productName">
+                            <input type="text" placeholder="Nombre del producto">
+                        </div>
+                        <div>
+                            <select name="" id="">Elegir tipo producto
+                                <option value="taza">Taza</option>
+                                <option value="mochila">Mochila</option>
+                                <option value="gorra">Gorra</option>
+                                <option value="remera">Remera</option>
+                            </select>
+                            <input type="text" placeholder="Precio $$" size="10">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <button class="btn btn-warning mt-3 col-6" type="submit">SUBMIT</button>
+        </div>
+    </div>
+    <%- include('partials/footer') %>
+    <%- include('partials/scriptsBootstrap') %>
+</body>
+</html>
