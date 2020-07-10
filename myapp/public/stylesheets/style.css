@@ -1,10 +1,24 @@
 /*=====IMPORTS====*/
+<<<<<<< HEAD
 /* @import 'partials/styleIndex.css'; */
 @import 'partials/styleUpload.css';
+=======
+@import 'partials/styleIndex.css';
+@import 'partials/styleHeader.css';
+@import 'partials/styleFooter.css';
+@import 'partials/styleProducts.css';
+>>>>>>> 00736f6a709122db1be0ab7dcf4d17e36a71728e
 
 /*====VARIABLES=====*/
+
 :root {
 --colorOrange: #FCA86B;
+--colorOrange2: #f9b233;
+--colorWhite: #f2f2f2;
+--colorGray: #e5e3e3;
+--colorYellow1: #f5cb5c;
+--colorYellow2: #ffd500;
+--colorBlack: #242423;
 }
 
 /*====GENERAL=====*/
@@ -14,6 +28,10 @@
   margin: 0px;
   padding: 0px;
   font: 14px "Lato", Helvetica, Arial, sans-serif;
+}
+
+div {
+  /* border:var(--colorOrange) solid 2px; */
 }
 
 /*====HEADER=====*/

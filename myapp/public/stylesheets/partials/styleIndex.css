@@ -4,12 +4,12 @@ body {
     /* background-color: red; */
   }
   div {
-    border:var(--colorOrange) solid 2px;
+    /* border:var(--colorOrange) solid 2px; */
   }
   img {
-    border: rgb(0, 255, 64) solid 2px;
+    /* border: rgb(0, 255, 64) solid 2px; */
     padding: 20px auto;
   }
-  a {
+  /* a {
     color: green;
-  }
+  } */

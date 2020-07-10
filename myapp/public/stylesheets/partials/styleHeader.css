@@ -1,0 +1,65 @@
+/*=====IMPORTS====*/
+
+
+header.main-header {
+    background: var(--colorYellow1);
+    padding: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: var(--colorBlack) solid 2px;
+    margin-bottom: 40px;
+}
+
+header div div a img {
+    height: 100px;
+    align-self: center;
+}
+
+header div div nav {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+header div div nav ul li{
+    text-decoration: none;
+    list-style: none;
+    padding: 10px;
+    margin-right: 10px;
+
+}
+header div div nav ul li:last-child{
+    margin-right: 0px;
+}
+
+header div div nav ul li a{
+    font-size: 1.5em;
+    color: var(--colorBlack);
+    text-decoration: none;
+}
+
+header div div nav ul li a i{
+    font-size: 1.2em;
+    color: var(--colorBlack);
+
+}
+
+
+header .left-navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+
+  }
+
+header .right-navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+
+  }
