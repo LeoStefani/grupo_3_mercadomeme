@@ -4,9 +4,7 @@ body {
     /* agrego un bg red para ver que funcione el css */
     /* background-color: red; */
 }
-/* div {
-    border: green 2px solid;
-} */
+
 div.container{
     max-width: 1200px;
     /* border:var(--colorOrange) solid 2px; */
@@ -28,7 +26,6 @@ div.firstColumn div.firstBlock{
     flex-wrap: wrap;
     justify-content: space-between;
 }
-
 div.firstColumn div.firstBlock form{
     /* border:red 2px solid; */
     width: 100%;
@@ -36,7 +33,6 @@ div.firstColumn div.firstBlock form{
     display: flex;
     flex-wrap: wrap;
 }
-
 div.firstColumn div.firstBlock form button{
     width: 49%;
     margin: 2px 0px;
@@ -80,6 +76,7 @@ div.firstColumn div.secondBlock div.size{
     border: gray 1px solid;
     width: 100%;
     margin-bottom: 5px;
+    background-color: var(--colorWhite);
     /* display: flex;
     flex-wrap: wrap;
     justify-content: space-between; */
@@ -118,6 +115,7 @@ div.firstColumn div.secondBlock div.colors{
     border: gray 1px solid;
     width: 100%;
     margin-bottom: 5px;
+    background-color: var(--colorWhite);
     /* display: flex;
     flex-wrap: wrap;
     justify-content: space-between; */
@@ -151,6 +149,7 @@ div.firstColumn div.secondBlock div.anotherParameters{
     border: gray 1px solid;
     width: 100%;
     margin-bottom: 5px;
+    background-color: var(--colorWhite);
     /* display: flex;
     flex-wrap: wrap;
     justify-content: space-between; */
@@ -184,7 +183,7 @@ div.firstColumn div.thirdBlock{
     border: gray 1px solid;
     width: 100%;
     margin-bottom: 5px;
-
+    background-color: var(--colorWhite);
     /* border:red 2px solid; */
     /* display: flex;
     flex-wrap: wrap;
@@ -226,7 +225,6 @@ div.secondColumn{
     align-items: center;
 
 }
-
 div.secondColumn div.image{
     /* border: rgb(0, 255, 64) solid 2px; */
     width: 100%;
@@ -245,6 +243,10 @@ div.secondColumn div.image div{
     right: 25px;
     bottom: 25px;
 }
+div.secondColumn div.image div i{
+    font-size: 2rem;
+    color: gray;
+}
 div.secondColumn div.image h5{
     /* position: absolute; */
     /* border: rgb(0, 255, 64) solid 2px; */
@@ -253,10 +255,6 @@ div.secondColumn div.image h5{
     font-size: 1.5rem;
     /* left: 25px;
     top: 25px; */
-}
-div.secondColumn div.image div i{
-font-size: 2rem;
-color: gray;
 }
 
 /*====THIRD COLUMN=====*/
@@ -268,7 +266,6 @@ div.thirdColumn{
     justify-content: space-between;
 
 }
-
 div.thirdColumn div.image{
     /* border: rgb(0, 255, 64) solid 2px; */
     width: 50%;
@@ -300,6 +297,8 @@ div.thirdColumn div.image div i{
 font-size: 2rem;
 color: gray;
 }
+
+/*====MEDIA QUERIES=====*/
 
 @media (min-width: 768px) {
     div.thirdColumn div.image{

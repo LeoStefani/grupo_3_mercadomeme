@@ -10,6 +10,7 @@ const logger = require('morgan');
 const indexRouter = require('./routes/indexRouter');
 const usersRouter = require('./routes/usersRouter');
 const productsRouter = require('./routes/productsRouter');
+const memesRouter = require('./routes/memesRouter');
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use('/', indexRouter);
 // Agrego el enrutador de productos en productsRouter
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
+app.use('/memes', memesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

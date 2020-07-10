@@ -3,14 +3,14 @@
 <%- include('partials/head') %>
 
 <body>
-    <!-- <%- include('partials/header') %> -->
+    <%- include('partials/header') %>
     <div class="container">
         <div class="row">
             <div class="firstColumn col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                 <div class="firstBlock">
                     <form action="">
-                        <button class="btn btn-primary btn-sm">EDITAR EXISTENTE</button>
-                        <button class="btn btn-primary btn-sm">AGREGAR NUEVO</button>
+                        <button class="btn btn-warning btn-sm">EDITAR EXISTENTE</button>
+                        <button class="btn btn-warning btn-sm">AGREGAR NUEVO</button>
                         <div class="productName">
                             <input type="text" placeholder="Nombre del producto">
                         </div>
@@ -31,34 +31,34 @@
                         <div>
                             <form action="">
                                 <div>
-                                    <div class="check">XS<input  type="checkbox" name="sizes" id="XS" value="XS"></div>
+                                    <div class="check"><label for="XS">XS</label><input  type="checkbox" name="sizes" id="XS" value="XS"></div>
                                     <input type="text" name="" id="" placeholder="Ancho [cm] ">
                                     <input type="text" name="" id="" placeholder="Altura [cm] ">
                                 </div>
                                 <div>
-                                    <div class="check">S<input class="check" type="checkbox" name="sizes" id="S" value="S"></div>
+                                    <div class="check"><label for="S">S</label><input class="check" type="checkbox" name="sizes" id="S" value="S"></div>
                                     <input type="text" name="" id="" placeholder="Ancho [cm]">
                                     <input type="text" name="" id="" placeholder="Altura [cm]">
                                 </div>
                                 <div>
-                                    <div class="check">M<input class="check" type="checkbox" name="sizes" id="M" value="M"></div>
+                                    <div class="check"><label for="M">M</label><input class="check" type="checkbox" name="sizes" id="M" value="M"></div>
                                     <input type="text" name="" id="" placeholder="Ancho [cm]">
                                     <input type="text" name="" id="" placeholder="Altura [cm]">
                                 </div>
                                 <div>
-                                    <div class="check">L<input class="check" type="checkbox" name="sizes" id="L" value="L"></div>
+                                    <div class="check"><label for="L">L</label><input class="check" type="checkbox" name="sizes" id="L" value="L"></div>
                                     <input type="text" name="" id="" placeholder="Ancho [cm]">
                                     <input type="text" name="" id="" placeholder="Altura [cm]">
                                 </div>
                                 <div>
-                                    <div class="check">XL<input class="check" type="checkbox" name="sizes" id="XL" value="XL"></div>
+                                    <div class="check"><label for="XL">XL</label><input class="check" type="checkbox" name="sizes" id="XL" value="XL"></div>
                                     <input type="text" name="" id="" placeholder="Ancho [cm]">
                                     <input type="text" name="" id="" placeholder="Altura [cm]">
                                 </div>
                             </form>
                         </div>
                         
-                        <button class="btn btn-primary btn-sm btn-block">AGREGAR OTRO TAMAÑO</button>
+                        <button class="btn btn-warning btn-sm btn-block">AGREGAR OTRO TAMAÑO</button>
                     </div>
                     <div class="colors">
                         <h4>Colores</h4>
@@ -100,7 +100,7 @@
                                 <input type="checkbox" name="colors" id="brown" value="brown">
                             </div>
                         </form>
-                        <button class="btn btn-primary btn-sm btn-block">AGREGAR OTRO COLOR</button>
+                        <button class="btn btn-warning btn-sm btn-block">AGREGAR OTRO COLOR</button>
                     </div>
                     <div class="anotherParameters">
                         <h4>Otros Parámetros</h4>
@@ -122,7 +122,7 @@
                                 <input type="checkbox" name="extras" id="vNeck" value="vNeck">
                             </div>
                        </form>
-                        <button class="btn btn-primary btn-sm btn-block">AGREGAR OTRO PARAMETRO</button>
+                        <button class="btn btn-warning btn-sm btn-block">AGREGAR OTRO PARAMETRO</button>
                     </div>
                 </div>
                 <div class="thirdBlock">
@@ -187,12 +187,10 @@
                         </div>                    
                 </div>                 
             </div>
-            <button class="btn btn-primary btn-sm btn-block" type="submit">SUBMIT</button>
+            <button class="btn btn-warning btn-sm btn-block mt-3" type="submit">SUBMIT</button>
         </div>
     </div>
-    <!-- <%- include('partials/footer') %> -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <%- include('partials/footer') %>
+    <%- include('partials/scriptsBootstrap') %>
 </body>
 </html>
