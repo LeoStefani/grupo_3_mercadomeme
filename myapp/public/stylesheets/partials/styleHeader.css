@@ -1,5 +1,18 @@
-header {
-    background: #F5CB5C;
+/*=====IMPORTS====*/
+
+
+header.main-header {
+    background: var(--colorYellow1);
+    padding: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: var(--colorBlack) solid 2px;
+    margin-bottom: 40px;
+}
+
+header div div a img {
+    height: 100px;
+    align-self: center;
 }
 
 header div div nav {
@@ -14,6 +27,7 @@ header div div nav ul li{
     list-style: none;
     padding: 10px;
     margin-right: 10px;
+
 }
 header div div nav ul li:last-child{
     margin-right: 0px;
@@ -21,10 +35,14 @@ header div div nav ul li:last-child{
 
 header div div nav ul li a{
     font-size: 1.5em;
+    color: var(--colorBlack);
+    text-decoration: none;
 }
 
 header div div nav ul li a i{
-    font-size: 1.5em;
+    font-size: 1.2em;
+    color: var(--colorBlack);
+
 }
 
 

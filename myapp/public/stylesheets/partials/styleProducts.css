@@ -1,0 +1,35 @@
+/*=====IMPORTS====*/
+
+
+
+body {
+    background-color: var(--colorGray);
+}
+
+h1.product-title {
+    text-align: center;
+}
+
+div.product-selector {
+    background: var(--colorWhite);
+}
+
+div.dropdown img {
+    height: 100px;
+}
+
+div.dropdown div.long {
+    width: 400px;
+}
+
+div.dropdown div.long a{
+    display: inline-block;
+    text-decoration: none;
+}
+
+.main-product {
+    height: 100%;
+    /* height: 400px; */
+    background: var(--colorWhite);
+
+}

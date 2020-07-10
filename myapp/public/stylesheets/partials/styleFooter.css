@@ -1,5 +1,14 @@
-footer {
-    background: #F5CB5C;
+/*=====IMPORTS====*/
+
+
+
+
+footer.main-footer {
+    background: var(--colorYellow1);
+    padding: 15px 0;
+    border-top: var(--colorBlack) solid 2px;
+    margin-top: 40px;
+
 
 }
 
@@ -23,10 +32,19 @@ footer div div nav ul li{
 
 footer div div nav ul li a{
     font-size: 1.5em;
+    color: var(--colorBlack);
+    text-decoration: none;
 }
 
+footer div div nav ul li a.contactHelp{
+    margin-left: 10px;
+
+}
+
+
 footer div div nav ul li a i{
-    font-size: 1.5em;
+    font-size: 1.0em;
+    color: var(--colorBlack);
 }
 
 
@@ -42,4 +60,6 @@ footer ul.left-navbar {
 footer nav p {
     align-self: flex-end;
     margin: 0;
+    color: var(--colorBlack);
+
 }
