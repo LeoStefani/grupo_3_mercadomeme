@@ -4,8 +4,15 @@
 @import 'partials/styleFooter.css';
 
 /*====VARIABLES=====*/
+
 :root {
 --colorOrange: #FCA86B;
+--colorOrange2: #f9b233;
+--culorWhite: #f2f2f2;
+--colorGray: #e5e3e3;
+--colorYellow1: #f5cb5c;
+--colorYellow2: #ffd500;
+--colorBlack: #242423;
 }
 
 /*====GENERAL=====*/
