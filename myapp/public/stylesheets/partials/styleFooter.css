@@ -1,0 +1,45 @@
+footer {
+    background: #F5CB5C;
+
+}
+
+footer div div nav {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer div div nav ul li{
+    text-decoration: none;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    margin-right: 15px;
+    align-items: center;
+}
+
+
+footer div div nav ul li a{
+    font-size: 1.5em;
+}
+
+footer div div nav ul li a i{
+    font-size: 1.5em;
+}
+
+
+footer ul.left-navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+  }
+
+
+footer nav p {
+    align-self: flex-end;
+    margin: 0;
+}

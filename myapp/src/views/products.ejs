@@ -1,4 +1,103 @@
 <!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+
+<body>
+  <!-- <header> -->
+  <%- include('partials/header') %>
+  <!-- </header> -->
+
+
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Product title -->
+      <div class="col-12">
+        <h1>que estas buscando??</h1>
+      </div>
+      <!-- Product title -->
+
+
+      <!-- Boostrap dropdown menu -->
+      <div class="row">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="../images/iconoimagen.png" alt="">
+          </button>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">holaa</a>
+            <a class="dropdown-item" href="#">holaa</a>
+            <a class="dropdown-item" href="#">holaa</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="../images/iconoimagen.png" alt="">
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#"><img src="../images/iconoimagen.png" alt=""></a>
+            <a class="dropdown-item" href="#"><img src="../images/iconoimagen.png" alt=""></a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="../images/iconoimagen.png" alt="">
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#"><img src="../images/iconoimagen.png" alt=""></a>
+            <a class="dropdown-item" href="#"><img src="../images/iconoimagen.png" alt=""></a>
+            <a class="dropdown-item" href="#"><img src="../images/iconoimagen.png" alt=""></a>
+          </div>
+        </div>
+      </div>
+      <!-- Boostrap dropdown menu -->
+
+    </div>
+
+    <!--article full description-->
+    <div class="12">
+      <div class="row">
+        <div class="col-7">
+          <img src="../images/iconoimagen.png" alt="">
+        </div>
+        <div class="col-5">
+          <p>Welcome to <%= title %></p>
+          <a href="/products/detail"><button type="submit" name="memes">avanzar a detalle</button></a>
+        </div>
+      </div>
+    </div>
+    <!--article full description-->
+
+  </div>
+
+
+  <!-- <footer> -->
+  <%- include('partials/footer') %>
+  <!-- </footer> -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
+
+<!-- 
+
+<!DOCTYPE html>
 <html>
   <head>
     <title><%= title %></title>
@@ -9,4 +108,4 @@
     <p>Welcome to <%= title %></p>
     <a href="/products/detail"><button type="submit" name="memes">avanzar a detalle</button></a>
   </body>
-</html>
+</html> -->

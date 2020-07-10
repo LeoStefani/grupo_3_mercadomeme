@@ -1,5 +1,7 @@
 /*=====IMPORTS====*/
 @import 'partials/styleIndex.css';
+@import 'partials/styleHeader.css';
+@import 'partials/styleFooter.css';
 
 /*====VARIABLES=====*/
 :root {
