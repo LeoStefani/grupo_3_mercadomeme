@@ -1,5 +1,6 @@
 /*=====IMPORTS====*/
-@import 'partials/styleIndex.css';
+/* @import 'partials/styleIndex.css'; */
+@import 'partials/styleUpload.css';
 
 /*====VARIABLES=====*/
 :root {
