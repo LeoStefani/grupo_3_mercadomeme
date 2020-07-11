@@ -1,0 +1,271 @@
+div.container{
+    max-width: 1200px;
+    /* border:var(--colorOrange) solid 2px; */
+    margin: 0 auto;
+}
+
+/*======FIRST BANNER===*/
+
+/*======NAV BAR===*/
+
+nav.memesNav ul li{
+    text-decoration: none;
+    list-style: none;
+    padding-bottom: 5px;
+    margin: 0px 5px;
+}
+nav.memesNav ul li a{
+    font-size: 1rem;
+    color: var(--colorBlack);
+    text-decoration: none;
+}
+
+nav.memesNav ul li a i{
+    font-size: 1rem;
+    color: var(--colorBlack);
+}
+
+/*====FIRST COLUMN=====*/
+
+div.firstColumn{
+    /* border:blue 2px solid; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+div.firstColumn div.firstBlock{
+    /* border:red 2px solid; */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+div.firstColumn div.firstBlock form{
+    /* border:red 2px solid; */
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+}
+div.firstColumn div.firstBlock form button{
+    width: 49%;
+    margin: 2px 0px;
+}
+div.firstColumn div.firstBlock form div.productName{
+    /* border:pink 2px solid; */
+    width: 100%;
+    margin: 0px 0px;
+}
+div.firstColumn div.firstBlock form div.productName input{
+    /* border: green 2px solid; */
+    width: 100%;
+}
+div.firstColumn div.firstBlock form div{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+div.firstColumn div.firstBlock form div select{
+    /* border:green 2px solid;
+    background-color: red; */
+   flex-grow: 1; 
+    margin: 5px 0px;
+    padding: 0px;
+}
+div.firstColumn div.firstBlock form div input{
+    /* border:pink 2px solid; */
+    width: 25%;
+    margin: 5px 0px;
+}
+div.firstColumn div.secondBlock{
+    /* border:red 2px solid; */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+div.firstColumn div.secondBlock div.size{
+    border: gray 1px solid;
+    width: 100%;
+    margin-bottom: 5px;
+    background-color: var(--colorWhite);
+
+}
+div.firstColumn div.secondBlock div.size h4{
+    border-bottom: gray 1px solid;
+    text-align: center;
+    font-size: 1.3rem;
+
+}
+div.firstColumn div.secondBlock div.size div form div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+
+}
+div.firstColumn div.secondBlock div.size div form div.check {
+    width: 15%;
+    margin-left: 10px;
+
+}
+div.firstColumn div.secondBlock div.size div form div input {
+    max-width: 30%;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+div.firstColumn div.secondBlock div.colors{
+    border: gray 1px solid;
+    width: 100%;
+    margin-bottom: 5px;
+    background-color: var(--colorWhite);
+
+}
+div.firstColumn div.secondBlock div.colors h4{
+    border-bottom: gray 1px solid;
+    margin: 0px;
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+    text-align: center;
+
+}
+div.firstColumn div.secondBlock div.colors form {
+    border-bottom: gray 1px solid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+div.firstColumn div.secondBlock div.colors form div {
+    width: 26%;
+    display: flex;
+    justify-content: space-between;
+
+}
+div.firstColumn div.secondBlock div.anotherParameters{
+    border: gray 1px solid;
+    width: 100%;
+    margin-bottom: 5px;
+    background-color: var(--colorWhite);
+
+}
+div.firstColumn div.secondBlock div.anotherParameters h4{
+    border-bottom: gray 1px solid;
+    margin: 0px;
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+    text-align: center;
+
+}
+div.firstColumn div.secondBlock div.anotherParameters form {
+    border-bottom: gray 1px solid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+div.firstColumn div.secondBlock div.anotherParameters form div {
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+
+}
+div.firstColumn div.thirdBlock{
+    border: gray 1px solid;
+    width: 100%;
+    margin-bottom: 5px;
+    background-color: var(--colorWhite);
+}
+div.firstColumn div.thirdBlock form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+div.firstColumn div.thirdBlock input{
+    max-width: 100%;
+    padding: 10px;
+    flex-grow: 0.9;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+div.firstColumn div.thirdBlock h4{
+    border-bottom: gray 1px solid;
+    margin: 0px;
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+/*====SECOND COLUMN=====*/
+
+div.secondColumn{
+    display: flex;
+    align-items: center;
+}
+div.secondColumn div.image{
+    width: 100%;
+    position: relative;
+}
+div.secondColumn div.image img{
+    width: 100%;
+}
+div.secondColumn div.image div{
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+}
+div.secondColumn div.image div i{
+    font-size: 2rem;
+    color: gray;
+}
+div.secondColumn div.image h5{
+    text-align: center;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/*====THIRD COLUMN=====*/
+
+div.thirdColumn{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+div.thirdColumn div.image{
+    width: 50%;
+    position: relative;
+}
+div.thirdColumn div.image h5{
+    text-align: center;
+    margin: 0px;
+    font-size: 1.1rem;
+}
+div.thirdColumn div.image img{
+    width: 100%;
+}
+div.thirdColumn div.image div{
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+}
+div.thirdColumn div.image div i{
+font-size: 2rem;
+color: gray;
+}
+
+/*====MEDIA QUERIES=====*/
+
+@media (min-width: 768px) {
+    div.thirdColumn div.image{
+        width: 100%;
+        position: relative;
+    }
+    div.thirdColumn div.image div i{
+        font-size: 1.5rem;
+        color: gray;
+        }
+        div.thirdColumn div.image div{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+}

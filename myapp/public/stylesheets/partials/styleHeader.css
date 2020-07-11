@@ -28,12 +28,12 @@ header div div nav ul li:last-child{
 }
 
 header div div nav ul li a{
-    font-size: 1.5em;
+    font-size: 1.5rem;
     color: var(--colorBlack);
     text-decoration: none;
 }
 
 header div div nav ul li a i{
-    font-size: 1.2em;
+    font-size: 1.8rem;
     color: var(--colorBlack);
 }
