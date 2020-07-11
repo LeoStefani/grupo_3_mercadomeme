@@ -3,10 +3,231 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <%- include('partials/head') %>
   </head>
+
+
+
   <body>
-    <h1><%= title %></h1>
+
+      <!-- <header> -->
+        <%- include('partials/header') %>
+        <!-- </header> -->
+
+    <div class="container">
+      <div class= "row" >
+
+<!-- Seleccion de variantes de productos -->
+        
+
+
+<!-- Seleccion de variantes de productos -->
+
+        <div class= col-5 class="varianteymeme"> 
+          <div class= "col-2" class= "productsType"> 
+            <ul class="thumbnails" >
+              <li class="span4">
+                <div class="thumbnail">
+                  <a href="">
+                    <img src="../images/iconoimagen.png" alt="variantedeproducto">
+                  </a>
+                </div>
+              </li>
+              <li class="span4">
+                <div class="thumbnail">
+                  <a href="">
+                    <img src="../images/iconoimagen.png" alt="variantedeproducto">
+                  </a>
+                </div>
+              </li> 
+              <li class="span4">
+                <div class="thumbnail">
+                  <a href="">
+                    <img src="../images/iconoimagen.png" alt="variantedeproducto">
+                  </a>
+                </div>
+              </li> 
+              <li class="span4">
+                <div class="thumbnail">
+                  <a href="">
+                    <img src="../images/iconoimagen.png" alt="variantedeproducto">
+                  </a>
+                </div>
+              </li> 
+              <li class="span4">
+                <div class="thumbnail">
+                  <a href="">
+                    <img src="../images/iconoimagen.png" alt="variantedeproducto">
+                  </a>
+                </div>
+              </li> 
+              <li class="span4">
+                <div class="thumbnail">
+                  <a href="">
+                    <img src="../images/iconoimagen.png" alt="variantedeproducto">
+                  </a>
+                </div>
+              </li> 
+            </ul>
+
+          </div>
+      
+  <!-- Meme seleccionado -->
+
+        <div class= "col-3" >
+            <a href="">
+              <img src="../images/iconoimagen.png" alt="variantedeproducto">
+            </a>
+          </div>
+        </div>
+
+  <!-- Prodcuts Size & Color -->
+
+        <div class="size">
+          <a href="">S</a>
+          <a href="">M</a>
+          <a href="">L</a>
+          <a href="">XL</a>
+        </div>
+
+        <div class="color">
+          <a href=""><img src="" alt="Red"></a>
+          <a href=""><img src="" alt="Black"></a>
+          <a href=""><img src="" alt="White"></a>
+          <a href=""><img src="" alt="Yellow"></a>
+        </div>
+
+
+
+
+ <!-- Bibliotecas memes del user -->
+
+        <div class= "col-2"> 
+          <ul class="thumbnails" class= "MemesBiblioUsers" >
+            <li class="span5">
+              <div class="thumbnail">
+                <a href="">
+                  <img src="../images/iconoimagen.png" alt="imgbibliouser">
+                </a>
+              </div>
+            </li>
+            <li class="span5">
+              <div class="thumbnail">
+                <a href="">
+                  <img src="../images/iconoimagen.png" alt="imgbibliouser">
+                </a>
+              </div>
+            </li>
+            <li class="span5">
+              <div class="thumbnail">
+                <a href="">
+                  <img src="../images/iconoimagen.png" alt="imgbibliouser">
+                </a>
+              </div>
+            </li>
+            <li class="span5">
+              <div class="thumbnail">
+                <a href="">
+                  <img src="../images/iconoimagen.png" alt="imgbibliouser">
+                </a>
+              </div>
+            </li>
+            <li class="span5">
+              <div class="thumbnail">
+                <a href="">
+                  <img src="../images/iconoimagen.png" alt="imgbibliouser">
+                </a>
+              </div>
+            </li>
+            <li class="span5">
+              <div class="thumbnail">
+                <a href="">
+                  <img src="../images/iconoimagen.png" alt="imgbibliouser">
+                </a>
+              </div>
+            </li>
+            <li class="span5">
+              <div class="thumbnail">
+                <a href="">
+                  <img src="../images/iconoimagen.png" alt="imgbibliouser">
+                </a>
+              </div>
+            </li>
+            <li class="span5">
+              <div class="thumbnail">
+                <a href="">
+                  <img src="../images/iconoimagen.png" alt="imgbibliouser">
+                </a>
+              </div>
+            </li>
+            <li class="span5">
+              <div class="thumbnail">
+                <a href="">
+                  <img src="../images/iconoimagen.png" alt="imgbibliouser">
+                </a>
+              </div>
+            </li>
+            <li class="span5">
+              <div class="thumbnail">
+                <a href="">
+                  <img src="../images/iconoimagen.png" alt="imgbibliouser">
+                </a>
+              </div>
+            </li>
+            <li class="span5">
+              <div class="thumbnail">
+                <a href="">
+                  <img src="../images/iconoimagen.png" alt="imgbibliouser">
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+          
+
+ <!-- Meme seleccionado -->
+
+        <div class= "col-5">
+          <a href="">
+            <img src="../images/iconoimagen.png" alt="variantedeproducto">
+            <h2>PRECIO FINAL</h2>
+          </a>
+        </div>
+
+      </div>
+
+    </div> <!-- End 1st Row -->
+
+
+        <div class="row">
+            <div class="col-4">
+              <button type="button" class="btn btn-warning btn-lg btn-radius">Agregar al carrito</button>
+              <button type="button" class="btn btn-warning btn-lg btn-radius">Comprar</button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+<!--   <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
     <a href="/memes"><button type="submit" name="memes">me olvide un meme</button></a>
+-->
+
+<!-- <footer> -->
+   <%- include('partials/footer') %>
+<!-- </footer> -->
+  <%- include('partials/scriptsBootstrap') %>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
   </body>
 </html>

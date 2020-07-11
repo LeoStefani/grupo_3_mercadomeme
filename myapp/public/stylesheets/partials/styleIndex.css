@@ -4,12 +4,24 @@ body {
     /* background-color: red; */
   }
   div {
-    /* border:var(--colorOrange) solid 2px; */
+    border:var(--colorOrange) solid 2px; */
   }
-  img {
-    /* border: rgb(0, 255, 64) solid 2px; */
-    padding: 20px auto;
+
+div .productsandmemes {
+  display: flex;
+  justify-content:center;
+}
+
+  div a img  {
+    height: 50%;
+    justify-content: center;
+  
   }
+
+  div a img h2 {}
+
   /* a {
     color: green;
   } */
+
+  div.row div.col-6 a
