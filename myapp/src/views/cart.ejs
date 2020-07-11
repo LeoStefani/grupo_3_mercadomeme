@@ -2,34 +2,92 @@
 <html lang="es">
 <%- include('partials/head') %>
 
+<!-- col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 -->
+
 <body>
     <%- include('partials/header') %>
-    <div class="container">
-        <div class="row d-flex flex-wrap align-items-center justify-content-between item">
-            <div class="image">
-                <img src="/images/remeraNegra.jpg" alt="">
+    <div class="container mainCart">
+
+        <!-- products  -->
+        <div class="row m-4 d-flex flex-wrap cartItem">
+            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 d-flex flex-wrap image">
+                <img class="w-100 m-2" src="/images/remeraNegra.jpg" alt="">
             </div>
-            <div class="summary">
-                <h5>Descripción del producto</h5><br>
-                <p>Talle: M</p>
-                <p>Color: Negro</p>
-                <p>Algodón</p>
-                <p>Cuello redondo</p>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-2 pt-2 mb-2 d-inline-block cartSummary">
+                <h5 class="mt-2">Descripción del producto</h5><p>Talle: M</p><p>Color: Negro</p><p>Algodón</p><p>Cuello redondo</p>             
+                
             </div>
-            <div class="settings">
-                <div>
-                    <div class="d-flex flex-wrap align-items-center">
-                        <p>Cantidad</p><button class="btn btn-sm btn-warning"><i class="far fa-minus-square"></i></button>
-                        <input type="text">
-                        <button class="btn btn-sm btn-warning"><i class="far fa-plus-square"></i></button>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mt-2 mb-2 cartSettings">
+                    <div class="d-flex flex-wrap mt-2 mb-2 align-items-center justify-content-start">
+                        <p class="col-5 m-0 p-0 mt-2 mb-2">Cantidad: 1</p>
+                        <input class="col-2 p-0 mr-1 mt-2 mb-2" type="text">
+                        <button class="btn btn-sm btn-warning p-0 mr-3 mt-2 mb-2 col-1"><i class="far fa-check-square"></i></button>
+                        <button class="btn btn-sm btn-warning p-0 mr-1 mt-2 mb-2 col-1"><i class="far fa-minus-square"></i></button>
+                        <button class="btn btn-sm btn-warning p-0 mt-2 mb-2 col-1"><i class="far fa-plus-square"></i></button>
                     </div>
-                    <div>Precio</div>
-                    <div>Eliminar</div>
-                </div>
-                <div>Precio Final</div>
+                    <div class="col-12 p-0 mt-2 mb-2">Precio: $4.444</div>
+                    <div class="col-12 p-0 mt-2 mb-2"><a class="text-decoration-none" href="#">Eliminar</a></a></div>
             </div> 
         </div>
-        <button class="btn btn-warning mt-3 col-6" type="submit">SUBMIT</button>
+
+        <div class="row m-4 d-flex flex-wrap cartItem">
+            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 d-flex flex-wrap image">
+                <img class="w-100 m-2" src="/images/remeraNegra.jpg" alt="">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-2 pt-2 mb-2 d-inline-block cartSummary">
+                <h5 class="mt-2">Descripción del producto</h5><p>Talle: M</p><p>Color: Negro</p><p>Algodón</p><p>Cuello redondo</p>             
+                
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mt-2 mb-2 cartSettings">
+                    <div class="d-flex flex-wrap mt-2 mb-2 align-items-center justify-content-start">
+                        <p class="col-5 m-0 p-0 mt-2 mb-2">Cantidad: 1</p>
+                        <input class="col-2 p-0 mr-1 mt-2 mb-2" type="text">
+                        <button class="btn btn-sm btn-warning p-0 mr-3 mt-2 mb-2 col-1"><i class="far fa-check-square"></i></button>
+                        <button class="btn btn-sm btn-warning p-0 mr-1 mt-2 mb-2 col-1"><i class="far fa-minus-square"></i></button>
+                        <button class="btn btn-sm btn-warning p-0 mt-2 mb-2 col-1"><i class="far fa-plus-square"></i></button>
+                    </div>
+                    <div class="col-12 p-0 mt-2 mb-2">Precio: $4.444</div>
+                    <div class="col-12 p-0 mt-2 mb-2"><a class="text-decoration-none" href="#">Eliminar</a></a></div>
+            </div> 
+        </div>
+
+        <div class="row m-4 d-flex flex-wrap cartItem">
+            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 d-flex flex-wrap image">
+                <img class="w-100 m-2" src="/images/remeraNegra.jpg" alt="">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-2 pt-2 mb-2 d-inline-block cartSummary">
+                <h5 class="mt-2">Descripción del producto</h5><p>Talle: M</p><p>Color: Negro</p><p>Algodón</p><p>Cuello redondo</p>             
+                
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mt-2 mb-2 cartSettings">
+                    <div class="d-flex flex-wrap mt-2 mb-2 align-items-center justify-content-start">
+                        <p class="col-5 m-0 p-0 mt-2 mb-2">Cantidad: 1</p>
+                        <input class="col-2 p-0 mr-1 mt-2 mb-2" type="text">
+                        <button class="btn btn-sm btn-warning p-0 mr-3 mt-2 mb-2 col-1"><i class="far fa-check-square"></i></button>
+                        <button class="btn btn-sm btn-warning p-0 mr-1 mt-2 mb-2 col-1"><i class="far fa-minus-square"></i></button>
+                        <button class="btn btn-sm btn-warning p-0 mt-2 mb-2 col-1"><i class="far fa-plus-square"></i></button>
+                    </div>
+                    <div class="col-12 p-0 mt-2 mb-2">Precio: $4.444</div>
+                    <div class="col-12 p-0 mt-2 mb-2"><a class="text-decoration-none" href="#">Eliminar</a></a></div>
+            </div> 
+        </div>
+        <!-- products  -->
+
+
+        <!-- final price -->
+        <div class="row mt-4 mr-4 d-flex flex-wrap justify-content-end">
+            <div>
+                <h3>Precio Final: $9.999 </h3>
+            </div>
+        </div>
+        <!-- final price -->
+
+        <!-- submit button -->
+        <div class="row mt-4 mr-4 d-flex flex-wrap justify-content-end">
+            <button class="btn btn-warning mt-3 col-6" type="submit">PAGO</button>
+        </div>
+        <!-- submit button -->
+
     </div>
     <%- include('partials/footer') %>
     <%- include('partials/scriptsBootstrap') %>

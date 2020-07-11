@@ -1,74 +1,47 @@
-div.container div.item {
-    border: orange solid 2px;
-    width: 70%;
-    margin: 0 auto;
-
-}
-div.container div.item div.image{
-    width: 100px;
-    border: 2px red solid;
-    
+div.cartItem {
+    background-color: var(--colorWhite);
 }
 
-div.container div.item div.summary{
-    width: 30%;
-    border: 2px green solid;
-    display: inline-block;
-    flex-grow: 1;
-    text-align: center;
-    
-}
-div.container div.item div.summary p{
-    margin: 0px;
-    padding: 0px;
-           
-    }
-
-div.container div.item div.settings{
-    width: 35%;
-    border: 2px blue solid;
-    flex-grow: 1;
-       
+.cartSettings{
+    border-top:  #e5e3e360 solid 2px;
 }
 
-div.container div.item div.settings div div{
-    /* width: 20%; */
-    border: 2px yellow solid;
-    flex-grow: 1;
-    display: inline-block;
-
-       
-}
-div.container div.item div.settings div div input{
-    width: 30px;
-    /* border: 2px yellow solid; */
-    display: inline-block;
-    height: 28px;
-       
-}
-div.container div.item div.settings div div p{
-margin: 0px;
-padding: 0px;
-       
+.cartSummary{
+    border-top:  #e5e3e360 solid 2px;
 }
 
-
-
-div.item div {
-border: 2px red solid;
-}
-
-div.item div img {
+.mainCart{
     width: 100%;
 }
 
-@media (max-width: 768px) {
 
-    div.container div.item {
-        border: orange solid 2px;
-        width: 100%;
-        margin: 0 auto;
-    
+
+/*======MEDIAQUERIES======*/
+
+@media (min-width: 768px) {
+    .cartSettings{
+        border-top: 0;
+        border-left:  #e5e3e360 solid 2px;
     }
 
+    .cartSummary{
+        border-top: 0;
+        border-left:  #e5e3e360 solid 2px;
+    }
+
+    .mainCart{
+        width: 90%;
+    }
+}
+
+@media (min-width: 992px) {
+    .mainCart{
+        width: 80%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .mainCart{
+        width: 75%;
+    }
 }
