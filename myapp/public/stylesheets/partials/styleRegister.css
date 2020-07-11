@@ -1,61 +1,85 @@
 
 div.container{
     max-width: 1200px;
-    /* border:var(--colorOrange) solid 2px; */
     margin: 0 auto;
 }
-
-/*====FIRST COLUMN=====*/
-
 div.firstColumn{
-    /* border:blue 2px solid; */
+    width: 30%;
+    margin: 0px auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    background-color: var(--colorWhite);    
 }
 div.firstColumn div.firstBlock{
-    /* border:red 2px solid; */
+    margin: 5px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 div.firstColumn div.firstBlock form{
-    /* border:red 2px solid; */
     width: 100%;
     justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
 }
-div.firstColumn div.firstBlock form button{
-    width: 49%;
-    margin: 2px 0px;
-
-}
-div.firstColumn div.firstBlock form div.productName{
-    /* border:pink 2px solid; */
-    width: 100%;
-    margin: 0px 0px;
-
-}
-div.firstColumn div.firstBlock form div.productName input{
-    /* border: green 2px solid; */
-    width: 100%;
+div.firstColumn div.firstBlock form h4{
+    text-align: center;
+    margin: 0 auto;
 }
 div.firstColumn div.firstBlock form div{
-    display: flex;
     width: 100%;
-    flex-wrap: wrap;
-}
-div.firstColumn div.firstBlock form div select{
-    /* border:green 2px solid;
-    background-color: red; */
-   flex-grow: 1; 
-    margin: 5px 0px;
-    padding: 0px;
+    margin: 0px 0px;
 }
 div.firstColumn div.firstBlock form div input{
-    /* border:pink 2px solid; */
-    width: 25%;
-    margin: 5px 0px;
+    width: 100%;
+    flex-grow: 1;
+}
+div.firstColumn div.firstBlock a{
+    text-align: center;
+    margin: 5px auto;
+    text-decoration: none;
+    color: var(--colorOrange);
+}
+div.firstColumn div.firstBlock h6{
+    text-align: center;
+    margin: 5px auto;
+}
+div.firstColumn div.firstBlock img{
+    width: 90%;
+    margin: 10px auto;
+}
+
+/*======MEDIAQUERIES======*/
+
+@media (max-width: 1020px) {
+    div.firstColumn{
+        width: 60%;
+        margin: 0px auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        background-color: var(--colorWhite);     
+    }
+}
+@media (max-width: 600px) {
+    div.firstColumn{
+        width: 80%;
+        margin: 0px auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        background-color: var(--colorWhite);
+    }
+}
+@media (max-width: 425px) {
+    div.firstColumn{
+        width: 100%;
+        margin: 0px auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        background-color: var(--colorWhite);  
+    }
 }
