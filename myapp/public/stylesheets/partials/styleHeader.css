@@ -20,7 +20,7 @@ header div div nav ul li{
     text-decoration: none;
     list-style: none;
     padding: 10px;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 header div div nav ul li:last-child{
