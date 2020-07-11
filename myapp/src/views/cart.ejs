@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+
+<body>
+    <%- include('partials/header') %>
+    <div class="container">
+        <div class="row d-flex flex-wrap align-items-center justify-content-between item">
+            <div class="image">
+                <img src="/images/remeraNegra.jpg" alt="">
+            </div>
+            <div class="summary">
+                <h5>Descripción del producto</h5><br>
+                <p>Talle: M</p>
+                <p>Color: Negro</p>
+                <p>Algodón</p>
+                <p>Cuello redondo</p>
+            </div>
+            <div class="settings">
+                <div>
+                    <div class="d-flex flex-wrap align-items-center">
+                        <p>Cantidad</p><button class="btn btn-sm btn-warning"><i class="far fa-minus-square"></i></button>
+                        <input type="text">
+                        <button class="btn btn-sm btn-warning"><i class="far fa-plus-square"></i></button>
+                    </div>
+                    <div>Precio</div>
+                    <div>Eliminar</div>
+                </div>
+                <div>Precio Final</div>
+            </div> 
+        </div>
+        <button class="btn btn-warning mt-3 col-6" type="submit">SUBMIT</button>
+    </div>
+    <%- include('partials/footer') %>
+    <%- include('partials/scriptsBootstrap') %>
+</body>
+</html>

@@ -4,6 +4,9 @@ module.exports = {
     },
     register: function(req, res, next) {
         res.render('register');
+    },
+    cart: function (req,res,next) {
+        res.render("cart");
     }
     
 };
