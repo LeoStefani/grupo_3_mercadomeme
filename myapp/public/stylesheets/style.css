@@ -37,4 +37,6 @@ body
   background-color: var(--colorGray);
   margin: 0px auto;
   padding: 0px;
+  min-height: 100vh;
 }
+

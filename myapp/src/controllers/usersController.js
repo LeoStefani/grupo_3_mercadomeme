@@ -3,10 +3,9 @@ module.exports = {
         res.send("Acá no se bien que va a ir, deberíamos esperar a ver que pasa con eso de session en clase");
     },
     register: function(req,res,next) {
-        res.render('register',{title:"Registro"});
+        res.render('register', { title: "Registro" });
     },
     cart: function (req,res,next) {
-        res.render("cart",{title:"Carrito"});
+        res.render("cart", { title: "Carrito" });
     }
-    
 };

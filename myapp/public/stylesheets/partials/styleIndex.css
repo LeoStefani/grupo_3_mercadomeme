@@ -20,8 +20,8 @@ div.index div.optionMemes a h2 {
 }
 
 div.index div.losMasVendidos div.article  {
-background-color: var(--colorWhite);
-
+    background-color: var(--colorWhite);
+    margin: 5px;
 }
 
 
