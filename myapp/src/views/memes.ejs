@@ -4,9 +4,10 @@
 
 <body>
   <%- include('partials/header') %>
-  <div class="container">
+  <div class="memes container">
+
+    <!-- Div con barra de buscador y boton-->
     <div class="row">
-      <!-- Div con barra de buscador y boton-->
       <div class="search mb-2 w-100">
         <form class="d-flex align-items-center w-100">
           <input class="form-control mr-2 flex-grow-1" type="search" placeholder="Buscador de memes"
@@ -14,9 +15,11 @@
           <button class="btn btn-warning my-2 my-sm-0" type="submit">Buscar</button>
         </form>
       </div>
-      <!-- Div con barra de buscador y boton-->
+    </div>
+    <!-- Div con barra de buscador y boton-->
 
-      <!-- Navbar con categorias de memes-->
+    <!-- Navbar con categorias de memes-->
+    <div class="row">
       <div class="d-flex col-12 w-100 justify-content-center">
         <nav class="memesNav d-flex justify-content-center w-100 align-items-center flex-wrap">
           <ul class="d-flex flex-wrap justify-content-around w-100 m-0 mb-1 mt-1">
@@ -30,294 +33,220 @@
           </ul>
         </nav>
       </div>
-      <!-- Navbar con categorias de memes-->
-      
-      <!-- Selector de memes con desplegable -->
-      <div class="row w-100 m-0 mb-4 p-4 product-selector">
-        <div class="dropdown col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-          <a class="dropdown-item" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <figure class="figure">
-              <img src="../images/iconoimagen.png" class="figure-img img-fluid rounded" alt="...">
-              <figcaption class="figure-caption">Lorem ipsum dolor sit.</figcaption>
-            </figure>
-          </a>
-          <div class="dropdown-menu long" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a>
-          </div>
+    </div>
+    <!-- Navbar con categorias de memes-->
+
+    <!-- Selector de memes con desplegable -->
+    <div class="row w-100 m-0 mb-4 p-4 product-selector">
+      <div class="dropdown col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2">
+        <a class="dropdown-item" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <figure class="figure">
+            <img src="../images/iconoimagen.png" class="figure-img img-fluid rounded" alt="...">
+            <figcaption class="figure-caption">Lorem ipsum dolor sit.</figcaption>
+          </figure>
+        </a>
+        <div class="dropdown-menu long" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a>
         </div>
-        <div class="dropdown col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-          <a class="dropdown-item" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <figure class="figure">
-              <img src="../images/iconoimagen.png" class="figure-img img-fluid rounded" alt="...">
-              <figcaption class="figure-caption">Lorem ipsum dolor sit.</figcaption>
-            </figure>
-          </a>
-          <div class="dropdown-menu long" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a>
-          </div>
+      </div>
+      <div class="dropdown col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2">
+        <a class="dropdown-item" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <figure class="figure">
+            <img src="../images/iconoimagen.png" class="figure-img img-fluid rounded" alt="...">
+            <figcaption class="figure-caption">Lorem ipsum dolor sit.</figcaption>
+          </figure>
+        </a>
+        <div class="dropdown-menu long" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a>
         </div>
-        <div class="dropdown col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-          <a class="dropdown-item" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <figure class="figure">
-              <img src="../images/iconoimagen.png" class="figure-img img-fluid rounded" alt="...">
-              <figcaption class="figure-caption">Lorem ipsum dolor sit.</figcaption>
-            </figure>
-          </a>
-          <div class="dropdown-menu long" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a>
-          </div>
+      </div>
+      <div class="dropdown col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2">
+        <a class="dropdown-item" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <figure class="figure">
+            <img src="../images/iconoimagen.png" class="figure-img img-fluid rounded" alt="...">
+            <figcaption class="figure-caption">Lorem ipsum dolor sit.</figcaption>
+          </figure>
+        </a>
+        <div class="dropdown-menu long" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a>
         </div>
-        <div class="dropdown col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-          <a class="dropdown-item" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <figure class="figure">
-              <img src="../images/iconoimagen.png" class="figure-img img-fluid rounded" alt="...">
-              <figcaption class="figure-caption">Lorem ipsum dolor sit.</figcaption>
-            </figure>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right long" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a>
-          </div>
+      </div>
+      <div class="dropdown col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2">
+        <a class="dropdown-item" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <figure class="figure">
+            <img src="../images/iconoimagen.png" class="figure-img img-fluid rounded" alt="...">
+            <figcaption class="figure-caption">Lorem ipsum dolor sit.</figcaption>
+          </figure>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right long" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a>
         </div>
-        <div class="dropdown col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-          <a class="dropdown-item" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <figure class="figure">
-              <img src="../images/iconoimagen.png" class="figure-img img-fluid rounded" alt="...">
-              <figcaption class="figure-caption">Lorem ipsum dolor sit.</figcaption>
-            </figure>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right long" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a>
-          </div>
+      </div>
+      <div class="dropdown col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2">
+        <a class="dropdown-item" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <figure class="figure">
+            <img src="../images/iconoimagen.png" class="figure-img img-fluid rounded" alt="...">
+            <figcaption class="figure-caption">Lorem ipsum dolor sit.</figcaption>
+          </figure>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right long" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a>
         </div>
-        <div class="dropdown col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2">
-          <a class="dropdown-item" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <figure class="figure">
-              <img src="../images/iconoimagen.png" class="figure-img img-fluid rounded" alt="...">
-              <figcaption class="figure-caption">Lorem ipsum dolor sit.</figcaption>
-            </figure>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right long" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
-              class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a>
+      </div>
+      <div class="dropdown col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2">
+        <a class="dropdown-item" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <figure class="figure">
+            <img src="../images/iconoimagen.png" class="figure-img img-fluid rounded" alt="...">
+            <figcaption class="figure-caption">Lorem ipsum dolor sit.</figcaption>
+          </figure>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right long" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a><a
+            class="dropdown-item col-6" href="#"><img src="../images/iconoimagen.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+    <!-- Selector de memes con desplegable -->
+
+
+    <!-- MAIN -->
+    <div class="row main">
+      <!-- ARRAY MEMES -->
+      <div
+        class="arrayMemesExample d-flex flex-column justify-content-center m- p-1 col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+        <div class="mb-2 w-100 text-center arrayImage">
+          <h5>Ejemplos</h5>
+          <div class="row mt-1 mb-1">
+            <img class="col-4" src="../images/remeraNegra.jpg" alt="">
+            <img class="col-4" src="../images/remeraNegra.jpg" alt="">
+            <img class="col-4" src="../images/remeraNegra.jpg" alt="">
+          </div>
+          <div class="row">
+            <img class="col-4" src="../images/remeraNegra.jpg" alt="">
+            <img class="col-4" src="../images/remeraNegra.jpg" alt="">
+            <img class="col-4" src="../images/remeraNegra.jpg" alt="">
+          </div>
+          <div class="row mt-1 mb-1">
+            <img class="col-4" src="../images/remeraNegra.jpg" alt="">
+            <img class="col-4" src="../images/remeraNegra.jpg" alt="">
+            <img class="col-4" src="../images/remeraNegra.jpg" alt="">
+          </div>
+          <div class="row mt-1 mb-1">
+            <img class="col-4" src="../images/remeraNegra.jpg" alt="">
+            <img class="col-4" src="../images/remeraNegra.jpg" alt="">
+            <img class="col-4" src="../images/remeraNegra.jpg" alt="">
           </div>
         </div>
       </div>
-      <!-- Selector de memes con desplegable -->
+      <!-- ARRAY MEMES -->
 
-      <div class="firstColumn col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-        <div class="firstBlock">
-          <form action="">
-            <button class="btn btn-warning btn-sm">EDITAR EXISTENTE</button>
-            <button class="btn btn-warning btn-sm">AGREGAR NUEVO</button>
-            <div class="productName">
-              <input type="text" placeholder="Nombre del producto">
-            </div>
-            <div>
-              <select name="" id="">Elegir tipo producto
-                <option value="taza">Taza</option>
-                <option value="mochila">Mochila</option>
-                <option value="gorra">Gorra</option>
-                <option value="remera">Remera</option>
-              </select>
-              <input type="text" placeholder="Precio $$" size="10">
-            </div>
+      <!-- MEME EDITOR -->
+      <div
+        class="d-flex flex-column justify-content-center memeEditorImage m-0 p-1 col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+        <div class="d-flex align-items-center justify-content-between w-100">
+          <form class="d-flex justify-content-between w-100" action="">
+            <button class="flex-grow-1 text-truncate mt-2 mb-2 mr-1 btn btn-warning btn-sm">Agregar
+              sticker</button>
+            <button class="flex-grow-1 text-truncate mt-2 mb-2 btn btn-warning btn-sm">Agregar imagen</button>
+            <button class="flex-grow-1 text-truncate mt-2 mb-2 ml-1 btn btn-warning btn-sm">Dibujar</button>
+            <button class="flex-grow-1 text-truncate mt-2 mb-2 ml-1  btn btn-warning btn-sm">Rotar</button>
           </form>
         </div>
-        <div class="secondBlock">
-          <div class="size">
-            <h4>Tamaños</h4>
-            <div>
-              <form action="">
-                <div>
-                  <div class="check"><label for="XS">XS</label><input type="checkbox" name="sizes" id="XS" value="XS">
-                  </div>
-                  <input type="text" name="" id="" placeholder="Ancho [cm] ">
-                  <input type="text" name="" id="" placeholder="Altura [cm] ">
-                </div>
-                <div>
-                  <div class="check"><label for="S">S</label><input class="check" type="checkbox" name="sizes" id="S"
-                      value="S"></div>
-                  <input type="text" name="" id="" placeholder="Ancho [cm]">
-                  <input type="text" name="" id="" placeholder="Altura [cm]">
-                </div>
-                <div>
-                  <div class="check"><label for="M">M</label><input class="check" type="checkbox" name="sizes" id="M"
-                      value="M"></div>
-                  <input type="text" name="" id="" placeholder="Ancho [cm]">
-                  <input type="text" name="" id="" placeholder="Altura [cm]">
-                </div>
-                <div>
-                  <div class="check"><label for="L">L</label><input class="check" type="checkbox" name="sizes" id="L"
-                      value="L"></div>
-                  <input type="text" name="" id="" placeholder="Ancho [cm]">
-                  <input type="text" name="" id="" placeholder="Altura [cm]">
-                </div>
-                <div>
-                  <div class="check"><label for="XL">XL</label><input class="check" type="checkbox" name="sizes" id="XL"
-                      value="XL"></div>
-                  <input type="text" name="" id="" placeholder="Ancho [cm]">
-                  <input type="text" name="" id="" placeholder="Altura [cm]">
-                </div>
-              </form>
-            </div>
+        <div class="w-100">
+          <img class="w-100" src="images/memeParaCompletar.png" alt="">
+        </div>
+        <div>
+          <button class="mt-2 btn btn-warning btn-sm btn-block">CARGAR MI PROPIA IMAGEN</button>
+        </div>
+      </div>
+      <!-- MEME EDITOR -->
 
-            <button class="btn btn-warning btn-sm btn-block">AGREGAR OTRO TAMAÑO</button>
-          </div>
-          <div class="colors">
-            <h4>Colores</h4>
-            <form action="">
-              <div>
-                <label for="white">Blanco</label>
-                <input type="checkbox" name="colors" id="white" value="white">
-              </div>
-              <div>
-                <label for="black">Negro</label>
-                <input type="checkbox" name="colors" id="black" value="black">
-              </div>
-              <div>
-                <label for="blue">Azul</label>
-                <input type="checkbox" name="colors" id="blue" value="blue">
-              </div>
-              <div>
-                <label for="yellow">Amarillo</label>
-                <input type="checkbox" name="colors" id="yellow" value="yellow">
-              </div>
-              <div>
-                <label for="red">Rojo</label>
-                <input type="checkbox" name="colors" id="red" value="red">
-              </div>
-              <div>
-                <label for="gray">Gris</label>
-                <input type="checkbox" name="colors" id="gray" value="gray">
-              </div>
-              <div>
-                <label for="green">Verde</label>
-                <input type="checkbox" name="colors" id="green" value="green">
-              </div>
-              <div>
-                <label for="pink">Rosa</label>
-                <input type="checkbox" name="colors" id="pink" value="pink">
-              </div>
-              <div>
-                <label for="brown">Marrón</label>
-                <input type="checkbox" name="colors" id="brown" value="brown">
-              </div>
-            </form>
-            <button class="btn btn-warning btn-sm btn-block">AGREGAR OTRO COLOR</button>
-          </div>
-          <div class="anotherParameters">
-            <h4>Otros Parámetros</h4>
-            <form action="">
-              <div>
-                <label for="cotton">Algodón</label>
-                <input type="checkbox" name="extras" id="cotton" value="cotton">
-              </div>
-              <div>
-                <label for="poliester">Poliester</label>
-                <input type="checkbox" name="extras" id="poliester" value="poliester">
-              </div>
-              <div>
-                <label for="roundNeck">Cuello redondo</label>
-                <input type="checkbox" name="extras" id="roundNeck" value="roundNeck">
-              </div>
-              <div>
-                <label for="vNeck">Cuello en V</label>
-                <input type="checkbox" name="extras" id="vNeck" value="vNeck">
-              </div>
-            </form>
-            <button class="btn btn-warning btn-sm btn-block">AGREGAR OTRO PARAMETRO</button>
-          </div>
-        </div>
-        <div class="thirdBlock">
-          <h4>Descripción</h4>
-          <form action="">
-            <input type="text" placeholder="Descripción">
-          </form>
-        </div>
-      </div>
-      <div class="secondColumn col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+      <!-- TEXT EDITOR -->
+      <div
+        class="d-flex flex-column justify-content-between textEditor m-0 p-1 col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
 
-        <div class="image">
-          <h5>Portada</h5>
-          <img src="../images/remeraNegra.jpg" alt="">
-          <div>
-            <a href=""><i class="far fa-trash-alt"></i></a>
-            <br>
-            <br>
-            <a href=""><i class="far fa-plus-square"></i></a>
+        <div
+          class="d-flex textInput mb-2 w-100 text-center align-items-center justify-content-end flex-column flex-wrap ">
+          <div class="d-flex flex-wrap w-100 mt-1 mb-1">
+            <input class="mr-1 flex-grow-1" type="text" placeholder="Text#1" size="1">
+            <button class="border border-dark mr-1 btn btn-sm btn-light"></button>
+            <button class="border border-dark mr-1 btn btn-sm btn-dark"></button>
+            <button class="btn btn-sm btn-warning"><i class="fas fa-cog"></i></button>
           </div>
+          <div class="d-flex flex-wrap w-100 mt-1 mb-1">
+            <input class="mr-1 flex-grow-1" type="text" placeholder="Text#2" size="1">
+            <button class="border border-dark mr-1 btn btn-sm btn-light"></button>
+            <button class="border border-dark mr-1 btn btn-sm btn-dark"></button>
+            <button class="btn btn-sm btn-warning"><i class="fas fa-cog"></i></button>
+          </div>
+          <div class="d-flex flex-wrap w-100 mt-1 mb-1">
+            <input class="mr-1 flex-grow-1" type="text" placeholder="Text#3" size="1">
+            <button class="border border-dark mr-1 btn btn-sm btn-light"></button>
+            <button class="border border-dark mr-1 btn btn-sm btn-dark"></button>
+            <button class="btn btn-sm btn-warning"><i class="fas fa-cog"></i></button>
+          </div>
+          <div class="d-flex flex-wrap w-100 mt-1 mb-1">
+            <input class="mr-1 flex-grow-1" type="text" placeholder="Text#4" size="1">
+            <button class="border border-dark mr-1 btn btn-sm btn-light"></button>
+            <button class="border border-dark mr-1 btn btn-sm btn-dark"></button>
+            <button class="btn btn-sm btn-warning"><i class="fas fa-cog"></i></button>
+          </div>
+        </div>
+        <div class="textInputButtons d-flex w-100 align-items-center justify-content-end text-center flex-column">
+          <div class="d-flex flex-row flex-wrap justify-content-between w-100">
+            <button class="btn btn-sm flex-grow-1 btn-warning mt-1 mb-1 mr-1">Agregar otro texto</i></button>
+            <button class="btn btn-sm btn-warning mt-1 mb-1 ml-1">Reset</button>
+          </div>
+          <button class="btn btn-sm btn-warning btn-block mt-1">Agregar a mi biblioteca</button>
         </div>
       </div>
-      <div class="thirdColumn col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-        <div class="image">
-          <h5>Alternativa1</h5>
-          <img src="../images/remeraNegra.jpg" alt="">
-          <div>
-            <a href=""><i class="far fa-trash-alt"></i></a>
-            <br>
-            <br>
-            <a href=""><i class="far fa-plus-square"></i></a>
-          </div>
-        </div>
-        <div class="image">
-          <h5>Alternativa2</h5>
-          <img src="../images/remeraNegra.jpg" alt="">
-          <div>
-            <a href=""><i class="far fa-trash-alt"></i></a>
-            <br>
-            <br>
-            <a href=""><i class="far fa-plus-square"></i></a>
-          </div>
-        </div>
-        <div class="image">
-          <h5>Alternativa3</h5>
-          <img src="../images/remeraNegra.jpg" alt="">
-          <div>
-            <a href=""><i class="far fa-trash-alt"></i></a>
-            <br>
-            <br>
-            <a href=""><i class="far fa-plus-square"></i></a>
-          </div>
-        </div>
-        <div class="image">
-          <h5>Alternativa4</h5>
-          <img src="../images/remeraNegra.jpg" alt="">
-          <div>
-            <a href=""><i class="far fa-trash-alt"></i></a>
-            <br>
-            <br>
-            <a href=""><i class="far fa-plus-square"></i></a>
-          </div>
-        </div>
+      <!-- TEXT EDITOR -->
+
+      <!-- MEME LIBRARY -->
+      <div class="memeLibrary d-flex flex-column justify-content-between text-center align-items-center m-0 p-1 col-xs-12 col-sm-12 col-md-1 col-lg-1 col-xl-1">
+        <h6 class="mb-1 p-0">Mi librería</h6>
+        <img class="w-50" src="../images/remeraNegra.jpg" alt="">
+        <img class="w-50" src="../images/remeraNegra.jpg" alt="">
+        <img class="w-50" src="../images/remeraNegra.jpg" alt="">
+        <img class="w-50" src="../images/remeraNegra.jpg" alt="">
+        <img class="w-50" src="../images/remeraNegra.jpg" alt="">
       </div>
+      <!-- MEME LIBRARY -->
+
+    </div>
+    <!-- MAIN -->
+
+    <!-- SUBMIT -->
+    <div class="row">
       <button class="btn btn-warning btn-sm btn-block mt-3" type="submit">SUBMIT</button>
     </div>
-  </div>
-  <%- include('partials/footer') %>
-  <%- include('partials/scriptsBootstrap') %>
+    <!-- SUBMIT -->
+
+    <%- include('partials/footer') %>
+    <%- include('partials/scriptsBootstrap') %>
 </body>
 
 </html>
