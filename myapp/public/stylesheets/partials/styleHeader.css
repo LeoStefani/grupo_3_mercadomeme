@@ -3,15 +3,15 @@
 
 header.main-header {
     background: var(--colorYellow1);
-    padding: 15px 0;
+    padding: 5px 0;
     display: flex;
     flex-wrap: wrap;
     border-bottom: var(--colorBlack) solid 2px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 header div div a img {
-    height: 100px;
+    height: 40px;
     /* align-self: center; */
 }
 

@@ -1,7 +1,44 @@
 
+div.index div.optionMemes {
+    background-color: var(--colorOrange);
+}
+div.index div.optionProducts {
+    background-color: var(--colorOrange2);
+}
+
+div.index div.optionProducts a h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+div.index div.optionMemes a h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+div.index div.losMasVendidos div.article  {
+background-color: var(--colorWhite);
+
+}
+
+
 div.index div.optionMemes:hover {
-padding: 0px;
+    padding: 0px;
+    background-color: var(--colorYellow1);
 }
 div.index div.optionProducts:hover {
     padding: 0px;
-    }
+    background-color: var(--colorYellow2);
+}
+
+h3 {
+    text-align: center;
+}
+
+#carouselExampleIndicators {
+    height: 50%;
+  }
+  

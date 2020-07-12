@@ -6,28 +6,29 @@
 <body>
   <%- include('partials/header') %>
   <div class="index container">
+    
     <!-- Selector entre memes y productos -->
-    <div class="row">
-      <div class="col-12 m-0 p-0 d-flex flex-wrap justify-content-center">
-        <div class="optionProducts col-6 d-flex flex-wrap justify-content-center text-center">
-          <a href="/products"></a>
-          <img class="w-100 p-5" src="images/iconoImagenBordesIguales.png" alt="imagen">
-          <h2>productos</h2>
-          </a>
-        </div>
-        <div class="optionMemes col-6 d-flex flex-wrap justify-content-center text-center">
-          <a href="/memes"></a>
-          <img class="w-100 p-5" src="images/iconoImagenBordesIguales.png" alt="imagen">
-          <h2>memes</h2>
+    <div class="row mh-50 justify-content-center">
+      <div class="col-10 d-flex flex-wrap justify-content-center">
+            <div class="optionProducts col-6 flex-nowrap justify-content-center text-center">
+            <a href="/products">
+              <h2 class="text-white">Productos</h2>
+              <img class="mw-50" src="images/iconoImagenBordesIguales.png" alt="imagen">
+            </a>
+      </div>
+        <div class="optionMemes col-6 flex-nowrap justify-content-center text-center">
+          <a href="/Memes">
+            <h2 class="text-white">Memes</h2>
+            <img class="mw-50" src="images/iconoImagenBordesIguales.png" alt="imagen">
           </a>
         </div>
       </div>
     </div>
     <!-- Selector entre memes y productos -->
 
-    <div class="row">
+    <div class="row justify-content-center">
       <!--Carousel With indicators-->
-      <div id="carouselExampleIndicators" class="carousel slide col-12" data-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel slide col-10 " data-ride="carousel ">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -35,13 +36,13 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="images/iconoImagenBordesIguales.png" class="d-block w-20" alt="...">
+            <img src="images/carrousel_img.png" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="images/iconoImagenBordesIguales.png" class="d-block w-20" alt="...">
+            <img src="images/carrousel_img.png" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="images/iconoImagenBordesIguales.png" class="d-block w-20" alt="...">
+            <img src="images/carrousel_img.png" class="d-block w-100" alt="...">
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -55,37 +56,42 @@
       </div>
       <!--Carousel With indicators-->
     </div>
-    <div class="row">
+
+         <!--Los Mas Vendidos-->
+
+    <div class="row justify-content-center">
       <div class="col-12">
-        <h3>Los mas vendidos</h3>
-      </div>
-      <div class="col-3">
-        <a href="">
-          <img src="../images/iconoimagen.png" alt="">
-          <h4>Descripcion</h4>
-          <p>PRECIO</p>
-        </a>
-      </div>
-      <div class="col-3">
-        <a href="">
-          <img src="../images/iconoimagen.png" alt="">
-          <h4>Descripcion</h4>
-          <p>PRECIO</p>
-        </a>
-      </div>
-      <div class="col-3">
-        <a href="">
-          <img src="../images/iconoimagen.png" alt="">
-          <h4>Descripcion</h4>
-          <p>PRECIO</p>
-        </a>
-      </div>
-      <div class="col-3">
-        <a href="">
-          <img src="../images/iconoimagen.png" alt="">
-          <h4>Descripcion</h4>
-          <p>PRECIO</p>
-        </a>
+        <h3 class= "justify-content-center">Los mas vendidos</h3>
+      </div> 
+      <div class= "losMasVendidos row col-12">
+        <div class="article col-3">
+          <a href="">
+            <img src="../images/iconoimagen.png" class="img-fluid" alt="">
+            <!--<h4 >Descripcion</h4>-->
+            <p class= "text-dark">PRECIO</p>
+          </a>
+        </div>
+        <div class="article col-3">
+          <a href="">
+            <img src="../images/iconoimagen.png" class="img-fluid" alt="">
+            <!--<h4 >Descripcion</h4>-->
+            <p class= "text-dark">PRECIO</p>
+          </a>
+        </div>
+        <div class="article col-3">
+          <a href="">
+            <img src="../images/iconoimagen.png" class="img-fluid" alt="">
+            <!--<h4 >Descripcion</h4>-->
+            <p class= "text-dark">PRECIO</p>
+          </a>
+        </div>
+        <div class="article col-3">
+          <a href="">
+            <img src="../images/iconoimagen.png" class="img-fluid" alt="">
+            <!--<h4 >Descripcion</h4>-->
+            <p class= "text-dark">PRECIO</p>
+          </a>
+        </div>
       </div>
     </div>
   </div>
