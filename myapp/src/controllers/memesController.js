@@ -1,5 +1,5 @@
 module.exports = {
   memesIndex: function(req, res, next) {
-      res.render("memes");
+      res.render("memes", {title: "Memes"});
     }
 };

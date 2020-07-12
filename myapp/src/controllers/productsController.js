@@ -3,12 +3,12 @@
 
 module.exports = {
   productsIndex: function(req, res, next) {
-      res.render('products', { title: 'Este es el home de productos' });
+      res.render('products', { title: 'Productos' });
     },
   detail: function(req, res, next) {
-    res.render('detail', { title: 'Este es el detalle de productos' });
+    res.render('detail', { title: 'Detalle de productos' });
   },
   upload: function (req, res, next) {
-    res.render('upload',{ title: 'Este es el detalle de productos' }); //SACAR EL TITLE DEL HEAD!!!!
+    res.render('upload',{ title: 'Carga de productos'  }); //SACAR EL TITLE DEL HEAD!!!!
   }
 };

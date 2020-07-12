@@ -2,10 +2,10 @@
 
 let controller = {
     index: function(req, res, next) {
-        res.render('index', {title: "Algo"});
+        res.render('index', {title: "Bienvenidos!"});
       },
     error: function(req, res, next) {
-        res.render('error');
+        res.render('error', {title: "Error"});
       }
 };
 
