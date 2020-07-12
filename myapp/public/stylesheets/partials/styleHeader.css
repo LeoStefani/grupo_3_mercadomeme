@@ -19,7 +19,7 @@ header div div a img {
 header div div nav ul li{
     text-decoration: none;
     list-style: none;
-    padding: 10px;
+    padding: 7px;
     margin-right: 5px;
 }
 
@@ -28,12 +28,12 @@ header div div nav ul li:last-child{
 }
 
 header div div nav ul li a{
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--colorBlack);
     text-decoration: none;
 }
 
 header div div nav ul li a i{
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     color: var(--colorBlack);
 }
