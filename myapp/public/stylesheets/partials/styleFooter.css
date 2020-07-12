@@ -20,13 +20,13 @@ footer div div nav ul li{
 
 
 footer div div nav ul li a{
-    font-size: 1.5em;
+    font-size: 1.5rem;
     color: var(--colorBlack);
 }
 
 
 footer div div nav ul li a i{
-    font-size: 1.0em;
+    font-size: 1.5rem;
     color: var(--colorBlack);
 }
 

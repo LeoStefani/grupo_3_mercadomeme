@@ -2,7 +2,10 @@
 
 let controller = {
     index: function(req, res, next) {
-        res.render('index', { title: 'MercadoMEME' });
+        res.render('index', {title: "Algo"});
+      },
+    error: function(req, res, next) {
+        res.render('error');
       }
 };
 

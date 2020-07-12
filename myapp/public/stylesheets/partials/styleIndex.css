@@ -1,27 +1,7 @@
-body {
-    margin: 0px auto;
-    /* agrego un bg red para ver que funcione el css */
-    /* background-color: red; */
-  }
-  div {
-    border:var(--colorOrange) solid 2px; */
-  }
 
-div .productsandmemes {
-  display: flex;
-  justify-content:center;
+div.index div.optionMemes:hover {
+padding: 0px;
 }
-
-  div a img  {
-    height: 50%;
-    justify-content: center;
-  
-  }
-
-  div a img h2 {}
-
-  /* a {
-    color: green;
-  } */
-
-  div.row div.col-6 a
+div.index div.optionProducts:hover {
+    padding: 0px;
+    }
