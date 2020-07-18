@@ -13,12 +13,12 @@ div.upload div.firstColumn div.firstBlock form button{
 }
 
 div.upload div.firstColumn div.secondBlock div.size{
-    border: gray 1px solid;
+    /* border: gray 1px solid; */
     background-color: var(--colorWhite);
 }
 
 div.upload div.firstColumn div.secondBlock div.size h4{
-    border-bottom: gray 1px solid;
+    border-bottom: gray 1px dashed;
     font-size: 1.3rem;
 }
 
@@ -32,39 +32,33 @@ div.upload div.firstColumn div.secondBlock div.size div form div input {
     margin-bottom: 5px;
 }
 div.upload div.firstColumn div.secondBlock div.colors{
-    border: gray 1px solid;
+    /* border: gray 1px solid; */
     margin-bottom: 5px;
     background-color: var(--colorWhite);
 
 }
 div.upload div.firstColumn div.secondBlock div.colors h4{
-    border-bottom: gray 1px solid;
+    border-bottom: gray 1px dashed;
     font-size: 1.3rem;
 }
-div.upload div.firstColumn div.secondBlock div.colors form {
-    border-bottom: gray 1px solid;
-}
+
 div.upload div.firstColumn div.secondBlock div.colors form div {
     width: 26%;
 }
 div.upload div.firstColumn div.secondBlock div.anotherParameters{
-    border: gray 1px solid;
+    /* border: gray 1px solid; */
     background-color: var(--colorWhite);
 
 }
 div.upload div.firstColumn div.secondBlock div.anotherParameters h4{
-    border-bottom: gray 1px solid;
+    border-bottom: gray 1px dashed;
     font-size: 1.3rem;
 }
 
-div.upload div.firstColumn div.secondBlock div.anotherParameters form {
-    border-bottom: gray 1px solid;
-}
 div.upload div.firstColumn div.secondBlock div.anotherParameters form div {
     width: 35%;
 }
 div.upload div.firstColumn div.thirdBlock{
-    border: gray 1px solid;
     background-color: var(--colorWhite);
 }
 
@@ -77,11 +71,15 @@ div.upload div.firstColumn div.thirdBlock input{
 
 }
 div.upload div.firstColumn div.thirdBlock h4{
-    border-bottom: gray 1px solid;
+    border-bottom: gray 1px dashed;
     font-size: 1.3rem;
 }
 
 /*====SECOND COLUMN=====*/
+div.upload div.thirdColumn div.image{
+    width: 50%;
+    position: relative;
+}
 
 div.upload div.secondColumn div.image div{
     position: absolute;
