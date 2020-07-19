@@ -77,6 +77,17 @@ module.exports = {
         },
 
        edit: function (req, res, next) {
-                 res.render('edit', { title: 'Carga de productos' }); //SACAR EL TITLE DEL HEAD!!!!
-         }
+
+        let productDetail;
+        for(let i = 0; i < products.length; i++) {
+                if(products[i].id == req.params.id) {
+                        productDetail = products[i];
+                };
+        };
+                res.render('edit', {
+                        title: 'Carga de productos',
+                        productDetail: productDetail,
+                        productsCategories: productsCategories
+                }); //SACAR EL TITLE DEL HEAD!!!!
+        }
 };

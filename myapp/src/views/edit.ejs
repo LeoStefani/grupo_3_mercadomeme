@@ -13,22 +13,25 @@
                 <!-- Data Block -->
                 <div class="dataBlock w-100 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-2 mt-4">
                     <form class="w-100 d-flex flex-wrap justify-content-end align-items-center" action="">
-                        <h5 class="w-100 text-center">Información del producto</h5>
+                        <h5 class="w-100 text-center">Información del producto: "<%= productDetail.name %>"</h5>
                         
                         <div class="d-flex flex-wrap productName w-100 mt-2">
-                            <input class="w-100 border border-white rounded-lg p-1" type="text"
-                                placeholder="Nombre del producto">
+                            <input class="w-100 border border-white rounded-lg p-1" value="<%= productDetail.name %>" type="text"
+                                placeholder="<%= productDetail.name %>">
                         </div>
                         <div class="d-flex flex-wrap w-100">
-                            <select class="flex-grow-1 mt-2 p-0 border border-white rounded-lg mr-2" name="" id="">
-                                <option value="typeOfProduct">Tipo de producto</option>
-                                <option value="remera">Remera</option>
-                                <option value="mochila">Mochila</option>
-                                <option value="gorra">Gorra</option>
-                                <option value="taza">Taza</option>
-                            </select>
-                            <input class="w-25 mt-2 border border-white rounded-lg p-1" type="text"
-                                placeholder="Precio $$" size="10">
+                            <select class="flex-grow-1 mt-1 p-1 border border-white rounded-lg ml-3" name="category"
+                            id="typeSearchInput">
+                            <option value="<%= productDetail.name %>"><%= productDetail.category %></option>
+                            <% for (let i=0; i< productsCategories.length; i++) { %>
+
+                            <option  value="<%= productsCategories[i] %>"><%= productsCategories[i] %></option>
+
+                            <% } %>
+
+                        </select>
+                            <input class="w-25 mt-2 border border-white rounded-lg p-1" type="text" value="$ <%= productDetail.price %>"
+                                placeholder="$ <%= productDetail.price %>" size="10">
                         </div>
 
                     </form>
@@ -45,6 +48,7 @@
                         <div class="size w-100 mb-2 p-2">
                             <div>
                                 <form action="">
+                                    
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 m-0 mb-1 text-center"><label for="XS">XS
                                             </label><input class="check m-0" type="checkbox" name="sizes" id="XS"
@@ -194,8 +198,8 @@
                 <div class="collapse w-100 mb-3" id="collapseDescription">
                     <div class="card card-body w-100">
                         <form class="d-flex flex-wrap justify-content-center" action="">
-                            <input class="border border-white rounded-lg p-5 m-0 w-100" type="text"
-                                placeholder="Descripción">
+                            <input class="border border-white rounded-lg p-5 m-0 w-100" type="text" value="<%= productDetail.description %>"
+                                placeholder="<%= productDetail.description %>">
                         </form>
                     </div>
                 </div>

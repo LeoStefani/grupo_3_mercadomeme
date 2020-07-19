@@ -10,7 +10,7 @@ router.get('/upload/:id?', productsController.upload);
 
 
 router.get('/create', productsController.create);
-router.get('/edit/:id', productsController.create);
+router.get('/edit/:id', productsController.edit);
 router.get('/delete/:id', productsController.create);
 // router.post('/create', productsController.upload);
 
