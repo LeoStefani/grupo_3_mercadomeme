@@ -8,8 +8,8 @@ router.get('/index/:id?', productsController.productsIndex);
 // Product CRUD routes
 router.get('/upload', productsController.upload);
 
-router.get('/create', productsController.upload);
-router.post('/create', productsController.upload);
+router.get('/create', productsController.create);
+// router.post('/create', productsController.upload);
 
 router.get('/:id/edit', productsController.upload);
 router.put('/:id', productsController.upload);

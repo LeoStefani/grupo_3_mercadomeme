@@ -54,5 +54,9 @@ module.exports = {
 
         upload: function (req, res, next) {
                 res.render('upload', { title: 'Carga de productos' }); //SACAR EL TITLE DEL HEAD!!!!
+        },
+
+       create: function (req, res, next) {
+                res.render('create', { title: 'Carga de productos' }); //SACAR EL TITLE DEL HEAD!!!!
         }
 };

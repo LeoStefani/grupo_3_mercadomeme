@@ -6,160 +6,8 @@
     <%- include('partials/header') %>
     <div class="upload container">
         <div class="row">
-
-
             <div
                 class="firstColumn d-flex flex-wrap flex-column justify-content-start align-items-center col-12 col-md-8">
-
-
-                <!-- Decision Block -->
-                <div class="decisionBlock w-100 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-2">
-                    <h5 class="w-100 text-center">¿Qué desea hacer?</h5>
-                    <div class="w-100">
-                        <form class="w-100" action="/products/create" method="GET">
-                            <button class="w-100 btn btn-sm btn-warning" type="submit">Crear producto desde
-                                cero</button>
-                            <script>
-                                document.getElementById('deleteCheck').onchange = function () {
-                                    document.getElementById('deleteInput').disabled = !this.checked;
-                                    document.getElementById('deleteButton').disabled = !this.checked;
-                                };
-                            </script>
-                        </form>
-                    </div>
-
-                    <form class="w-100 d-flex flex-wrap justify-content-end align-items-center">
-
-
-
-                        <div class="w-50 d-flex flex-wrap justify-content-start align-items-center">
-                            <input class="check mr-3" type="checkbox" name="deleteCheck" id="deleteCheck"
-                                value="deleteCheck">
-                            <input class="w-25 flex-grow-1 border border-white rounded-lg p-1 mr-3" type="text"
-                                placeholder="Eliminar producto según ID" id="deleteInput" disabled>
-
-                        </div>
-                        <button class="btn btn-warning btn-sm" id="deleteButton" disabled>Eliminar producto</button>
-                        <script>
-                            document.getElementById('deleteCheck').onchange = function () {
-                                document.getElementById('deleteInput').disabled = !this.checked;
-                                document.getElementById('deleteButton').disabled = !this.checked;
-                            };
-                        </script>
-                        <div class="w-50 d-flex flex-wrap justify-content-start align-items-center">
-                            <input class="check mr-3" type="checkbox" name="autocompleteCheck" id="autocompleteCheck"
-                                value="autocompleteCheck">
-                            <input class="w-25 flex-grow-1 border border-white rounded-lg p-1 mr-3" type="text"
-                                placeholder="Editar producto según ID" id="autocompleteInput" disabled>
-
-                        </div>
-                        <button class="btn btn-warning btn-sm" id="autocompleteButton" disabled>Autocompletar
-                            campos</button>
-                        <script>
-                            document.getElementById('autocompleteCheck').onchange = function () {
-                                document.getElementById('autocompleteInput').disabled = !this.checked;
-                                document.getElementById('autocompleteButton').disabled = !this.checked;
-                            };
-                        </script>
-                    </form>
-                </div>
-                <!-- Decision Block -->
-
-                <!-- filters block -->
-                <div class="searchBlock w-100 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-2 mt-4">
-                    <h5 class="w-100 text-center">Búsqueda avanzada</h5>
-                    <form class="w-100 d-flex flex-wrap justify-content-between" action="">
-
-                        <!-- name filter -->
-                        <div class="d-flex flex-wrap justify-content-between align-items-center w-100 mt-2">
-                            <input class="check mr-3" type="checkbox" name="nameSearch" id="nameSearchCheck"
-                                value="nameSearch">
-                            <input class="w-75 mb-1 flex-grow-1 border border-white rounded-lg p-1" type="text"
-                                placeholder="Busqueda por nombre del producto" id="nameSearchInput" disabled>
-                            <script>
-                                document.getElementById('nameSearchCheck').onchange = function () {
-                                    document.getElementById('nameSearchInput').disabled = !this.checked;
-                                };
-                            </script>
-                        </div>
-                        <!-- name filter -->
-
-                        <!-- type filter -->
-                        <div class="d-flex flex-wrap justify-content-between align-items-center w-100 mt-2p">
-                            <input class="check m-0 p-0" type="checkbox" name="typeSearch" id="typeSearchCheck"
-                                value="typeSearch">
-                            <select class="flex-grow-1 mt-1 p-1 border border-white rounded-lg ml-3" name=""
-                                id="typeSearchInput" disabled>
-                                <option value="typeOfProduct">Buscar por tipo de producto</option>
-                                <option value="remera">Remera</option>
-                                <option value="mochila">Mochila</option>
-                                <option value="gorra">Gorra</option>
-                                <option value="taza">Taza</option>
-                            </select>
-                            <script>
-                                document.getElementById('typeSearchCheck').onchange = function () {
-                                    document.getElementById('typeSearchInput').disabled = !this.checked;
-                                };
-                            </script>
-                        </div>
-                        <!-- type filter -->
-
-                        <!-- price filter -->
-                        <div class="d-flex flex-wrap justify-content-start align-items-center w-100 mt-2">
-                            <input class="check mr-3" type="checkbox" name="priceSearch" id="priceSearchCheck"
-                                value="priceSearch">
-                            <input class="w-25 flex-grow-0.5 border border-white rounded-lg p-1 mr-2" type="text"
-                                placeholder="Min" id="priceSearchInputMin" disabled>
-                            <input class="w-25 flex-grow-0.5 border border-white rounded-lg p-1" type="text"
-                                placeholder="Max" id="priceSearchInputMax" disabled>
-                            <script>
-                                document.getElementById('priceSearchCheck').onchange = function () {
-                                    document.getElementById('priceSearchInputMin').disabled = !this.checked;
-                                    document.getElementById('priceSearchInputMax').disabled = !this.checked;
-                                };
-                            </script>
-                        </div>
-                        <!-- price filter -->
-
-                        <button class="btn btn-warning btn-sm mt-2 w-100">Aplicar filtros</button>
-
-                        <!-- results table -->
-
-                        <table class="table mt-2 table-hover" id="resultsTable">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Tipo</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Precio</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="clickable-row">
-                                    <th scope="row">18</th>
-                                    <td>Taza</td>
-                                    <td>Térmica</td>
-                                    <td>5500</td>
-                                </tr>
-                                <tr class="clickable-row">
-                                    <th scope="row">25</th>
-                                    <td>Taza</td>
-                                    <td>Tazon doble</td>
-                                    <td>6500</td>
-                                </tr>
-                                <tr class="clickable-row">
-                                    <th scope="row">27</th>
-                                    <td>Taza</td>
-                                    <td>Alta Expresso</td>
-                                    <td>7890</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <!-- results table -->
-
-                    </form>
-                </div>
-                <!-- filters block -->
 
                 <!-- Data Block -->
                 <div class="dataBlock w-100 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-2 mt-4">
@@ -181,10 +29,6 @@
                             <input class="w-25 mt-2 border border-white rounded-lg p-1" type="text"
                                 placeholder="Precio $$" size="10">
                         </div>
-                        <!-- <div class="w-100 d-flex flex-wrap justify-content-between align-items-center">
-                            <button class="btn btn-warning btn-sm mt-2">EDITAR</button>
-                            <button class="btn btn-warning btn-sm mt-2">AGREGAR</button>
-                        </div> -->
 
                     </form>
                 </div>
@@ -410,8 +254,7 @@
                 </div>
             </div>
 
-            <button class="btn btn-warning btn-lg btn-block mt-3 shadow rounded-lg ml-3 mr-3" type="submit" role="link">CONFIRMAR
-                Y EDITAR PRODUCTO</button>
+            <button class="btn btn-warning btn-lg btn-block mt-3 shadow rounded-lg m-3" type="submit">Crear producto</button>
         </div>
     </div>
     <%- include('partials/footer') %>
