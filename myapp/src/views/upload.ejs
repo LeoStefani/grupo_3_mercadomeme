@@ -6,191 +6,356 @@
     <%- include('partials/header') %>
     <div class="upload container">
         <div class="row">
-            <div class="firstColumn d-flex flex-wrap align-items-center col-12 col-md-6">
-                <div class="firstBlock w-100 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-2">
+
+            <!-- filters block -->
+            <div
+                class="firstColumn d-flex flex-wrap flex-column justify-content-start align-items-center col-12 col-md-8">
+                <div class="searchBlock w-100 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-2 mt-4">
                     <form class="w-100 d-flex flex-wrap justify-content-between" action="">
-                        <button class="btn btn-warning btn-sm">EDITAR EXISTENTE</button>
-                        <button class="btn btn-warning btn-sm">AGREGAR NUEVO</button>
-                        <div class="d-flex flex-wrap productName w-100 mt-2">
-                            <input class="w-100 border border-white rounded-lg p-1" type="text" placeholder="Nombre del producto">
+
+                        <!-- name filter -->
+                        <div class="d-flex flex-wrap justify-content-between align-items-center w-100 mt-2">
+                            <input class="check mr-3" type="checkbox" name="nameSearch" id="nameSearchCheck"
+                                value="nameSearch">
+                            <input class="w-75 mb-1 flex-grow-1 border border-white rounded-lg p-1" type="text"
+                                placeholder="Busqueda por nombre del producto" id="nameSearchInput" disabled>
+                            <script>
+                                document.getElementById('nameSearchCheck').onchange = function () {
+                                    document.getElementById('nameSearchInput').disabled = !this.checked;
+                                };
+                            </script>
                         </div>
-                        <div class="d-flex flex-wrap w-100">
-                            <select class="flex-grow-1 mt-2 p-0 border border-white rounded-lg mr-2" name="" id="">Elegir tipo producto
+                        <!-- name filter -->
+
+                        <!-- type filter -->
+                        <div class="d-flex flex-wrap justify-content-between align-items-center w-100 mt-2p">
+                            <input class="check m-0 p-0" type="checkbox" name="typeSearch" id="typeSearchCheck"
+                                value="typeSearch">
+                            <select class="flex-grow-1 mt-1 p-1 border border-white rounded-lg ml-3" name=""
+                                id="typeSearchInput" disabled>
+                                <option value="tipo">Buscar por tipo de producto</option>
                                 <option value="remera">Remera</option>
                                 <option value="mochila">Mochila</option>
                                 <option value="gorra">Gorra</option>
                                 <option value="taza">Taza</option>
                             </select>
-                            <input class="w-25 mt-2 border border-white rounded-lg p-1" type="text" placeholder="Precio $$" size="10">
+                            <script>
+                                document.getElementById('typeSearchCheck').onchange = function () {
+                                    document.getElementById('typeSearchInput').disabled = !this.checked;
+                                };
+                            </script>
+                        </div>
+                        <!-- type filter -->
+
+                        <!-- price filter -->
+                        <div class="d-flex flex-wrap justify-content-start align-items-center w-100 mt-2">
+                            <input class="check mr-3" type="checkbox" name="priceSearch" id="priceSearchCheck"
+                                value="priceSearch">
+                            <input class="w-25 flex-grow-0.5 border border-white rounded-lg p-1 mr-2" type="text"
+                                placeholder="Min" id="priceSearchInputMin" disabled>
+                            <input class="w-25 flex-grow-0.5 border border-white rounded-lg p-1" type="text"
+                                placeholder="Max" id="priceSearchInputMax" disabled>
+                            <script>
+                                document.getElementById('priceSearchCheck').onchange = function () {
+                                    document.getElementById('priceSearchInputMin').disabled = !this.checked;
+                                    document.getElementById('priceSearchInputMax').disabled = !this.checked;
+                                };
+                            </script>
+                        </div>
+                        <!-- price filter -->
+
+                        <button class="btn btn-warning btn-sm mt-2 w-100">Aplicar filtros</button>
+
+                        <!-- results table -->
+                        <table class="table mt-2 table-hover" id="resultsTable">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="clickable-row">
+                                    <th scope="row">18</th>
+                                    <td>Taza</td>
+                                    <td>Térmica</td>
+                                    <td>5500</td>
+                                </tr>
+                                <tr class="clickable-row">
+                                    <th scope="row">25</th>
+                                    <td>Taza</td>
+                                    <td>Tazon doble</td>
+                                    <td>6500</td>
+                                </tr>
+                                <tr class="clickable-row">
+                                    <th scope="row">27</th>
+                                    <td>Taza</td>
+                                    <td>Alta Expresso</td>
+                                    <td>7890</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- results table -->
+
+
+                        <button class="btn btn-warning btn-sm mt-2">EDITAR EXISTENTE</button>
+                        <button class="btn btn-warning btn-sm mt-2">AGREGAR NUEVO</button>
+                    </form>
+                </div>
+                <!-- filters block -->
+
+                <!-- Data Block -->
+                <div class="firstBlock w-100 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-2">
+                    <form class="w-100 d-flex flex-wrap justify-content-between" action="">
+                        <button class="btn btn-warning btn-sm">EDITAR EXISTENTE</button>
+                        <button class="btn btn-warning btn-sm">AGREGAR NUEVO</button>
+                        <div class="d-flex flex-wrap productName w-100 mt-2">
+                            <input class="w-100 border border-white rounded-lg p-1" type="text"
+                                placeholder="Nombre del producto">
+                        </div>
+                        <div class="d-flex flex-wrap w-100">
+                            <select class="flex-grow-1 mt-2 p-0 border border-white rounded-lg mr-2" name=""
+                                id="">Elegir tipo producto
+                                <option value="remera">Remera</option>
+                                <option value="mochila">Mochila</option>
+                                <option value="gorra">Gorra</option>
+                                <option value="taza">Taza</option>
+                            </select>
+                            <input class="w-25 mt-2 border border-white rounded-lg p-1" type="text"
+                                placeholder="Precio $$" size="10">
                         </div>
                     </form>
                 </div>
-                <div class="secondBlock w-100 d-flex flex-wrap justify-content-between">
-                    <div class="size w-100 mb-2 shadow rounded-lg p-2">
-                        <h4 class="text-center pb-2">Tamaños</h4>
-                        <div>
-                            <form action="">
-                                <div class="d-flex flex-wrap justify-content-between w-100">
-                                    <div class="check p-1 m-0 mb-1 text-center"><label for="XS">XS </label><input class="check m-0" type="checkbox" name="sizes" id="XS" value="XS"></div>
-                                    <input class="border border-white rounded-lg p-1 m-0 mb-1" type="text" name="" id="" placeholder="Ancho [cm] ">
-                                    <input class="border border-white rounded-lg p-1 m-0 mb-1"  type="text" name="" id="" placeholder="Altura [cm] ">
+                <!-- Data Block -->
+
+                <!-- Collapse Tamaños -->
+                <p class="w-100 shadow rounded-lg">
+                    <button class="btn btn-warning btn-block" type="button" data-toggle="collapse"
+                        data-target="#collapseSize" aria-expanded="false" aria-controls="collapseSize">Tamaños</button>
+                </p>
+                <div class="collapse w-100 mb-3" id="collapseSize">
+                    <div class="card card-body w-100">
+                        <div class="size w-100 mb-2 p-2">
+                            <div>
+                                <form action="">
+                                    <div class="d-flex flex-wrap justify-content-between w-100">
+                                        <div class="check p-1 m-0 mb-1 text-center"><label for="XS">XS
+                                            </label><input class="check m-0" type="checkbox" name="sizes" id="XS"
+                                                value="XS"></div>
+                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                            id="" placeholder="Ancho [cm] ">
+                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                            id="" placeholder="Altura [cm] ">
+                                    </div>
+                                    <div class="d-flex flex-wrap justify-content-between w-100">
+                                        <div class="check p-1 m-0 mb-1 text-center"><label for="S">S
+                                            </label><input class="check m-0" type="checkbox" name="sizes" id="S"
+                                                value="S"></div>
+                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                            id="" placeholder="Ancho [cm]">
+                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                            id="" placeholder="Altura [cm]">
+                                    </div>
+                                    <div class="d-flex flex-wrap justify-content-between w-100">
+                                        <div class="check p-1 m-0 mb-1 text-center"><label for="M">M
+                                            </label><input class="check m-0" type="checkbox" name="sizes" id="M"
+                                                value="M"></div>
+                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                            id="" placeholder="Ancho [cm]">
+                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                            id="" placeholder="Altura [cm]">
+                                    </div>
+                                    <div class="d-flex flex-wrap justify-content-between w-100">
+                                        <div class="check p-1 m-0 mb-1 text-center"><label for="L">L
+                                            </label><input class="check m-0" type="checkbox" name="sizes" id="L"
+                                                value="L"></div>
+                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                            id="" placeholder="Ancho [cm]">
+                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                            id="" placeholder="Altura [cm]">
+                                    </div>
+                                    <div class="d-flex flex-wrap justify-content-between w-100">
+                                        <div class="check p-1 text-center m-0 mb-1"><label for="XL">XL
+                                            </label><input class="check m-0" type="checkbox" name="sizes" id="XL"
+                                                value="XL"></div>
+                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                            id="" placeholder="Ancho [cm]">
+                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                            id="" placeholder="Altura [cm]">
+                                    </div>
+                                </form>
+                            </div>
+
+                            <button class="btn btn-warning btn-sm btn-block mt-1">AGREGAR OTRO TAMAÑO</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Collapse Tamaños -->
+
+                <!-- Collapse Color -->
+                <p class="w-100 shadow rounded-lg">
+                    <button class="btn btn-warning btn-block" type="button" data-toggle="collapse"
+                        data-target="#collapseColors" aria-expanded="false"
+                        aria-controls="collapseColors">Colores</button>
+                </p>
+                <div class="collapse w-100 mb-3" id="collapseColors">
+                    <div class="card card-body w-100">
+                        <div class="colors w-100 p-2">
+                            <form class="d-flex flex-wrap justify-content-around" action="">
+                                <div class="d-flex justify-content-between">
+                                    <label for="white">Blanco</label>
+                                    <input type="checkbox" name="colors" id="white" value="white">
                                 </div>
-                                <div class="d-flex flex-wrap justify-content-between w-100">
-                                    <div class="check p-1 m-0 mb-1 text-center"><label for="S">S </label><input class="check m-0"  type="checkbox" name="sizes" id="S" value="S"></div>
-                                    <input class="border border-white rounded-lg p-1 m-0 mb-1"  type="text" name="" id="" placeholder="Ancho [cm]">
-                                    <input class="border border-white rounded-lg p-1 m-0 mb-1"  type="text" name="" id="" placeholder="Altura [cm]">
+                                <div class="d-flex justify-content-between">
+                                    <label for="black">Negro</label>
+                                    <input type="checkbox" name="colors" id="black" value="black">
                                 </div>
-                                <div class="d-flex flex-wrap justify-content-between w-100">
-                                    <div class="check p-1 m-0 mb-1 text-center"><label for="M">M </label><input class="check m-0"  type="checkbox" name="sizes" id="M" value="M"></div>
-                                    <input class="border border-white rounded-lg p-1 m-0 mb-1"  type="text" name="" id="" placeholder="Ancho [cm]">
-                                    <input class="border border-white rounded-lg p-1 m-0 mb-1"  type="text" name="" id="" placeholder="Altura [cm]">
+                                <div class="d-flex justify-content-between">
+                                    <label for="blue">Azul</label>
+                                    <input type="checkbox" name="colors" id="blue" value="blue">
                                 </div>
-                                <div class="d-flex flex-wrap justify-content-between w-100">
-                                    <div class="check p-1 m-0 mb-1 text-center"><label for="L">L </label><input class="check m-0"  type="checkbox" name="sizes" id="L" value="L"></div>
-                                    <input class="border border-white rounded-lg p-1 m-0 mb-1"  type="text" name="" id="" placeholder="Ancho [cm]">
-                                    <input class="border border-white rounded-lg p-1 m-0 mb-1"  type="text" name="" id="" placeholder="Altura [cm]">
+                                <div class="d-flex justify-content-between">
+                                    <label for="yellow">Amarillo</label>
+                                    <input type="checkbox" name="colors" id="yellow" value="yellow">
                                 </div>
-                                <div class="d-flex flex-wrap justify-content-between w-100">
-                                    <div class="check p-1 text-center m-0 mb-1"><label for="XL">XL </label><input class="check m-0" type="checkbox" name="sizes" id="XL" value="XL"></div>
-                                    <input class="border border-white rounded-lg p-1 m-0 mb-1"  type="text" name="" id="" placeholder="Ancho [cm]">
-                                    <input class="border border-white rounded-lg p-1 m-0 mb-1"  type="text" name="" id="" placeholder="Altura [cm]">
+                                <div class="d-flex justify-content-between">
+                                    <label for="red">Rojo</label>
+                                    <input type="checkbox" name="colors" id="red" value="red">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <label for="gray">Gris</label>
+                                    <input type="checkbox" name="colors" id="gray" value="gray">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <label for="green">Verde</label>
+                                    <input type="checkbox" name="colors" id="green" value="green">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <label for="pink">Rosa</label>
+                                    <input type="checkbox" name="colors" id="pink" value="pink">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <label for="brown">Marrón</label>
+                                    <input type="checkbox" name="colors" id="brown" value="brown">
                                 </div>
                             </form>
+                            <button class="btn btn-warning btn-sm btn-block">AGREGAR OTRO COLOR</button>
                         </div>
-                        
-                        <button class="btn btn-warning btn-sm btn-block mt-1">AGREGAR OTRO TAMAÑO</button>
                     </div>
-                    <div class="colors w-100 shadow rounded-lg p-2">
-                        <h4 class="m-0 mb-2 text-center pb-2">Colores</h4>
-                        <form class="d-flex flex-wrap justify-content-around" action="">
-                            <div class="d-flex justify-content-between">
-                                <label for="white">Blanco</label>
-                                <input type="checkbox" name="colors" id="white" value="white">
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <label for="black">Negro</label>
-                                <input type="checkbox" name="colors" id="black" value="black">
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <label for="blue">Azul</label>
-                                <input type="checkbox" name="colors" id="blue" value="blue">
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <label for="yellow">Amarillo</label>
-                                <input type="checkbox" name="colors" id="yellow" value="yellow">
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <label for="red">Rojo</label>
-                                <input type="checkbox" name="colors" id="red" value="red">
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <label for="gray">Gris</label>
-                                <input type="checkbox" name="colors" id="gray" value="gray">
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <label for="green">Verde</label>
-                                <input type="checkbox" name="colors" id="green" value="green">
-                            </div> 
-                            <div class="d-flex justify-content-between"> 
-                                <label for="pink">Rosa</label>
-                                <input type="checkbox" name="colors" id="pink" value="pink">
-                            </div>
-                            <div class="d-flex justify-content-between">      
-                                <label for="brown">Marrón</label>
-                                <input type="checkbox" name="colors" id="brown" value="brown">
-                            </div>
+                </div>
+                <!-- Collapse Color -->
+
+                <!-- Collapse OtherParameters -->
+                <p class="w-100 shadow rounded-lg">
+                    <button class="btn btn-warning btn-block" type="button" data-toggle="collapse"
+                        data-target="#collapseOtherParameters" aria-expanded="false"
+                        aria-controls="collapseOtherParameters">Otros Parámetros</button>
+                </p>
+                <div class="collapse w-100 mb-3" id="collapseOtherParameters">
+                    <div class="card card-body w-100">
+                        <div class="anotherParameters w-100 mb-2">
+                            <form class="d-flex flex-wrap justify-content-around" action="">
+                                <div class="d-flex justify-content-between">
+                                    <label for="cotton">Algodón</label>
+                                    <input type="checkbox" name="extras" id="cotton" value="cotton">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <label for="poliester">Poliester</label>
+                                    <input type="checkbox" name="extras" id="poliester" value="poliester">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <label for="roundNeck">Cuello redondo</label>
+                                    <input type="checkbox" name="extras" id="roundNeck" value="roundNeck">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <label for="vNeck">Cuello en V</label>
+                                    <input type="checkbox" name="extras" id="vNeck" value="vNeck">
+                                </div>
+                            </form>
+                            <button class="btn btn-warning btn-sm btn-block">AGREGAR OTRO PARAMETRO</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Collapse OtherParameters -->
+
+                <!-- Collapse Description -->
+                <p class="w-100 shadow rounded-lg">
+                    <button class="btn btn-warning btn-block" type="button" data-toggle="collapse"
+                        data-target="#collapseDescription" aria-expanded="false"
+                        aria-controls="collapseDescription">Descripción</button>
+                </p>
+                <div class="collapse w-100 mb-3" id="collapseDescription">
+                    <div class="card card-body w-100">
+                        <form class="d-flex flex-wrap justify-content-center" action="">
+                            <input class="border border-white rounded-lg p-5 m-0 w-100" type="text"
+                                placeholder="Descripción">
                         </form>
-                        <button class="btn btn-warning btn-sm btn-block">AGREGAR OTRO COLOR</button>
-                    </div>
-                    <div class="anotherParameters w-100 mb-2 shadow rounded-lg p-2">
-                        <h4 class="mb-2 mt-0 ml-0 mr-0 text-center pb-2">Otros Parámetros</h4>
-                        <form class="d-flex flex-wrap justify-content-around" action="">
-                            <div class="d-flex justify-content-between"> 
-                                <label for="cotton">Algodón</label>
-                                <input type="checkbox" name="extras" id="cotton" value="cotton">
-                            </div>
-                            <div class="d-flex justify-content-between"> 
-                                <label for="poliester">Poliester</label>
-                                <input type="checkbox" name="extras" id="poliester" value="poliester">
-                            </div>
-                            <div class="d-flex justify-content-between"> 
-                                <label for="roundNeck">Cuello redondo</label>
-                                <input type="checkbox" name="extras" id="roundNeck" value="roundNeck">
-                            </div>
-                            <div class="d-flex justify-content-between"> 
-                                <label for="vNeck">Cuello en V</label>
-                                <input type="checkbox" name="extras" id="vNeck" value="vNeck">
-                            </div>
-                       </form>
-                        <button class="btn btn-warning btn-sm btn-block">AGREGAR OTRO PARAMETRO</button>
                     </div>
                 </div>
-                <div class="thirdBlock w-100 mb-2 shadow rounded-lg p-2">
-                    <h4 class="mt-0 mb-2 ml-0 mr-0 text-center pb-2">Descripción</h4>
-                    <form class="d-flex flex-wrap justify-content-center" action="">
-                        <input class="border border-white rounded-lg p-5" type="text" placeholder="Descripción"> 
-                    </form>
-                </div>
+                <!-- Collapse Description -->
+
             </div>
-            <div class="secondColumn col-12 col-md-4 d-flex align-items-center">
-               
-                <div class="image w-100 position-relative">
+            <div class="secondColumn col-12 col-md-4 d-flex flex-wrap align-items-center">
+                <div class="image w-100 position-relative p-1">
                     <h5 class="text-center m-0">Portada</h5>
                     <img class="w-100 shadow rounded-lg" src="../images/remeraNegra.jpg" alt="">
-                        <div>
-                            <a href=""><i class="far fa-trash-alt"></i></a>
-                            <br>
-                            <br>
-                            <a href=""><i class="far fa-plus-square"></i></a>
-                        </div>                    
-                </div>              
-            </div>
-            <div class="thirdColumn col-12 col-md-2 d-flex flex-wrap justify-content-between align-items-center">
-                <div class="image">
+                    <div>
+                        <a href=""><i class="far fa-trash-alt"></i></a>
+                        <br>
+                        <br>
+                        <a href=""><i class="far fa-plus-square"></i></a>
+                    </div>
+                </div>
+                <div class="image w-50 p-1">
                     <h5 class="m-0 text-center">Alternativa1</h5>
                     <img class="w-100 shadow rounded-lg" src="../images/remeraNegra.jpg" alt="">
-                        <div>
-                            <a href=""><i class="far fa-trash-alt"></i></a>
-                            <br>
-                            <br>
-                            <a href=""><i class="far fa-plus-square"></i></a>
-                        </div>                    
-                </div> 
-                <div class="image">
+                    <div>
+                        <a href=""><i class="far fa-trash-alt"></i></a>
+                        <br>
+                        <br>
+                        <a href=""><i class="far fa-plus-square"></i></a>
+                    </div>
+                </div>
+                <div class="image w-50 p-1">
                     <h5 class="m-0 text-center">Alternativa2</h5>
-                    <img class="w-100 shadow rounded-lg"  src="../images/remeraNegra.jpg" alt="">
-                        <div>
-                            <a href=""><i class="far fa-trash-alt"></i></a>
-                            <br>
-                            <br>
-                            <a href=""><i class="far fa-plus-square"></i></a>
-                        </div>                    
-                </div> 
-                <div class="image">
+                    <img class="w-100 shadow rounded-lg" src="../images/remeraNegra.jpg" alt="">
+                    <div>
+                        <a href=""><i class="far fa-trash-alt"></i></a>
+                        <br>
+                        <br>
+                        <a href=""><i class="far fa-plus-square"></i></a>
+                    </div>
+                </div>
+                <div class="image w-50 p-1">
                     <h5 class="m-0 text-center">Alternativa3</h5>
-                    <img class="w-100 shadow rounded-lg"  src="../images/remeraNegra.jpg" alt="">
-                        <div>
-                            <a href=""><i class="far fa-trash-alt"></i></a>
-                            <br>
-                            <br>
-                            <a href=""><i class="far fa-plus-square"></i></a>
-                        </div>                    
-                </div> 
-                <div class="image">
+                    <img class="w-100 shadow rounded-lg" src="../images/remeraNegra.jpg" alt="">
+                    <div>
+                        <a href=""><i class="far fa-trash-alt"></i></a>
+                        <br>
+                        <br>
+                        <a href=""><i class="far fa-plus-square"></i></a>
+                    </div>
+                </div>
+                <div class="image w-50 p-1">
                     <h5 class="m-0 text-center">Alternativa4</h5>
-                    <img class="w-100 shadow rounded-lg"  src="../images/remeraNegra.jpg" alt="">
-                        <div>
-                            <a href=""><i class="far fa-trash-alt"></i></a>
-                            <br>
-                            <br>
-                            <a href=""><i class="far fa-plus-square"></i></a>
-                        </div>                    
-                </div>                 
+                    <img class="w-100 shadow rounded-lg" src="../images/remeraNegra.jpg" alt="">
+                    <div>
+                        <a href=""><i class="far fa-trash-alt"></i></a>
+                        <br>
+                        <br>
+                        <a href=""><i class="far fa-plus-square"></i></a>
+                    </div>
+                </div>
             </div>
+
             <button class="btn btn-warning btn-sm btn-block mt-3 shadow rounded-lg" type="submit">SUBMIT</button>
         </div>
     </div>
     <%- include('partials/footer') %>
     <%- include('partials/scriptsBootstrap') %>
 </body>
+
 </html>
