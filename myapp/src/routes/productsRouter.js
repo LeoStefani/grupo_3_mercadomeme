@@ -6,14 +6,17 @@ const productsController = require('../controllers/productsController');
 router.get('/index/:id?', productsController.productsIndex);
 
 // Product CRUD routes
-router.get('/upload', productsController.upload);
+router.get('/upload/:id?', productsController.upload);
+
 
 router.get('/create', productsController.create);
+router.get('/edit/:id', productsController.create);
+router.get('/delete/:id', productsController.create);
 // router.post('/create', productsController.upload);
 
-router.get('/:id/edit', productsController.upload);
-router.put('/:id', productsController.upload);
-router.delete('/:id', productsController.upload);
+router.post('/create', productsController.create);
+router.put('/edit/:id', productsController.create);
+router.delete('/delete/:id', productsController.create);
 
 // Product details 
 router.get('/detail/:id', productsController.detail);
