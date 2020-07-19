@@ -20,17 +20,17 @@
         <!-- selected Product  -->
         <div class="productDetailDivContainers border-bottom border-right border-light p-3 col-6 d-flex flex-wrap flex-column">
           <a class="#" href="">
-            <img class="w-100" src="../images/iconoimagen.png" alt="imgbibliouser">
+            <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
           </a>
-          <h6>Lorem, ipsum dolor.</h6>
-          <a class="align-self-end" href="/products"><button type="button" class="m-0 btn btn-warning btn-sm btn-radius">Cambiar</button></a>
+          <h6><%= productDetail.description %></h6>
+          <a class="align-self-end" href="/products/index"><button type="button" class="m-0 btn btn-warning btn-sm btn-radius">Cambiar</button></a>
         </div>
         <!-- selected Product  -->
 
         <!-- selected Meme  -->
         <div class="productDetailDivContainers border-bottom border-light p-3 col-6 d-flex flex-wrap flex-column">
           <a href="">
-            <img class="w-100" src="../images/iconoimagen.png" alt="imgbibliouser">
+            <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
           </a>
           <h6>Eligí el meme que quieras de tu biblioteca ---></h6>
         </div>
@@ -110,32 +110,32 @@
           <div class="row productDetailDivContainers m-1">
             <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
               <a href="">
-                <img class="w-100" src="../images/iconoimagen.png" alt="imgbibliouser">
+                <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
               </a>
             </div>
             <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
               <a href="">
-                <img class="w-100" src="../images/iconoimagen.png" alt="imgbibliouser">
+                <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
               </a>
             </div>
             <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
               <a href="">
-                <img class="w-100" src="../images/iconoimagen.png" alt="imgbibliouser">
+                <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
               </a>
             </div>
             <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
               <a href="">
-                <img class="w-100" src="../images/iconoimagen.png" alt="imgbibliouser">
+                <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
               </a>
             </div>
             <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
               <a href="">
-                <img class="w-100" src="../images/iconoimagen.png" alt="imgbibliouser">
+                <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
               </a>
             </div>
             <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
               <a href="">
-                <img class="w-100" src="../images/iconoimagen.png" alt="imgbibliouser">
+                <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
               </a>
             </div>
           </div>
@@ -152,10 +152,10 @@
       <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 d-flex flex-wrap">
         <div class="productDetailDivContainers col-12 d-flex flex-wrap flex-column justify-content-between align-items-center">
           <div class="m-2 d-flex flex-wrap justify-content-center">
-            <img class="rounded-lg w-100" src="../images/tazaMemeJs.png" alt="variantedeproducto">
+            <img class="rounded-lg w-100" src="/images/tazaMemeJs.png" alt="variantedeproducto">
           </div>
           <div class="align-self-end">
-            <h3 class="text-capitalize">precio: $$5.555</h3>
+            <h3 class="text-capitalize">precio: $ <%= productDetail.price %></h3>
           </div>
         </div>
       </div>

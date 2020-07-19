@@ -3,7 +3,7 @@ var router = express.Router();
 const productsController = require('../controllers/productsController');
 
 // General products render 
-router.get('/', productsController.productsIndex);
+router.get('/index/:id?', productsController.productsIndex);
 
 // Product CRUD routes
 router.get('/upload', productsController.upload);
@@ -16,8 +16,8 @@ router.put('/:id', productsController.upload);
 router.delete('/:id', productsController.upload);
 
 // Product details 
-router.get('/detail', productsController.detail);
-router.get('/:id', productsController.productsIndex);
+router.get('/detail/:id', productsController.detail);
+// router.get('/:id', productsController.productsIndex);
 
 
 
