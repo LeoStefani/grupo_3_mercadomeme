@@ -38,12 +38,14 @@ module.exports = {
         },
 
         detail: function (req, res, next) {
+                // Este bloque se encarga de buscar el producto segun el id recibido, y guardarlo en productDetail
                 let productDetail;
                 for(let i = 0; i < products.length; i++) {
                         if(products[i].id == req.params.id) {
                                 productDetail = products[i];
                         };
                 };
+                // Renderizado de la vista. Paso el productDetail
                 res.render('detail', { 
                         title: 'Detalle de productos',
                         productDetail: productDetail

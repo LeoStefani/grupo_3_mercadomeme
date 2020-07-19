@@ -5,181 +5,185 @@
 
 <body>
 
-  <!-- <header> -->
-  <%- include('partials/header') %>
-  <!-- </header> -->
+        <!-- <header> -->
+        <%- include('partials/header') %>
+        <!-- </header> -->
 
 
-  <div class="container">
+        <div class="container">
 
-    <!-- Principal 1st Row -->
-    <div class="row">
-      <!-- Prodcuts Size & Color && Meme -->
-      <div class="rounded-lg col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 d-flex flex-wrap">
+                <!-- Principal 1st Row -->
+                <div class="row">
+                        <!-- Prodcuts Size & Color && Meme -->
+                        <div class="rounded-lg col-12 col-md-5 d-flex flex-wrap">
 
-        <!-- selected Product  -->
-        <div class="productDetailDivContainers border-bottom border-right border-light p-3 col-6 d-flex flex-wrap flex-column">
-          <a class="#" href="">
-            <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
-          </a>
-          <h6><%= productDetail.description %></h6>
-          <a class="align-self-end" href="/products/index"><button type="button" class="m-0 btn btn-warning btn-sm btn-radius">Cambiar</button></a>
+                                <!-- selected Product  -->
+                                <div
+                                        class="productDetailDivContainers border-bottom border-right border-light p-3 col-6 d-flex flex-wrap flex-column">
+                                        <a class="#" href="">
+                                                <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
+                                        </a>
+                                        <!-- muestro tamaños disponibles leidos del JSON  -->
+                                        <h5><%= productDetail.name %></h5>
+                                        <h6>Tamaños: </h6>
+                                        <% for(let i=0; i < productDetail.sizes.length; i++) { %>
+                                        <h6><%= productDetail.sizes[i].tag %>: <%= productDetail.sizes[i].size %>
+                                                <%= productDetail.sizes[i].unit %></h6>
+                                        <% } %>
+
+                                        <a class="align-self-end" href="/products/index"><button type="button"
+                                                        class="m-0 btn btn-warning btn-sm btn-radius">Cambiar</button></a>
+                                </div>
+                                <!-- selected Product  -->
+
+                                <!-- selected Meme  -->
+                                <div
+                                        class="productDetailDivContainers border-bottom border-light p-3 col-6 d-flex flex-wrap flex-column">
+                                        <a href="">
+                                                <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
+                                        </a>
+                                        <h6>Eligí el meme que quieras de tu biblioteca ---></h6>
+                                </div>
+                                <!-- selected Meme  -->
+
+                                <!-- size selector -->
+                                <div
+                                        class="productDetailDivContainers border-bottom border-light mt-2 col-12 d-flex flex-wrap size">
+                                        <form class="col-12 d-flex flex-wrap align-items-center" action="">
+                                                <div class="col-5 m-0 p-0">
+                                                        <h5 class="p-2">Tamaños: </h5>
+                                                </div>
+                                                <div
+                                                        class="col-7 m-0 p-0 d-flex flex-wrap justify-content-around align-items-center">
+                                                        <!-- agrego selectores segun los tamaños disponibles de ese producto                                                          -->
+                                                        <% for(let i=0; i < productDetail.sizes.length; i++) { %>
+                                                        <div class="check">
+                                                                <label class="m-0 text-uppercase" for="<%= productDetail.sizes[i].tag %>"><%= productDetail.sizes[i].tag %></label>
+                                                                <input class="check ml-1" type="radio" name="sizes"
+                                                                        id="<%= productDetail.sizes[i].tag %>" value="<%= productDetail.sizes[i].tag %>">
+                                                        </div>
+                                                        <% } %>
+
+                                                </div>
+                                        </form>
+                                </div>
+                                <!-- size selector -->
+
+                                <!-- color selector -->
+                                <div
+                                        class="productDetailDivContainers border-bottom border-light mt-2 mb-2 col-12 d-flex flex-wrap size">
+                                        <form class="col-12 d-flex flex-wrap align-items-center" action="">
+                                                <div class="col-5 m-0 p-0">
+                                                        <h5 class="p-2">Colores: </h5>
+                                                </div>
+                                                <div
+                                                        class="col-7 m-0 p-0 d-flex flex-wrap justify-content-between align-items-center">
+                                                        <!-- agrego selectores segun los COLORES disponibles de ese producto                                                          -->
+                                                        <% for(let i=0; i < productDetail.colors.length; i++) { %>
+                                                        <div class="check">
+                                                                <label class="m-0 text-capitalize"
+                                                                        for="<%= productDetail.colors[i].colorName %>"><%= productDetail.colors[i].colorName %></label>
+                                                                <input class="check ml-1" type="radio" name="colors"
+                                                                        id="<%= productDetail.colors[i].colorName %>" value="<%= productDetail.colors[i].colorName %>">
+                                                        </div>
+                                                        <% } %>
+
+                                                </div>
+                                        </form>
+                                </div>
+                                <!-- color selector -->
+
+                        </div>
+                        <!-- Prodcuts Size & Color && Meme -->
+
+
+                        <!-- Bibliotecas memes del user -->
+                        <div class="p-0 mb-2 rounded-lg col-12 col-md-2 d-flex flex-wrap">
+                                <div class="col-12 d-flex flex-wrap">
+                                        <div class="row productDetailDivContainers m-1">
+                                                <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
+                                                        <a href="">
+                                                                <img class="w-100" src="/images/iconoimagen.png"
+                                                                        alt="imgbibliouser">
+                                                        </a>
+                                                </div>
+                                                <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
+                                                        <a href="">
+                                                                <img class="w-100" src="/images/iconoimagen.png"
+                                                                        alt="imgbibliouser">
+                                                        </a>
+                                                </div>
+                                                <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
+                                                        <a href="">
+                                                                <img class="w-100" src="/images/iconoimagen.png"
+                                                                        alt="imgbibliouser">
+                                                        </a>
+                                                </div>
+                                                <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
+                                                        <a href="">
+                                                                <img class="w-100" src="/images/iconoimagen.png"
+                                                                        alt="imgbibliouser">
+                                                        </a>
+                                                </div>
+                                                <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
+                                                        <a href="">
+                                                                <img class="w-100" src="/images/iconoimagen.png"
+                                                                        alt="imgbibliouser">
+                                                        </a>
+                                                </div>
+                                                <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
+                                                        <a href="">
+                                                                <img class="w-100" src="/images/iconoimagen.png"
+                                                                        alt="imgbibliouser">
+                                                        </a>
+                                                </div>
+                                        </div>
+                                        <div class="row m-1">
+                                                <a class="#" href="/memes"><button type="button"
+                                                                class="m-1 btn btn-warning btn-sm btn-radius">Memes</button></a>
+                                        </div>
+                                </div>
+
+                        </div>
+                        <!-- Bibliotecas memes del user -->
+
+
+                        <!-- product & meme final resume -->
+                        <div class="col-12 col-md-5 d-flex flex-wrap">
+                                <div
+                                        class="productDetailDivContainers col-12 d-flex flex-wrap flex-column justify-content-between align-items-center">
+                                        <div class="m-2 d-flex flex-wrap justify-content-center">
+                                                <img class="rounded-lg w-100" src="/images/tazaMemeJs.png"
+                                                        alt="variantedeproducto">
+                                        </div>
+                                        <div class="align-self-end">
+                                                <h3 class="text-capitalize">precio: $ <%= productDetail.price %></h3>
+                                        </div>
+                                </div>
+                        </div>
+                        <!-- product & meme final resume -->
+
+                </div>
+                <!-- Principal 1st Row -->
+
+                <!-- Final buttons row, add to shopCart, buy now! -->
+                <div class="row">
+                        <div class="col-12 mt-2 d-flex flex-wrap justify-content-end">
+                                <button type="button" class="m-1 btn btn-warning btn-lg btn-radius">Agregar al
+                                        carrito</button>
+                                <a href="/users/cart"><button type="button"
+                                                class="m-1 btn btn-warning btn-lg btn-radius">Comprar</button></a>
+                        </div>
+                </div>
+                <!-- Final buttons row, add to shopCart, buy now! -->
+
         </div>
-        <!-- selected Product  -->
 
-        <!-- selected Meme  -->
-        <div class="productDetailDivContainers border-bottom border-light p-3 col-6 d-flex flex-wrap flex-column">
-          <a href="">
-            <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
-          </a>
-          <h6>Eligí el meme que quieras de tu biblioteca ---></h6>
-        </div>
-        <!-- selected Meme  -->
+        <!-- <footer> -->
+        <%- include('partials/footer') %>
+        <!-- </footer> -->
 
-        <!-- size selector -->
-        <div class="productDetailDivContainers border-bottom border-light mt-2 col-12 d-flex flex-wrap size">
-          <form class="col-12 d-flex flex-wrap align-items-center" action="">
-            <div class="col-5 m-0 p-0">
-              <h5 class="p-2">Tamaños: </h5>
-            </div>
-            <div class="col-7 m-0 p-0 d-flex flex-wrap justify-content-between align-items-center">
-              <div class="check">
-                <label class="m-0 text-uppercase" for="XS">xs</label>
-                <input class="check ml-1" type="radio" name="sizes" id="XS" value="XS">
-              </div>
-              <div class="check">
-                <label class="m-0 text-uppercase" for="S">s</label>
-                <input class="check ml-1" type="radio" name="sizes" id="S" value="S">
-              </div>
-              <div class="check">
-                <label class="m-0 text-uppercase" for="M">m</label>
-                <input class="check ml-1" type="radio" name="sizes" id="M" value="M">
-              </div>
-              <div class="check">
-                <label class="m-0 text-uppercase" for="L">l</label>
-                <input class="check ml-1" type="radio" name="sizes" id="L" value="L">
-              </div>
-              <div class="check">
-                <label class="m-0 text-uppercase" for="XL">xl</label>
-                <input class="check ml-1" type="radio" name="sizes" id="XL" value="XL">
-              </div>
-            </div>
-          </form>
-        </div>
-        <!-- size selector -->
-        
-        <!-- color selector -->
-        <div class="productDetailDivContainers border-bottom border-light mt-2 mb-2 col-12 d-flex flex-wrap size">
-          <form class="col-12 d-flex flex-wrap align-items-center" action="">
-            <div class="col-5 m-0 p-0">
-              <h5 class="p-2">Colores: </h5>
-            </div>
-            <div class="col-7 m-0 p-0 d-flex flex-wrap justify-content-between align-items-center">
-              <div class="check">
-                <label class="m-0 text-capitalize" for="blanco">blanco</label>
-                <input class="check ml-1" type="radio" name="colors" id="blanco" value="blaco">
-              </div>
-              <div class="check">
-                <label class="m-0 text-capitalize" for="negro">negro</label>
-                <input class="check ml-1" type="radio" name="colors" id="negro" value="negro">
-              </div>
-              <div class="check">
-                <label class="m-0 text-capitalize" for="verde">verde</label>
-                <input class="check ml-1" type="radio" name="colors" id="verde" value="verde">
-              </div>
-              <div class="check">
-                <label class="m-0 text-capitalize" for="azul">azul</label>
-                <input class="check ml-1" type="radio" name="colors" id="azul" value="azul">
-              </div>
-              <div class="check">
-                <label class="m-0 text-capitalize" for="rojo">rojo</label>
-                <input class="check ml-1" type="radio" name="colors" id="rojo" value="rojo">
-              </div>
-            </div>
-          </form>
-        </div>
-        <!-- color selector -->
-
-      </div>
-      <!-- Prodcuts Size & Color && Meme -->
-
-
-      <!-- Bibliotecas memes del user -->
-      <div class="p-0 mb-2 rounded-lg col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 d-flex flex-wrap">
-        <div class="col-12 d-flex flex-wrap">
-          <div class="row productDetailDivContainers m-1">
-            <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
-              <a href="">
-                <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
-              </a>
-            </div>
-            <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
-              <a href="">
-                <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
-              </a>
-            </div>
-            <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
-              <a href="">
-                <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
-              </a>
-            </div>
-            <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
-              <a href="">
-                <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
-              </a>
-            </div>
-            <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
-              <a href="">
-                <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
-              </a>
-            </div>
-            <div class="p-1 col-3 col-md-6 d-flex flex-wrap">
-              <a href="">
-                <img class="w-100" src="/images/iconoimagen.png" alt="imgbibliouser">
-              </a>
-            </div>
-          </div>
-          <div class="row m-1">
-            <a class="#" href="/memes"><button type="button" class="m-1 btn btn-warning btn-sm btn-radius">Memes</button></a>
-          </div>
-        </div>
-
-      </div>
-      <!-- Bibliotecas memes del user -->
-
-
-      <!-- product & meme final resume -->
-      <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 d-flex flex-wrap">
-        <div class="productDetailDivContainers col-12 d-flex flex-wrap flex-column justify-content-between align-items-center">
-          <div class="m-2 d-flex flex-wrap justify-content-center">
-            <img class="rounded-lg w-100" src="/images/tazaMemeJs.png" alt="variantedeproducto">
-          </div>
-          <div class="align-self-end">
-            <h3 class="text-capitalize">precio: $ <%= productDetail.price %></h3>
-          </div>
-        </div>
-      </div>
-      <!-- product & meme final resume -->
-
-    </div>
-    <!-- Principal 1st Row -->
-
-    <!-- Final buttons row, add to shopCart, buy now! -->
-    <div class="row">
-      <div class="col-12 mt-2 d-flex flex-wrap justify-content-end">
-        <button type="button" class="m-1 btn btn-warning btn-lg btn-radius">Agregar al carrito</button>
-        <a href="/users/cart"><button type="button" class="m-1 btn btn-warning btn-lg btn-radius">Comprar</button></a>
-      </div>
-    </div>
-    <!-- Final buttons row, add to shopCart, buy now! -->
-
-  </div>
-
-  <!-- <footer> -->
-  <%- include('partials/footer') %>
-  <!-- </footer> -->
-
-  <%- include('partials/scriptsBootstrap') %>
+        <%- include('partials/scriptsBootstrap') %>
 
 
 </body>

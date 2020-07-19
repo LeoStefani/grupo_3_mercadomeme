@@ -8,11 +8,23 @@
                 "category": "Taza",
                 "sizes": [
                         {
+                                "tag": "S",
                                 "size": 250,
                                 "unit": "ml"
                         },
                         {
+                                "tag": "M",
                                 "size": 350,
+                                "unit": "ml"
+                        },
+                        {
+                                "tag": "L",
+                                "size": 500,
+                                "unit": "ml"
+                        },
+                        {
+                                "tag": "XL",
+                                "size": 700,
                                 "unit": "ml"
                         }
                 ],
@@ -48,14 +60,17 @@
                 "category": "Taza",
                 "sizes": [
                         {
+                                "tag": "XS",
                                 "size": 150,
                                 "unit": "ml"
                         },
                         {
+                                "tag": "S",
                                 "size": 250,
                                 "unit": "ml"
                         },
                         {
+                                "tag": "L",
                                 "size": 500,
                                 "unit": "ml"
                         }
@@ -92,14 +107,17 @@
                 "category": "Taza",
                 "sizes": [
                         {
+                                "tag": "XS",
                                 "size": 150,
                                 "unit": "ml"
                         },
                         {
+                                "tag": "S",
                                 "size": 250,
                                 "unit": "ml"
                         },
                         {
+                                "tag": "L",
                                 "size": 500,
                                 "unit": "ml"
                         }
@@ -136,14 +154,17 @@
                 "category": "Taza",
                 "sizes": [
                         {
+                                "tag": "S",
                                 "size": 200,
                                 "unit": "ml"
                         },
                         {
+                                "tag": "M",
                                 "size": 300,
                                 "unit": "ml"
                         },
                         {
+                                "tag": "XL",
                                 "size": 700,
                                 "unit": "ml"
                         }
@@ -180,14 +201,17 @@
                 "category": "Remera",
                 "sizes": [
                         {
+                                "tag": "S",
                                 "size": 1,
                                 "unit": "cm"
                         },
                         {
+                                "tag": "M",
                                 "size": 2,
                                 "unit": "cm"
                         },
                         {
+                                "tag": "L",
                                 "size": 3,
                                 "unit": "cm"
                         }
@@ -225,14 +249,17 @@
                 "category": "Remera",
                 "sizes": [
                         {
+                                "tag": "S",
                                 "size": 1,
                                 "unit": "cm"
                         },
                         {
+                                "tag": "M",
                                 "size": 2,
                                 "unit": "cm"
                         },
                         {
+                                "tag": "L",
                                 "size": 3,
                                 "unit": "cm"
                         }
@@ -270,14 +297,17 @@
                 "category": "Remera",
                 "sizes": [
                         {
+                                "tag": "S",
                                 "size": 1,
                                 "unit": "cm"
                         },
                         {
+                                "tag": "M",
                                 "size": 2,
                                 "unit": "cm"
                         },
                         {
+                                "tag": "L",
                                 "size": 3,
                                 "unit": "cm"
                         }
@@ -314,14 +344,17 @@
                 "category": "Remera",
                 "sizes": [
                         {
+                                "tag": "S",
                                 "size": 1,
                                 "unit": "cm"
                         },
                         {
+                                "tag": "M",
                                 "size": 2,
                                 "unit": "cm"
                         },
                         {
+                                "tag": "L",
                                 "size": 3,
                                 "unit": "cm"
                         }
@@ -358,14 +391,17 @@
                 "category": "Mochila",
                 "sizes": [
                         {
+                                "tag": "S",
                                 "size": 10,
                                 "unit": "lts"
                         },
                         {
+                                "tag": "M",
                                 "size": 20,
                                 "unit": "lts"
                         },
                         {
+                                "tag": "L",
                                 "size": 30,
                                 "unit": "lts"
                         }
@@ -403,10 +439,12 @@
                 "category": "Mochila",
                 "sizes": [
                         {
+                                "tag": "S",
                                 "size": 10,
                                 "unit": "lts"
                         },
                         {
+                                "tag": "M",
                                 "size": 25,
                                 "unit": "lts"
                         }
@@ -443,14 +481,17 @@
                 "category": "Mochila",
                 "sizes": [
                         {
+                                "tag": "S",
                                 "size": 10,
                                 "unit": "lts"
                         },
                         {
+                                "tag": "M",
                                 "size": 20,
                                 "unit": "lts"
                         },
                         {
+                                "tag": "L",
                                 "size": 30,
                                 "unit": "lts"
                         }
@@ -487,10 +528,12 @@
                 "category": "Mochila",
                 "sizes": [
                         {
+                                "tag": "S",
                                 "size": 10,
                                 "unit": "lts"
                         },
                         {
+                                "tag": "M",
                                 "size": 25,
                                 "unit": "lts"
                         }
@@ -528,14 +571,17 @@
                 "category": "Gorra",
                 "sizes": [
                         {
+                                "tag": "S",
                                 "size": 1,
                                 "unit": "cm"
                         },
                         {
+                                "tag": "M",
                                 "size": 2,
                                 "unit": "cm"
                         },
                         {
+                                "tag": "L",
                                 "size": 3,
                                 "unit": "cm"
                         }
@@ -573,14 +619,17 @@
                 "category": "Gorra",
                 "sizes": [
                         {
+                                "tag": "S",
                                 "size": 1,
                                 "unit": "cm"
                         },
                         {
+                                "tag": "M",
                                 "size": 2,
                                 "unit": "cm"
                         },
                         {
+                                "tag": "L",
                                 "size": 3,
                                 "unit": "cm"
                         }
@@ -617,14 +666,17 @@
                 "category": "Gorra",
                 "sizes": [
                         {
+                                "tag": "S",
                                 "size": 1,
                                 "unit": "cm"
                         },
                         {
+                                "tag": "M",
                                 "size": 2,
                                 "unit": "cm"
                         },
                         {
+                                "tag": "L",
                                 "size": 3,
                                 "unit": "cm"
                         }
@@ -661,14 +713,17 @@
                 "category": "Gorra",
                 "sizes": [
                         {
+                                "tag": "S",
                                 "size": 1,
                                 "unit": "cm"
                         },
                         {
+                                "tag": "M",
                                 "size": 2,
                                 "unit": "cm"
                         },
                         {
+                                "tag": "L",
                                 "size": 3,
                                 "unit": "cm"
                         }
