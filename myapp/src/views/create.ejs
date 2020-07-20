@@ -11,8 +11,8 @@
                 class="firstColumn d-flex flex-wrap flex-column justify-content-start align-items-center col-12 col-md-8">
 
                 <!-- Data Block -->
-                <div class="dataBlock w-100 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-2 mt-4">
-                    <form class="w-100 d-flex flex-wrap justify-content-end align-items-center" action="/products/create" method="POST">
+                <div class="dataBlock w-100 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-3 mt-4">
+                    <form class="w-100 d-flex flex-wrap justify-content-end align-items-center" action="/products/create" method="POST" id="">
                         <h5 class="w-100 text-center">Información del producto</h5>
                         <h5 class="w-100 text-start mb-1 p-0">ID: <%= lastId %></h5>
                         <div class="d-flex flex-wrap productName w-100 mt-2">
@@ -57,10 +57,11 @@
                         <div class="size w-100 mb-2 p-2">
                             <div>
                                 <form action="/products/create" method="POST">
+
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 m-0 mb-1 text-center"><label for="XS">XS
                                             </label><input class="check m-0" type="checkbox" name="xs" id="XS"
-                                                value="XS"  ></div>
+                                                value="XS" <%= productNew.sizes[0].tag == "XS" ? "checked" : "" %> ></div>
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm] ">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
@@ -69,7 +70,7 @@
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 m-0 mb-1 text-center"><label for="S">S
                                             </label><input class="check m-0" type="checkbox" name="s" id="S"
-                                                value="S"  ></div>
+                                                value="S" <%= productNew.sizes[1].tag == "S" ? "checked" : "" %>  ></div>
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm]">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
@@ -78,7 +79,7 @@
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 m-0 mb-1 text-center"><label for="M">M
                                             </label><input class="check m-0" type="checkbox" name="m" id="M"
-                                                value="M" ></div>
+                                                value="M" <%= productNew.sizes[2].tag == "M" ? "checked" : "" %>></div>
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm]">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
@@ -87,7 +88,7 @@
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 m-0 mb-1 text-center"><label for="L">L
                                             </label><input class="check m-0" type="checkbox" name="l" id="L"
-                                                value="L" ></div>
+                                                value="L" <%= productNew.sizes[3].tag == "L" ? "checked" : "" %>></div>
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm]">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
@@ -96,7 +97,7 @@
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 text-center m-0 mb-1"><label for="XL">XL
                                             </label><input class="check m-0" type="checkbox" name="xl" id="XL"
-                                                value="XL" ></div> 
+                                                value="XL" <%= productNew.sizes[4].tag == "XL" ? "checked" : "" %> ></div> 
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm]">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
@@ -106,8 +107,6 @@
                                     <button class="btn btn-warning btn-sm btn-block mt-3 shadow rounded-lg m-0" type="submit">Confirmar tamaños</button>
                                 </form>
                             </div>
-
-                            
                         </div>
                     </div>
                 </div>
@@ -122,42 +121,43 @@
                 <div class="collapse w-100 mb-3" id="collapseColors">
                     <div class="card card-body w-100">
                         <div class="colors w-100 p-2">
-                            <form class="d-flex flex-wrap justify-content-around" action="">
-                                <div class="d-flex justify-content-between">
-                                    <label for="white">Blanco</label>
-                                    <input type="checkbox" name="colors" id="white" value="white">
-                                </div>
+                            <form class="d-flex flex-wrap justify-content-around" action="/products/create" method="POST">
                                 <div class="d-flex justify-content-between">
                                     <label for="black">Negro</label>
-                                    <input type="checkbox" name="colors" id="black" value="black">
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <label for="blue">Azul</label>
-                                    <input type="checkbox" name="colors" id="blue" value="blue">
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <label for="yellow">Amarillo</label>
-                                    <input type="checkbox" name="colors" id="yellow" value="yellow">
+                                    <input type="checkbox" name="colorBlack" id="black" value="Negro" <%= productNew.colors[0].colorName === "Negro" ? "checked" : "" %>>
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <label for="red">Rojo</label>
-                                    <input type="checkbox" name="colors" id="red" value="red">
+                                    <input type="checkbox" name="colorRed" id="red" value="Rojo" <%= productNew.colors[1].colorName === "Rojo" ? "checked" : "" %>>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <label for="gray">Gris</label>
-                                    <input type="checkbox" name="colors" id="gray" value="gray">
+                                    <label for="blue">Azul</label>
+                                    <input type="checkbox" name="colorBlue" id="blue" value="Azul" <%= productNew.colors[2].colorName === "Azul" ? "checked" : "" %>>
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <label for="green">Verde</label>
-                                    <input type="checkbox" name="colors" id="green" value="green">
+                                    <input type="checkbox" name="colorGreen" id="green" value="Verde" <%= productNew.colors[3].colorName === "Verde" ? "checked" : "" %>>
                                 </div>
                                 <div class="d-flex justify-content-between">
+                                    <label for="white">Blanco</label>
+                                    <input type="checkbox" name="colorWhite" id="white" value="Blanco" <%= productNew.colors[4].colorName === "Blanco" ? "checked" : "" %>>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <label for="yellow">Amarillo</label>
+                                    <input type="checkbox" name="colorYellow" id="yellow" value="Amarillo" <%= productNew.colors[5].colorName === "Amarillo" ? "checked" : "" %>>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <label for="gray">Gris</label>
+                                    <input type="checkbox" name="colorGray" id="gray" value="Gris" <%= productNew.colors[6].colorName === "Gris" ? "checked" : "" %>>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between">
                                     <label for="pink">Rosa</label>
-                                    <input type="checkbox" name="colors" id="pink" value="pink">
+                                    <input type="checkbox" name="colorPink" id="pink" value="Rosa" <%= productNew.colors[7].colorName === "Rosa" ? "checked" : "" %>>
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <label for="brown">Marrón</label>
-                                    <input type="checkbox" name="colors" id="brown" value="brown">
+                                    <input type="checkbox" name="colorBrown" id="brown" value="Marrón" <%= productNew.colors[8].colorName === "Marrón" ? "checked" : "" %>>
                                 </div>
                             <button class="btn btn-warning btn-sm btn-block">Agregar otro color</button>
                             <button class="btn btn-warning btn-sm btn-block mt-3 shadow rounded-lg m-0" type="submit">Confirmar colores</button>
