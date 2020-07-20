@@ -23,8 +23,8 @@ let maxId = function () {
         return idAcumulator + 1;
 
 };
+let productNew = { sizes: [], colors: [], others: []};
 
-let productNew = { sizes: [0,1,2,3,4], colors: [0,1,2,3,4,5,6,7,8,9], others: [0,1,2,3,4,5,6,7,8] };
 
 module.exports = {
         productsIndex: function (req, res, next) {
@@ -114,6 +114,35 @@ module.exports = {
 
         createNew: function (req, res, next) {
 
+                productNew.id = maxId();
+                if (req.body.productNewName != undefined) { productNew.name = req.body.productNewName };
+                if (req.body.productNewDescription != undefined) { productNew.description = req.body.productNewDescription };
+                if (req.body.productNewCategory != undefined && req.body.typeAddInput == undefined) { productNew.category = req.body.productNewCategory };
+                if (req.body.productNewCategory != undefined && req.body.typeAddInput != undefined) { productNew.category = req.body.typeAddInput };
+                if (req.body.productNewPrice != undefined) { productNew.price = req.body.productNewPrice };
+                
+                productNew.image = "iconoImagenBordesIguales.png";
+
+                if (req.body.xs != undefined) { productNew.sizes.push({ tag: req.body.xs, size: 150, unit: "ml" }) };
+                if (req.body.s != undefined) { productNew.sizes.push({ tag: req.body.s, size: 200, unit: "ml" }) };
+                if (req.body.m != undefined) { productNew.sizes.push({ tag: req.body.m, size: 300, unit: "ml" }) };
+                if (req.body.l != undefined) { productNew.sizes.push({ tag: req.body.l, size: 500, unit: "ml" }) };
+                if (req.body.xl != undefined) { productNew.sizes.push({ tag: req.body.xl, size: 700, unit: "ml" }) };
+
+                if (req.body.colorBlack != undefined) { productNew.colors.push({ colorName: req.body.colorBlack, colorCode: "#000000" }) };
+
+                if (req.body.colorRed != undefined) { productNew.colors.push({ colorName: req.body.colorRed, colorCode: "#FF0000" })  };
+                if (req.body.colorBlue != undefined) { productNew.colors.push({ colorName: req.body.colorBlue, colorCode: "#0000FF" }) };
+                if (req.body.colorGreen != undefined) { productNew.colors.push({ colorName: req.body.colorGreen, colorCode: "#008000" }) };
+                if (req.body.colorWhite != undefined) { productNew.colors.push({ colorName: req.body.colorWhite, colorCode: "#ffffff" }) };
+                if (req.body.colorYellow != undefined) { productNew.colors.push({ colorName: req.body.colorYellow, colorCode: "#ffff00" }) };
+                if (req.body.colorGray != undefined) { productNew.colors.push({ colorName: req.body.colorGray, colorCode: "#808080" })  };
+                if (req.body.colorPink != undefined) { productNew.colors.push({ colorName: req.body.colorPink, colorCode: "#ffc0cb" }) };
+                if (req.body.colorBrown != undefined) { productNew.colors.push({ colorName: req.body.colorBrown, colorCode: "#a52a2a" }) };
+
+                console.log(productNew);
+
+                res.redirect('create');
         },
 
         edit: function (req, res, next) {
