@@ -23,8 +23,8 @@ let maxId = function () {
         return idAcumulator + 1;
 
 };
+let productNew = { sizes: [], colors: [], others: []};
 
-let productNew = { sizes: [0,1,2,3,4], colors: [0,1,2,3,4,5,6,7,8,9], others: [0,1,2,3,4,5,6,7,8] };
 
 module.exports = {
         productsIndex: function (req, res, next) {
@@ -114,10 +114,6 @@ module.exports = {
 
         createNew: function (req, res, next) {
 
-
-                console.log("DE createNEW Arriba ");
-                console.log(productNew);
-
                 productNew.id = maxId();
                 if (req.body.productNewName != undefined) { productNew.name = req.body.productNewName };
                 if (req.body.productNewDescription != undefined) { productNew.description = req.body.productNewDescription };
@@ -127,31 +123,26 @@ module.exports = {
                 
                 productNew.image = "iconoImagenBordesIguales.png";
 
-                if (req.body.xs != undefined) { productNew.sizes[0] = { tag: req.body.xs, state: "checked", size: 150, unit: "ml" } } else { productNew.sizes[0] = {} };
-                if (req.body.s != undefined) { productNew.sizes[1] = { tag: req.body.s, state: "checked", size: 200, unit: "ml" } } else { productNew.sizes[1] = {} };
-                if (req.body.m != undefined) { productNew.sizes[2] = { tag: req.body.m, state: "checked", size: 300, unit: "ml" } } else { productNew.sizes[2] = {} };
-                if (req.body.l != undefined) { productNew.sizes[3] = { tag: req.body.l, state: "checked", size: 500, unit: "ml" } } else { productNew.sizes[3] = {} };
-                if (req.body.xl != undefined) { productNew.sizes[4] = { tag: req.body.xl, state: "checked", size: 700, unit: "ml" } } else { productNew.sizes[4] = {} };
+                if (req.body.xs != undefined) { productNew.sizes.push({ tag: req.body.xs, size: 150, unit: "ml" }) };
+                if (req.body.s != undefined) { productNew.sizes.push({ tag: req.body.s, size: 200, unit: "ml" }) };
+                if (req.body.m != undefined) { productNew.sizes.push({ tag: req.body.m, size: 300, unit: "ml" }) };
+                if (req.body.l != undefined) { productNew.sizes.push({ tag: req.body.l, size: 500, unit: "ml" }) };
+                if (req.body.xl != undefined) { productNew.sizes.push({ tag: req.body.xl, size: 700, unit: "ml" }) };
 
-                if (req.body.colorBlack != undefined) { productNew.colors[0] = { colorName: req.body.colorBlack, colorCode: "#000000" } } else { productNew.colors[0] = {} };
-                if (req.body.colorRed != undefined) { productNew.colors[1] = { colorName: req.body.colorRed, colorCode: "#FF0000" } } else { productNew.colors[1] = {} };
-                if (req.body.colorBlue != undefined) { productNew.colors[2] = { colorName: req.body.colorBlue, colorCode: "#0000FF" } } else { productNew.colors[2] = {} };
-                if (req.body.colorGreen != undefined) { productNew.colors[3] = { colorName: req.body.colorGreen, colorCode: "#008000" } } else { productNew.colors[3] = {} };
-                if (req.body.colorWhite != undefined) { productNew.colors[4] = { colorName: req.body.colorWhite, colorCode: "#ffffff" } } else { productNew.colors[4] = {} };
-                if (req.body.colorYellow != undefined) { productNew.colors[5] = { colorName: req.body.colorYellow, colorCode: "#ffff00" } } else { productNew.colors[5] = {} };
-                if (req.body.colorGray != undefined) { productNew.colors[6] = { colorName: req.body.colorGray, colorCode: "#808080" } } else { productNew.colors[6] = {} };
-                if (req.body.colorPink != undefined) { productNew.colors[7] = { colorName: req.body.colorPink, colorCode: "#ffc0cb" } } else { productNew.colors[7] = {} };
-                if (req.body.colorBrown != undefined) { productNew.colors[8] = { colorName: req.body.colorBrown, colorCode: "#a52a2a" } } else { productNew.colors[8] = {} };
+                if (req.body.colorBlack != undefined) { productNew.colors.push({ colorName: req.body.colorBlack, colorCode: "#000000" }) };
 
-                console.log("DE createNEW ");
+                if (req.body.colorRed != undefined) { productNew.colors.push({ colorName: req.body.colorRed, colorCode: "#FF0000" })  };
+                if (req.body.colorBlue != undefined) { productNew.colors.push({ colorName: req.body.colorBlue, colorCode: "#0000FF" }) };
+                if (req.body.colorGreen != undefined) { productNew.colors.push({ colorName: req.body.colorGreen, colorCode: "#008000" }) };
+                if (req.body.colorWhite != undefined) { productNew.colors.push({ colorName: req.body.colorWhite, colorCode: "#ffffff" }) };
+                if (req.body.colorYellow != undefined) { productNew.colors.push({ colorName: req.body.colorYellow, colorCode: "#ffff00" }) };
+                if (req.body.colorGray != undefined) { productNew.colors.push({ colorName: req.body.colorGray, colorCode: "#808080" })  };
+                if (req.body.colorPink != undefined) { productNew.colors.push({ colorName: req.body.colorPink, colorCode: "#ffc0cb" }) };
+                if (req.body.colorBrown != undefined) { productNew.colors.push({ colorName: req.body.colorBrown, colorCode: "#a52a2a" }) };
+
                 console.log(productNew);
 
-                res.render('create', {
-                        title: 'Nuevo producto',
-                        productNew: productNew,
-                        lastId: maxId(),
-                        productsCategories: productsCategories
-                });
+                res.redirect('create');
         },
 
         edit: function (req, res, next) {

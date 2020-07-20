@@ -7,28 +7,31 @@
     <%- include('partials/header') %>
     <div class="create container">
         <div class="row">
+            <form class="w-100 d-flex flex-wrap justify-content-center align-items-start" action="/products/create"
+                method="POST" id="createForm">
             <div
                 class="firstColumn d-flex flex-wrap flex-column justify-content-start align-items-center col-12 col-md-8">
 
                 <!-- Data Block -->
                 <div class="dataBlock w-100 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-3 mt-4">
-                    <form class="w-100 d-flex flex-wrap justify-content-end align-items-center" action="/products/create" method="POST" id="">
+                    <div class="w-100 d-flex flex-wrap justify-content-end align-items-center">
+
                         <h5 class="w-100 text-center">Información del producto</h5>
                         <h5 class="w-100 text-start mb-1 p-0">ID: <%= lastId %></h5>
                         <div class="d-flex flex-wrap productName w-100 mt-2">
-                            <input class="w-100 border border-white rounded-lg p-1" type="text" name="productNewName" value=""
-                                placeholder="Nombre del producto:">
+                            <input class="w-100 border border-white rounded-lg p-1" type="text" name="productNewName"
+                                value="" placeholder="Nombre del producto:">
                         </div>
                         <div class="d-flex flex-wrap w-100">
 
-                            <select class="flex-grow-1 mt-2 p-0 border border-white rounded-lg mr-2" name="productNewCategory"
-                                id="typeSearchInput">
+                            <select class="flex-grow-1 mt-2 p-0 border border-white rounded-lg mr-2"
+                                name="productNewCategory" id="typeSearchInput">
                                 <% for (let i=0; i< productsCategories.length; i++) { %>
                                 <option value="<%= productsCategories[i] %>"><%= productsCategories[i] %></option>
                                 <% } %>
                             </select>
-                            <input class="w-25 mt-2 border border-white rounded-lg p-1" type="text" name="productNewPrice" value=""
-                                placeholder="Precio $" size="10">
+                            <input class="w-25 mt-2 border border-white rounded-lg p-1" type="text"
+                                name="productNewPrice" value="" placeholder="Precio $" size="10">
                         </div>
                         <input class="check mr-3 p-0" type="checkbox" name="typeAdd" id="typeAddCheck" value="typeAdd">
                         <input class="flex-grow-1 mt-2 p-1 border border-white rounded-lg mr-0" type="text"
@@ -36,73 +39,75 @@
 
                         <script>
                             document.getElementById('typeAddCheck').onchange = function () {
-                            document.getElementById('typeAddInput').disabled = !this.checked;
-                            document.getElementById('typeSearchInput').disabled = this.checked;
+                                document.getElementById('typeAddInput').disabled = !this.checked;
+                                document.getElementById('typeSearchInput').disabled = this.checked;
                             };
                         </script>
-                        
-                    </form>
+                    </div>
+
                 </div>
                 <!-- Data Block -->
 
                 <!-- Collapse Tamaños -->
                 <p class="w-100 shadow rounded-lg">
                     <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
-                        data-target="#collapseSize" aria-expanded="false" aria-controls="collapseSize"><i class="fas fa-chevron-down"></i> Tamaños <i class="fas fa-chevron-down"></i></button>
+                        data-target="#collapseSize" aria-expanded="false" aria-controls="collapseSize"><i
+                            class="fas fa-chevron-down"></i> Tamaños <i class="fas fa-chevron-down"></i></button>
                 </p>
                 <div class="collapse w-100 mb-3" id="collapseSize">
                     <div class="card card-body w-100">
                         <div class="size w-100 mb-2 p-2">
                             <div>
-                                <form action="/products/create" method="POST">
 
-                                    <div class="d-flex flex-wrap justify-content-between w-100">
-                                        <div class="check p-1 m-0 mb-1 text-center"><label for="XS">XS
-                                            </label><input class="check m-0" type="checkbox" name="xs" id="XS"
-                                                value="XS"></div>
-                                        <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+
+                                <div class="d-flex flex-wrap justify-content-between w-100">
+                                    <div class="check p-1 m-0 mb-1 text-center"><label for="XS">XS
+                                        </label><input class="check m-0" type="checkbox" name="xs" id="XS" value="XS">
+                                    </div>
+                                    <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm] ">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Altura [cm] "> -->
+                                </div>
+                                <div class="d-flex flex-wrap justify-content-between w-100">
+                                    <div class="check p-1 m-0 mb-1 text-center"><label for="S">S
+                                        </label><input class="check m-0" type="checkbox" name="s" id="S" value="S">
                                     </div>
-                                    <div class="d-flex flex-wrap justify-content-between w-100">
-                                        <div class="check p-1 m-0 mb-1 text-center"><label for="S">S
-                                            </label><input class="check m-0" type="checkbox" name="s" id="S"
-                                                value="S"></div>
-                                        <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                    <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm]">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Altura [cm]"> -->
+                                </div>
+                                <div class="d-flex flex-wrap justify-content-between w-100">
+                                    <div class="check p-1 m-0 mb-1 text-center"><label for="M">M
+                                        </label><input class="check m-0" type="checkbox" name="m" id="M" value="M">
                                     </div>
-                                    <div class="d-flex flex-wrap justify-content-between w-100">
-                                        <div class="check p-1 m-0 mb-1 text-center"><label for="M">M
-                                            </label><input class="check m-0" type="checkbox" name="m" id="M"
-                                                value="M"></div>
-                                        <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                    <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm]">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Altura [cm]"> -->
+                                </div>
+                                <div class="d-flex flex-wrap justify-content-between w-100">
+                                    <div class="check p-1 m-0 mb-1 text-center"><label for="L">L
+                                        </label><input class="check m-0" type="checkbox" name="l" id="L" value="L">
                                     </div>
-                                    <div class="d-flex flex-wrap justify-content-between w-100">
-                                        <div class="check p-1 m-0 mb-1 text-center"><label for="L">L
-                                            </label><input class="check m-0" type="checkbox" name="l" id="L"
-                                                value="L"></div>
-                                        <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                    <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm]">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Altura [cm]"> -->
+                                </div>
+                                <div class="d-flex flex-wrap justify-content-between w-100">
+                                    <div class="check p-1 text-center m-0 mb-1"><label for="XL">XL
+                                        </label><input class="check m-0" type="checkbox" name="xl" id="XL" value="XL">
                                     </div>
-                                    <div class="d-flex flex-wrap justify-content-between w-100">
-                                        <div class="check p-1 text-center m-0 mb-1"><label for="XL">XL
-                                            </label><input class="check m-0" type="checkbox" name="xl" id="XL"
-                                                value="XL"></div> 
-                                        <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                    <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm]">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Altura [cm]"> -->
-                                    </div>
-                                    <button class="btn btn-warning btn-sm btn-block mt-1" disabled>Agregar otro tamaño</button>
-                                </form>
+                                </div>
+                                <button class="btn btn-warning btn-sm btn-block mt-1" disabled>Agregar otro
+                                    tamaño</button>
+
                             </div>
                         </div>
                     </div>
@@ -112,13 +117,13 @@
                 <!-- Collapse Color -->
                 <p class="w-100 shadow rounded-lg">
                     <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
-                        data-target="#collapseColors" aria-expanded="false"
-                        aria-controls="collapseColors"><i class="fas fa-chevron-down"></i> Colores <i class="fas fa-chevron-down"></i></button>
+                        data-target="#collapseColors" aria-expanded="false" aria-controls="collapseColors"><i
+                            class="fas fa-chevron-down"></i> Colores <i class="fas fa-chevron-down"></i></button>
                 </p>
                 <div class="collapse w-100 mb-3" id="collapseColors">
                     <div class="card card-body w-100">
                         <div class="colors w-100 p-2">
-                            <form class="d-flex flex-wrap justify-content-around" action="/products/create" method="POST">
+                            <div class="d-flex flex-wrap justify-content-around">
                                 <div class="d-flex justify-content-between">
                                     <label for="black">Negro</label>
                                     <input type="checkbox" name="colorBlack" id="black" value="Negro">
@@ -147,7 +152,7 @@
                                     <label for="gray">Gris</label>
                                     <input type="checkbox" name="colorGray" id="gray" value="Gris">
                                 </div>
-                                
+
                                 <div class="d-flex justify-content-between">
                                     <label for="pink">Rosa</label>
                                     <input type="checkbox" name="colorPink" id="pink" value="Rosa">
@@ -156,10 +161,10 @@
                                     <label for="brown">Marrón</label>
                                     <input type="checkbox" name="colorBrown" id="brown" value="Marrón">
                                 </div>
-                            <button class="btn btn-warning btn-sm btn-block" disabled>Agregar otro color</button>
+                                <button class="btn btn-warning btn-sm btn-block" disabled>Agregar otro color</button>
 
-                            </form>
-                            
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -203,15 +208,16 @@
                 <!-- Collapse Description -->
                 <p class="w-100 shadow rounded-lg">
                     <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
-                        data-target="#collapseDescription" aria-expanded="false"
-                        aria-controls="collapseDescription"><i class="fas fa-chevron-down"></i> Descripción <i class="fas fa-chevron-down"></i></button>
+                        data-target="#collapseDescription" aria-expanded="false" aria-controls="collapseDescription"><i
+                            class="fas fa-chevron-down"></i> Descripción <i class="fas fa-chevron-down"></i></button>
                 </p>
                 <div class="collapse w-100 mb-3" id="collapseDescription">
                     <div class="card card-body w-100">
-                        <form class="d-flex flex-wrap justify-content-center" action="/products/create" method="POST">
-                            <input class="border border-white rounded-lg p-5 m-0 w-100" type="text" name="productNewDescription"
-                                placeholder="Descripción" value="">
-                        </form>
+                        <div class="d-flex flex-wrap justify-content-center">
+
+                            <input class="border border-white rounded-lg p-5 m-0 w-100" type="text"
+                                name="productNewDescription" placeholder="Descripción" value="">
+                        </div>
                     </div>
                 </div>
                 <!-- Collapse Description -->
@@ -270,8 +276,10 @@
                 </div>
             </div>
 
-            <button class="btn btn-warning btn-lg btn-block mt-3 shadow rounded-lg m-3" type="submit">Crear
+            <button class="btn btn-warning btn-lg btn-block mt-3 shadow rounded-lg m-3" type="submit"
+                form="createForm">Crear
                 producto</button>
+            </form>
         </div>
     </div>
     <%- include('partials/footer') %>
