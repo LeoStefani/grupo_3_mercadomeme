@@ -21,7 +21,7 @@ let maxId = function () {
                 };
         };
         return idAcumulator + 1;
-
+// TENER CUIDADO QUE NO ES EL MÁXIMO ID DE LOS PRODUCTOS ACTUALES, SINO EL SIGUIENTE LIBRE, DADO QUE ESTA PENSADO PARA LA CARGA DE PRODUCTOS NUEVOS
 };
 let productNew = { sizes: [], colors: [], others: []};
 
@@ -114,7 +114,7 @@ module.exports = {
 
         createNew: function (req, res, next) {
 
-                productNew.id = maxId();
+                productNew.id = req.body.lastId;
                 if (req.body.productNewName != undefined) { productNew.name = req.body.productNewName };
                 if (req.body.productNewDescription != undefined) { productNew.description = req.body.productNewDescription };
                 if (req.body.productNewCategory != undefined && req.body.typeAddInput == undefined) { productNew.category = req.body.productNewCategory };
@@ -140,9 +140,20 @@ module.exports = {
                 if (req.body.colorPink != undefined) { productNew.colors.push({ colorName: req.body.colorPink, colorCode: "#ffc0cb" }) };
                 if (req.body.colorBrown != undefined) { productNew.colors.push({ colorName: req.body.colorBrown, colorCode: "#a52a2a" }) };
 
+                console.log(products);
+
                 console.log(productNew);
 
-                res.redirect('create');
+                let productsAll = products.push(productNew);
+
+                console.log(productsAll);
+
+                let productsJSON = JSON.stringify(productsAll);
+
+
+                fs.writeFileSync(path.join(__dirname,'../data/products.json'), productsJSON, "utf-8");
+
+                res.redirect('/products/upload');
         },
 
         edit: function (req, res, next) {
