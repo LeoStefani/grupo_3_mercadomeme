@@ -73,7 +73,19 @@ module.exports = {
         },
 
        create: function (req, res, next) {
-                res.render('create', { title: 'Carga de productos' }); //SACAR EL TITLE DEL HEAD!!!!
+               
+        let productDetail;
+        for(let i = 0; i < products.length; i++) {
+                if(products[i].id == req.params.id) {
+                        productDetail = products[i];
+                };
+        };
+
+                res.render('create', {
+                        title: 'Nuevo producto',
+                        productDetail: productDetail,
+                        productsCategories: productsCategories
+                }); //SACAR EL TITLE DEL HEAD!!!!
         },
 
        edit: function (req, res, next) {
@@ -85,7 +97,7 @@ module.exports = {
                 };
         };
                 res.render('edit', {
-                        title: 'Carga de productos',
+                        title: 'Editar producto',
                         productDetail: productDetail,
                         productsCategories: productsCategories
                 }); //SACAR EL TITLE DEL HEAD!!!!
