@@ -16,20 +16,19 @@
                         <h5 class="w-100 text-center">Información del producto</h5>
                         <h5 class="w-100 text-start mb-1 p-0">ID: <%= lastId %></h5>
                         <div class="d-flex flex-wrap productName w-100 mt-2">
-                            <input class="w-100 border border-white rounded-lg p-1" type="text" name="productNewName" value="<%= productNew.name %>"
-                                placeholder="Nombre del producto: <%= productNew.name %>">
+                            <input class="w-100 border border-white rounded-lg p-1" type="text" name="productNewName" value=""
+                                placeholder="Nombre del producto:">
                         </div>
                         <div class="d-flex flex-wrap w-100">
 
                             <select class="flex-grow-1 mt-2 p-0 border border-white rounded-lg mr-2" name="productNewCategory"
                                 id="typeSearchInput">
-                                <option value="<%= productNew.category %>"><%= productNew.category %></option>
                                 <% for (let i=0; i< productsCategories.length; i++) { %>
                                 <option value="<%= productsCategories[i] %>"><%= productsCategories[i] %></option>
                                 <% } %>
                             </select>
-                            <input class="w-25 mt-2 border border-white rounded-lg p-1" type="text" name="productNewPrice" value="<%= productNew.price %>"
-                                placeholder="Precio $: <%= productNew.price %>" size="10">
+                            <input class="w-25 mt-2 border border-white rounded-lg p-1" type="text" name="productNewPrice" value=""
+                                placeholder="Precio $" size="10">
                         </div>
                         <input class="check mr-3 p-0" type="checkbox" name="typeAdd" id="typeAddCheck" value="typeAdd">
                         <input class="flex-grow-1 mt-2 p-1 border border-white rounded-lg mr-0" type="text"
@@ -38,10 +37,9 @@
                         <script>
                             document.getElementById('typeAddCheck').onchange = function () {
                             document.getElementById('typeAddInput').disabled = !this.checked;
+                            document.getElementById('typeSearchInput').disabled = this.checked;
                             };
                         </script>
-                        
-                        <button class="w-100 btn btn-warning btn-sm btn-block mt-3 shadow rounded-lg m-0" type="submit">Cargar datos</button>
                         
                     </form>
                 </div>
@@ -61,50 +59,49 @@
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 m-0 mb-1 text-center"><label for="XS">XS
                                             </label><input class="check m-0" type="checkbox" name="xs" id="XS"
-                                                value="XS" <%= productNew.sizes[0].tag == "XS" ? "checked" : "" %> ></div>
-                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                                value="XS"></div>
+                                        <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm] ">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
-                                            id="" placeholder="Altura [cm] ">
+                                            id="" placeholder="Altura [cm] "> -->
                                     </div>
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 m-0 mb-1 text-center"><label for="S">S
                                             </label><input class="check m-0" type="checkbox" name="s" id="S"
-                                                value="S" <%= productNew.sizes[1].tag == "S" ? "checked" : "" %>  ></div>
-                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                                value="S"></div>
+                                        <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm]">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
-                                            id="" placeholder="Altura [cm]">
+                                            id="" placeholder="Altura [cm]"> -->
                                     </div>
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 m-0 mb-1 text-center"><label for="M">M
                                             </label><input class="check m-0" type="checkbox" name="m" id="M"
-                                                value="M" <%= productNew.sizes[2].tag == "M" ? "checked" : "" %>></div>
-                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                                value="M"></div>
+                                        <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm]">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
-                                            id="" placeholder="Altura [cm]">
+                                            id="" placeholder="Altura [cm]"> -->
                                     </div>
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 m-0 mb-1 text-center"><label for="L">L
                                             </label><input class="check m-0" type="checkbox" name="l" id="L"
-                                                value="L" <%= productNew.sizes[3].tag == "L" ? "checked" : "" %>></div>
-                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                                value="L"></div>
+                                        <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm]">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
-                                            id="" placeholder="Altura [cm]">
+                                            id="" placeholder="Altura [cm]"> -->
                                     </div>
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 text-center m-0 mb-1"><label for="XL">XL
                                             </label><input class="check m-0" type="checkbox" name="xl" id="XL"
-                                                value="XL" <%= productNew.sizes[4].tag == "XL" ? "checked" : "" %> ></div> 
-                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                                value="XL"></div> 
+                                        <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm]">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
-                                            id="" placeholder="Altura [cm]">
+                                            id="" placeholder="Altura [cm]"> -->
                                     </div>
-                                    <button class="btn btn-warning btn-sm btn-block mt-1">Agregar otro tamaño</button>
-                                    <button class="btn btn-warning btn-sm btn-block mt-3 shadow rounded-lg m-0" type="submit">Confirmar tamaños</button>
+                                    <button class="btn btn-warning btn-sm btn-block mt-1" disabled>Agregar otro tamaño</button>
                                 </form>
                             </div>
                         </div>
@@ -124,43 +121,43 @@
                             <form class="d-flex flex-wrap justify-content-around" action="/products/create" method="POST">
                                 <div class="d-flex justify-content-between">
                                     <label for="black">Negro</label>
-                                    <input type="checkbox" name="colorBlack" id="black" value="Negro" <%= productNew.colors[0].colorName === "Negro" ? "checked" : "" %>>
+                                    <input type="checkbox" name="colorBlack" id="black" value="Negro">
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <label for="red">Rojo</label>
-                                    <input type="checkbox" name="colorRed" id="red" value="Rojo" <%= productNew.colors[1].colorName === "Rojo" ? "checked" : "" %>>
+                                    <input type="checkbox" name="colorRed" id="red" value="Rojo">
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <label for="blue">Azul</label>
-                                    <input type="checkbox" name="colorBlue" id="blue" value="Azul" <%= productNew.colors[2].colorName === "Azul" ? "checked" : "" %>>
+                                    <input type="checkbox" name="colorBlue" id="blue" value="Azul">
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <label for="green">Verde</label>
-                                    <input type="checkbox" name="colorGreen" id="green" value="Verde" <%= productNew.colors[3].colorName === "Verde" ? "checked" : "" %>>
+                                    <input type="checkbox" name="colorGreen" id="green" value="Verde">
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <label for="white">Blanco</label>
-                                    <input type="checkbox" name="colorWhite" id="white" value="Blanco" <%= productNew.colors[4].colorName === "Blanco" ? "checked" : "" %>>
+                                    <input type="checkbox" name="colorWhite" id="white" value="Blanco">
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <label for="yellow">Amarillo</label>
-                                    <input type="checkbox" name="colorYellow" id="yellow" value="Amarillo" <%= productNew.colors[5].colorName === "Amarillo" ? "checked" : "" %>>
+                                    <input type="checkbox" name="colorYellow" id="yellow" value="Amarillo">
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <label for="gray">Gris</label>
-                                    <input type="checkbox" name="colorGray" id="gray" value="Gris" <%= productNew.colors[6].colorName === "Gris" ? "checked" : "" %>>
+                                    <input type="checkbox" name="colorGray" id="gray" value="Gris">
                                 </div>
                                 
                                 <div class="d-flex justify-content-between">
                                     <label for="pink">Rosa</label>
-                                    <input type="checkbox" name="colorPink" id="pink" value="Rosa" <%= productNew.colors[7].colorName === "Rosa" ? "checked" : "" %>>
+                                    <input type="checkbox" name="colorPink" id="pink" value="Rosa">
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <label for="brown">Marrón</label>
-                                    <input type="checkbox" name="colorBrown" id="brown" value="Marrón" <%= productNew.colors[8].colorName === "Marrón" ? "checked" : "" %>>
+                                    <input type="checkbox" name="colorBrown" id="brown" value="Marrón">
                                 </div>
-                            <button class="btn btn-warning btn-sm btn-block">Agregar otro color</button>
-                            <button class="btn btn-warning btn-sm btn-block mt-3 shadow rounded-lg m-0" type="submit">Confirmar colores</button>
+                            <button class="btn btn-warning btn-sm btn-block" disabled>Agregar otro color</button>
+
                             </form>
                             
                         </div>
@@ -169,7 +166,7 @@
                 <!-- Collapse Color -->
 
                 <!-- Collapse OtherParameters -->
-                <p class="w-100 shadow rounded-lg">
+                <!-- <p class="w-100 shadow rounded-lg">
                     <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
                         data-target="#collapseOtherParameters" aria-expanded="false"
                         aria-controls="collapseOtherParameters"><i class="fas fa-chevron-down"></i> Otros Parámetros <i class="fas fa-chevron-down"></i></button>
@@ -200,7 +197,7 @@
                             
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- Collapse OtherParameters -->
 
                 <!-- Collapse Description -->
@@ -213,8 +210,7 @@
                     <div class="card card-body w-100">
                         <form class="d-flex flex-wrap justify-content-center" action="/products/create" method="POST">
                             <input class="border border-white rounded-lg p-5 m-0 w-100" type="text" name="productNewDescription"
-                                placeholder="Descripción: <%= productNew.description %>" value="<%= productNew.description %>">
-                        <button class="btn btn-warning btn-sm btn-block mt-3 shadow rounded-lg m-0" type="submit">Confirmar descripción</button>
+                                placeholder="Descripción" value="">
                         </form>
                     </div>
                 </div>
