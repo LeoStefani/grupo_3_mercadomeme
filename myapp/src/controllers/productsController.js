@@ -184,7 +184,14 @@ module.exports = {
         },
 
         delete: function (req, res, next) {
-                // aqui va todo el proceso de delete por metodo delete 
+
+                products = products.filter(function(element) {
+                        return element.id != req.params.id
+                });
+
+                let productsJSON = JSON.stringify(products);
+
+                fs.writeFileSync(path.join(__dirname,'../data/products.json'), productsJSON);
 
                 res.redirect('/products/upload');
         }
