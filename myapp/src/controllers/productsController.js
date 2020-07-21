@@ -23,7 +23,7 @@ let maxId = function () {
         return idAcumulator + 1;
 // TENER CUIDADO QUE NO ES EL MÁXIMO ID DE LOS PRODUCTOS ACTUALES, SINO EL SIGUIENTE LIBRE, DADO QUE ESTA PENSADO PARA LA CARGA DE PRODUCTOS NUEVOS
 };
-let productNew = { sizes: [], colors: [], others: []};
+let productNew = { sizes: [], colors: [], others: [], qtySold: 0};
 
 
 module.exports = {
