@@ -23,11 +23,11 @@ let maxId = function () {
                 };
         };
         return idAcumulator + 1;
-// TENER CUIDADO QUE NO ES EL MÁXIMO ID DE LOS PRODUCTOS ACTUALES, SINO EL SIGUIENTE LIBRE, DADO QUE ESTA PENSADO PARA LA CARGA DE PRODUCTOS NUEVOS
+        // TENER CUIDADO QUE NO ES EL MÁXIMO ID DE LOS PRODUCTOS ACTUALES, SINO EL SIGUIENTE LIBRE, DADO QUE ESTA PENSADO PARA LA CARGA DE PRODUCTOS NUEVOS
 };
 
 
-let productNew = { sizes: [], colors: [], others: [], qtySold: 0};
+let productNew = { sizes: [], colors: [], others: [], qtySold: 0 };
 
 module.exports = {
         productsIndex: function (req, res, next) {
@@ -90,7 +90,7 @@ module.exports = {
         },
 
         create: function (req, res, next) {
-                
+
                 res.render('create', {
                         title: 'Nuevo producto',
                         lastId: maxId(),
@@ -115,10 +115,8 @@ module.exports = {
                                 break;
                         };
                 };
-                
-                productNew.image = "iconoImagenBordesIguales.png";
 
-                console.log(req.body.sizeXsValue);
+                productNew.image = "iconoImagenBordesIguales.png";
 
                 // si existen dichos campos, pego en productNew - Tamaños
                 if (req.body.xs != undefined && req.body.sizeXsValue != "") { productNew.sizes.push({ tag: req.body.xs, size: req.body.sizeXsValue, unit: unitNew }) };
@@ -128,12 +126,12 @@ module.exports = {
                 if (req.body.xl != undefined && req.body.sizeXlValue != "") { productNew.sizes.push({ tag: req.body.xl, size: req.body.sizeXlValue, unit: unitNew }) };
                 // Colores 
                 if (req.body.colorBlack != undefined) { productNew.colors.push({ colorName: req.body.colorBlack, colorCode: "#000000" }) };
-                if (req.body.colorRed != undefined) { productNew.colors.push({ colorName: req.body.colorRed, colorCode: "#FF0000" })  };
+                if (req.body.colorRed != undefined) { productNew.colors.push({ colorName: req.body.colorRed, colorCode: "#FF0000" }) };
                 if (req.body.colorBlue != undefined) { productNew.colors.push({ colorName: req.body.colorBlue, colorCode: "#0000FF" }) };
                 if (req.body.colorGreen != undefined) { productNew.colors.push({ colorName: req.body.colorGreen, colorCode: "#008000" }) };
                 if (req.body.colorWhite != undefined) { productNew.colors.push({ colorName: req.body.colorWhite, colorCode: "#ffffff" }) };
                 if (req.body.colorYellow != undefined) { productNew.colors.push({ colorName: req.body.colorYellow, colorCode: "#ffff00" }) };
-                if (req.body.colorGray != undefined) { productNew.colors.push({ colorName: req.body.colorGray, colorCode: "#808080" })  };
+                if (req.body.colorGray != undefined) { productNew.colors.push({ colorName: req.body.colorGray, colorCode: "#808080" }) };
                 if (req.body.colorPink != undefined) { productNew.colors.push({ colorName: req.body.colorPink, colorCode: "#ffc0cb" }) };
                 if (req.body.colorBrown != undefined) { productNew.colors.push({ colorName: req.body.colorBrown, colorCode: "#a52a2a" }) };
 
@@ -141,7 +139,7 @@ module.exports = {
 
                 let productsJSON = JSON.stringify(products);
 
-                fs.writeFileSync(path.join(__dirname,'../data/products.json'), productsJSON);
+                fs.writeFileSync(path.join(__dirname, '../data/products.json'), productsJSON);
 
                 res.redirect('/products/upload');
         },
@@ -177,13 +175,13 @@ module.exports = {
 
         delete: function (req, res, next) {
 
-                products = products.filter(function(element) {
+                products = products.filter(function (element) {
                         return element.id != req.params.id
                 });
 
                 let productsJSON = JSON.stringify(products);
 
-                fs.writeFileSync(path.join(__dirname,'../data/products.json'), productsJSON);
+                fs.writeFileSync(path.join(__dirname, '../data/products.json'), productsJSON);
 
                 res.redirect('/products/upload');
         }
