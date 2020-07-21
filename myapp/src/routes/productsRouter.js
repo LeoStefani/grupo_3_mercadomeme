@@ -10,12 +10,12 @@ router.get('/upload/:id?', productsController.upload);
 
 
 router.get('/create', productsController.create);
-router.get('/edit/:id', productsController.edit);
+router.get('/edit/:id', productsController.editViewer);
 router.get('/delete/:id', productsController.deleteViewer);
 // router.post('/create', productsController.upload);
 
 router.post('/create', productsController.createNew);
-router.put('/edit/:id', productsController.create);
+router.put('/edit/:id', productsController.edit);
 router.delete('/delete/:id', productsController.delete);
 
 // Product details 

@@ -20,26 +20,28 @@
                             <h5 class="w-100 text-center">Información del producto: "<%= productDetail.category %> -
                                 <%= productDetail.name %>"</h5>
                             <h5 class="w-100 text-start mb-1 p-0">ID: <%= productDetail.id %></h5>
+                            <input class="w-100 border border-white rounded-lg p-1 d-none" type="text"
+                                    name="productEditId" value="<%= productDetail.id %>">
                             <div class="d-flex flex-wrap productName w-100 mt-2">
                                 <input class="w-100 border border-white rounded-lg p-1" type="text"
                                     name="productEditName" value="<%= productDetail.name %>"
                                     placeholder="<%= productDetail.name %>">
                             </div>
                             <div class="d-flex flex-wrap w-100">
-                                <select class="flex-grow-1 mt-2 p-0 border border-white rounded-lg mr-2" name="category"
+                                <select class="flex-grow-1 mt-2 p-0 border border-white rounded-lg mr-2" name="productEditCategory"
                                     id="typeSearchInput">
-                                    <option value="<%= productDetail.name %>"><%= productDetail.category %></option>
+                                    <option value="<%= productDetail.category %>"><%= productDetail.category %></option>
                                     <% for (let i=0; i< productsCategories.length; i++) { %>
                                     <option value="<%= productsCategories[i] %>"><%= productsCategories[i] %></option>
                                     <% } %>
                                 </select>
                                 <input class="w-25 mt-2 border border-white rounded-lg p-1" type="text"
-                                    name="productNewPrice" value="<%= productDetail.price %>" placeholder="$ <%= productDetail.price %>" size="10">
+                                    name="productEditPrice" value="<%= productDetail.price %>" placeholder="$ <%= productDetail.price %>" size="10">
                             </div>
                             <input class="check mr-3 p-0" type="checkbox" name="typeAdd" id="typeAddCheck"
                                 value="typeAdd">
                             <input class="flex-grow-1 mt-2 p-1 border border-white rounded-lg mr-0" type="text"
-                                name="typeAddInput" placeholder="Escriba la nueva categoría" id="typeAddInput" disabled>
+                                name="productEditCategoryAlternative" placeholder="Escriba la nueva categoría" id="typeAddInput" disabled>
 
                             <script>
                                 document.getElementById('typeAddCheck').onchange = function () {
@@ -311,7 +313,7 @@
                             <div class="d-flex flex-wrap justify-content-center">
 
                                 <input class="border border-white rounded-lg p-5 m-0 w-100" type="text"
-                                    name="productNewDescription" placeholder="Descripción: <%= productDetail.description %>" value="<%= productDetail.description %>">
+                                    name="productEditDescription" placeholder="Descripción: <%= productDetail.description %>" value="<%= productDetail.description %>">
                             </div>
                         </div>
                     </div>
@@ -372,7 +374,7 @@
                 </div>
 
                 <button class="btn btn-warning btn-lg btn-block mt-3 shadow rounded-lg m-3" type="submit"
-                    form="editForm">Crear
+                    form="editForm">Confirmar edición de
                     producto</button>
             </form>
         </div>

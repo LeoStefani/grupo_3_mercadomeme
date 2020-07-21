@@ -154,7 +154,7 @@ module.exports = {
                 res.redirect('/products/upload');
         },
 
-        edit: function (req, res, next) {
+        editViewer: function (req, res, next) {
 
                 let productDetail;
                 for (let i = 0; i < products.length; i++) {
@@ -166,7 +166,64 @@ module.exports = {
                         title: 'Editar producto',
                         productDetail: productDetail,
                         productsCategories: productsCategories
-                }); //SACAR EL TITLE DEL HEAD!!!!
+                }); 
+        },
+
+        edit: function (req, res, next) {
+
+
+// indexOf seria mas elegante y seguramente aplique!
+
+                function findIndex () { 
+                        let Index;
+                        for (let i=0; i< products.length; i++) {
+                                if (products[i].id == req.body.productEditId) {
+                                Index = i;
+                                };
+                        }; return Index
+                };
+
+// indexOf seria mas elegante y seguramente aplique!
+
+                let indexToEdit = findIndex();
+
+                products[indexToEdit].id = req.body.productEditId;
+                products[indexToEdit].name = req.body.productEditName;
+                products[indexToEdit].description = req.body.productEditDescription;
+
+                if (req.body.productEditCategoryAlternative != undefined) {
+                        products[indexToEdit].category = req.body.productEditCategoryAlternative;
+                } else {
+                products[indexToEdit].category = req.body.productEditCategory;}
+
+                products[indexToEdit].price = req.body.productEditPrice;
+                products[indexToEdit].image = "iconoImagenBordesIguales.png";
+
+                products[indexToEdit].sizes = [];
+                products[indexToEdit].colors = [];
+                products[indexToEdit].others = [];
+
+                if (req.body.xs != undefined) { products[indexToEdit].sizes.push({ tag: req.body.xs, size: 150, unit: "ml" }) };
+                if (req.body.s != undefined) { products[indexToEdit].sizes.push({ tag: req.body.s, size: 200, unit: "ml" }) };
+                if (req.body.m != undefined) { products[indexToEdit].sizes.push({ tag: req.body.m, size: 300, unit: "ml" }) };
+                if (req.body.l != undefined) { products[indexToEdit].sizes.push({ tag: req.body.l, size: 500, unit: "ml" }) };
+                if (req.body.xl != undefined) { products[indexToEdit].sizes.push({ tag: req.body.xl, size: 700, unit: "ml" }) };
+
+                if (req.body.colorBlack != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorBlack, colorCode: "#000000" }) };
+                if (req.body.colorRed != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorRed, colorCode: "#FF0000" })  };
+                if (req.body.colorBlue != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorBlue, colorCode: "#0000FF" }) };
+                if (req.body.colorGreen != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorGreen, colorCode: "#008000" }) };
+                if (req.body.colorWhite != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorWhite, colorCode: "#ffffff" }) };
+                if (req.body.colorYellow != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorYellow, colorCode: "#ffff00" }) };
+                if (req.body.colorGray != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorGray, colorCode: "#808080" })  };
+                if (req.body.colorPink != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorPink, colorCode: "#ffc0cb" }) };
+                if (req.body.colorBrown != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorBrown, colorCode: "#a52a2a" }) };
+
+                let productsJSON = JSON.stringify(products);
+
+                fs.writeFileSync(path.join(__dirname,'../data/products.json'), productsJSON);
+
+                res.redirect('/products/upload');
         },
 
         deleteViewer: function (req, res, next) {
