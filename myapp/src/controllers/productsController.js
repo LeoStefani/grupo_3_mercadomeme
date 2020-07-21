@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { create } = require('domain');
 
 
 let products = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/products.json'), 'utf-8'));
@@ -12,6 +13,7 @@ for (let i = 0; i < products.length; i++) {
         };
 };
 
+// Esta funcion es utilizada en create, para devolver el ID siguiente al maximo id del JSON productos 
 let maxId = function () {
 
         idAcumulator = 0;
@@ -23,8 +25,9 @@ let maxId = function () {
         return idAcumulator + 1;
 // TENER CUIDADO QUE NO ES EL MÁXIMO ID DE LOS PRODUCTOS ACTUALES, SINO EL SIGUIENTE LIBRE, DADO QUE ESTA PENSADO PARA LA CARGA DE PRODUCTOS NUEVOS
 };
-let productNew = { sizes: [], colors: [], others: [], qtySold: 0};
 
+
+let productNew = { sizes: [], colors: [], others: [], qtySold: 0};
 
 module.exports = {
         productsIndex: function (req, res, next) {
@@ -68,7 +71,7 @@ module.exports = {
 
                 let productsSearch = [];
 
-                console.log(req.query.nameOfProduct)
+                // console.log(req.query.nameOfProduct)
 
                 //        Aca la idea es lograr que si llega ID, se muestre solo ID. Si llega name, se muestre solo el name, y si llega category, que se muestren todos los de esa category
                 for (let i = 0; i < products.length; i++) {
@@ -88,27 +91,10 @@ module.exports = {
 
         create: function (req, res, next) {
                 
-                
-
-                let productDetail;
-                for (let i = 0; i < products.length; i++) {
-                        if (products[i].id == req.params.id) {
-                                productDetail = products[i];
-                        };
-                };
-
-                console.log("DE create ");
-                console.log(productNew);
-
-
-
                 res.render('create', {
                         title: 'Nuevo producto',
                         lastId: maxId(),
                         productsCategories: productsCategories,
-                        productNew: productNew,
-                        productDetail: productDetail,
-
                 }); //SACAR EL TITLE DEL HEAD!!!!
         },
 
@@ -120,17 +106,26 @@ module.exports = {
                 if (req.body.productNewCategory != undefined && req.body.typeAddInput == undefined) { productNew.category = req.body.productNewCategory };
                 if (req.body.productNewCategory != undefined && req.body.typeAddInput != undefined) { productNew.category = req.body.typeAddInput };
                 if (req.body.productNewPrice != undefined) { productNew.price = req.body.productNewPrice };
+
+                // busco unidad de medida segun la categoria ingresada
+                let unitNew;
+                for (let i = 0; i < products.length; i++) {
+                        if (products[i].category == req.body.productNewCategory) {
+                                unitNew = products[i].sizes[0].unit;
+                                break;
+                        };
+                };
                 
                 productNew.image = "iconoImagenBordesIguales.png";
 
-                if (req.body.xs != undefined) { productNew.sizes.push({ tag: req.body.xs, size: 150, unit: "ml" }) };
-                if (req.body.s != undefined) { productNew.sizes.push({ tag: req.body.s, size: 200, unit: "ml" }) };
-                if (req.body.m != undefined) { productNew.sizes.push({ tag: req.body.m, size: 300, unit: "ml" }) };
-                if (req.body.l != undefined) { productNew.sizes.push({ tag: req.body.l, size: 500, unit: "ml" }) };
-                if (req.body.xl != undefined) { productNew.sizes.push({ tag: req.body.xl, size: 700, unit: "ml" }) };
-
+                // si existen dichos campos, pego en productNew - Tamaños
+                if (req.body.xs != undefined && req.body.sizeXsValue != "") { productNew.sizes.push({ tag: req.body.xs, size: req.body.sizeXsValue, unit: unitNew }) };
+                if (req.body.s != undefined && req.body.sizeSValue != "") { productNew.sizes.push({ tag: req.body.s, size: req.body.sizeSValue, unit: unitNew }) };
+                if (req.body.m != undefined && req.body.sizeMValue != "") { productNew.sizes.push({ tag: req.body.m, size: req.body.sizeMValue, unit: unitNew }) };
+                if (req.body.l != undefined && req.body.sizeLValue != "") { productNew.sizes.push({ tag: req.body.l, size: req.body.sizeLValue, unit: unitNew }) };
+                if (req.body.xl != undefined && req.body.sizeXlValue != "") { productNew.sizes.push({ tag: req.body.xl, size: req.body.sizeXlValue, unit: unitNew }) };
+                // Colores 
                 if (req.body.colorBlack != undefined) { productNew.colors.push({ colorName: req.body.colorBlack, colorCode: "#000000" }) };
-
                 if (req.body.colorRed != undefined) { productNew.colors.push({ colorName: req.body.colorRed, colorCode: "#FF0000" })  };
                 if (req.body.colorBlue != undefined) { productNew.colors.push({ colorName: req.body.colorBlue, colorCode: "#0000FF" }) };
                 if (req.body.colorGreen != undefined) { productNew.colors.push({ colorName: req.body.colorGreen, colorCode: "#008000" }) };
@@ -140,14 +135,9 @@ module.exports = {
                 if (req.body.colorPink != undefined) { productNew.colors.push({ colorName: req.body.colorPink, colorCode: "#ffc0cb" }) };
                 if (req.body.colorBrown != undefined) { productNew.colors.push({ colorName: req.body.colorBrown, colorCode: "#a52a2a" }) };
 
-                console.log(productNew);
-
-                console.log(products);
-
                 products.push(productNew);
 
                 let productsJSON = JSON.stringify(products);
-
 
                 fs.writeFileSync(path.join(__dirname,'../data/products.json'), productsJSON);
 

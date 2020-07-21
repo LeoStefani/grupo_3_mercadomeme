@@ -59,20 +59,23 @@
                         <div class="size w-100 mb-2 p-2">
                             <div>
 
+                                <h6 class="text-center font-italic text-secondary mb-2">Taza [ml] / Mochila [lt] / Remera [cm] / Gorra [cm]</h6>
 
                                 <div class="d-flex flex-wrap justify-content-between w-100">
                                     <div class="check p-1 m-0 mb-1 text-center"><label for="XS">XS
-                                        </label><input class="check m-0" type="checkbox" name="xs" id="XS" value="XS">
+                                        </label><input class="check m-0 ml-1" type="checkbox" name="xs" id="XS" value="XS">
                                     </div>
-                                    <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
-                                            id="" placeholder="Ancho [cm] ">
-                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
+                                    <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name="sizeXsValue"
+                                            id="" placeholder="ml / lt / cm">
+                                        <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Altura [cm] "> -->
                                 </div>
                                 <div class="d-flex flex-wrap justify-content-between w-100">
                                     <div class="check p-1 m-0 mb-1 text-center"><label for="S">S
-                                        </label><input class="check m-0" type="checkbox" name="s" id="S" value="S">
+                                        </label><input class="check m-0 ml-1" type="checkbox" name="s" id="S" value="S">
                                     </div>
+                                    <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name="sizeSValue"
+                                            id="" placeholder="ml / lt / cm">
                                     <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm]">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
@@ -80,8 +83,10 @@
                                 </div>
                                 <div class="d-flex flex-wrap justify-content-between w-100">
                                     <div class="check p-1 m-0 mb-1 text-center"><label for="M">M
-                                        </label><input class="check m-0" type="checkbox" name="m" id="M" value="M">
+                                        </label><input class="check m-0 ml-1" type="checkbox" name="m" id="M" value="M">
                                     </div>
+                                    <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name="sizeMValue"
+                                            id="" placeholder="ml / lt / cm">
                                     <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm]">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
@@ -89,8 +94,10 @@
                                 </div>
                                 <div class="d-flex flex-wrap justify-content-between w-100">
                                     <div class="check p-1 m-0 mb-1 text-center"><label for="L">L
-                                        </label><input class="check m-0" type="checkbox" name="l" id="L" value="L">
+                                        </label><input class="check m-0 ml-1" type="checkbox" name="l" id="L" value="L">
                                     </div>
+                                    <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name="sizeLValue"
+                                            id="" placeholder="ml / lt / cm">
                                     <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm]">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
@@ -98,8 +105,10 @@
                                 </div>
                                 <div class="d-flex flex-wrap justify-content-between w-100">
                                     <div class="check p-1 text-center m-0 mb-1"><label for="XL">XL
-                                        </label><input class="check m-0" type="checkbox" name="xl" id="XL" value="XL">
+                                        </label><input class="check m-0 ml-1" type="checkbox" name="xl" id="XL" value="XL">
                                     </div>
+                                    <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name="sizeXlValue"
+                                            id="" placeholder="ml / lt / cm">
                                     <!-- <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
                                             id="" placeholder="Ancho [cm]">
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" type="text" name=""
@@ -126,40 +135,40 @@
                             <div class="d-flex flex-wrap justify-content-around">
                                 <div class="d-flex justify-content-between">
                                     <label for="black">Negro</label>
-                                    <input type="checkbox" name="colorBlack" id="black" value="Negro">
+                                    <input class="ml-1" type="checkbox" name="colorBlack" id="black" value="Negro">
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <label for="red">Rojo</label>
-                                    <input type="checkbox" name="colorRed" id="red" value="Rojo">
+                                    <input class="ml-1" type="checkbox" name="colorRed" id="red" value="Rojo">
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <label for="blue">Azul</label>
-                                    <input type="checkbox" name="colorBlue" id="blue" value="Azul">
+                                    <input class="ml-1" type="checkbox" name="colorBlue" id="blue" value="Azul">
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <label for="green">Verde</label>
-                                    <input type="checkbox" name="colorGreen" id="green" value="Verde">
+                                    <input class="ml-1" type="checkbox" name="colorGreen" id="green" value="Verde">
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <label for="white">Blanco</label>
-                                    <input type="checkbox" name="colorWhite" id="white" value="Blanco">
+                                    <input class="ml-1" type="checkbox" name="colorWhite" id="white" value="Blanco">
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <label for="yellow">Amarillo</label>
-                                    <input type="checkbox" name="colorYellow" id="yellow" value="Amarillo">
+                                    <input class="ml-1" type="checkbox" name="colorYellow" id="yellow" value="Amarillo">
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <label for="gray">Gris</label>
-                                    <input type="checkbox" name="colorGray" id="gray" value="Gris">
+                                    <input class="ml-1" type="checkbox" name="colorGray" id="gray" value="Gris">
                                 </div>
 
                                 <div class="d-flex justify-content-between">
                                     <label for="pink">Rosa</label>
-                                    <input type="checkbox" name="colorPink" id="pink" value="Rosa">
+                                    <input class="ml-1" type="checkbox" name="colorPink" id="pink" value="Rosa">
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <label for="brown">Marrón</label>
-                                    <input type="checkbox" name="colorBrown" id="brown" value="Marrón">
+                                    <input class="ml-1" type="checkbox" name="colorBrown" id="brown" value="Marrón">
                                 </div>
                                 <button class="btn btn-warning btn-sm btn-block" disabled>Agregar otro color</button>
 
