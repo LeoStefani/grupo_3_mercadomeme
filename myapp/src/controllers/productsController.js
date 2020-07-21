@@ -114,7 +114,7 @@ module.exports = {
 
         createNew: function (req, res, next) {
 
-                productNew.id = req.body.lastId;
+                productNew.id = maxId();
                 if (req.body.productNewName != undefined) { productNew.name = req.body.productNewName };
                 if (req.body.productNewDescription != undefined) { productNew.description = req.body.productNewDescription };
                 if (req.body.productNewCategory != undefined && req.body.typeAddInput == undefined) { productNew.category = req.body.productNewCategory };
@@ -140,18 +140,16 @@ module.exports = {
                 if (req.body.colorPink != undefined) { productNew.colors.push({ colorName: req.body.colorPink, colorCode: "#ffc0cb" }) };
                 if (req.body.colorBrown != undefined) { productNew.colors.push({ colorName: req.body.colorBrown, colorCode: "#a52a2a" }) };
 
-                console.log(products);
-
                 console.log(productNew);
 
-                let productsAll = products.push(productNew);
+                console.log(products);
 
-                console.log(productsAll);
+                products.push(productNew);
 
-                let productsJSON = JSON.stringify(productsAll);
+                let productsJSON = JSON.stringify(products);
 
 
-                fs.writeFileSync(path.join(__dirname,'../data/products.json'), productsJSON, "utf-8");
+                fs.writeFileSync(path.join(__dirname,'../data/products.json'), productsJSON);
 
                 res.redirect('/products/upload');
         },
