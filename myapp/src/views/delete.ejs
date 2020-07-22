@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+
+
+<body>
+        <%- include('partials/header') %>
+        <div class="delete container">
+                <div class="row">
+                        <form class="w-100 d-flex flex-wrap align-items-start" id="deleteForm" action="/products/delete/<%= productToDelete.id %>?_method=DELETE" method="POST">
+                                <div
+                                        class="firstColumn d-flex flex-wrap flex-column justify-content-start align-items-center col-12 col-md-8">
+
+                                        <!-- Data Block -->
+                                        <div
+                                                class="dataBlock w-100 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-3 mt-4">
+                                                <div class="w-100 d-flex flex-wrap justify-content-end align-items-center">
+                                                        <h5 class="w-100 text-center">Información del producto que estás eliminando</h5>
+                                                        <div class="card card-body w-100">
+                                                                <div class="colors w-100 p-2">
+                                                                        <h6 class="w-100 text-start mb-1 p-0">ID: <%= productToDelete.id %></h6>
+                                                                        <h6 class="w-100 text-start mb-1 p-0">Nombre: <%= productToDelete.name %></h6>
+                                                                        <h6 class="w-100 text-start mb-1 p-0">Categoría: <%= productToDelete.category %></h6>
+                                                                        <h6 class="w-100 text-start mb-1 p-0">Precio: $<%= productToDelete.price %></h6>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <!-- Data Block -->
+
+                                        <!-- Collapse Tamaños -->
+                                        <p class="w-100 shadow rounded-lg">
+                                                <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
+                                                        data-target="#collapseSize" aria-expanded="false"
+                                                        aria-controls="collapseSize"><i class="fas fa-chevron-down"></i> Tamaños
+                                                        <i class="fas fa-chevron-down"></i></button>
+                                        </p>
+                                        <div class="collapse w-100 mb-3" id="collapseSize">
+                                                <div class="card card-body w-100">
+                                                        <div class="size w-100 mb-2 p-2">
+                                                                <div>
+                                                                        <div class="col-12 d-flex flex-column">
+                                                                                <h5 class="mt-1">Tamaños: </h5>
+                                                                                <% for(let i=0; i < productToDelete.sizes.length; i++) { %>
+                                                                                <h6><%= productToDelete.sizes[i].tag %>:
+                                                                                        <%= productToDelete.sizes[i].size %>
+                                                                                        <%= productToDelete.sizes[i].unit %>
+                                                                                </h6>
+                                                                                <% } %>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <!-- Collapse Tamaños -->
+
+                                        <!-- Collapse Color -->
+                                        <p class="w-100 shadow rounded-lg">
+                                                <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
+                                                        data-target="#collapseColors" aria-expanded="false"
+                                                        aria-controls="collapseColors"><i class="fas fa-chevron-down"></i>
+                                                        Colores <i class="fas fa-chevron-down"></i></button>
+                                        </p>
+                                        <div class="collapse w-100 mb-3" id="collapseColors">
+                                                <div class="card card-body w-100">
+                                                        <div class="colors w-100 p-2">
+                                                                <div class="col-12 d-flex flex-column">
+                                                                        <h5 class="mt-1">Colores: </h5>
+                                                                        <% for(let i=0; i < productToDelete.colors.length; i++) { %>
+                                                                        <h6><%= productToDelete.colors[i].colorName %>
+                                                                        </h6>
+                                                                        <% } %>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <!-- Collapse Color -->
+
+
+                                        <!-- Collapse Description -->
+                                        <p class="w-100 shadow rounded-lg">
+                                                <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
+                                                data-target="#collapseDescription" aria-expanded="false"
+                                                aria-controls="collapseDescription"><i class="fas fa-chevron-down"></i> Descripción <i class="fas fa-chevron-down"></i></button>
+                                        </p>
+                                        <div class="collapse w-100 mb-3" id="collapseDescription">
+                                                <div class="card card-body w-100">
+                                                <div class="d-flex flex-wrap justify-content-center">
+                                                        <p><%= productToDelete.description %></p>
+                                                </div>
+                                                </div>
+                                        </div>
+                                        <!-- Collapse Description -->
+
+                                </div>
+
+                                <div class="secondColumn col-12 col-md-4 d-flex flex-wrap align-items-center">
+                                        <div class="image w-100 position-relative p-1">
+                                                <h5 class="text-center m-0">Portada</h5>
+                                                <img class="w-100 shadow rounded-lg" src="/Images/remeraNegra.jpg" alt="">
+                                                <div>
+                                                        <a href=""><i class="far fa-trash-alt"></i></a>
+                                                        <br>
+                                                        <br>
+                                                        <a href=""><i class="far fa-plus-square"></i></a>
+                                                </div>
+                                        </div>
+                                        <div class="image w-50 p-1">
+                                                <h5 class="m-0 text-center">Alternativa1</h5>
+                                                <img class="w-100 shadow rounded-lg" src="/Images/remeraNegra.jpg" alt="">
+                                                <div>
+                                                        <a href=""><i class="far fa-trash-alt"></i></a>
+                                                        <br>
+                                                        <br>
+                                                        <a href=""><i class="far fa-plus-square"></i></a>
+                                                </div>
+                                        </div>
+                                        <div class="image w-50 p-1">
+                                                <h5 class="m-0 text-center">Alternativa2</h5>
+                                                <img class="w-100 shadow rounded-lg" src="/Images/remeraNegra.jpg" alt="">
+                                                <div>
+                                                        <a href=""><i class="far fa-trash-alt"></i></a>
+                                                        <br>
+                                                        <br>
+                                                        <a href=""><i class="far fa-plus-square"></i></a>
+                                                </div>
+                                        </div>
+                                        <div class="image w-50 p-1">
+                                                <h5 class="m-0 text-center">Alternativa3</h5>
+                                                <img class="w-100 shadow rounded-lg" src="/Images/remeraNegra.jpg" alt="">
+                                                <div>
+                                                        <a href=""><i class="far fa-trash-alt"></i></a>
+                                                        <br>
+                                                        <br>
+                                                        <a href=""><i class="far fa-plus-square"></i></a>
+                                                </div>
+                                        </div>
+                                        <div class="image w-50 p-1">
+                                                <h5 class="m-0 text-center">Alternativa4</h5>
+                                                <img class="w-100 shadow rounded-lg" src="/Images/remeraNegra.jpg" alt="">
+                                                <div>
+                                                        <a href=""><i class="far fa-trash-alt"></i></a>
+                                                        <br>
+                                                        <br>
+                                                        <a href=""><i class="far fa-plus-square"></i></a>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <button class="btn btn-warning btn-lg btn-block mt-3 shadow rounded-lg m-3" form="deleteForm" type="submit">ELIMINAR</button>
+                        </form>
+                </div>
+        </div>
+        <%- include('partials/footer') %>
+        <%- include('partials/scriptsBootstrap') %>
+</body>
+
+</html>
+
+
+<!-- <form action="/products/create" method="POST"> -->

@@ -2,7 +2,7 @@
 
 
 header.main-header {
-    background: var(--colorYellow1);
+    background: var(--colorWarning);
     padding: 5px 0;
     display: flex;
     flex-wrap: wrap;

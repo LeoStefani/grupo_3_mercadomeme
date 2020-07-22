@@ -1,9 +1,11 @@
-div.index div.losMasVendidos div.article  {
+div.index div.mostWanted div {
     background-color: var(--colorWhite);
-    margin: 5px;
+
 }
 
-
+div.index div.mostWanted div.article  {
+    background-color: white;
+}
 
 #carouselExampleIndicators {
     height: 50%;

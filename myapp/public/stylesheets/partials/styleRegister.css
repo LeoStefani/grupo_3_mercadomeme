@@ -1,86 +1,33 @@
 
-div.mainRegister{
+div.mainRegister {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-div.firstColumn{
+div.mainRegister div.containerColumn{
     width: 30%;
-    margin: 0px auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
     background-color: var(--colorWhite);    
 }
-div.firstColumn div.firstBlock{
-    margin: 5px;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-div.firstColumn div.firstBlock form{
-    width: 100%;
-    justify-content: space-between;
-    display: flex;
-    flex-wrap: wrap;
-}
-div.firstColumn div.firstBlock form h4{
-    text-align: center;
-    margin: 0 auto;
-}
-div.firstColumn div.firstBlock form div{
-    width: 100%;
-    margin: 0px 0px;
-}
-div.firstColumn div.firstBlock form div input{
-    width: 100%;
-    flex-grow: 1;
-}
-div.firstColumn div.firstBlock a{
-    text-align: center;
-    margin: 5px auto;
-    text-decoration: none;
+
+div.mainRegister div.containerColumn div.containerBlock a{
     color: var(--colorOrange);
 }
-div.firstColumn div.firstBlock h6{
-    text-align: center;
-    margin: 5px auto;
-}
-div.firstColumn div.firstBlock img{
-    width: 90%;
-    margin: 10px auto;
-}
+
 
 /*======MEDIAQUERIES======*/
 
 @media (max-width: 1020px) {
-    div.firstColumn{
+    div.mainRegister div.containerColumn{
         width: 60%;
-        margin: 0px auto;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        background-color: var(--colorWhite);     
     }
 }
 @media (max-width: 600px) {
-    div.firstColumn{
+    div.mainRegister div.containerColumn{
         width: 80%;
-        margin: 0px auto;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        background-color: var(--colorWhite);
     }
 }
 @media (max-width: 425px) {
-    div.firstColumn{
+    div.mainRegister div.containerColumn{
         width: 100%;
-        margin: 0px auto;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        background-color: var(--colorWhite);  
     }
 }

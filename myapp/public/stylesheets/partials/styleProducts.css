@@ -1,35 +1,30 @@
-/*=====IMPORTS====*/
 
 
-
-body {
-    background-color: var(--colorGray);
-}
-/* 
-h2.product-title {
-    text-align: center;
-} */
-
-div.product-selector {
+div.products div.product-selector {
     background: var(--colorWhite);
 }
 
-div.dropdown img {
+div.products .product-title {
+    font-size: 2.5rem;
+    -webkit-text-stroke: 1px white;
+   color: black;
+   font-family: 'Bungee';
+
+}
+div.products div.dropdown img {
     height: 100px;
 }
 
-div.dropdown div.long {
+div.products div.dropdown div.long {
     width: 280px;
 }
 
-div.dropdown div.long a{
+div.products div.dropdown div.long a{
     display: inline-block;
     text-decoration: none;
 }
 
-.main-product {
-    height: 100%;
-    /* height: 400px; */
+div.products .main-product {
     background: var(--colorWhite);
 
 }
