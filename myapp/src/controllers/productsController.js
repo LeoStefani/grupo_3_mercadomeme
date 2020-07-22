@@ -21,11 +21,11 @@ let maxId = function () {
                 };
         };
         return idAcumulator + 1;
-// TENER CUIDADO QUE NO ES EL MÁXIMO ID DE LOS PRODUCTOS ACTUALES, SINO EL SIGUIENTE LIBRE, DADO QUE ESTA PENSADO PARA LA CARGA DE PRODUCTOS NUEVOS
+        // TENER CUIDADO QUE NO ES EL MÁXIMO ID DE LOS PRODUCTOS ACTUALES, SINO EL SIGUIENTE LIBRE, DADO QUE ESTA PENSADO PARA LA CARGA DE PRODUCTOS NUEVOS
 };
 
 
-let productNew = { sizes: [], colors: [], others: [], qtySold: 0};
+let productNew = { sizes: [], colors: [], others: [], qtySold: 0 };
 
 module.exports = {
         productsIndex: function (req, res, next) {
@@ -88,7 +88,7 @@ module.exports = {
         },
 
         create: function (req, res, next) {
-                
+
                 res.render('create', {
                         title: 'Nuevo producto',
                         lastId: maxId(),
@@ -113,7 +113,7 @@ module.exports = {
                                 break;
                         };
                 };
-                
+
                 productNew.image = "iconoImagenBordesIguales.png";
 
                 // si existen dichos campos, pego en productNew - Tamaños
@@ -124,12 +124,12 @@ module.exports = {
                 if (req.body.xl != undefined && req.body.sizeXlValue != "") { productNew.sizes.push({ tag: req.body.xl, size: req.body.sizeXlValue, unit: unitNew }) };
                 // Colores 
                 if (req.body.colorBlack != undefined) { productNew.colors.push({ colorName: req.body.colorBlack, colorCode: "#000000" }) };
-                if (req.body.colorRed != undefined) { productNew.colors.push({ colorName: req.body.colorRed, colorCode: "#FF0000" })  };
+                if (req.body.colorRed != undefined) { productNew.colors.push({ colorName: req.body.colorRed, colorCode: "#FF0000" }) };
                 if (req.body.colorBlue != undefined) { productNew.colors.push({ colorName: req.body.colorBlue, colorCode: "#0000FF" }) };
                 if (req.body.colorGreen != undefined) { productNew.colors.push({ colorName: req.body.colorGreen, colorCode: "#008000" }) };
                 if (req.body.colorWhite != undefined) { productNew.colors.push({ colorName: req.body.colorWhite, colorCode: "#ffffff" }) };
                 if (req.body.colorYellow != undefined) { productNew.colors.push({ colorName: req.body.colorYellow, colorCode: "#ffff00" }) };
-                if (req.body.colorGray != undefined) { productNew.colors.push({ colorName: req.body.colorGray, colorCode: "#808080" })  };
+                if (req.body.colorGray != undefined) { productNew.colors.push({ colorName: req.body.colorGray, colorCode: "#808080" }) };
                 if (req.body.colorPink != undefined) { productNew.colors.push({ colorName: req.body.colorPink, colorCode: "#ffc0cb" }) };
                 if (req.body.colorBrown != undefined) { productNew.colors.push({ colorName: req.body.colorBrown, colorCode: "#a52a2a" }) };
 
@@ -137,7 +137,7 @@ module.exports = {
 
                 let productsJSON = JSON.stringify(products);
 
-                fs.writeFileSync(path.join(__dirname,'../data/products.json'), productsJSON);
+                fs.writeFileSync(path.join(__dirname, '../data/products.json'), productsJSON);
 
                 res.redirect('/products/upload');
         },
@@ -154,24 +154,23 @@ module.exports = {
                         title: 'Editar producto',
                         productDetail: productDetail,
                         productsCategories: productsCategories
-                }); 
+                });
         },
 
         edit: function (req, res, next) {
 
+                // indexOf seria mas elegante y seguramente aplique!
 
-// indexOf seria mas elegante y seguramente aplique!
-
-                function findIndex () { 
+                function findIndex() {
                         let Index;
-                        for (let i=0; i< products.length; i++) {
+                        for (let i = 0; i < products.length; i++) {
                                 if (products[i].id == req.body.productEditId) {
-                                Index = i;
+                                        Index = i;
                                 };
                         }; return Index
                 };
 
-// indexOf seria mas elegante y seguramente aplique!
+                // indexOf seria mas elegante y seguramente aplique!
 
                 let indexToEdit = findIndex();
 
@@ -182,7 +181,8 @@ module.exports = {
                 if (req.body.productEditCategoryAlternative != undefined) {
                         products[indexToEdit].category = req.body.productEditCategoryAlternative;
                 } else {
-                products[indexToEdit].category = req.body.productEditCategory;}
+                        products[indexToEdit].category = req.body.productEditCategory;
+                }
 
                 products[indexToEdit].price = req.body.productEditPrice;
                 products[indexToEdit].image = "iconoImagenBordesIguales.png";
@@ -191,25 +191,25 @@ module.exports = {
                 products[indexToEdit].colors = [];
                 products[indexToEdit].others = [];
 
-                if (req.body.xs != undefined) { products[indexToEdit].sizes.push({ tag: req.body.xs, size: 150, unit: "ml" }) };
-                if (req.body.s != undefined) { products[indexToEdit].sizes.push({ tag: req.body.s, size: 200, unit: "ml" }) };
-                if (req.body.m != undefined) { products[indexToEdit].sizes.push({ tag: req.body.m, size: 300, unit: "ml" }) };
-                if (req.body.l != undefined) { products[indexToEdit].sizes.push({ tag: req.body.l, size: 500, unit: "ml" }) };
-                if (req.body.xl != undefined) { products[indexToEdit].sizes.push({ tag: req.body.xl, size: 700, unit: "ml" }) };
+                if (req.body.xs != undefined && req.body.sizeXsValue != "") { products[indexToEdit].sizes.push({ tag: req.body.xs, size: req.body.sizeXsValue }) };
+                if (req.body.s != undefined && req.body.sizeSValue != "") { products[indexToEdit].sizes.push({ tag: req.body.s, size: req.body.sizeSValue }) };
+                if (req.body.m != undefined && req.body.sizeMValue != "") { products[indexToEdit].sizes.push({ tag: req.body.m, size: req.body.sizeMValue }) };
+                if (req.body.l != undefined && req.body.sizeLValue != "") { products[indexToEdit].sizes.push({ tag: req.body.l, size: req.body.sizeLValue }) };
+                if (req.body.xl != undefined && req.body.sizeXlValue != "") { products[indexToEdit].sizes.push({ tag: req.body.xl, size: req.body.sizeXlValue }) };
 
                 if (req.body.colorBlack != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorBlack, colorCode: "#000000" }) };
-                if (req.body.colorRed != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorRed, colorCode: "#FF0000" })  };
+                if (req.body.colorRed != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorRed, colorCode: "#FF0000" }) };
                 if (req.body.colorBlue != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorBlue, colorCode: "#0000FF" }) };
                 if (req.body.colorGreen != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorGreen, colorCode: "#008000" }) };
                 if (req.body.colorWhite != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorWhite, colorCode: "#ffffff" }) };
                 if (req.body.colorYellow != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorYellow, colorCode: "#ffff00" }) };
-                if (req.body.colorGray != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorGray, colorCode: "#808080" })  };
+                if (req.body.colorGray != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorGray, colorCode: "#808080" }) };
                 if (req.body.colorPink != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorPink, colorCode: "#ffc0cb" }) };
                 if (req.body.colorBrown != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorBrown, colorCode: "#a52a2a" }) };
 
                 let productsJSON = JSON.stringify(products);
 
-                fs.writeFileSync(path.join(__dirname,'../data/products.json'), productsJSON);
+                fs.writeFileSync(path.join(__dirname, '../data/products.json'), productsJSON);
 
                 res.redirect('/products/upload');
         },
@@ -230,13 +230,13 @@ module.exports = {
 
         delete: function (req, res, next) {
 
-                products = products.filter(function(element) {
+                products = products.filter(function (element) {
                         return element.id != req.params.id
                 });
 
                 let productsJSON = JSON.stringify(products);
 
-                fs.writeFileSync(path.join(__dirname,'../data/products.json'), productsJSON);
+                fs.writeFileSync(path.join(__dirname, '../data/products.json'), productsJSON);
 
                 res.redirect('/products/upload');
         }
