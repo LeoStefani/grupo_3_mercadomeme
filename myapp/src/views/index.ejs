@@ -8,9 +8,9 @@
         <div class="index container">
 
                 <!-- Selector entre memes y productos -->
-                <div class="row mb-4 justify-content-center">
-                        <div class="col-10 d-flex flex-wrap justify-content-center">
-                                <div class="optionProducts col-12 col-md-6 flex-wrap justify-content-center">
+                <div class="row mb-0 mt-4 justify-content-center">
+                        <div class="col-10 d-flex flex-wrap justify-content-center shadow m-0 p-0">
+                                <div class="optionProducts col-12 col-md-6 flex-wrap justify-content-center m-0 p-0">
                                         <a class="" href="/products/index">
                                                 <div class="bgProducts"><img class="w-100 productsNormal"
                                                                 src="images/ProductsHomeNormal.png"
@@ -19,7 +19,7 @@
                                                                 alt="imagen"></div>
                                         </a>
                                 </div>
-                                <div class="optionMemes col-12 col-md-6 flex-wrap justify-content-center">
+                                <div class="optionMemes col-12 col-md-6 flex-wrap justify-content-center m-0 p-0">
                                         <a href="/memes">
                                                 <div class="bgMemes"><img class="w-100 memesNormal"
                                                                 src="images/MemesHomeNormal.png"
@@ -33,8 +33,8 @@
                 <!-- Selector entre memes y productos -->
 
                 <!--Carousel With indicators-->
-                <div class="row mb-5 justify-content-center">
-                        <div id="carouselExampleIndicators" class="carousel slide col-10 " data-ride="carousel ">
+                <div class="row mb-0 justify-content-center">
+                        <div id="carouselExampleIndicators" class="carousel slide col-10 m-0 shadow p-0" data-ride="carousel ">
                                 <ol class="carousel-indicators">
                                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
                                         </li>
@@ -67,25 +67,25 @@
                 <!--Carousel With indicators-->
 
                 <!--Titulo de Los Mas Vendidos-->
-                <div class="row mb-1 justify-content-center">
-                        <div class="col-10">
+                <!-- <div class="row mb-1 justify-content-center">
+                        <div class="col-10 m-0 p-0">
                                 <h3 class="text-center">Los mas vendidos</h3>
                         </div>
-                </div>
+                </div> -->
                 <!--Titulo de Los Mas Vendidos-->
 
                 <!-- los mas vendidos (muestra los 4 productos mas vendidos) -->
-                <div class="losMasVendidos row mb-4 d-flex flex-wrap justify-content-center">
-                        <div class="col-10 d-flex flex-wrap justify-content-center">
+                <div class="mostWanted row mb-4 d-flex flex-wrap  justify-content-center">
+                        <div class="col-10 shadow d-flex flex-wrap justify-content-center m-0 p-2">
                                 <% for(let i = sortedProducts.length-1; i > sortedProducts.length-5; i--) { %>
-                                <div class="col-6 col-md-3 p-0">
-                                        <div class="article p-2 rounded-lg">
+                                <div class="prearticle col-6 col-md-3 m-0 p-2">
+                                        <div class="article p-0 rounded-lg">
                                                 <a class="text-decoration-none"
                                                         href="/products/detail/<%= sortedProducts[i].id %>">
                                                         <img src="../images/iconoImagenBordesIguales.png" class="w-100"
                                                                 alt="">
-                                                        <h5 class="text-dark m-0"><%= sortedProducts[i].name %></h5>
-                                                        <p class="text-dark m-0">$ <%= sortedProducts[i].price %></p>
+                                                        <h5 class="text-dark m-0 text-center"><%= sortedProducts[i].name %></h5>
+                                                        <p class="text-dark m-0 text-center">$ <%= sortedProducts[i].price %></p>
                                                 </a>
                                         </div>
                                 </div>

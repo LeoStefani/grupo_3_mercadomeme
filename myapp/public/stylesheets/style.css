@@ -13,6 +13,9 @@
 @import 'partials/styleCreate.css';
 @import 'partials/styleDelete.css';
 
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
 
 /*====VARIABLES=====*/
 
@@ -24,6 +27,7 @@
 --colorYellow1: #f5cb5c;
 --colorYellow2: #ffd500;
 --colorBlack: #242423;
+--colorWarning: #ffc107;
 }
 
 /*====GENERAL=====*/
@@ -37,7 +41,7 @@
 
 body
 {
-  background-color: var(--colorGray);
+  background-image: url(../images/memeWPsvg.svg);
   margin: 0px auto;
   padding: 0px;
   min-height: 100vh;
