@@ -2,10 +2,6 @@
 
 ## MercadoMEME - Trabajo Integrador
 
-### Tablero de trabajo:
-
-https://trello.com/b/24CXEKkc/mercadomeme
-
 ### Tematica del sitio
 
 El sitio está destinado a la venta de productos customizados con diversos memes, que pueden ser seleccionados de una gran base de datos, o creados por el usuario.
@@ -39,7 +35,12 @@ El sitio está destinado a usuarios que quieran regalar algo pensado,�
 
 ### Wireframe - Sprint 1:
 
-https://xd.adobe.com/view/391981be-e471-434b-a7a6-1f3577591d5d-6c4a/
+https://xd.adobe.com/view/a7fb86e3-55c5-4e07-91f0-b2f05f349c3a-f2a8/
+
+
+### Tablero de trabajo:
+
+https://trello.com/b/24CXEKkc/mercadomeme
 
 
 ### Sprint 2:

@@ -46,8 +46,33 @@ div.textEditor{
 /*====MEME LIBRARY=====*/ 
 
 div.memeLibrary{
+    flex-direction: column;
     background-color: var(--colorWhite);
+
+}
+div.memeLibrary img{
+    width: 50%;
+   
 }
 
 /*====MEDIA QUERIES=====*/
+
+@media (max-width: 768px) {
+    div.memeLibrary{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    div.memeLibrary img{
+        width: 20%;     
+    }
+    div.memeLibrary h6{
+       font-size: 1.5rem;     
+    }
+    div.arrayMemesExample div.thirdPack{
+     display: none;
+    }
+    div.arrayMemesExample div.fourthPack{
+    display: none;
+    }
+}
 

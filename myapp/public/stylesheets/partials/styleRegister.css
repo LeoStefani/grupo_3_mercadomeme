@@ -1,8 +1,9 @@
 
-div.container{
+div.mainRegister{
     max-width: 1200px;
     margin: 0 auto;
 }
+
 div.firstColumn{
     width: 30%;
     margin: 0px auto;
