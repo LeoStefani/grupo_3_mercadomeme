@@ -1,0 +1,34 @@
+
+div.mainLogin {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+div.mainLogin div.containerColumn{
+    width: 30%;
+    background-color: var(--colorWhite);    
+}
+
+div.mainLogin div.containerColumn div.containerBlock a{
+    color: var(--colorOrange);
+}
+
+
+
+/*======MEDIAQUERIES======*/
+
+@media (max-width: 1020px) {
+    div.mainLogin div.containerColumn{
+        width: 60%;
+    }
+}
+@media (max-width: 600px) {
+    div.mainLogin div.containerColumn{
+        width: 80%;
+    }
+}
+@media (max-width: 425px) {
+    div.mainLogin div.containerColumn{
+        width: 100%;
+    }
+}
