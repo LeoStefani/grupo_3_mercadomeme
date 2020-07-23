@@ -22,39 +22,47 @@
                         <div class="row w-100 m-0 mb-2 p-4 product-selector shadow rounded-lg">
                                 <% for(let i = 0; i < productsCategories.length; i++) { %>
                                 <div class="dropdown col-6 col-md-4 col-lg-2">
-                                        <a class="dropdown-item text-center" href="#" role="button" id="dropdownMenuLink"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a class="dropdown-item text-center" href="#" role="button"
+                                                id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
                                                 <figure class="figure">
                                                         <img src="/images/iconoimagen.png"
-                                                                class="figure-img img-fluid shadow rounded-lg" alt="...">
+                                                                class="figure-img img-fluid shadow rounded-lg"
+                                                                alt="...">
                                                         <figcaption class="figure-caption text-center">
                                                                 <%= productsCategories[i] %>
                                                         </figcaption>
                                                 </figure>
                                         </a>
-                                        <div class="dropdown-menu long" aria-labelledby="dropdownMenuLink">
+                                        <div class="dropdown-menu long m-0 p-0" aria-labelledby="dropdownMenuLink">
                                                 <% for(let j = 0; j < products.length; j++) { 
                                                         if(products[j].category == productsCategories[i]) { %>
-                                                <a class="dropdown-item col-5" href="/products/index/<%= products[j].id %>">
-                                                        <figure class="figure">
-                                                                <img src="/images/iconoimagen.png"
-                                                                        class="figure-img img-fluid shadow rounded-lg" alt="...">
-                                                                <figcaption class="figure-caption text-center">
-                                                                        <%= products[j].name %>
-                                                                </figcaption>
-                                                        </figure>
-                                                </a>
+                                                                                                     <a class="dropdown-item col-5 m-0 ml-3 p-0"
+                                                                href="/products/index/<%= products[j].id %>">
+                                                                <figure class="figure w-100 m-0 p-0">
+                                                                        <img src="/images/iconoimagen.png"
+                                                                                class="m-0 p-0 figure-img img-fluid shadow rounded-lg w-100"
+                                                                                alt="...">
+                                                                        <figcaption
+                                                                                class="m-0 p-0 figure-caption text-center">
+                                                                                <%= products[j].name %>
+                                                                        </figcaption>
+                                                                </figure>
+                                                        </a>
+                                              
                                                 <% } } %>
                                         </div>
                                 </div>
                                 <% } %>
 
                                 <div class="dropdown col-6 col-md-4 col-lg-2">
-                                        <a class="dropdown-item text-center" href="#" role="button" id="dropdownMenuLink"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a class="dropdown-item text-center" href="#" role="button"
+                                                id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
                                                 <figure class="figure">
                                                         <img src="/images/iconoimagen.png"
-                                                                class="figure-img img-fluid shadow rounded-lg" alt="...">
+                                                                class="figure-img img-fluid shadow rounded-lg"
+                                                                alt="...">
                                                         <figcaption class="figure-caption">Tazas</figcaption>
                                                 </figure>
                                         </a>
@@ -71,11 +79,13 @@
                                         </div>
                                 </div>
                                 <div class="dropdown col-6 col-md-4 col-lg-2">
-                                        <a class="dropdown-item text-center" href="#" role="button" id="dropdownMenuLink"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a class="dropdown-item text-center" href="#" role="button"
+                                                id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
                                                 <figure class="figure">
                                                         <img src="/images/iconoimagen.png"
-                                                                class="figure-img img-fluid shadow rounded-lg" alt="...">
+                                                                class="figure-img img-fluid shadow rounded-lg"
+                                                                alt="...">
                                                         <figcaption class="figure-caption">Tazas</figcaption>
                                                 </figure>
                                         </a>
@@ -99,50 +109,60 @@
                 <!--article full description-->
                 <div class="row">
                         <div class="col-12 d-flex flex-wrap p-0 main-product shadow rounded-lg">
-                                <div
-                                        class="col-12 col-md-7 m-0 p-0 d-flex flex-wrap justify-content-center">
+                                <div class="col-12 col-md-7 m-0 p-0 d-flex flex-wrap justify-content-center">
                                         <div class="col-12 d-flex flex-wrap p-4">
-                                                <img class="main-product w-100 shadow rounded-lg" src="/images/taza-termica.png" alt="">
+                                                <img class="main-product w-100 shadow rounded-lg"
+                                                        src="/images/taza-termica.png" alt="">
                                         </div>
                                         <div class="col-12 d-flex flex-wrap m-0 p-4">
-                                                <img class="main-product col-3 shadow rounded-lg p-1 m-0" src="/images/taza-termica.png" alt="">
-                                                <img class="main-product col-3 shadow rounded-lg p-1 m-0" src="/images/taza-termica.png" alt="">
-                                                <img class="main-product col-3 shadow rounded-lg p-1 m-0" src="/images/taza-termica.png" alt="">
-                                                <img class="main-product col-3 shadow rounded-lg p-1 m-0" src="/images/taza-termica.png" alt="">
+                                                <img class="main-product col-3 shadow rounded-lg p-1 m-0"
+                                                        src="/images/taza-termica.png" alt="">
+                                                <img class="main-product col-3 shadow rounded-lg p-1 m-0"
+                                                        src="/images/taza-termica.png" alt="">
+                                                <img class="main-product col-3 shadow rounded-lg p-1 m-0"
+                                                        src="/images/taza-termica.png" alt="">
+                                                <img class="main-product col-3 shadow rounded-lg p-1 m-0"
+                                                        src="/images/taza-termica.png" alt="">
                                         </div>
                                 </div>
-                                <div
-                                        class="col-12 col-md-5 pt-4 d-flex flex-column border-left">
+                                <div class="col-12 col-md-5 pt-4 d-flex flex-column border-left">
                                         <h4 class="text-center"><%= preDetail.name %></h4>
                                         <p class="text-justify"><%= preDetail.description %></p>
-                                        <div class="d-flex flex-wrap" >
+                                        <div class="d-flex flex-wrap">
                                                 <!-- Este bloque muestra los tamaños y colores disponibles del producto seleccionado -->
                                                 <div class="col-6 d-flex m-0 p-0 flex-column text-center">
-                                                        <h5 class="mt-1" >Tamaños: </h5>
+                                                        <h5 class="mt-1">Tamaños: </h5>
                                                         <% for(let i=0; i < preDetail.sizes.length; i++) { %>
-                                                        <h6><%= preDetail.sizes[i].tag %>: <%= preDetail.sizes[i].size %>
+                                                        <h6><%= preDetail.sizes[i].tag %>:
+                                                                <%= preDetail.sizes[i].size %>
                                                                 <%= preDetail.sizes[i].unit %></h6>
                                                         <% } %>
                                                 </div>
-                                                
+
                                                 <div class="col-6 d-flex m-0 p-0 flex-column text-center">
-                                                        <h5 class="mt-1" >Colores: </h5>
+                                                        <h5 class="mt-1">Colores: </h5>
                                                         <% for(let i=0; i < preDetail.colors.length; i++) { %>
                                                         <h6><%= preDetail.colors[i].colorName %></h6>
                                                         <% } %>
                                                 </div>
                                         </div>
 
-                                        
-                                        <div class="d-flex flex-row flex-wrap justify-content-between w-100 align-items-center mt-4">
-                                                <h4 class="w-50 text-center m-0 mb-2 p-0 pr-1 border border-warning rounded" >Precio: $ <%= preDetail.price %></h4>
-                                                <a class="m-0 mb-2 p-0 pl-1 w-50" href="/products/detail/<%= preDetail.id %>"><button type="button"
-                                                                class="w-100 btn btn-warning btn-lg m-0 p-0 shadow rounded-lg">Lo quiero</button></a>
+
+                                        <div
+                                                class="d-flex flex-row flex-wrap justify-content-between w-100 align-items-center mt-4">
+                                                <h4
+                                                        class="w-50 text-center m-0 mb-2 p-0 pr-1 border border-warning rounded">
+                                                        Precio: $ <%= preDetail.price %></h4>
+                                                <a class="m-0 mb-2 p-0 pl-1 w-50"
+                                                        href="/products/detail/<%= preDetail.id %>"><button
+                                                                type="button"
+                                                                class="w-100 btn btn-warning btn-lg m-0 p-0 shadow rounded-lg">Lo
+                                                                quiero</button></a>
                                         </div>
-                                       
-                                        
+
+
                                 </div>
-                                
+
                         </div>
                 </div>
         </div>

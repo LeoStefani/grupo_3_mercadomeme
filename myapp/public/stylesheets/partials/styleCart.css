@@ -14,6 +14,11 @@ div.mainCart {
     width: 100%;
 }
 
+div.mainCart div.finalPrice{
+background-color: var(--colorWhite);
+    
+    }
+
 div.mainCart h3.finalPrice{
 font-weight: 700;
 font-size: 3rem;
