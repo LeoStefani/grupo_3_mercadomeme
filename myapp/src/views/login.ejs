@@ -5,24 +5,33 @@
 
 <body>
     <%- include('partials/header') %>
-    <div class="container login">
+    <div class="container mainLogin mt-5">
         <div class="row">
-            <div class="firstColumn">
-                <div class="firstBlock">
-                    <form action="">
-                        <h4>Logueate!</h4>
-                        <div>
-                            <input type="text" placeholder="Username">
+            <div class="containerColumn d-flex flex-wrap align-items-center mt-0 mb-0 m-auto shadow rounded-lg">
+                <div class="containerBlock d-flex flex-wrap justify-content-between w-100 m-4">
+                    <div class="firstColumn">
+                        <div class="firstBlock">
+                            <form class=" d-flex flex-wrap justify-content-between w-100" action="">
+                                <h4 class="text-center mt-0 mb-0 m-auto font-weight-bold">Logueate!</h4>
+                                <div class="w-100 m-0 p-0">
+                                    <input class="border border-white rounded-lg flex-grow-1 w-100 mt-3 mb-3 p-2 shadow" type="text"
+                                        placeholder="Username">
+                                </div>
+                                <div class="w-100 m-0 p-0">
+                                    <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                                        type="password" placeholder="Contraseña">
+                                </div>
+                            </form>
+                            <button class="btn btn-warning mt-3 col-12" type="submit">Login</button>
+                            <div class="d-flex flex-wrap justify-content-center w-100">
+                                <a href="users/register"><h6 class="text-center m-2">¿Aun no estás registrado?</h6></a>
+                            </div>
                         </div>
-                        <div>
-                            <input type="password" placeholder="Contraseña">
-                        </div>
-                    </form>
-                    <button class="btn btn-warning mt-3 col-12" type="submit">Login</button>
-                    <a href="/"><h6>¿Ya estás registrado?</h6></a>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
     
 
