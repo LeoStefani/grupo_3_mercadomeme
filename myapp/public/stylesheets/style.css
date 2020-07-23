@@ -29,6 +29,7 @@
 --colorYellow2: #ffd500;
 --colorBlack: #242423;
 --colorWarning: #ffc107;
+
 }
 
 /*====GENERAL=====*/
@@ -42,9 +43,17 @@
 
 body
 {
+display: flex;
+flex-direction: column;
   background-image: url(../images/memeWPsvg.svg);
   margin: 0px auto;
   padding: 0px;
   min-height: 100vh;
+
 }
+
+div.container {
+  flex: 1;
+}
+
 
