@@ -45,6 +45,19 @@ div.memes div.memeEditorImage {
 div.memes div.arrayMemesExample{
     background-color: var(--colorWhite);
 }
+div.memes div.arrayMemesExample div.secondPack{
+    display: flex;
+}
+div.memes div.arrayMemesExample div.thirdPack{
+    display: flex;
+}
+div.memes div.arrayMemesExample div.fourthPack{
+display: flex;
+}
+
+
+
+
 
 /*====TEXT EDITOR=====*/
 
@@ -64,6 +77,8 @@ div.memes div.memeLibrary img{
    
 }
 
+
+
 /*====MEDIA QUERIES=====*/
 
 @media (max-width: 767px) {
@@ -76,6 +91,9 @@ div.memes div.memeLibrary img{
     }
     div.memes div.memeLibrary h6{
        font-size: 1.5rem;     
+    }
+    div.memes div.arrayMemesExample div.secondPack{
+        display: none;
     }
     div.memes div.arrayMemesExample div.thirdPack{
      display: none;
