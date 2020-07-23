@@ -1,6 +1,5 @@
 div.memes{
     max-width: 1200px;
-    /* border:var(--colorOrange) solid 2px; */
     margin: 0 auto;
 }
 
@@ -8,70 +7,80 @@ div.memes{
 
 /*======NAV BAR===*/
 
-nav.memesNav ul li{
+div.memes nav.memesNav {
+background-color: var(--colorWhite) ;
+}
+
+div.memes nav.memesNav ul li{
     text-decoration: none;
     list-style: none;
     padding-bottom: 5px;
     margin: 0px 5px;
 }
-nav.memesNav ul li a{
+div.memes nav.memesNav ul li a{
     font-size: 1rem;
     color: var(--colorBlack);
     text-decoration: none;
 }
 
-nav.memesNav ul li a i{
+div.memes nav.memesNav ul li a i{
     font-size: 1rem;
     color: var(--colorBlack);
 }
 
+/*====PRODUCT SELECTOR=====*/
+
+div.memes div.product-selector {
+    background-color: var(--colorWhite);
+}
+
 /*====MEME EDITOR=====*/
 
-div.memeEditorImage {
+div.memes div.memeEditorImage {
     background-color: var(--colorWhite);
 }
 
 /*====MEMES EXAMPLES=====*/
 
-div.arrayMemesExample{
+div.memes div.arrayMemesExample{
     background-color: var(--colorWhite);
 }
 
 /*====TEXT EDITOR=====*/
 
-div.textEditor{
+div.memes div.textEditor{
     background-color: var(--colorWhite);
 }
 
 /*====MEME LIBRARY=====*/ 
 
-div.memeLibrary{
+div.memes div.memeLibrary{
     flex-direction: column;
     background-color: var(--colorWhite);
 
 }
-div.memeLibrary img{
+div.memes div.memeLibrary img{
     width: 50%;
    
 }
 
 /*====MEDIA QUERIES=====*/
 
-@media (max-width: 768px) {
-    div.memeLibrary{
+@media (max-width: 767px) {
+    div.memes div.memeLibrary{
         flex-direction: row;
         flex-wrap: wrap;
     }
-    div.memeLibrary img{
+    div.memes div.memeLibrary img{
         width: 20%;     
     }
-    div.memeLibrary h6{
+    div.memes div.memeLibrary h6{
        font-size: 1.5rem;     
     }
-    div.arrayMemesExample div.thirdPack{
+    div.memes div.arrayMemesExample div.thirdPack{
      display: none;
     }
-    div.arrayMemesExample div.fourthPack{
+    div.memes div.arrayMemesExample div.fourthPack{
     display: none;
     }
 }

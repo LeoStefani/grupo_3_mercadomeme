@@ -4,32 +4,32 @@
 
 <body>
   <%- include('partials/header') %>
-  <div class="memes container">
+  <div class="memes container p-0">
 
     <!-- Div con barra de buscador y boton-->
-    <div class="row">
-      <div class="search mb-2 w-100">
+    <div class="row p-0 m-0">
+      <div class="search mb-3 w-100">
         <form class="d-flex align-items-center w-100">
-          <input class="form-control mr-2 flex-grow-1" type="search" placeholder="Buscador de memes"
+          <input class="form-control mr-2 flex-grow-1 shadow border border-white rounded-lg " type="search" placeholder="Buscador de memes"
             aria-label="Search">
-          <button class="btn btn-warning my-2 my-sm-0" type="submit">Buscar</button>
+          <button class="btn btn-warning my-2 my-sm-0 shadow" type="submit">Buscar</button>
         </form>
       </div>
     </div>
     <!-- Div con barra de buscador y boton-->
 
     <!-- Navbar con categorias de memes-->
-    <div class="row">
-      <div class="d-flex col-12 w-100 m-0 p-0 justify-content-center">
-        <nav class="memesNav d-flex justify-content-center w-100 align-items-center flex-wrap">
-          <ul class="d-flex flex-wrap justify-content-around w-100 m-0 mb-1 mt-1">
-            <li><a class="text-decoration-none" href="#">Populares</a></li>
-            <li><a class="text-decoration-none" href="#">Clásicos</a></li>
-            <li><a class="text-decoration-none" href="#">Antiguos</a></li>
-            <li><a class="text-decoration-none" href="#">Tendencias</a></li>
-            <li><a class="text-decoration-none" href="#">Blanco y negro</a></li>
-            <li><a class="text-decoration-none" href="#">Otra categoria #1</a></li>
-            <li><a class="text-decoration-none" href="#">Otra categoria #2</a></li>
+    <div class="row p-0 m-0">
+      <div class="d-flex col-12 w-100 m-0 p-0 justify-content-center shaded rounded-lg align-items-center">
+        <nav class="memesNav d-flex justify-content-center w-100 align-items-center shadow rounded-lg flex-wrap">
+          <ul class="d-flex flex-wrap justify-content-around w-100 m-0 mb-1 mt-1 p-0 align-items-center ">
+            <li class=" p-2 m-0"><a class="text-decoration-none p-0 m-0" href="#">Populares</a></li>
+            <li class=" p-2 m-0"><a class="text-decoration-none p-0 m-0" href="#">Clásicos</a></li>
+            <li class=" p-2 m-0"><a class="text-decoration-none p-0 m-0" href="#">Antiguos</a></li>
+            <li class=" p-2 m-0"><a class="text-decoration-none p-0 m-0" href="#">Tendencias</a></li>
+            <li class=" p-2 m-0"><a class="text-decoration-none p-0 m-0" href="#">Blanco y negro</a></li>
+            <li class=" p-2 m-0"><a class="text-decoration-none p-0 m-0" href="#">Otra categoria #1</a></li>
+            <li class=" p-2 m-0"><a class="text-decoration-none p-0 m-0" href="#">Otra categoria #2</a></li>
           </ul>
         </nav>
       </div>
@@ -37,7 +37,7 @@
     <!-- Navbar con categorias de memes-->
 
     <!-- Selector de memes con desplegable -->
-    <div class="row w-100 m-0 mb-4 pt-4 pr-0 pl-0 product-selector">
+    <div class="row w-100 m-0 mb-3 pt-4 pr-0 pl-0 mt-3 product-selector shadow rounded-lg">
       <div class="dropdown col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2">
         <a class="dropdown-item" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
@@ -133,103 +133,105 @@
 
 
     <!-- MAIN -->
-    <div class="row main">
+    <div class="row main shadow rounded-lg m-0 p-0 d-flex flex-wrap">
       <!-- ARRAY MEMES -->
-      <div class="arrayMemesExample d-flex flex-column justify-content-start m-0 p-1 col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-        <div class="mb-0 w-100 text-center arrayImage">
+      <div class="arrayMemesExample d-flex flex-column justify-content-start m-0 p-0 col-12 col-md-3 shaded rounded-lg">
+        <div class="m-0 p-0 text-center arrayImage">
           <h5>Ejemplos</h5>
-          <div class="row mt-1 mb-1">
-            <img class="col-4" src="../images/iconoImagenBordesIguales.png" alt="">
-            <img class="col-4" src="../images/iconoImagenBordesIguales.png" alt="">
-            <img class="col-4" src="../images/iconoImagenBordesIguales.png" alt="">
+          <div class="col-12 d-flex flex-wrap justify-content-between m-0 p-0">
+            <img class="col-4 m-0 p-1" src="../images/iconoImagenBordesIguales.png" alt="">
+            <img class="col-4 m-0 p-1" src="../images/iconoImagenBordesIguales.png" alt="">
+            <img class="col-4 m-0 p-1" src="../images/iconoImagenBordesIguales.png" alt="">
           </div>
-          <div class="row mt-1 mb-1">
-            <img class="col-4" src="../images/iconoImagenBordesIguales.png" alt="">
-            <img class="col-4" src="../images/iconoImagenBordesIguales.png" alt="">
-            <img class="col-4" src="../images/iconoImagenBordesIguales.png" alt="">
+          <div class="col-12 m-0 p-0 d-flex flex-wrap justify-content-between">
+            <img class="col-4 m-0 p-1" src="../images/iconoImagenBordesIguales.png" alt="">
+            <img class="col-4 m-0 p-1" src="../images/iconoImagenBordesIguales.png" alt="">
+            <img class="col-4 m-0 p-1" src="../images/iconoImagenBordesIguales.png" alt="">
           </div>
-          <div class="row mt-1 mb-1 thirdPack">
-            <img class="col-4" src="../images/iconoImagenBordesIguales.png" alt="">
-            <img class="col-4" src="../images/iconoImagenBordesIguales.png" alt="">
-            <img class="col-4" src="../images/iconoImagenBordesIguales.png" alt="">
+          <div class="thirdPack col-12 m-0 p-0 d-flex flex-wrap justify-content-between">
+            <img class="col-4 m-0 p-1" src="../images/iconoImagenBordesIguales.png" alt="">
+            <img class="col-4 m-0 p-1" src="../images/iconoImagenBordesIguales.png" alt="">
+            <img class="col-4 m-0 p-1" src="../images/iconoImagenBordesIguales.png" alt="">
           </div>
-          <div class="row mt-1 mb-1 fourthPack">
-            <img class="col-4" src="../images/iconoImagenBordesIguales.png" alt="">
-            <img class="col-4" src="../images/iconoImagenBordesIguales.png" alt="">
-            <img class="col-4" src="../images/iconoImagenBordesIguales.png" alt="">
+          <div class="fourthPack col-12 m-0 p-0 d-flex flex-wrap justify-content-between">
+            <img class="col-4 m-0 p-1" src="../images/iconoImagenBordesIguales.png" alt="">
+            <img class="col-4 m-0 p-1" src="../images/iconoImagenBordesIguales.png" alt="">
+            <img class="col-4 m-0 p-1" src="../images/iconoImagenBordesIguales.png" alt="">
           </div>
         </div>
       </div>
       <!-- ARRAY MEMES -->
 
       <!-- MEME EDITOR -->
-      <div class="d-flex flex-column justify-content-end memeEditorImage m-0 p-1 col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+      <div class="d-flex flex-column justify-content-between memeEditorImage m-0 p-1 col-12 col-md-5 shaded rounded-lg">
         <div class="d-flex align-items-center justify-content-between w-100">
           <form class="d-flex justify-content-between w-100" action="">
-            <button class="flex-grow-1 text-truncate mt-1 mb-2 mr-1 btn btn-warning btn-sm">Agregar sticker</button>
-            <button class="flex-grow-1 text-truncate mt-1 mb-2 btn btn-warning btn-sm">Agregar imagen</button>
-            <button class="flex-grow-1 text-truncate mt-1 mb-2 ml-1 btn btn-warning btn-sm">Dibujar</button>
-            <button class="flex-grow-1 text-truncate mt-1 mb-2 ml-1  btn btn-warning btn-sm">Rotar</button>
+            <button class="flex-grow-1 text-truncate mt-2 mb-2 mr-1 btn btn-warning btn-sm shadow">Agregar sticker</button>
+            <button class="flex-grow-1 text-truncate mt-2 mb-2 btn btn-warning btn-sm shadow">Agregar imagen</button>
+            <button class="flex-grow-1 text-truncate mt-2 mb-2 ml-1 btn btn-warning btn-sm shadow">Dibujar</button>
+            <button class="flex-grow-1 text-truncate mt-2 mb-2 ml-1  btn btn-warning btn-sm shadow">Rotar</button>
           </form>
         </div>
         <div class="w-100">
-          <img class="w-100" src="images/memeParaCompletar.png" alt="">
+          <img class="w-100 shadow rounded-lg" src="images/memeParaCompletar.png" alt="">
         </div>
         <div>
-          <button class="mt-2 mb-0 btn btn-warning btn-sm btn-block">CARGAR MI PROPIA IMAGEN</button>
+          <button class="mt-2 mb-2 btn btn-warning btn-sm btn-block shadow">CARGAR MI PROPIA IMAGEN</button>
         </div>
       </div>
       <!-- MEME EDITOR -->
 
       <!-- TEXT EDITOR -->
       <div
-        class="d-flex flex-column justify-content-between textEditor m-0 p-1 col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+        class="d-flex flex-column justify-content-between textEditor m-0 p-1 col-12 col-md-3 shaded rounded-lg">
 
         <div
           class="d-flex textInput mb-2 w-100 text-center align-items-center justify-content-end flex-column flex-wrap ">
           <div class="d-flex flex-wrap w-100 mt-2 mb-1">
-            <input class="mr-1 flex-grow-1" type="text" placeholder="Text#1" size="1">
-            <button class="border border-dark mr-1 btn btn-sm btn-light"></button>
-            <button class="border border-dark mr-1 btn btn-sm btn-dark"></button>
-            <button class="btn btn-sm btn-warning"><i class="fas fa-cog"></i></button>
+            <input class="mr-1 flex-grow-1 border border-white rounded-lg shadow" type="text" placeholder="Text#1" size="1">
+            <button class="border border-dark mr-1 btn btn-sm btn-light shadow"></button>
+            <button class="border border-dark mr-1 btn btn-sm btn-dark shadow"></button>
+            <button class="btn btn-sm btn-warning shadow pt-2"><i class="fas fa-cog"></i></button>
           </div>
           <div class="d-flex flex-wrap w-100 mt-1 mb-1">
-            <input class="mr-1 flex-grow-1" type="text" placeholder="Text#2" size="1">
-            <button class="border border-dark mr-1 btn btn-sm btn-light"></button>
-            <button class="border border-dark mr-1 btn btn-sm btn-dark"></button>
-            <button class="btn btn-sm btn-warning"><i class="fas fa-cog"></i></button>
+            <input class="mr-1 flex-grow-1  border border-white rounded-lg shadow" type="text" placeholder="Text#2" size="1">
+            <button class="border border-dark mr-1 btn btn-sm btn-light shadow"></button>
+            <button class="border border-dark mr-1 btn btn-sm btn-dark shadow"></button>
+            <button class="btn btn-sm btn-warning shadow pt-2"><i class="fas fa-cog"></i></button>
           </div>
           <div class="d-flex flex-wrap w-100 mt-1 mb-1">
-            <input class="mr-1 flex-grow-1" type="text" placeholder="Text#3" size="1">
-            <button class="border border-dark mr-1 btn btn-sm btn-light"></button>
-            <button class="border border-dark mr-1 btn btn-sm btn-dark"></button>
-            <button class="btn btn-sm btn-warning"><i class="fas fa-cog"></i></button>
+            <input class="mr-1 flex-grow-1  border border-white rounded-lg shadow" type="text" placeholder="Text#3" size="1">
+            <button class="border border-dark mr-1 btn btn-sm btn-light shadow"></button>
+            <button class="border border-dark mr-1 btn btn-sm btn-dark shadow"></button>
+            <button class="btn btn-sm btn-warning shadow pt-2"><i class="fas fa-cog"></i></button>
           </div>
           <div class="d-flex flex-wrap w-100 mt-1 mb-1">
-            <input class="mr-1 flex-grow-1" type="text" placeholder="Text#4" size="1">
-            <button class="border border-dark mr-1 btn btn-sm btn-light"></button>
-            <button class="border border-dark mr-1 btn btn-sm btn-dark"></button>
-            <button class="btn btn-sm btn-warning"><i class="fas fa-cog"></i></button>
+            <input class="mr-1 flex-grow-1  border border-white rounded-lg shadow" type="text" placeholder="Text#4" size="1">
+            <button class="border border-dark mr-1 btn btn-sm btn-light shadow"></button>
+            <button class="border border-dark mr-1 btn btn-sm btn-dark shadow"></button>
+            <button class="btn btn-sm btn-warning shadow pt-2"><i class="fas fa-cog"></i></button>
           </div>
         </div>
         <div class="textInputButtons d-flex w-100 align-items-center justify-content-end text-center flex-column">
           <div class="d-flex flex-row flex-wrap justify-content-between w-100">
-            <button class="btn btn-sm flex-grow-1 btn-warning mt-1 mb-1 mr-1">Agregar otro texto</i></button>
-            <button class="btn btn-sm btn-warning mt-1 mb-1 ml-1">Reset</button>
+            <button class="btn btn-sm flex-grow-1 btn-warning mt-1 mb-1 mr-1 shadow">Agregar otro texto</i></button>
+            <button class="btn btn-sm btn-warning mt-1 mb-1 ml-1 shadow">Reset</button>
           </div>
-          <button class="btn btn-sm btn-warning btn-block mt-1">Agregar a mi biblioteca</button>
+          <button class="btn btn-sm btn-warning btn-block mt-1 mb-2 shadow">Agregar a mi biblioteca</button>
         </div>
       </div>
       <!-- TEXT EDITOR -->
 
       <!-- MEME LIBRARY -->
-      <div class="memeLibrary d-flex justify-content-between text-center align-items-center m-0 p-1 col-xs-12 col-sm-12 col-md-1 col-lg-1 col-xl-1">
+      <div class="memeLibrary d-flex justify-content-between text-center align-items-center m-0 p-1 col-12 shaded col-md-1 rounded-lg">
         <div class="w-100"><h6 class="mb-1 mt-2 p-0">Mi librería</h6></div>
-        <img src="../images/iconoImagenBordesIguales.png" alt="">
-        <img src="../images/iconoImagenBordesIguales.png" alt="">
-        <img src="../images/iconoImagenBordesIguales.png" alt="">
-        <img src="../images/iconoImagenBordesIguales.png" alt="">
-        <img src="../images/iconoImagenBordesIguales.png" alt="">
+  
+        <img class="shadow" src="../images/iconoImagenBordesIguales.png" alt="">
+        <img class="shadow" src="../images/iconoImagenBordesIguales.png" alt="">
+        <img class="shadow" src="../images/iconoImagenBordesIguales.png" alt="">
+        <img class="shadow" src="../images/iconoImagenBordesIguales.png" alt="">
+        <img class="shadow" src="../images/iconoImagenBordesIguales.png" alt="">
+     
       </div>
       <!-- MEME LIBRARY -->
 
@@ -237,9 +239,9 @@
     <!-- MAIN -->
 
     <!-- SUBMIT -->
-    <div class="row">
+    <div class="row  p-0 m-0">
       <a class="w-100 text-decoration-none" href="/products/index">
-        <button class="btn btn-warning btn-sm btn-block mt-3" type="submit">Productos</button>
+        <button class="btn btn-warning btn-lg btn-block mt-3 shadow" type="submit">Ir a productos</button>
       </a>
     </div>
     <!-- SUBMIT -->
