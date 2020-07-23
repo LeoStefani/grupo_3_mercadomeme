@@ -94,7 +94,7 @@
                                                                                                 value="XS" <% for (let i=0; i<productDetail.sizes.length ; i++) {
 
                                                     if (productDetail.sizes[i].tag == "XS") {
-            
+                                                        var xsChecked = true;
                                                       %> checked <% }} %>>
                                                                                 </div>
                                                                                 <input class="border border-light rounded-lg p-1 m-0 mb-1"
@@ -107,6 +107,9 @@
                                                                                                   %> 
                                                                                         value="<%= productDetail.sizes[i].size %>"
                                                                                         <% }} %>
+                                                                                        <% if(!xsChecked) { %> 
+                                                                                                disabled
+                                                                                        <% } %>
                                                                                         placeholder="ml / lt / cm">
                                                                                 <script>
                                                                                         document.getElementById('XS').onchange = function () {
@@ -125,8 +128,8 @@
                                                                                                 id="S" value="S" <% for (let i=0; i<productDetail.sizes.length ; i++) {
 
                                                 if (productDetail.sizes[i].tag == "S") {
-        
-                                                  %> checked <% }} %>>
+                                                        var sChecked = true;
+                                                          %> checked <% }} %>>
                                                                                 </div>
                                                                                 <input class="border border-light rounded-lg p-1 m-0 mb-1"
                                                                                         size="15" type="text"
@@ -138,7 +141,10 @@
                                                                                                   %> 
                                                                                         value="<%= productDetail.sizes[i].size %>"
                                                                                         <% }} %>
-                                                                                        placeholder="ml / lt / cm" disabled>
+                                                                                        <% if(!sChecked) { %> 
+                                                                                                disabled
+                                                                                        <% } %>
+                                                                                        placeholder="ml / lt / cm">
                                                                                 <script>
                                                                                         document.getElementById('S').onchange = function () {
                                                                                                 document.getElementById('sInput').disabled = !this.checked;
@@ -156,8 +162,8 @@
                                                                                                 id="M" value="M" <% for (let i=0; i<productDetail.sizes.length ; i++) {
 
                                                 if (productDetail.sizes[i].tag == "M") {
-        
-                                                  %> checked <% }} %>>
+                                                        var mChecked = true;
+                                                          %> checked <% }} %>>
                                                                                 </div>
                                                                                 <input class="border border-light rounded-lg p-1 m-0 mb-1"
                                                                                         size="15" type="text"
@@ -169,7 +175,10 @@
                                                                                                   %> 
                                                                                         value="<%= productDetail.sizes[i].size %>"
                                                                                         <% }} %>
-                                                                                        placeholder="ml / lt / cm" disabled>
+                                                                                        <% if(!mChecked) { %> 
+                                                                                                disabled
+                                                                                        <% } %>
+                                                                                        placeholder="ml / lt / cm">
                                                                                 <script>
                                                                                         document.getElementById('M').onchange = function () {
                                                                                                 document.getElementById('mInput').disabled = !this.checked;
@@ -187,8 +196,8 @@
                                                                                                 id="L" value="L" <% for (let i=0; i<productDetail.sizes.length ; i++) {
 
                                                 if (productDetail.sizes[i].tag == "L") {
-        
-                                                  %> checked <% }} %>>
+                                                        var lChecked = true;
+                                                          %> checked <% }} %>>
                                                                                 </div>
                                                                                 <input class="border border-light rounded-lg p-1 m-0 mb-1"
                                                                                         size="15" type="text"
@@ -200,7 +209,10 @@
                                                                                                   %> 
                                                                                         value="<%= productDetail.sizes[i].size %>"
                                                                                         <% }} %>
-                                                                                        placeholder="ml / lt / cm" disabled>
+                                                                                        <% if(!lChecked) { %> 
+                                                                                                disabled
+                                                                                        <% } %>
+                                                                                        placeholder="ml / lt / cm">
                                                                                 <script>
                                                                                         document.getElementById('L').onchange = function () {
                                                                                                 document.getElementById('lInput').disabled = !this.checked;
@@ -219,7 +231,7 @@
                                                                                                 value="XL" <% for (let i=0; i<productDetail.sizes.length ; i++) {
 
                                                     if (productDetail.sizes[i].tag == "XL") {
-            
+                                                        var xlChecked = true;
                                                       %> checked <% }} %>>
                                                                                 </div>
                                                                                 <input class="border border-light rounded-lg p-1 m-0 mb-1"
@@ -232,7 +244,10 @@
                                                                                                   %> 
                                                                                         value="<%= productDetail.sizes[i].size %>"
                                                                                         <% }} %>
-                                                                                        placeholder="ml / lt / cm" disabled>
+                                                                                        <% if(!xsChecked) { %> 
+                                                                                                disabled
+                                                                                        <% } %>
+                                                                                        placeholder="ml / lt / cm">
                                                                                 <script>
                                                                                         document.getElementById('XL').onchange = function () {
                                                                                                 document.getElementById('xlInput').disabled = !this.checked;

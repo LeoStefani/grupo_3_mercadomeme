@@ -103,7 +103,7 @@ module.exports = {
                 if (req.body.productNewDescription != undefined) { productNew.description = req.body.productNewDescription };
                 if (req.body.productNewCategory != undefined && req.body.typeAddInput == undefined) { productNew.category = req.body.productNewCategory };
                 if (req.body.productNewCategory != undefined && req.body.typeAddInput != undefined) { productNew.category = req.body.typeAddInput };
-                if (req.body.productNewPrice != undefined) { productNew.price = req.body.productNewPrice };
+                if (req.body.productNewPrice != undefined) { productNew.price = parseFloat(req.body.productNewPrice) };
 
                 // busco unidad de medida segun la categoria ingresada
                 let unitNew;
@@ -117,11 +117,11 @@ module.exports = {
                 productNew.image = "iconoImagenBordesIguales.png";
 
                 // si existen dichos campos, pego en productNew - Tamaños
-                if (req.body.xs != undefined && req.body.sizeXsValue != "") { productNew.sizes.push({ tag: req.body.xs, size: req.body.sizeXsValue, unit: unitNew }) };
-                if (req.body.s != undefined && req.body.sizeSValue != "") { productNew.sizes.push({ tag: req.body.s, size: req.body.sizeSValue, unit: unitNew }) };
-                if (req.body.m != undefined && req.body.sizeMValue != "") { productNew.sizes.push({ tag: req.body.m, size: req.body.sizeMValue, unit: unitNew }) };
-                if (req.body.l != undefined && req.body.sizeLValue != "") { productNew.sizes.push({ tag: req.body.l, size: req.body.sizeLValue, unit: unitNew }) };
-                if (req.body.xl != undefined && req.body.sizeXlValue != "") { productNew.sizes.push({ tag: req.body.xl, size: req.body.sizeXlValue, unit: unitNew }) };
+                if (req.body.xs != undefined && req.body.sizeXsValue != "") { productNew.sizes.push({ tag: req.body.xs, size: parseFloat(req.body.sizeXsValue), unit: unitNew }) };
+                if (req.body.s != undefined && req.body.sizeSValue != "") { productNew.sizes.push({ tag: req.body.s, size: parseFloat(req.body.sizeSValue), unit: unitNew }) };
+                if (req.body.m != undefined && req.body.sizeMValue != "") { productNew.sizes.push({ tag: req.body.m, size: parseFloat(req.body.sizeMValue), unit: unitNew }) };
+                if (req.body.l != undefined && req.body.sizeLValue != "") { productNew.sizes.push({ tag: req.body.l, size: parseFloat(req.body.sizeLValue), unit: unitNew }) };
+                if (req.body.xl != undefined && req.body.sizeXlValue != "") { productNew.sizes.push({ tag: req.body.xl, size: parseFloat(req.body.sizeXlValue), unit: unitNew }) };
                 // Colores 
                 if (req.body.colorBlack != undefined) { productNew.colors.push({ colorName: req.body.colorBlack, colorCode: "#000000" }) };
                 if (req.body.colorRed != undefined) { productNew.colors.push({ colorName: req.body.colorRed, colorCode: "#FF0000" }) };
@@ -174,7 +174,7 @@ module.exports = {
 
                 let indexToEdit = findIndex();
 
-                products[indexToEdit].id = req.body.productEditId;
+                products[indexToEdit].id = parseInt(req.body.productEditId);
                 products[indexToEdit].name = req.body.productEditName;
                 products[indexToEdit].description = req.body.productEditDescription;
 
@@ -184,18 +184,18 @@ module.exports = {
                         products[indexToEdit].category = req.body.productEditCategory;
                 }
 
-                products[indexToEdit].price = req.body.productEditPrice;
+                products[indexToEdit].price = parseFloat(req.body.productEditPrice);
                 products[indexToEdit].image = "iconoImagenBordesIguales.png";
 
                 products[indexToEdit].sizes = [];
                 products[indexToEdit].colors = [];
                 products[indexToEdit].others = [];
 
-                if (req.body.xs != undefined && req.body.sizeXsValue != "") { products[indexToEdit].sizes.push({ tag: req.body.xs, size: req.body.sizeXsValue }) };
-                if (req.body.s != undefined && req.body.sizeSValue != "") { products[indexToEdit].sizes.push({ tag: req.body.s, size: req.body.sizeSValue }) };
-                if (req.body.m != undefined && req.body.sizeMValue != "") { products[indexToEdit].sizes.push({ tag: req.body.m, size: req.body.sizeMValue }) };
-                if (req.body.l != undefined && req.body.sizeLValue != "") { products[indexToEdit].sizes.push({ tag: req.body.l, size: req.body.sizeLValue }) };
-                if (req.body.xl != undefined && req.body.sizeXlValue != "") { products[indexToEdit].sizes.push({ tag: req.body.xl, size: req.body.sizeXlValue }) };
+                if (req.body.xs != undefined && req.body.sizeXsValue != "") { products[indexToEdit].sizes.push({ tag: req.body.xs, size: parseFloat(req.body.sizeXsValue) }) };
+                if (req.body.s != undefined && req.body.sizeSValue != "") { products[indexToEdit].sizes.push({ tag: req.body.s, size: parseFloat(req.body.sizeSValue) }) };
+                if (req.body.m != undefined && req.body.sizeMValue != "") { products[indexToEdit].sizes.push({ tag: req.body.m, size: parseFloat(req.body.sizeMValue) }) };
+                if (req.body.l != undefined && req.body.sizeLValue != "") { products[indexToEdit].sizes.push({ tag: req.body.l, size: parseFloat(req.body.sizeLValue) }) };
+                if (req.body.xl != undefined && req.body.sizeXlValue != "") { products[indexToEdit].sizes.push({ tag: req.body.xl, size: parseFloat(req.body.sizeXlValue) }) };
 
                 if (req.body.colorBlack != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorBlack, colorCode: "#000000" }) };
                 if (req.body.colorRed != undefined) { products[indexToEdit].colors.push({ colorName: req.body.colorRed, colorCode: "#FF0000" }) };
