@@ -25,8 +25,30 @@
   * Backups manuales
 
 
-
 ## Retrospectiva - Sprint 2
+
+1. Comenzar a hacer:
+  * Implementar la metodología del daily. Si bien es verdad que tenemos buena comunicación, quizás seria mejor de forma mas sistemática.
+  * Tratar de implementar Branches en Github.
+  * Implementar algún sistema de revisión de código, para que un integrante del equipo siempre le revise el código a otro integrante.
+
+2. Hacer más:
+  * Aumentar la frecuencia de reuniones.
+  * Explotar las herramientas de Trello
+  * Definir, en lo posible, estilos a través de bootstrap para evitar que los css se vuelvan difíciles de manejar.
+
+3. Continuar haciendo:
+  * Meets de trabajo en conjunto para definir cuestiones principales en grupo.
+  * Intentar definir previamente las estructuras antes de ir al código.
+  * Manejar todo a través de GIT
+  * Utilizar Trello para organizar las tareas.
+  * Abandono total de backups manuales.
+
+4. Hacer menos:
+  * Cumplir solo con las consignas del Sprint. 
+
+5. Dejar de hacer:
+  * No invertir tanto tiempo en procesos o funcionalidades en las cuales aún no tengamos las suficientes herramientas para trabajar correctamente.
 
 ## Retrospectiva - Sprint 3
 
