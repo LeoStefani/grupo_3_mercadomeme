@@ -66,6 +66,26 @@ https://trello.com/b/24CXEKkc/mercadomeme
 * Para checkear cómo se verá la página de error deberás ingresar a la ruta ".../error".
 
 
+### Sprint 3:
+
+* Ver archivo retro.md
+* Ver tablero de trabajo.
+* Template engines. Siguiendo la línea de lo trabajado en el Sprint 2, se agregaron nuevas vistas en formato (.ejs). Además se implementaron líneas de JS en las vistas para procesar información y mostrarla. La metodología de archivos parciales fue implementada ya desde el Sprint 2, y se continuó en la misma línea.
+* JSON de productos. Se pensó en función de los procesamientos que queremos hacer.
+* JSON de usuarios. Fue creado, se utilizará en un futuro.
+* Vista de login. Se puede acceder en todo momento haciendo click en "login".
+* Home del sitio. Se mostrarán los 4 más vendidos, extraídos del JSON de productos y ordenados según la cantidad vendida (qtySold).
+* Productos. Agrupados por categoría (extraídas del JSON), con un dropdown se pueden ver todos los productos de esa categoría. Haciendo click en el producto que quieras, te previsualizará más abajo sus detalles, tamaños disponibles, colores, precio, etc... La idea es que puedas ágilmente cambiar de un producto a otro e ir viendo sus características.
+* Detalle de producto. Cuando llegues acá, deberías tener al menos un producto seleccionado. La vista tendrá todos los detalles del producto y se podrá seleccionar el tamaño y color que quieras. Notesé que las opciones variarán según los tamaños y colores disponibles de cada producto.
+* Upload. Operaciones CRUD. Para acceder, debes seguir la ruta ".../products/upload" (entorno Test). En próximos sprints, si el usuario es administrador, una opción para administrar productos se le mostrará condicionalmente para que pueda acceder. Desde esta vista tendrás 2 opciones:
+* Create. Si quieres crear un producto nuevo, puedes seleccionar "Ir a crear producto". El sistema te asignará el id automáticamente (el siguiente según el JSON de productos). Luego puedes seleccionar todos las características recorriendo los campos. Al finalizar, apretando "Crear producto" el sistema te redirigirá a upload y archivará el producto nuevo que hayas creado.
+* Editar o eliminar. Para editar o eliminar un producto, primero tendrás que buscarlo. Puedes hacerlo por id, nombre o categoría. Cuando apliques los filtros se te mostrarán todos los productos que coinciden con tu búsqueda. Sobre cada uno puedes editar o eliminar:
+* Eliminar. Te redirige a una vista que te resume todas las características del producto que estás eliminando. Si decides ELIMINAR, te redirigirá a upload y eliminará el producto.
+* Editar. Te redirige a una vista muy similar a create, pero con todos los campos cargados (con los datos que ya tiene el producto). Puedes editar lo que quieras y al "Confirmar la edición de producto" te redirigirá a upload y editará el producto. Notesé que los valores que no selecciones o no cambies, permanecerán como estaban en el producto.
+
+
+
+
 
 
 
