@@ -8,7 +8,7 @@
         <div class="create container">
                 <div class="row">
                         <form class="w-100 d-flex flex-wrap justify-content-center align-items-start"
-                                action="/products/create" method="POST" id="createForm">
+                                action="/products/create" method="POST" enctype="multipart/form-data" id="createForm">
                                 <div
                                         class="firstColumn d-flex flex-wrap flex-column justify-content-start align-items-center col-12 col-md-8">
 
@@ -335,10 +335,11 @@
                                                 <img class="w-100 shadow rounded-lg" src="/Images/remeraNegra.jpg"
                                                         alt="">
                                                 <div>
+                                                        <input type="file" name="imgProduct">
+                                                        <!-- <a href=""><i class="far fa-plus-square"></i></a> -->
+                                                        <br>
+                                                        <br>
                                                         <a href=""><i class="far fa-trash-alt"></i></a>
-                                                        <br>
-                                                        <br>
-                                                        <a href=""><i class="far fa-plus-square"></i></a>
                                                 </div>
                                         </div>
                                         <div class="image w-50 p-1">
