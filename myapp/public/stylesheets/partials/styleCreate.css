@@ -66,38 +66,3 @@ div.create div.firstColumn div.anotherParameters form div {
     width: 35%;
 }
 
-/*====SECOND COLUMN=====*/
-
-div.create div.secondColumn div.image{
-    width: 50%;
-    position: relative;
-}
-
-div.create div.secondColumn div.image div{
-    position: absolute;
-    right: 25px;
-    bottom: 25px;
-}
-div.create div.secondColumn div.image div i{
-    font-size: 2rem;
-    color: gray;
-}
-div.create div.secondColumn div.image h5{
-    font-size: 1.1rem;
-}
-
-
-
-/*====MEDIA QUERIES=====*/
-
-@media (min-width: 768px) {
-
-    div.create div.secondColumn div.image div i{
-        font-size: 1.5rem;
-    }
-    div.create div.secondColumn div.image div{
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
-    }
-}
