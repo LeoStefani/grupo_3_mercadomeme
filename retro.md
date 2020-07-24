@@ -36,6 +36,7 @@
   * Aumentar la frecuencia de reuniones.
   * Explotar las herramientas de Trello
   * Definir, en lo posible, estilos a través de bootstrap para evitar que los css se vuelvan difíciles de manejar.
+  * Testear la página desde dispositivos móviles reales, y en distintos navegadores.
 
 3. Continuar haciendo:
   * Meets de trabajo en conjunto para definir cuestiones principales en grupo.

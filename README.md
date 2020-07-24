@@ -83,6 +83,9 @@ https://trello.com/b/24CXEKkc/mercadomeme
 * Eliminar. Te redirige a una vista que te resume todas las características del producto que estás eliminando. Si decides ELIMINAR, te redirigirá a upload y eliminará el producto.
 * Editar. Te redirige a una vista muy similar a create, pero con todos los campos cargados (con los datos que ya tiene el producto). Puedes editar lo que quieras y al "Confirmar la edición de producto" te redirigirá a upload y editará el producto. Notesé que los valores que no selecciones o no cambies, permanecerán como estaban en el producto.
 
+#### Aclaraciones:
+* Se pueden realizar testeos y recuperar el JSON desde backupProducts.JSON.
+
 
 
 
