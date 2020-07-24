@@ -113,8 +113,8 @@ module.exports = {
                                 break;
                         };
                 };
-
-                productNew.image = "iconoImagenBordesIguales.png";
+                
+                productNew.image = req.files[0].filename;
 
                 // si existen dichos campos, pego en productNew - Tamaños
                 if (req.body.xs != undefined && req.body.sizeXsValue != "") { productNew.sizes.push({ tag: req.body.xs, size: parseFloat(req.body.sizeXsValue), unit: unitNew }) };
