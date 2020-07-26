@@ -8,29 +8,36 @@
         <div class="row">
             <div class="containerColumn d-flex flex-wrap align-items-center mt-0 mb-0 m-auto shadow rounded-lg">
                 <div class="containerBlock d-flex flex-wrap justify-content-between w-100 m-4">
-                    <form class=" d-flex flex-wrap justify-content-between w-100" action="">
-                        <h4 class="text-center mt-0 mb-0 m-auto font-weight-bold">Registrate!</h4>
-                        <div class="w-100 m-0 p-0">
-                            <input class="border border-white rounded-lg flex-grow-1 w-100 mt-3 mb-3 p-2 shadow" type="text"
-                                placeholder="Username">
+                    <form class=" d-flex flex-wrap justify-content-between w-100" action="/users/register" method="POST">
+                        <div class=" mt-0 mb-3 m-auto">
+                            <h4 class="text-center font-weight-bold">Registrate!</h4>
                         </div>
                         <div class="w-100 m-0 p-0">
-                            <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow" type="email"
-                                placeholder="Email">
+                            <small class=" text-danger text-center"> <%= (typeof errors != "undefined" && errors.userName) ? errors.userName.msg : "" %></small>
+                            <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow" type="text" name="userName"
+                                placeholder="Username" value="<%= (typeof old != 'undefined' && !errors.userName) ? old.userName : '' %>">
+                            
+                        </div>
+                        <div class="w-100 m-0 p-0">
+                            <small class=" text-danger text-center"> <%= (typeof errors != "undefined" && errors.userEmail) ? errors.userEmail.msg : "" %></small>
+                            <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow" type="email" name="userEmail"
+                                placeholder="Email" value="<%= (typeof old != 'undefined' && !errors.userEmail) ? old.userEmail : '' %>">
+                        </div>
+                        <div class="w-100 m-0 p-0">
+                            <small class=" text-danger text-center"> <%= (typeof errors != "undefined" && errors.userPassword) ? errors.userPassword.msg : "" %></small>
+                            <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                                type="password" placeholder="Contraseña" name="userPassword" value="<%= (typeof old != 'undefined' && !errors.userPassword) ? old.userPassword : '' %>">
                         </div>
                         <div class="w-100 m-0 p-0">
                             <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
-                                type="password" placeholder="Contraseña">
+                                type="password" placeholder="Confirmar contraseña" name="userRePassword">
                         </div>
-                        <div class="w-100 m-0 p-0">
-                            <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
-                                type="password" placeholder="Confirmar contraseña">
-                        </div>
-                    </form>
+                    
                     <button class="btn btn-warning mt-3 flex-grow-1 col-5 shadow">Seguir con <i class="fab fa-facebook-square"></i></button>
                     <button class="btn btn-warning mt-3 flex-grow-1 col-5 shadow">Seguir con <i class="fab fa-google"></i></button>
                     <img src="/images/captcha.png" class="rounded-lg w-100 mt-3 shadow" alt="">
                     <button class="btn btn-warning mt-3 col-12 font-weight-bold shadow" type="submit">REGISTRARSE</button>
+                </form>
                     <div class="d-flex flex-wrap justify-content-center w-100">
                         <a class="text-center mt-3 text-decoration-none" href="/">
                             <h6 class="text-center m-2">¿Ya estás registrado?</h6>
