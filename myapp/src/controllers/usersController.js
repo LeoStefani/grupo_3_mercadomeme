@@ -3,8 +3,12 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const { check, validationResult, body} = require("express-validator");
 
-
-let users = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/users.json'), 'utf-8'));
+let usersJSON = fs.readFileSync(path.join(__dirname, '../data/users.json'), 'utf-8');
+let users;
+if (usersJSON == "") {
+            users=[];
+            }else{
+            users = JSON.parse(usersJSON)}; 
 
 let maxId = function () {
 
@@ -53,8 +57,48 @@ module.exports = {
         };
 
     res.redirect("/");
-},
+    },
     cart: function (req,res,next) {
         res.render("cart", { title: "Carrito" });
-    }
+    },
+    loginView: function (req, res, next) {
+        res.render('login', { title: 'Login' });
+    },
+    login: function (req, res, next) {
+
+        let errors = validationResult(req);
+
+        if (errors.isEmpty()) {
+
+            let userToLogin;
+
+            for (let i=0; i<users.length;i++) {   
+                if (users[i].email == req.body.loginEmail) {
+                    if (bcrypt.compareSync(req.body.loginPassword, users[i].password)) {
+                        userToLogin = users[i];
+                        break;
+                    }
+                }               
+            };
+
+            if (userToLogin == undefined) {
+                return res.render("login", {title: 'Login', errors: errors.mapped(), error:"Usuario o contraseña inválidos", old: req.body})
+            };
+
+        req.session.loggedUser = userToLogin;
+        res.redirect('/');
+            
+
+
+
+        }else{
+
+            res.render("login", { title: 'Login', errors: errors.mapped(), old: req.body })
+
+
+        }
+
+    },
+    
+
 };

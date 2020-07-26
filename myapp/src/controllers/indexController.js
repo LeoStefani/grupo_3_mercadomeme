@@ -28,10 +28,6 @@ let controller = {
         },
         error: function (req, res, next) {
                 res.render('error', { title: "Error" });
-        },
-        
-        login: function (req, res, next) {
-                res.render('login', { title: 'Login' });
         }
 };
 
