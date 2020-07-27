@@ -23,11 +23,11 @@ let controller = {
         index: function (req, res, next) {
                 res.render('index', {
                         title: 'Bienvenidos!',
-                        sortedProducts: sortedProducts,
+                        sortedProducts: sortedProducts
                 });
         },
         error: function (req, res, next) {
-                res.render('error', { title: "Error" });
+                res.render('error', { title: "Error"});
         }
 };
 

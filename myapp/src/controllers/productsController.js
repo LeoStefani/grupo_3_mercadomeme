@@ -82,9 +82,8 @@ module.exports = {
                 res.render('upload', {
                         title: 'Carga de productos',
                         productsSearch: productsSearch,
-                        productsCategories: productsCategories,
-                        // preDetail: preDetail
-                }); //SACAR EL TITLE DEL HEAD!!!!
+                        productsCategories: productsCategories
+                });
         },
 
         create: function (req, res, next) {
@@ -92,7 +91,7 @@ module.exports = {
                 res.render('create', {
                         title: 'Nuevo producto',
                         lastId: maxId(),
-                        productsCategories: productsCategories,
+                        productsCategories: productsCategories
                 }); //SACAR EL TITLE DEL HEAD!!!!
         },
 

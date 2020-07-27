@@ -19,7 +19,7 @@
                                 <div class="w-100 m-0 p-0">
                                     <small class=" text-danger text-center"> <%= (typeof errors != "undefined" && errors.loginEmail) ? errors.loginEmail.msg : "" %></small>
                                     <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow" type="text"
-                                        placeholder="email" name="loginEmail" value="<%= (typeof old != 'undefined' && !errors.loginEmail) ? old.loginEmail : '' %>">
+                                        placeholder="Email" name="loginEmail" value="<%= (typeof old != 'undefined' && !errors.loginEmail) ? old.loginEmail : '' %>">
                                 </div>
                                 <div class="w-100 m-0 p-0">
                                     <small class=" text-danger text-center"> <%= (typeof errors != "undefined" && errors.loginPassword) ? errors.loginPassword.msg : "" %></small>
@@ -27,8 +27,12 @@
                                         type="password" placeholder="Contraseña" name="loginPassword">
                                 </div>
                                 <small class=" text-danger text-center"> <%= (typeof error != "undefined" && error) ? error : "" %></small>
-
-                            <button class="btn btn-warning mt-3 col-12 shadow" type="submit">Login</button>
+                                <div class="w-100 m-0 p-0">
+                                    <input class="border border-white mt-1 mb-0 p-2 shadow"
+                                        type="checkbox" name="rememberMe" id="rememberMe">
+                                        <label for="rememberMe">Recordarme</label>
+                                </div>
+                            <button class="btn btn-warning mt-3 mb-3 col-12 shadow" type="submit">Login</button>
                             </form>
                             <div class="d-flex flex-wrap justify-content-center w-100">
                                 <a href="/users/register"><h6 class="text-center m-2">¿Aun no estás registrado?</h6></a>
