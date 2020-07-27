@@ -14,6 +14,7 @@ router.get('/check', usersController.check);
 router.get('/register', usersController.register);
 
 // HABIA SACADO LAS VALIDACIONES EN UN ARCHIVO APARTE PERO EN CIERTAS OCASIONES NO ANDABA DEL TODO BIEN Y NO SE POR QUE
+// Chequeo que email sea valido, que user no venga vacio, que passord tenga 8 caracteres y que tanto email como user no existan en la base de datos.
 router.post('/register', [   
     check("userEmail").isEmail().withMessage("El email no puede estar vacío"),
     check("userName").isLength({min:1}).withMessage("El nombre de usuario no puede quedar vacío"),
@@ -36,14 +37,16 @@ router.post('/register', [
     ).withMessage("El username ya se encuentra registrado")
 ], usersController.createUser);
 
+router.get('/login', usersController.loginView);
 
 // HABIA SACADO LAS VALIDACIONES EN UN ARCHIVO APARTE PERO EN CIERTAS OCASIONES NO ANDABA DEL TODO BIEN Y NO SE POR QUE
-router.get('/login', usersController.loginView);
+// Chequeo que el email sea un email y que el password tenga 8 caracteres.
 router.post('/login', [
     check("loginEmail").isEmail().withMessage("El email no puede estar vacío"),
     check("loginPassword").isLength({min:8}).withMessage("La contraseña debe tener al menos 8 caracteres")
 ], usersController.login);
 
+// ruta para destruir la session.
 router.get('/logout', usersController.logout);
 
 router.get('/cart', usersController.cart);
