@@ -125,7 +125,6 @@ module.exports = {
             })
         }
     },
-
     logout: function (req,res,next){
         // Cuando se entra a la ruta /users/logout hace un session destroy y manda un mensaje.
         req.session.destroy();
@@ -134,5 +133,10 @@ module.exports = {
     check: function (req, res, next){
         // Cuando se entra a la ruta /users/check manda un mensaje de quien esta loggeado en session.
         res.send("El usuario loggeado es " + req.session.loggedUser.user_name);
+    },
+    purchaseSettings: function (req,res,next){
+           res.render("purchaseSettings", {
+            title: "Configuración de compra"
+        });
     }
 };

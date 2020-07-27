@@ -1,0 +1,28 @@
+div.purchase{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*====FIRST COLUMN=====*/
+
+div.purchase div.firstColumn h5{
+    background-color: var(--colorWhite);
+    }
+
+div.purchase div.firstColumn div.dataBlock{
+background-color: var(--colorWhite);
+}
+
+div.purchase div.firstColumn div.dataBlock div{
+    background-color: var(--colorWhite);
+}
+
+/*====SECOND COLUMN=====*/
+
+div.purchase div.secondColumn div.resumeBlock{
+    background-color: var(--colorWhite);
+    }
+
+div.purchase div.secondColumn h5{
+    background-color: var(--colorWhite);
+    }

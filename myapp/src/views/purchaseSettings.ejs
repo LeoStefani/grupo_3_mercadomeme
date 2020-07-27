@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+
+
+<body>
+    <%- include('partials/header') %>
+    <div class="purchase container">
+        <div class="row">
+            <form class="col-12 d-flex flex-wrap justify-content-between align-items-start" action=""
+                method="" enctype="" id="purchaseSettingsForm">
+                <div
+                    class="firstColumn d-flex flex-wrap flex-column justify-content-start align-items-center col-12 col-md-8">
+                    <h5 class="w-100 text-center p-2 mt-4 shadow rounded-lg">Entrega y medios de pago</h5>
+
+                    <!-- Address Block -->
+                    <div
+                        class="dataBlock w-100 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-3 mt-2">
+                        <div class="w-100 d-flex flex-wrap justify-content-end align-items-center">
+                            <div class="d-flex flex-wrap productName w-100 mt-2">
+                                <p class="col-12 col-md-6 p-1"><b>Direccion:</b> Habana 4310 (Casi Segurola)</p>
+                                <p class="col-12 col-md-6 p-1"><b>Localidad:</b> Villa Devoto </p>
+                                <p class="col-6 col-md-3 p-1"><b>Tel:</b> 1121727338</p>
+                                <p class="col-6 col-md-3 p-1"><b>CP:</b> 1425</p>
+                                <p class="col-6 col-md-6 p-1"><b>Email:</b> debutoconunpibe@gmail.com</p>
+                            </div>
+                            <div class="w-100 text-center">
+                                <a href="#" role="button" class="btn btn-sm col-12 col-md-6 btn-warning shadow">Elegir
+                                    otra dirección</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Address Block -->
+
+                    <!-- Collapse Delivery -->
+                    <p class="w-100 shadow rounded-lg">
+                        <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
+                            data-target="#collapseDelivery" aria-expanded="false" aria-controls="collapseDelivery"><i
+                                class="fas fa-chevron-down"></i> Condiciones de entrega <i
+                                class="fas fa-chevron-down"></i></button>
+                    </p>
+                    <div class="collapse w-100 mb-3" id="collapseDelivery">
+                        <div class="card card-body w-100">
+                            <div class="delivery w-100 mb-2 p-2">
+                                <div class="d-flex flex-wrap  justify-content-end homeDelivery w-100 mt-2">
+                                    <div class="radio p-1 m-0 mb-1 col-1 text-end">
+                                        <input class="m-0 ml-1" type="radio" name="delivery" id="" value=""
+                                            form="purchaseSettingsForm">
+                                    </div>
+                                    <p class="col-11 p-1"><b>Envío a domicilio:</b> Habana 4310 (Casi Segurola)</p>
+                                    <p class="col-11 p-1"><b><i class="fas fa-shipping-fast"></i> Llega mañana</b></p>
+                                </div>
+                                <div class="d-flex flex-wrap justify-content-end shopDelivery w-100 mt-2">
+                                    <div class="radio p-1 m-0 mb-1 col-1 text-end">
+                                        <input class="m-0 ml-1" type="radio" name="delivery" id="" value=""
+                                            form="purchaseSettingsForm">
+                                    </div>
+                                    <p class="col-11 p-1"><b>Retiro en sucursal</b></p>
+                                    <p class="col-11 p-1">Direccion de la sucursal</p>
+                                    <p class="col-11 p-1">Abierto de 09:00 a 20:00</p>
+                                </div>
+                                <div class="d-flex flex-wrap  justify-content-end  pickupDelivery w-100 mt-2">
+                                    <div class="radio p-1 m-0 mb-1 col-1 text-end">
+                                        <input class="m-0 ml-1" type="radio" name="delivery" id="" value=""
+                                            form="purchaseSettingsForm">
+                                    </div>
+                                    <p class="col-11 p-1"><b>Retiro en correo y puntos pick-up</b></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Collapse Delivery -->
+
+                    <!-- Collapse Payment -->
+                    <p class="w-100 shadow rounded-lg">
+                        <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
+                            data-target="#collapsePayment" aria-expanded="false" aria-controls="collapsePayment"><i
+                                class="fas fa-chevron-down"></i> Condiciones de pago <i
+                                class="fas fa-chevron-down"></i></button>
+                    </p>
+                    <div class="collapse w-100 mb-3" id="collapsePayment">
+                        <div class="card card-body w-100">
+                            <div class="Payment w-100 mb-2 p-2">
+                                <div class="d-flex flex-wrap justify-content-end shopPayment w-100 mt-2">
+                                    <div class="radio p-1 m-0 mb-1 col-1 text-end">
+                                        <input class="m-0 ml-1" type="radio" name="payment" id="" value=""
+                                            form="purchaseSettingsForm">
+                                    </div>
+                                    <p class="col-11 p-1"><b>Pago en sucursal: </b> Habana 4310 (Casi Segurola)</p>
+                                    <p class="col-11 p-1"><b> <i class="fab fa-cc-visa"></i> <i
+                                                class="fab fa-cc-mastercard"></i></b></p>
+                                </div>
+                                <div class="d-flex flex-wrap justify-content-end onlinePayment w-100 mt-2">
+                                    <div class="radio p-1 m-0 mb-1 col-1 text-end">
+                                        <input class="m-0 ml-1" type="radio" name="payment" id="" value=""
+                                            form="purchaseSettingsForm">
+                                    </div>
+                                    <p class="col-11 p-1"><b>Pago online: </b></p>
+                                    <p class="col-11 p-1"><b> <i class="fab fa-cc-visa"></i> <i
+                                                class="fab fa-cc-mastercard"></i> <i class="fab fa-paypal"></i> <i
+                                                class="fab fa-bitcoin"></i> </b></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Collapse Payment -->
+                </div>
+
+                <div
+                    class="secondColumn d-flex flex-wrap justify-content-between align-items-center col-12 col-md-4">
+
+                    <h5 class="w-100 text-center p-2 mt-4  mb-2 shadow rounded-lg">Resumen de compra</h5>
+
+                    <!-- Resume Block -->
+                    <div
+                        class="resumeBlock col-12 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-0 mt-2">
+                        <div class="col-4 col-md-4 text-center align-self-center">
+                            <img src="/images/iconoimagen.png" class="w-100 mb-2" alt="">
+                        </div>
+                        <div class="d-flex flex-wrap itemResume col-8 mt-2">
+                            <p class="col-12 p-1"><b>Descripción:</b> Remera Lisa</p>
+                            <p class="col-6 p-1"><b>Tamaño:</b> XL </p>
+                            <p class="col-6 p-1"><b>Color:</b> Negro</p>
+                            <p class="col-8 p-1"><b>Otros:</b> Cuello en V </p>
+                        </div>
+                        <div class="col-12 text-center d-flex flex-wrap">
+                            <p class="col-6"><b>Cantidad:</b> X</p>
+                            <p class="col-6"><b>Precio:</b> $ XXXX</p>
+                        </div>
+
+                    </div>
+                    <!-- Resume Block -->
+
+                    <!-- Resume Block -->
+                    <div
+                        class="resumeBlock col-12 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-0 mt-2">
+                        <div class="col-4 col-md-4 text-center align-self-center">
+                            <img src="/images/iconoimagen.png" class="w-100 mb-2" alt="">
+                        </div>
+                        <div class="d-flex flex-wrap itemResume col-8 mt-2">
+                            <p class="col-12 p-1"><b>Descripción:</b> Remera Lisa</p>
+                            <p class="col-6 p-1"><b>Tamaño:</b> XL </p>
+                            <p class="col-6 p-1"><b>Color:</b> Negro</p>
+                            <p class="col-8 p-1"><b>Otros:</b> Cuello en V </p>
+                        </div>
+                        <div class="col-12 text-center d-flex flex-wrap">
+                            <p class="col-6"><b>Cantidad:</b> X</p>
+                            <p class="col-6"><b>Precio:</b> $ XXXX</p>
+                        </div>
+
+                    </div>
+                    <!-- Resume Block -->
+                    <!-- Resume Block -->
+                    <div
+                        class="resumeBlock col-12 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-0 mt-2">
+                        <div class="col-4 col-md-4 text-center align-self-center">
+                            <img src="/images/iconoimagen.png" class="w-100 mb-2" alt="">
+                        </div>
+                        <div class="d-flex flex-wrap itemResume col-8 mt-2">
+                            <p class="col-12 p-1"><b>Descripción:</b> Remera Lisa</p>
+                            <p class="col-6 p-1"><b>Tamaño:</b> XL </p>
+                            <p class="col-6 p-1"><b>Color:</b> Negro</p>
+                            <p class="col-8 p-1"><b>Otros:</b> Cuello en V </p>
+                        </div>
+                        <div class="col-12 text-center d-flex flex-wrap">
+                            <p class="col-6"><b>Cantidad:</b> X</p>
+                            <p class="col-6"><b>Precio:</b> $ XXXX</p>
+                        </div>
+
+                    </div>
+                    <!-- Resume Block -->
+
+                    <h5 class="w-100 text-center p-2 mt-2 shadow rounded-lg mb-4"><b>Total:</b>$ XXXX</h5>
+
+
+
+                </div>
+
+                <div class="col-12 text-center">
+                    <button class="btn btn-warning btn-lg m-auto mt-3 w-100 shadow rounded-lg" type="submit"
+                        form="purchaseSettingsForm">Confirmar datos y finalizar la compra</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <%- include('partials/footer') %>
+    <%- include('partials/scriptsBootstrap') %>
+</body>
+
+</html>

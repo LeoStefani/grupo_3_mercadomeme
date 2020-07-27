@@ -51,4 +51,6 @@ router.get('/logout', usersController.logout);
 
 router.get('/cart', usersController.cart);
 
+router.get('/cart/settings', usersController.purchaseSettings);
+
 module.exports = router;
