@@ -10,8 +10,10 @@ const { check, validationResult, body } = require('express-validator');
 let users = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/users.json'), 'utf-8'));
 
 router.get('/', usersController.usersIndex);
+router.get('/check', usersController.check);
 router.get('/register', usersController.register);
 
+// HABIA SACADO LAS VALIDACIONES EN UN ARCHIVO APARTE PERO EN CIERTAS OCASIONES NO ANDABA DEL TODO BIEN Y NO SE POR QUE
 router.post('/register', [   
     check("userEmail").isEmail().withMessage("El email no puede estar vacío"),
     check("userName").isLength({min:1}).withMessage("El nombre de usuario no puede quedar vacío"),
@@ -34,6 +36,8 @@ router.post('/register', [
     ).withMessage("El username ya se encuentra registrado")
 ], usersController.createUser);
 
+
+// HABIA SACADO LAS VALIDACIONES EN UN ARCHIVO APARTE PERO EN CIERTAS OCASIONES NO ANDABA DEL TODO BIEN Y NO SE POR QUE
 router.get('/login', usersController.loginView);
 router.post('/login', [
     check("loginEmail").isEmail().withMessage("El email no puede estar vacío"),

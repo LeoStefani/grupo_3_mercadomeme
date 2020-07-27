@@ -1,0 +1,23 @@
+Les dejo acá un comentario acerca de que puse en session y cookies para que se entienda:
+
+1) Esta configurado el session cuando haces el login. Eso anda bien y se puede chequear entrando a /users/check.
+
+2) Esta configurado el "recordame" del login para que guarde una cookie que dura aprox un minuto. 
+
+3) Esta configurado a nivel aplicacion un MW que, si encuentra una cookie y si no hay user en session, te loggea automaticamente.
+Esto esta copiado tal cual de los videos del playground.
+
+4) Configure un logout para romper la session, se puede ejecutar entrando a /users/logout. Acá pueden pasar dos cosas: 
+a) Si la cookie expiró, el session se destruye y queda nadie loggeado.
+b) Si todavia hay cookie, la session se rompe pero automaticamente se ejecuta el MW de aplicación del cookie (cookieMW)
+y se vuelve a cagar en session con el usuario que dice la cookie.
+
+5) No quise agregar botones aun al header antes de que lo hablemos. En caso de querer poner botones que aparezcan o desaparezcan
+en el header según si hay alguien loggeado o no, estuve viendo que no conviene hacerlo ahora por la siguiente razon:
+    Dado que el header carga en todas las vistas, en cada metodo de cada controller hay que pasarle la session y eso es un dolor de huevos.
+    Viendo un video de clase de Herni, dice que eso se hace con JS del front y lo vamos a ver mas adelante.
+    
+6) Si bien despues va a hacerse con base de datos, quería empezar a implementar lo del validator sobre todo para que no se vuelva tan pesado cuando llegue el sprint.
+
+
+

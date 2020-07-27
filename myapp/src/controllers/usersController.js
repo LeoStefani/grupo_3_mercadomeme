@@ -111,6 +111,9 @@ module.exports = {
     },
     logout: function (req,res,next){
         req.session.destroy();
-        res.redirect('/users/login');
+        res.send('Session destruida!');
+    },
+    check: function (req, res, next){
+        res.send("El usuario loggeado es " + req.session.loggedUser.user_name);
     }
 };
