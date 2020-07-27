@@ -10,8 +10,8 @@ if (usersJSON == "") {
 
 function cookieMW (req,res,next) {
 
-    if (req.cookies.rememeberMe != undefined && req.session.loggedUser == undefined) {
-
+    if (req.cookies.rememberMe != undefined && req.session.loggedUser == undefined) {
+console.log(req.cookies.rememberMe);
         for (let i=0; i<users.length;i++) {   
             if (users[i].email == req.cookies.rememberMe) {
                 userToLogin = users[i];

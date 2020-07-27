@@ -92,7 +92,7 @@ module.exports = {
                         title: 'Nuevo producto',
                         lastId: maxId(),
                         productsCategories: productsCategories
-                }); //SACAR EL TITLE DEL HEAD!!!!
+                }); 
         },
 
         createNew: function (req, res, next) {

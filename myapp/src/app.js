@@ -27,8 +27,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({secret: "Aca va la frase de seguridad"}));
-app.use(cookieMW);
 app.use(methodOverride('_method'));
+app.use(cookieMW);
 
 // En esta linea tuve que agregar ../ ya que al mover todo a src, public queda un nivel arriba de donde esta app.js
 app.use(express.static(path.join(__dirname, '../public')));

@@ -28,7 +28,9 @@ module.exports = {
         res.send("Acá no se bien que va a ir, deberíamos esperar a ver que pasa con eso de session en clase");
     },
     register: function (req, res, next) {
-        res.render('register', { title: "Registro"});
+        res.render('register', {
+            title: "Registro"
+        });
     },
     createUser: function (req, res, next) {
 
@@ -52,7 +54,12 @@ module.exports = {
 
         } else {
 
-            return res.render("register", { errors: errors.mapped(), title: "Registro", old: req.body})
+            console.log(errors.mapped());
+            return res.render("register", {
+                errors: errors.mapped(),
+                title: "Registro",
+                old: req.body
+            })
 
 
         };
@@ -60,10 +67,14 @@ module.exports = {
         res.redirect("/");
     },
     cart: function (req, res, next) {
-        res.render("cart", { title: "Carrito"});
+        res.render("cart", {
+            title: "Carrito"
+        });
     },
     loginView: function (req, res, next) {
-        res.render('login', { title: 'Login'});
+        res.render('login', {
+            title: 'Login'
+        });
     },
     login: function (req, res, next) {
         let errors = validationResult(req);
@@ -78,15 +89,28 @@ module.exports = {
                 }
             };
             if (userToLogin == undefined) {
-                return res.render("login", { title: 'Login', errors: errors.mapped(), error: "Usuario o contraseña inválidos", old: req.body})
+                return res.render("login",{
+                    title: 'Login',
+                    errors: errors.mapped(),
+                    error: "Usuario o contraseña inválidos",
+                    old: req.body
+                })
             };
             req.session.loggedUser = userToLogin;
             if (req.body.rememberMe != undefined) {
-                res.cookie('rememberMe', userToLogin.email, { maxAge:3600*1000*24})
+                res.cookie('rememberMe', userToLogin.email, { maxAge:60*1000})
             }
             res.redirect('/');
         } else {
-            res.render("login", { title: 'Login', errors: errors.mapped(), old: req.body})
+            res.render("login", {
+                title: 'Login',
+                errors: errors.mapped(),
+                old: req.body
+            })
         }
+    },
+    logout: function (req,res,next){
+        req.session.destroy();
+        res.redirect('/users/login');
     }
 };
