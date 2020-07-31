@@ -47,7 +47,7 @@ module.exports = {
             newUser.email = req.body.userEmail;
             newUser.password = bcrypt.hashSync(req.body.userPassword, 10);
             newUser.category = "user";
-            newUser.image = "user_" + newUser.id + ".jpg";
+            newUser.image = (req.files[0]) ? req.files[0].filename : 'iconoImagenBordesIguales.png';
             // Aca pushea el nuevo usuario a lo existente.
             users.push(newUser);
             // Acá resscribe el nuevo array de usuarios.

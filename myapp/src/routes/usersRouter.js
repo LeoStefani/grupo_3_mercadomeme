@@ -6,20 +6,31 @@ const path = require('path');
 const { check, validationResult, body } = require('express-validator');
 const registerValidations = require("../validations/registerValidations");
 const loginValidations = require('../validations/loginValidations');
+const multer = require('multer');
 
 let users = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/users.json'), 'utf-8'));
+
+var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+          cb(null, path.join(__dirname, '../../public/images/users'))
+        },
+        filename: function (req, file, cb) {
+          cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+        }
+      })
+       
+      var upload = multer({ storage: storage })
+
 
 router.get('/', usersController.usersIndex);
 router.get('/check', usersController.check);
 router.get('/register', usersController.register);
 
-// HABIA SACADO LAS VALIDACIONES EN UN ARCHIVO APARTE PERO EN CIERTAS OCASIONES NO ANDABA DEL TODO BIEN Y NO SE POR QUE
 // Chequeo que email sea valido, que user no venga vacio, que passord tenga 8 caracteres y que tanto email como user no existan en la base de datos.
-router.post('/register', registerValidations, usersController.createUser);
+router.post('/register', upload.any(), registerValidations, usersController.createUser);
 
 router.get('/login', usersController.loginView);
 
-// HABIA SACADO LAS VALIDACIONES EN UN ARCHIVO APARTE PERO EN CIERTAS OCASIONES NO ANDABA DEL TODO BIEN Y NO SE POR QUE
 // Chequeo que el email sea un email y que el password tenga 8 caracteres. Agrego loginValidations como middleware
 router.post('/login', loginValidations, usersController.login);
 
