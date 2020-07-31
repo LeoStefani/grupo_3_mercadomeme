@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+
+
+<body>
+   <%- include('partials/header') %>
+   <div class="userProfile container">
+      <div class="row">
+         <div class="col-12 d-flex flex-wrap justify-content-center p-4">
+            <h2 class="userName text-center p-0 m-0">HEISENBERG!</h1>
+         </div>
+         <form class="w-100 d-flex flex-wrap justify-content-center align-items-start" action="" method="" id="">
+            <div
+               class="firstColumn d-flex flex-wrap flex-column justify-content-start align-items-center col-12 col-md-6">
+
+               <!-- AccountData Block -->
+               <div class="accountDataBlock w-100 d-flex flex-wrap shadow rounded-lg p-2 mb-3 mt-0">
+                  <div class="w-100 d-flex flex-wrap justify-content-start align-items-between">
+                     <h5 class="w-100 text-center">Datos de cuenta</h5>
+                     <div class="d-flex flex-wrap align-items-center col-2 m-0 p-0">
+                        <img class="w-100 shadow m-0 p-0 mb-1" src="/Images/heisenberg.jpeg" alt="">
+                        <button class="w-100 btn btn-warning btn-sm p-1 m-0 shadow">Edit</button>
+                     </div>
+                     <div class="d-flex flex-wrap align-items-center col-10 m-0 p-0 pl-2">
+                        <h6 class="w-100 text-start p-1 rounded-lg">Nombre y apellido:</h6>
+                        <h6 class="bg w-100 text-start p-1 rounded-lg">Heisenberg</h6>
+                        <h6 class="w-100 text-start p-1 rounded-lg">Email:</h6>
+                        <h6 class="bg w-100 text-start p-1 rounded-lg">w.white@wynnehighschool.com</h6>
+                     </div>
+                  </div>
+               </div>
+               <!-- AccountData Block -->
+
+               <!-- Collapse PersonalData -->
+               <p class="w-100 shadow rounded-lg">
+                  <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
+                     data-target="#collapsePersonalData" aria-expanded="false" aria-controls="collapsePersonalData"><i
+                        class="fas fa-chevron-down"></i> Datos personales <i class="fas fa-chevron-down"></i></button>
+               </p>
+               <div class="collapse w-100 mb-3" id="collapsePersonalData">
+                  <div class="card card-body w-100 m-0 p-0">
+                     <div class="PersonalData w-100 m-0 p-1">
+                        <div>
+                           <div class="d-flex flex-wrap justify-content-between w-100 m-0 p-0">
+                              <div class="d-flex align-items-center col-12 col-sm-4 title p-1 m-0">
+                                 <h6 class="w-100 text-start p-1 m-0">Nombre y apellido:</h6>
+                              </div>
+                              <div class="d-flex align-items-center  col-9 col-sm-6 input p-1 m-0">
+                                 <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
+                                    name="nameAndLastname" id="nameAndLastname" placeholder="Walter White">
+                              </div>
+                              <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
+                                 <button class="w-100 btn btn-warning btn-sm p-1 m-0">Editar</button>
+                              </div>
+                           </div>
+                        </div>
+                        <div>
+                           <div class="d-flex flex-wrap justify-content-between w-100 m-0 p-0">
+                              <div class="d-flex align-items-center col-12 col-sm-4 title p-1 m-0">
+                                 <h6 class="w-100 text-start p-1 m-0">Documento:</h6>
+                              </div>
+                              <div class="d-flex flex-wrap align-items-center  col-9 col-sm-6 input p-1 m-0">
+                                 <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
+                                    name="nameAndLastname" id="nameAndLastname" placeholder="DNI: XX.XXX.XXX">
+                              </div>
+                              <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
+                                 <button class="w-100 btn btn-warning btn-sm p-1 m-0">Editar</button>
+                              </div>
+                           </div>
+                        </div>
+                        <div>
+                           <div class="d-flex flex-wrap justify-content-between w-100 m-0 p-0">
+                              <div class="d-flex align-items-center col-12 col-sm-4 title p-1 m-0">
+                                 <h6 class="w-100 text-start p-1 m-0">Teléfono:</h6>
+                              </div>
+                              <div class="d-flex flex-wrap align-items-center col-9 col-sm-6 input p-1 m-0">
+                                 <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
+                                    name="nameAndLastname" id="nameAndLastname" placeholder="11 22 33 44 55">
+                              </div>
+                              <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
+                                 <button class="w-100 btn btn-warning btn-sm p-1 m-0 shadow">Editar</button>
+                              </div>
+                           </div>
+                        </div>
+                        <div>
+                           <div class="d-flex flex-wrap justify-content-between w-100 m-0 p-0">
+                              <div class="d-flex align-items-center col-12 col-sm-4 title p-1 m-0">
+                                 <h6 class="w-100 text-start p-1 m-0">Teléfono alternativo:</h6>
+                              </div>
+                              <div class="d-flex flex-wrap align-items-center col-9 col-sm-6 input p-1 m-0">
+                                 <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
+                                    name="nameAndLastname" id="nameAndLastname" placeholder="11 66 77 88 99">
+                              </div>
+                              <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
+                                 <button class="w-100 btn btn-warning btn-sm p-1 m-0">Editar</button>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- Collapse PersonalData -->
+
+               <!-- Collapse CreditCards -->
+               <p class="w-100 shadow rounded-lg">
+                  <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
+                     data-target="#collapseCreditCards" aria-expanded="false" aria-controls="collapseCreditCards"><i
+                        class="fas fa-chevron-down"></i> Mis tarjetas <i class="fas fa-chevron-down"></i></button>
+               </p>
+               <div class="collapse w-100 mb-3" id="collapseCreditCards">
+                  <div class="card card-body w-100 m-0 p-0">
+                     <div class="creditCardsData w-100 d-flex flex-wrap p-2">
+                        <div class="w-100 d-flex flex-wrap justify-content-start align-items-between m-0 p-0 mb-2">
+                           <div class="d-flex flex-wrap align-items-center col-2 m-0 p-0 ">
+                              <img class="w-100 shadow m-0 p-0 mb-1" src="/Images/logoVisa.png" alt="">
+                              <button class="w-100 btn btn-warning btn-sm p-1 m-0 shadow">Editar</button>
+                           </div>
+                           <div class="d-flex flex-wrap align-items-between col-10 m-0 p-0 pl-2">
+                              <h6 class="d-flex align-items-center w-100 text-start p-1 rounded-lg m-0">XXXX XXXX XXXX XXXX</h6>
+                              <h6 class="d-flex align-items-center w-100 text-start p-1 rounded-lg mt-2 mb-2">Emisor - Banco</h6>
+                              <h6 class="d-flex align-items-center w-100 text-start p-1 rounded-lg m-0">Vencimiento</h6>
+                           </div>
+                        </div>
+                        <div class="w-100 d-flex flex-wrap justify-content-start align-items-between m-0 p-0">
+                           <div class="d-flex flex-wrap align-items-center col-2 m-0 p-0 ">
+                              <img class="w-100 shadow m-0 p-0 mb-1" src="/Images/logoMasterCard.png" alt="">
+                              <button class="w-100 btn btn-warning btn-sm p-1 m-0 shadow">Editar</button>
+                           </div>
+                           <div class="d-flex flex-wrap align-items-between col-10 m-0 p-0 pl-2">
+                              <h6 class="d-flex align-items-center w-100 text-start p-1 m-0 rounded-lg">XXXX XXXX XXXX XXXX</h6>
+                              <h6 class="d-flex align-items-center w-100 text-start p-1 mt-2 mb-2 rounded-lg">Emisor - Banco</h6>
+                              <h6 class="d-flex align-items-center w-100 text-start p-1 m-0 rounded-lg">Vencimiento</h6>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="d-flex flex-wrap align-items-center col-12 p-2 m-0">
+                        <button class="btn btn-warning btn-block m-0 p-0 shadow">Agregar nueva tarjeta</button>
+                     </div>
+                  </div>
+               </div>
+               <!-- Collapse CreditCards -->
+
+               <!-- Collapse UserAdresses -->
+               <p class="w-100 shadow rounded-lg">
+                  <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
+                     data-target="#collapseUserAdresses" aria-expanded="false" aria-controls="collapseUserAdresses"><i
+                        class="fas fa-chevron-down"></i> Mis direcciones <i class="fas fa-chevron-down"></i></button>
+               </p>
+               <div class="collapse w-100 mb-3" id="collapseUserAdresses">
+                  <div class="card card-body w-100 m-0 p-0">
+                     <div class="userAdresses w-100 m-0 p-1">
+                        <div>
+                           <div class="d-flex flex-wrap justify-content-between w-100 m-0 p-0">
+                              <div class="d-flex align-items-center col-12 col-sm-2 title p-1 m-0">
+                                 <h6 class="w-100 text-start p-1 m-0">Principal:</h6>
+                              </div>
+                              <div class="d-flex align-items-center  col-9 col-sm-8 input p-1 m-0">
+                                 <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
+                                    name="nameAndLastname" id="nameAndLastname" placeholder="308 Negra Arroyo Lane, Alburquerque, Nuevo México">
+                              </div>
+                              <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
+                                 <button class="w-100 btn btn-warning btn-sm p-1 m-0">Editar</button>
+                              </div>
+                           </div>
+                        </div>
+                        <div>
+                           <div class="d-flex flex-wrap justify-content-between w-100 m-0 p-0">
+                              <div class="d-flex align-items-center col-12 col-sm-2 title p-1 m-0">
+                                 <h6 class="w-100 text-start p-1 m-0">Alternativa:</h6>
+                              </div>
+                              <div class="d-flex flex-wrap align-items-center  col-9 col-sm-8 input p-1 m-0">
+                                 <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
+                                    name="nameAndLastname" id="nameAndLastname" placeholder="3828 Piermont Drive, Alburquerque, Nuevo México">
+                              </div>
+                              <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
+                                 <button class="w-100 btn btn-warning btn-sm p-1 m-0">Editar</button>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="d-flex flex-wrap align-items-center col-12 p-1 m-0">
+                           <button class="btn btn-warning btn-block m-0 p-0 shadow">Agregar nueva dirección</button>
+                        </div>
+                        
+                     </div>
+                  </div>
+               </div>
+               <!-- Collapse UserAdresses -->
+
+            </div>
+            <div class="secondColumn col-12 col-md-6 d-flex flex-wrap align-items-center">
+
+               <!-- Meme library -->
+               <div class="library w-100 position-relative p-1 rounded-lg shadow">
+                  <h5 class="text-center m-0 p-0">Mi bilioteca</h5>
+                  <img class="w-100 shadow rounded-lg mt-2" src="/Images/remeraNegra.jpg" alt="">
+               </div>
+               <!-- Meme library -->
+
+                              <!-- Others Block -->
+                              <div class="othersBlock w-100 d-flex flex-wrap shadow rounded-lg p-2 mb-0 mt-2">
+                                 <div class="w-100 d-flex flex-wrap justify-content-start align-items-between">
+                                    <h5 class="w-100 text-center">Datos de cuenta</h5>
+                                    <div class="d-flex flex-wrap align-items-center col-2 m-0 p-0">
+                                       <img class="w-100 shadow m-0 p-0 mb-1" src="/Images/heisenberg.jpeg" alt="">
+                                       <button class="w-100 btn btn-warning btn-sm p-1 m-0 shadow">Edit</button>
+                                    </div>
+                                    <div class="d-flex flex-wrap align-items-center col-10 m-0 p-0 pl-2">
+                                       <h6 class="w-100 text-start p-1 rounded-lg">Nombre y apellido:</h6>
+                                       <h6 class="bg w-100 text-start p-1 rounded-lg">Heisenberg</h6>
+                                       <h6 class="w-100 text-start p-1 rounded-lg">Email:</h6>
+                                       <h6 class="bg w-100 text-start p-1 rounded-lg">w.white@wynnehighschool.com</h6>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!-- Others Block -->
+               
+            </div>
+         </form>
+      </div>
+   </div>
+   <%- include('partials/footer') %>
+   <%- include('partials/scriptsBootstrap') %>
+</body>
+
+</html>

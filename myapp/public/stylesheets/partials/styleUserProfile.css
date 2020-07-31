@@ -1,0 +1,104 @@
+div.userProfile{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+div.userProfile .userName {
+    font-size: 2.5rem;
+    -webkit-text-stroke: 1px white;
+   color: black;
+   font-family: 'Bungee';
+
+}
+/*====FIRST COLUMN=====*/
+
+div.userProfile div.firstColumn div.searchBlock{
+    background-color: var(--colorWhite);
+    }
+    div.userProfile div.firstColumn div.decisionBlock{
+    background-color: var(--colorWhite);
+    }
+    div.userProfile div.firstColumn div.accountDataBlock{
+    background-color: var(--colorWhite);
+    }
+    div.userProfile div.firstColumn div.accountDataBlock .bg{
+        background-color: white;
+        }
+
+    div.userProfile div.firstColumn div.accountDataBlock img{
+    border-radius: 50%;
+    }
+
+    div.userProfile div.firstColumn div.creditCardsData{
+    background-color: var(--colorWhite);
+    }
+    div.userProfile div.firstColumn div.creditCardsData h6{
+    background-color: white;
+    }
+    div.userProfile div.firstColumn div.creditCardsData img{
+    border-radius: 50%;
+    }
+
+    div.userProfile div.firstColumn div.card{
+        background-color: var(--colorWhite);
+    } 
+    div.userProfile div.firstColumn div.PersonalData{
+        background-color: var(--colorWhite);
+    }
+   
+    div.userProfile div.firstColumn div.PersonalData h4{
+        border-bottom: gray 1px dashed;
+        font-size: 1.3rem;
+    }
+
+
+/*====SECOND COLUMN=====*/
+div.userProfile div.secondColumn div.library{
+    background-color: var(--colorWhite);
+}
+div.userProfile div.secondColumn div.othersBlock{
+    background-color: var(--colorWhite);
+}
+
+div.userProfile div.secondColumn div.image div{
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+}
+div.userProfile div.secondColumn div.image div i{
+    font-size: 2rem;
+    color: gray;
+}
+div.userProfile div.secondColumn div.image h5{
+    font-size: 1.25rem;
+}
+
+/*====THIRD COLUMN=====*/
+
+div.userProfile div.secondColumn div.image h5{
+    font-size: 1.1rem;
+}
+
+div.userProfile div.secondColumn div.image div{
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+}
+div.userProfile div.secondColumn div.image div i{
+font-size: 2rem;
+color: gray;
+}
+
+/*====MEDIA QUERIES=====*/
+
+@media (min-width: 768px) {
+
+    div.userProfile div.secondColumn div.image div i{
+        font-size: 1.5rem;
+    }
+    div.userProfile div.secondColumn div.image div{
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+    }
+}

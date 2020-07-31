@@ -53,4 +53,8 @@ router.get('/cart', usersController.cart);
 
 router.get('/cart/settings', usersController.purchaseSettings);
 
+router.get('/profile', usersController.usersProfile);
+// Aca despues quedara seteado por :id
+
+
 module.exports = router;
