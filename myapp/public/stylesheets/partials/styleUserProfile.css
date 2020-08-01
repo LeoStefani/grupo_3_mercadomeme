@@ -56,8 +56,18 @@ div.userProfile div.firstColumn div.searchBlock{
 div.userProfile div.secondColumn div.library{
     background-color: var(--colorWhite);
 }
+div.userProfile div.secondColumn div.library h6 i{
+    color: var(--colorWarning);
+}
+div.userProfile div.secondColumn div.library h6{
+    color: White;
+}
 div.userProfile div.secondColumn div.othersBlock{
     background-color: var(--colorWhite);
+}
+div.userProfile div.secondColumn div.othersBlock a{
+    color: GRay;
+    text-decoration: none;
 }
 
 div.userProfile div.secondColumn div.image div{
