@@ -8,19 +8,10 @@ const registerValidations = require("../validations/registerValidations");
 const loginValidations = require('../validations/loginValidations');
 const multer = require('multer');
 const authMiddleware = require('../middlewares/authMiddleware');
+let upload = require('../middlewares/multerUsersMW');
+
 
 let users = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/users.json'), 'utf-8'));
-
-var storage = multer.diskStorage({
-        destination: function (req, file, cb) {
-          cb(null, path.join(__dirname, '../../public/images/users'))
-        },
-        filename: function (req, file, cb) {
-          cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-        }
-      })
-       
-      var upload = multer({ storage: storage })
 
 
 router.get('/', usersController.usersIndex);
