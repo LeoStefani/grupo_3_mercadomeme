@@ -11,6 +11,8 @@ const cookieMW = require("./middlewares/cookieMW");
 
 // comentario de coco
 
+const loggedRenderingMw = require('./middlewares/loggedRenderingMW');
+
 const indexRouter = require('./routes/indexRouter');
 const usersRouter = require('./routes/usersRouter');
 const productsRouter = require('./routes/productsRouter');
@@ -33,11 +35,11 @@ app.use(cookieMW);
 // En esta linea tuve que agregar ../ ya que al mover todo a src, public queda un nivel arriba de donde esta app.js
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.use('/', indexRouter);
+app.use('/', loggedRenderingMw, indexRouter);
 // Agrego el enrutador de productos en productsRouter
-app.use('/products', productsRouter);
-app.use('/users', usersRouter);
-app.use('/memes', memesRouter);
+app.use('/products', loggedRenderingMw, productsRouter);
+app.use('/users', loggedRenderingMw, usersRouter);
+app.use('/memes', loggedRenderingMw, memesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
