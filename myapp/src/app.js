@@ -31,15 +31,17 @@ app.use(cookieParser());
 app.use(session({secret: "Aca va la frase de seguridad"}));
 app.use(methodOverride('_method'));
 app.use(cookieMW);
+app.use(loggedRenderingMw);
+
 
 // En esta linea tuve que agregar ../ ya que al mover todo a src, public queda un nivel arriba de donde esta app.js
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.use('/', loggedRenderingMw, indexRouter);
+app.use('/', indexRouter);
 // Agrego el enrutador de productos en productsRouter
-app.use('/products', loggedRenderingMw, productsRouter);
-app.use('/users', loggedRenderingMw, usersRouter);
-app.use('/memes', loggedRenderingMw, memesRouter);
+app.use('/products', productsRouter);
+app.use('/users', usersRouter);
+app.use('/memes', memesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
