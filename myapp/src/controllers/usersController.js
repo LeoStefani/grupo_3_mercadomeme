@@ -131,6 +131,7 @@ module.exports = {
     logout: function (req,res,next){
         // Cuando se entra a la ruta /users/logout hace un session destroy y manda un mensaje.
         req.session.destroy();
+        res.cookie('rememberMe', '', { maxAge: -1});
         res.send('Session destruida!');
     },
     check: function (req, res, next){
