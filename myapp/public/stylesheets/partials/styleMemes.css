@@ -99,3 +99,18 @@ div.memes div.memeLibrary img{
 
 }
 
+@media (max-width: 767px) and (orientation: landscape) {
+
+    div.memes div.memeLibrary img{
+        background-color: var(--colorWhite);
+        height: 25vh;
+    }
+    div.memes div.arrayMemesExample img{
+        height: 25vh;
+    }
+    div.memes div.product-selector img {
+        height: 25vh;
+    }
+
+}
+
