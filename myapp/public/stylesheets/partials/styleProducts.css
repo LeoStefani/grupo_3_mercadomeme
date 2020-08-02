@@ -28,3 +28,30 @@ div.products .main-product {
     background: var(--colorWhite);
 
 }
+
+div.products div.main-product img.example{
+height: 10vh;
+}
+
+div.products div.main-product img.main-product{
+    height: 50vh;
+    }
+
+/*====MEDIA QUERIES=====*/
+
+@media (min-width: 376px) {
+
+    div.products div.main-product img.example{
+        height: 15vh;
+        }
+
+}
+
+@media (min-width: 992px) {
+
+    div.products div.main-product img.main-product{
+        height: 60vh;
+        }
+
+}
+
