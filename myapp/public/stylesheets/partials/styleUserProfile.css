@@ -74,45 +74,4 @@ div.userProfile div.secondColumn div.othersBlock a{
     text-decoration: none;
 }
 
-div.userProfile div.secondColumn div.image div{
-    position: absolute;
-    right: 25px;
-    bottom: 25px;
-}
-div.userProfile div.secondColumn div.image div i{
-    font-size: 2rem;
-    color: gray;
-}
-div.userProfile div.secondColumn div.image h5{
-    font-size: 1.25rem;
-}
 
-/*====THIRD COLUMN=====*/
-
-div.userProfile div.secondColumn div.image h5{
-    font-size: 1.1rem;
-}
-
-div.userProfile div.secondColumn div.image div{
-    position: absolute;
-    right: 25px;
-    bottom: 25px;
-}
-div.userProfile div.secondColumn div.image div i{
-font-size: 2rem;
-color: gray;
-}
-
-/*====MEDIA QUERIES=====*/
-
-@media (min-width: 768px) {
-
-    div.userProfile div.secondColumn div.image div i{
-        font-size: 1.5rem;
-    }
-    div.userProfile div.secondColumn div.image div{
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
-    }
-}
