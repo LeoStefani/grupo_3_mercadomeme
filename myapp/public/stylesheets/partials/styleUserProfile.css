@@ -62,6 +62,10 @@ div.userProfile div.secondColumn div.library h6 i{
 div.userProfile div.secondColumn div.library h6{
     color: White;
 }
+div.userProfile div.secondColumn div.library img{
+max-height: 10vh;
+}
+
 div.userProfile div.secondColumn div.othersBlock{
     background-color: var(--colorWhite);
 }
