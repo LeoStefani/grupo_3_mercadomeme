@@ -11,6 +11,8 @@ const cookieMW = require("./middlewares/cookieMW");
 
 // comentario de coco
 
+const loggedRenderingMw = require('./middlewares/loggedRenderingMW');
+
 const indexRouter = require('./routes/indexRouter');
 const usersRouter = require('./routes/usersRouter');
 const productsRouter = require('./routes/productsRouter');
@@ -29,6 +31,8 @@ app.use(cookieParser());
 app.use(session({secret: "Aca va la frase de seguridad"}));
 app.use(methodOverride('_method'));
 app.use(cookieMW);
+app.use(loggedRenderingMw);
+
 
 // En esta linea tuve que agregar ../ ya que al mover todo a src, public queda un nivel arriba de donde esta app.js
 app.use(express.static(path.join(__dirname, '../public')));

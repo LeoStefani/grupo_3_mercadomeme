@@ -8,7 +8,7 @@
    <div class="userProfile container">
       <div class="row">
          <div class="col-12 d-flex flex-wrap justify-content-center p-4">
-            <h2 class="userName text-center p-0 m-0">HEISENBERG!</h1>
+            <h2 class="userName text-center p-0 m-0"><%= userProfile.user_name %>!</h1>
          </div>
          <form class="w-100 d-flex flex-wrap justify-content-center align-items-start" action="" method="" id="">
             <div
@@ -24,9 +24,9 @@
                      </div>
                      <div class="d-flex flex-wrap align-items-center col-10 m-0 p-0 pl-2">
                         <h6 class="w-100 text-start p-1 rounded-lg">Nombre y apellido:</h6>
-                        <h6 class="bg w-100 text-start p-1 rounded-lg">Heisenberg</h6>
+                        <h6 class="bg w-100 text-start p-1 rounded-lg"><%= userProfile.user_name %></h6>
                         <h6 class="w-100 text-start p-1 rounded-lg">Email:</h6>
-                        <h6 class="bg w-100 text-start p-1 rounded-lg">w.white@wynnehighschool.com</h6>
+                        <h6 class="bg w-100 text-start p-1 rounded-lg"><%= userProfile.email %></h6>
                      </div>
                   </div>
                </div>
@@ -117,8 +117,10 @@
                               <button class="w-100 btn btn-warning btn-sm p-1 m-0 shadow">Editar</button>
                            </div>
                            <div class="d-flex flex-wrap align-items-between col-10 m-0 p-0 pl-2">
-                              <h6 class="d-flex align-items-center w-100 text-start p-1 rounded-lg m-0">XXXX XXXX XXXX XXXX</h6>
-                              <h6 class="d-flex align-items-center w-100 text-start p-1 rounded-lg mt-2 mb-2">Emisor - Banco</h6>
+                              <h6 class="d-flex align-items-center w-100 text-start p-1 rounded-lg m-0">XXXX XXXX XXXX
+                                 XXXX</h6>
+                              <h6 class="d-flex align-items-center w-100 text-start p-1 rounded-lg mt-2 mb-2">Emisor -
+                                 Banco</h6>
                               <h6 class="d-flex align-items-center w-100 text-start p-1 rounded-lg m-0">Vencimiento</h6>
                            </div>
                         </div>
@@ -128,8 +130,10 @@
                               <button class="w-100 btn btn-warning btn-sm p-1 m-0 shadow">Editar</button>
                            </div>
                            <div class="d-flex flex-wrap align-items-between col-10 m-0 p-0 pl-2">
-                              <h6 class="d-flex align-items-center w-100 text-start p-1 m-0 rounded-lg">XXXX XXXX XXXX XXXX</h6>
-                              <h6 class="d-flex align-items-center w-100 text-start p-1 mt-2 mb-2 rounded-lg">Emisor - Banco</h6>
+                              <h6 class="d-flex align-items-center w-100 text-start p-1 m-0 rounded-lg">XXXX XXXX XXXX
+                                 XXXX</h6>
+                              <h6 class="d-flex align-items-center w-100 text-start p-1 mt-2 mb-2 rounded-lg">Emisor -
+                                 Banco</h6>
                               <h6 class="d-flex align-items-center w-100 text-start p-1 m-0 rounded-lg">Vencimiento</h6>
                            </div>
                         </div>
@@ -157,7 +161,8 @@
                               </div>
                               <div class="d-flex align-items-center  col-9 col-sm-8 input p-1 m-0">
                                  <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
-                                    name="nameAndLastname" id="nameAndLastname" placeholder="308 Negra Arroyo Lane, Alburquerque, Nuevo México">
+                                    name="nameAndLastname" id="nameAndLastname"
+                                    placeholder="308 Negra Arroyo Lane, Alburquerque, Nuevo México">
                               </div>
                               <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
                                  <button class="w-100 btn btn-warning btn-sm p-1 m-0">Editar</button>
@@ -171,7 +176,8 @@
                               </div>
                               <div class="d-flex flex-wrap align-items-center  col-9 col-sm-8 input p-1 m-0">
                                  <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
-                                    name="nameAndLastname" id="nameAndLastname" placeholder="3828 Piermont Drive, Alburquerque, Nuevo México">
+                                    name="nameAndLastname" id="nameAndLastname"
+                                    placeholder="3828 Piermont Drive, Alburquerque, Nuevo México">
                               </div>
                               <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
                                  <button class="w-100 btn btn-warning btn-sm p-1 m-0">Editar</button>
@@ -181,7 +187,7 @@
                         <div class="d-flex flex-wrap align-items-center col-12 p-1 m-0">
                            <button class="btn btn-warning btn-block m-0 p-0 shadow">Agregar nueva dirección</button>
                         </div>
-                        
+
                      </div>
                   </div>
                </div>
@@ -193,28 +199,87 @@
                <!-- Meme library -->
                <div class="library w-100 position-relative p-1 rounded-lg shadow">
                   <h5 class="text-center m-0 p-0">Mi bilioteca</h5>
-                  <img class="w-100 shadow rounded-lg mt-2" src="/Images/remeraNegra.jpg" alt="">
+                  <h6><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>----------</h6>
+                  <div class="d-flex flex-wrap justify-items-between col-12 m-0 p-0">
+                     <img class="col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1" src="/images/memes/memeUser1.png"
+                        alt="">
+                     <img class="col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1" src="/images/memes/memeUser2.jpg"
+                        alt="">
+                     <img class="col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1" src="/images/memes/memeUser3.png"
+                        alt="">
+                     <img class="col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1" src="/images/memes/memeUser4.png"
+                        alt="">
+                     <img class="col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1" src="/images/memes/memeUser1.png"
+                        alt="">
+                     <img class="col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1" src="/images/memes/memeUser2.jpg"
+                        alt="">
+                     <div class="col-12 d-flex flex-wrap justify-content-end">
+                        <h6>----------<i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                        </h6>
+                     </div>
+                  </div>
+                  <p class="w-100 shadow rounded-lg">
+                     <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
+                        data-target="#collapseLibrary" aria-expanded="false" aria-controls="collapseLibrary"><i
+                           class="fas fa-chevron-down"></i> Ver más <i class="fas fa-chevron-down"></i></button>
+                  </p>
+                  <div class="collapse w-100 m-0 p-0" id="collapseLibrary">
+                     <div class="card card-body w-100 m-0 p-0">
+                        <div class="d-flex flex-wrap justify-items-between col-12 m-0 p-0">
+                           <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj1.png" alt="">
+                           <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj2.png" alt="">
+                           <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj3.png" alt="">
+                           <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj4.png" alt="">
+                           <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj5.png" alt="">
+                           <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj6.png" alt="">
+                        </div>
+                        <div class="d-flex flex-wrap justify-items-between col-12 m-0 p-0">
+                           <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj7.png" alt="">
+                           <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj8.png" alt="">
+                           <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj9.png" alt="">
+                           <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj10.png" alt="">
+                           <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj1.png" alt="">
+                           <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj2.png" alt="">
+                        </div>
+                        <div class="d-flex flex-wrap justify-items-between col-12 m-0 p-0">
+                           <img class="col-2 shadow rounded-lg m-0 p-1" src="/images/memes/memeEj3.png" alt="">
+                           <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj4.png" alt="">
+                           <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj5.png" alt="">
+                           <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj6.png" alt="">
+                           <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj7.png" alt="">
+                           <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj8.png" alt="">
+                        </div>
+
+                     </div>
+                  </div>
                </div>
                <!-- Meme library -->
 
-                              <!-- Others Block -->
-                              <div class="othersBlock w-100 d-flex flex-wrap shadow rounded-lg p-2 mb-0 mt-2">
-                                 <div class="w-100 d-flex flex-wrap justify-content-start align-items-between">
-                                    <h5 class="w-100 text-center">Datos de cuenta</h5>
-                                    <div class="d-flex flex-wrap align-items-center col-2 m-0 p-0">
-                                       <img class="w-100 shadow m-0 p-0 mb-1" src="/Images/heisenberg.jpeg" alt="">
-                                       <button class="w-100 btn btn-warning btn-sm p-1 m-0 shadow">Edit</button>
-                                    </div>
-                                    <div class="d-flex flex-wrap align-items-center col-10 m-0 p-0 pl-2">
-                                       <h6 class="w-100 text-start p-1 rounded-lg">Nombre y apellido:</h6>
-                                       <h6 class="bg w-100 text-start p-1 rounded-lg">Heisenberg</h6>
-                                       <h6 class="w-100 text-start p-1 rounded-lg">Email:</h6>
-                                       <h6 class="bg w-100 text-start p-1 rounded-lg">w.white@wynnehighschool.com</h6>
-                                    </div>
-                                 </div>
-                              </div>
-                              <!-- Others Block -->
-               
+               <!-- Others Block -->
+               <div class="othersBlock w-100 d-flex flex-wrap shadow rounded-lg p-2 mb-0 mt-2">
+                  <div class="w-100 d-flex flex-wrap justify-content-between align-items-between">
+                     <h5 class="w-100 text-center">Opciones de cuenta</h5>
+                     <div class="d-flex flex-wrap align-items-center justify-content-around col-12 m-0 p-0 mt-2">
+                        <a href="">
+                           <h6>Mis compras</h6>
+                        </a>
+                        <a href="">
+                           <h6>Seguridad</h6>
+                        </a>
+                        <a href="">
+                           <h6>Otras#1</h6>
+                        </a>
+                        <a href="">
+                           <h6>Otras#2</h6>
+                        </a>
+                        <a href="">
+                           <h6>Otras#3</h6>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+               <!-- Others Block -->
+
             </div>
          </form>
       </div>

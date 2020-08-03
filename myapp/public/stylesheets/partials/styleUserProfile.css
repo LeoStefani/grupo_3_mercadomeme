@@ -56,49 +56,22 @@ div.userProfile div.firstColumn div.searchBlock{
 div.userProfile div.secondColumn div.library{
     background-color: var(--colorWhite);
 }
+div.userProfile div.secondColumn div.library h6 i{
+    color: var(--colorWarning);
+}
+div.userProfile div.secondColumn div.library h6{
+    color: White;
+}
+div.userProfile div.secondColumn div.library img{
+max-height: 10vh;
+}
+
 div.userProfile div.secondColumn div.othersBlock{
     background-color: var(--colorWhite);
 }
-
-div.userProfile div.secondColumn div.image div{
-    position: absolute;
-    right: 25px;
-    bottom: 25px;
-}
-div.userProfile div.secondColumn div.image div i{
-    font-size: 2rem;
-    color: gray;
-}
-div.userProfile div.secondColumn div.image h5{
-    font-size: 1.25rem;
+div.userProfile div.secondColumn div.othersBlock a{
+    color: GRay;
+    text-decoration: none;
 }
 
-/*====THIRD COLUMN=====*/
 
-div.userProfile div.secondColumn div.image h5{
-    font-size: 1.1rem;
-}
-
-div.userProfile div.secondColumn div.image div{
-    position: absolute;
-    right: 25px;
-    bottom: 25px;
-}
-div.userProfile div.secondColumn div.image div i{
-font-size: 2rem;
-color: gray;
-}
-
-/*====MEDIA QUERIES=====*/
-
-@media (min-width: 768px) {
-
-    div.userProfile div.secondColumn div.image div i{
-        font-size: 1.5rem;
-    }
-    div.userProfile div.secondColumn div.image div{
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
-    }
-}

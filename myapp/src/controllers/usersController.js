@@ -29,7 +29,18 @@ module.exports = {
         res.send("Acá no se bien que va a ir, deberíamos esperar a ver que pasa con eso de session en clase");
     },
     usersProfile: function (req, res, next) {
-        res.render("usersProfile", {title: "Mi Perfil"});
+            let userProfile;
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].id == req.params.userId) {
+                        userProfile = users[i];
+                        break;
+                };
+        };
+
+        res.render("usersProfile", {
+                title: "Mi Perfil",
+                userProfile: userProfile
+        });
     },
     register: function (req, res, next) {
         res.render('register', {
@@ -131,7 +142,8 @@ module.exports = {
     logout: function (req,res,next){
         // Cuando se entra a la ruta /users/logout hace un session destroy y manda un mensaje.
         req.session.destroy();
-        res.send('Session destruida!');
+        res.cookie('rememberMe', '', { maxAge: -1});
+        res.redirect('/users/login');
     },
     check: function (req, res, next){
         // Cuando se entra a la ruta /users/check manda un mensaje de quien esta loggeado en session.

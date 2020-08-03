@@ -34,6 +34,11 @@ div.memes div.product-selector {
     background-color: var(--colorWhite);
 }
 
+div.memes div.product-selector img {
+    height: 15vh;
+}
+
+
 /*====MEME EDITOR=====*/
 
 div.memes div.memeEditorImage {
@@ -45,18 +50,11 @@ div.memes div.memeEditorImage {
 div.memes div.arrayMemesExample{
     background-color: var(--colorWhite);
 }
-div.memes div.arrayMemesExample div.secondPack{
-    display: flex;
-}
-div.memes div.arrayMemesExample div.thirdPack{
-    display: flex;
-}
-div.memes div.arrayMemesExample div.fourthPack{
-display: flex;
-}
 
 
-
+div.memes div.arrayMemesExample img{
+    height: 12vh;
+}
 
 
 /*====TEXT EDITOR=====*/
@@ -68,14 +66,15 @@ div.memes div.textEditor{
 /*====MEME LIBRARY=====*/ 
 
 div.memes div.memeLibrary{
-    flex-direction: column;
+
     background-color: var(--colorWhite);
 
 }
 div.memes div.memeLibrary img{
-    width: 50%;
-   
+    background-color: var(--colorWhite);
+    height: 12vh;
 }
+
 
 
 
@@ -86,20 +85,32 @@ div.memes div.memeLibrary img{
         flex-direction: row;
         flex-wrap: wrap;
     }
-    div.memes div.memeLibrary img{
-        width: 20%;     
-    }
+
     div.memes div.memeLibrary h6{
        font-size: 1.5rem;     
     }
-    div.memes div.arrayMemesExample div.secondPack{
-        display: none;
+    div.memes div.memeLibrary img{
+        background-color: var(--colorWhite);
+        height: 15vh;
     }
-    div.memes div.arrayMemesExample div.thirdPack{
-     display: none;
+    div.memes div.arrayMemesExample img{
+        height: 15vh;
     }
-    div.memes div.arrayMemesExample div.fourthPack{
-    display: none;
+
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+
+    div.memes div.memeLibrary img{
+        background-color: var(--colorWhite);
+        height: 25vh;
     }
+    div.memes div.arrayMemesExample img{
+        height: 25vh;
+    }
+    div.memes div.product-selector img {
+        height: 25vh;
+    }
+
 }
 
