@@ -33,8 +33,7 @@ router.get('/cart', authMiddleware, usersController.cart);
 
 router.get('/cart/settings', authMiddleware, usersController.purchaseSettings);
 
-router.get('/profile', authMiddleware, usersController.usersProfile);
-// Aca despues quedara seteado por :id
+router.get('/profile/:userId', authMiddleware, usersController.usersProfile);
 
 
 module.exports = router;

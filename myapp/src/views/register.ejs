@@ -6,7 +6,7 @@
     <%- include('partials/header') %>
     <div class="container mainRegister mt-5">
         <div class="row">
-            <div class="containerColumn d-flex flex-wrap align-items-center mt-0 mb-0 m-auto shadow rounded-lg">
+            <div class="containerColumn d-flex flex-wrap align-items-center justify-content-center col-12 col-sm-6 col-lg-5 mt-0 mb-0 m-auto shadow rounded-lg">
                 <div class="containerBlock d-flex flex-wrap justify-content-between w-100 m-4">
                     <form class=" d-flex flex-wrap justify-content-between w-100" action="/users/register" method="POST"
                         enctype="multipart/form-data">
@@ -42,8 +42,8 @@
                         <div class="mt-1 p-0 mb-1 text-center col-12">
                             <h5 class="text-center font-weight-bold">Sube una foto!</h5>
                         </div>
-                        <div class="text-center p-2">
-                            <input type="file" name="userImg" id="userImage1">
+                        <div class="d-flex flex-wrap justify-content-center p-2 col-12">
+                                <input class="text-truncate" type="file" name="userImg" id="userImage1">
                         </div>
 
                         <button class="btn btn-warning mt-3 flex-grow-1 col-5 shadow">Seguir con <i
