@@ -25,7 +25,7 @@ let maxId = function () {
 };
 
 
-let productNew = { sizes: [], colors: [], others: [], qtySold: 0 };
+let productNew = { image: [], sizes: [], colors: [], others: [], qtySold: 0 };
 
 module.exports = {
         productsIndex: function (req, res, next) {
@@ -113,7 +113,7 @@ module.exports = {
                         };
                 };
                 
-                productNew.image = req.files[0].filename;
+                productNew.image.push(req.files[0].filename);
 
                 // si existen dichos campos, pego en productNew - Tamaños
                 if (req.body.xs != undefined && req.body.sizeXsValue != "") { productNew.sizes.push({ tag: req.body.xs, size: parseFloat(req.body.sizeXsValue), unit: unitNew }) };

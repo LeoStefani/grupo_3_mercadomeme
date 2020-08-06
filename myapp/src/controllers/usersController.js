@@ -76,7 +76,7 @@ module.exports = {
             })
         };
         // Si se creó todo bien, te redirige al HOME. Si habría errores, el ELSE te hubiese pateado al register de nuevo.
-        res.redirect("/");
+        res.redirect("/users/login");
     },
     cart: function (req, res, next) {
         res.render("cart", {
