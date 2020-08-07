@@ -30,7 +30,7 @@ div.products .main-product {
 }
 
 div.products div.main-product img.example{
-height: 10vh;
+height: 15vh;
 }
 
 div.products div.main-product img.main-product{
@@ -39,10 +39,10 @@ div.products div.main-product img.main-product{
 
 /*====MEDIA QUERIES=====*/
 
-@media (min-width: 376px) {
+@media (min-width: 376px and max-width: 992px) {
 
     div.products div.main-product img.example{
-        height: 15vh;
+        height: 20vh;
         }
 
 }
@@ -51,6 +51,9 @@ div.products div.main-product img.main-product{
 
     div.products div.main-product img.main-product{
         height: 60vh;
+        }
+    div.products div.main-product img.example{
+        height: 20vh;
         }
 
 }

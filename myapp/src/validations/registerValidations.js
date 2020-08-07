@@ -6,8 +6,11 @@ let users = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/users.json'
 
 module.exports = [   
     check("userEmail")
+    .isLength({min:1})
+    .withMessage("El email no puede quedar vacío"),
+    check("userEmail")
         .isEmail()
-        .withMessage("El email no puede estar vacío"),
+        .withMessage("El email ingresado es inválido"),
     check("userName")
         .isLength({min:1})
         .withMessage("El nombre de usuario no puede quedar vacío"),
