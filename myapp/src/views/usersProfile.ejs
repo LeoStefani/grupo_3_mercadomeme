@@ -8,9 +8,9 @@
    <div class="userProfile container">
       <div class="row">
          <div class="col-12 d-flex flex-wrap justify-content-center p-4">
-            <h2 class="userName text-center p-0 m-0"><%= userProfile.user_name %>!</h1>
+            <h2 class="userName text-center p-0 m-0"><%= user.username %>!</h1>
          </div>
-         <form class="w-100 d-flex flex-wrap justify-content-center align-items-start" action="" method="" id="">
+         <form class="w-100 d-flex flex-wrap justify-content-center align-items-start" enctype="multipart/form-data" action="/users/profile/<%= user.id %>?_method=PUT" method="POST" id="profileForm">
             <div
                class="firstColumn d-flex flex-wrap flex-column justify-content-start align-items-center col-12 col-md-6">
 
@@ -20,13 +20,13 @@
                      <h5 class="w-100 text-center">Datos de cuenta</h5>
                      <div class="d-flex flex-wrap align-items-center col-2 m-0 p-0">
                         <img class="w-100 shadow m-0 p-0 mb-1" src="/Images/heisenberg.jpeg" alt="">
-                        <button class="w-100 btn btn-warning btn-sm p-1 m-0 shadow">Edit</button>
+                        <button class="w-100 btn btn-warning btn-sm p-1 m-0 shadow" form="profileForm" disabled>Edit</button>
                      </div>
                      <div class="d-flex flex-wrap align-items-center col-10 m-0 p-0 pl-2">
                         <h6 class="w-100 text-start p-1 rounded-lg">Nombre y apellido:</h6>
-                        <h6 class="bg w-100 text-start p-1 rounded-lg"><%= userProfile.user_name %></h6>
+                        <h6 class="bg w-100 text-start p-1 rounded-lg"><%= user.username %></h6>
                         <h6 class="w-100 text-start p-1 rounded-lg">Email:</h6>
-                        <h6 class="bg w-100 text-start p-1 rounded-lg"><%= userProfile.email %></h6>
+                        <h6 class="bg w-100 text-start p-1 rounded-lg"><%= user.email %></h6>
                      </div>
                   </div>
                </div>
@@ -44,11 +44,25 @@
                         <div>
                            <div class="d-flex flex-wrap justify-content-between w-100 m-0 p-0">
                               <div class="d-flex align-items-center col-12 col-sm-4 title p-1 m-0">
-                                 <h6 class="w-100 text-start p-1 m-0">Nombre y apellido:</h6>
+                                 <h6 class="w-100 text-start p-1 m-0">Nombre:</h6>
                               </div>
                               <div class="d-flex align-items-center  col-9 col-sm-6 input p-1 m-0">
                                  <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
-                                    name="nameAndLastname" id="nameAndLastname" placeholder="Walter White">
+                                    name="first_name" id="first_name" placeholder="<%=user.first_name%>">
+                              </div>
+                              <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
+                                 <button class="w-100 btn btn-warning btn-sm p-1 m-0">Editar</button>
+                              </div>
+                           </div>
+                        </div>
+                        <div>
+                           <div class="d-flex flex-wrap justify-content-between w-100 m-0 p-0">
+                              <div class="d-flex align-items-center col-12 col-sm-4 title p-1 m-0">
+                                 <h6 class="w-100 text-start p-1 m-0">Apellido:</h6>
+                              </div>
+                              <div class="d-flex align-items-center  col-9 col-sm-6 input p-1 m-0">
+                                 <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
+                                    name="last_name" id="last_name" placeholder="<%=user.last_name%>">
                               </div>
                               <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
                                  <button class="w-100 btn btn-warning btn-sm p-1 m-0">Editar</button>
@@ -62,7 +76,7 @@
                               </div>
                               <div class="d-flex flex-wrap align-items-center  col-9 col-sm-6 input p-1 m-0">
                                  <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
-                                    name="nameAndLastname" id="nameAndLastname" placeholder="DNI: XX.XXX.XXX">
+                                    name="dni" id="dni" placeholder="DNI:<%=user.dni%>">
                               </div>
                               <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
                                  <button class="w-100 btn btn-warning btn-sm p-1 m-0">Editar</button>
@@ -76,7 +90,7 @@
                               </div>
                               <div class="d-flex flex-wrap align-items-center col-9 col-sm-6 input p-1 m-0">
                                  <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
-                                    name="nameAndLastname" id="nameAndLastname" placeholder="11 22 33 44 55">
+                                    name="phone_0" id="phone_0" placeholder="<%=user.phone_0%>">
                               </div>
                               <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
                                  <button class="w-100 btn btn-warning btn-sm p-1 m-0 shadow">Editar</button>
@@ -90,7 +104,7 @@
                               </div>
                               <div class="d-flex flex-wrap align-items-center col-9 col-sm-6 input p-1 m-0">
                                  <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
-                                    name="nameAndLastname" id="nameAndLastname" placeholder="11 66 77 88 99">
+                                    name="phone_1" id="phone_1" placeholder="<%=user.phone_1%>">
                               </div>
                               <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
                                  <button class="w-100 btn btn-warning btn-sm p-1 m-0">Editar</button>
@@ -117,8 +131,7 @@
                               <button class="w-100 btn btn-warning btn-sm p-1 m-0 shadow">Editar</button>
                            </div>
                            <div class="d-flex flex-wrap align-items-between col-10 m-0 p-0 pl-2">
-                              <h6 class="d-flex align-items-center w-100 text-start p-1 rounded-lg m-0">XXXX XXXX XXXX
-                                 XXXX</h6>
+                              <h6 class="d-flex align-items-center w-100 text-start p-1 rounded-lg m-0"><%= user.credit_card_0 %></h6>
                               <h6 class="d-flex align-items-center w-100 text-start p-1 rounded-lg mt-2 mb-2">Emisor -
                                  Banco</h6>
                               <h6 class="d-flex align-items-center w-100 text-start p-1 rounded-lg m-0">Vencimiento</h6>
@@ -130,8 +143,7 @@
                               <button class="w-100 btn btn-warning btn-sm p-1 m-0 shadow">Editar</button>
                            </div>
                            <div class="d-flex flex-wrap align-items-between col-10 m-0 p-0 pl-2">
-                              <h6 class="d-flex align-items-center w-100 text-start p-1 m-0 rounded-lg">XXXX XXXX XXXX
-                                 XXXX</h6>
+                              <h6 class="d-flex align-items-center w-100 text-start p-1 m-0 rounded-lg"><%= user.credit_card_1 %></h6>
                               <h6 class="d-flex align-items-center w-100 text-start p-1 mt-2 mb-2 rounded-lg">Emisor -
                                  Banco</h6>
                               <h6 class="d-flex align-items-center w-100 text-start p-1 m-0 rounded-lg">Vencimiento</h6>
@@ -161,8 +173,8 @@
                               </div>
                               <div class="d-flex align-items-center  col-9 col-sm-8 input p-1 m-0">
                                  <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
-                                    name="nameAndLastname" id="nameAndLastname"
-                                    placeholder="308 Negra Arroyo Lane, Alburquerque, Nuevo México">
+                                    name="address_0" id="address_0"
+                                    placeholder="<%=user.address_0%>">
                               </div>
                               <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
                                  <button class="w-100 btn btn-warning btn-sm p-1 m-0">Editar</button>
@@ -176,8 +188,8 @@
                               </div>
                               <div class="d-flex flex-wrap align-items-center  col-9 col-sm-8 input p-1 m-0">
                                  <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
-                                    name="nameAndLastname" id="nameAndLastname"
-                                    placeholder="3828 Piermont Drive, Alburquerque, Nuevo México">
+                                    name="address_1" id="address_1"
+                                    placeholder="<%= user.address_1%>">
                               </div>
                               <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
                                  <button class="w-100 btn btn-warning btn-sm p-1 m-0">Editar</button>

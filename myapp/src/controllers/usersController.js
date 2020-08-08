@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const { check, validationResult, body } = require("express-validator");
+const db = require("../database/models");
 
 // Si llega a leer el JSON y no hay nadie registrado, lo inicializa como array vacio.
 let usersJSON = fs.readFileSync(path.join(__dirname, '../data/users.json'), 'utf-8');
@@ -29,22 +30,36 @@ module.exports = {
         res.send("Acá no se bien que va a ir, deberíamos esperar a ver que pasa con eso de session en clase");
     },
     usersProfile: function (req, res, next) {
-            let userProfile;
-            for (let i = 0; i < users.length; i++) {
-                if (users[i].id == req.params.userId) {
-                        userProfile = users[i];
-                        break;
-                };
-        };
 
-        res.render("usersProfile", {
+        //     let userProfile;
+        //     for (let i = 0; i < users.length; i++) {
+        //         if (users[i].id == req.params.userId) {
+        //                 userProfile = users[i];
+        //                 break;
+        //         };
+        // };
+
+        db.User.findByPk(req.params.userId).then(function(users){
+            res.render("usersProfile",{
                 title: "Mi Perfil",
-                userProfile: userProfile
-        });
+                user: users})
+            })
+            .catch(function (error){console.log(error)});
+
+        // res.render("usersProfile", {
+        //         title: "Mi Perfil",
+
+                
+        // });
     },
     register: function (req, res, next) {
         res.render('register', {
             title: "Registro"
+        });
+    },
+    registerDB: function (req, res, next) {
+        res.render('registerDB', {
+            title: "RegistroDB"
         });
     },
     createUser: function (req, res, next) {
@@ -76,7 +91,46 @@ module.exports = {
             })
         };
         // Si se creó todo bien, te redirige al HOME. Si habría errores, el ELSE te hubiese pateado al register de nuevo.
-        res.redirect("/users/login");
+        res.redirect("/");
+    },
+    createUserDB: function (req, res, next) {
+       
+        // let errors = validationResult(req);
+        // Aca hace el IF grande, en el cual si viene sin errores, (errors.isEmpty()), se crea el usuario y sino manda los errores a la vista.
+        // if (errors.isEmpty() && db.User.Errors == undefined) {
+
+            db.User.create({
+            username: req.body.userName,
+            email: req.body.userEmail,
+            password: bcrypt.hashSync(req.body.userPassword, 10),
+            avatar: (req.files[0]) ? req.files[0].filename : 'iconoImagenBordesIguales.png'})
+            .then(function(user){
+                res.redirect("/")
+            })
+            .catch(function(errors){
+                console.log("ACA VA ERROR SOLOOOOOO   : " + errors)
+
+                console.log("asdaasdfaaasasddasdfasfdfasfdasfdfasfdfasfdasffdasfdfasfdfsdasdad    : " + errors.message)
+
+
+                res.render("registerDB", {
+                    errors: errors,
+                    title: "RegistroDBError",
+                    old: req.body
+                })
+            })
+
+        // } else {
+            // Este ELSE viene de si habia errores en el ingreso de datos, para lo cual renderiza de nuevo el register
+            // pero esta vez enviando que errores hubo al llenar los campos. Tambien con OLD retiene lo que habian enviado bien
+            // return res.render("registerDB", {
+            //     errors: errors.mapped(),
+            //     title: "Registro",
+            //     old: req.body
+            // })
+        // };
+        // Si se creó todo bien, te redirige al HOME. Si habría errores, el ELSE te hubiese pateado al register de nuevo.
+        
     },
     cart: function (req, res, next) {
         res.render("cart", {
@@ -153,5 +207,13 @@ module.exports = {
            res.render("purchaseSettings", {
             title: "Configuración de compra"
         });
+    },
+    checkuser: function (req,res,next){
+        db.User.findByPk(1).then(function(users){
+            res.send(users)
+            }).catch(function (error){
+                console.log(error)
+        })
     }
+
 };

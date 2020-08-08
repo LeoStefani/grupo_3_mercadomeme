@@ -88,22 +88,6 @@ https://trello.com/b/24CXEKkc/mercadomeme
 
 
 
-### Sprint 4:
-
-* Ver archivo retro.md
-* Ver tablero de trabajo.
-* Entidad de usuarios. Ver estructura de usuarios.
-* Registro de usuarios. Se le dió funcionalidad a la vista ya creada en el sprint anterior. Con simples pasos se puede registrar un usuario. En caso de no haber errores el sistema te redigirá al login. Si hubieron errores se mostrarán en cada campo, manteniendo completos los campos que estaban correctos. Se implementó la posibilidad de subir una imagen en el registro. De no subirla, el sistema asignará una por default. Para tranquilidad del usuario, las contraseñas serán encriptadas y almacenadas de esa manera.
-* Login. Para usuarios registrados. El login validará el email y la contraseña. Si todo es correcto, te redirigirá al home. Si hay errores los mostrará en el mismo formulario, manteniendo completo el campo correcto. Se creará una session con todos los datos del usuario. 
-* Recordame. En el login se podrá seleccionar la opción "Recordame", que creará una cookie con el mail (más adelante será un token, por cuestiones de seguridad). Se creó un middleware de aplicación que busca la cookie, y en caso de que no exista una session, la cree y loggee al usuario automáticamente.
-* Rutas de huéspedes y usuarios. Se creó un middleware para impedir el acceso sin login a determinadas rutas, como el carrito de compras, los seteos para medios de pagos (/cart/settings), el perfil de usuarios, etc. En caso de que un usuario no loggeado quiera acceder a esas rutas, lo redirigirá al login.
-
-
-#### Aclaraciones:
-* Se agregó además un middleware de aplicación que checkea en el acceso a cualquier ruta, si el usuario está loggeado. En caso de estar loggeado, carga los datos de ese usuario en una variable loggedUser en la propiedad locals del objeto response. Luego, desde las vistas (partial/header.ejs), si encuentra un usario almacenado en esa variable cambia las opciones de Registrame y Login, por el nombre del usuario y Logout. En caso de clickear sobre el nombre de usuario, se redirigirá al perfil de usuario. En caso de hacer click en logout se ejectará un método que destruye la session, destruye la cookie, y redirige al usuario al login nuevamente.
-
-
-
 
 
 

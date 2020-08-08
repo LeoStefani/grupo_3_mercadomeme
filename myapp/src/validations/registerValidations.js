@@ -1,40 +1,45 @@
 const fs = require('fs');
 const path = require('path');
 const { check, validationResult, body } = require('express-validator');
-
-let users = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/users.json'), 'utf-8'));
+const db = require("../database/models");
 
 module.exports = [   
     check("userEmail")
-    .isLength({min:1})
-    .withMessage("El email no puede quedar vacío"),
-    check("userEmail")
         .isEmail()
-        .withMessage("El email ingresado es inválido"),
+        .withMessage("El email no puede estar vacío"),
     check("userName")
         .isLength({min:1})
         .withMessage("El nombre de usuario no puede quedar vacío"),
     check("userPassword")
         .isLength({min:8})
-        .withMessage("La contraseña debe tener al menos 8 caracteres"),
-    body("userEmail")
-        .custom(
-                function (value) {
-                for (let i=0; i<users.length ; i++) {
-                        if (users[i].email == value) {
-                        return false;}
-                } return true;
-                }
-        )
-        .withMessage("El email ya se encuentra registrado"),
-    body("userName")
-        .custom(
-                function (value) {
-                for (let i=0; i<users.length ; i++) {
-                        if (users[i].user_name == value) {
-                        return false;}
-                } return true;
-                }
-        )
-        .withMessage("El username ya se encuentra registrado")
+        .withMessage("La contraseña debe tener al menos 8 caracteres")
+    // body("userEmail")
+    //     .custom(           
+    //         function (value) {
+
+    //             let verify = true;
+
+    //             db.User.findOne({where: {email: value}})
+    //             .then(function(user){
+    //                 console.log(user);
+    //                 if (user.id != null) { 
+    //                      verify = false}
+    //                      return verify
+    //                 })
+    //                 return verify }
+    //     )
+    //     .withMessage("El email ya se encuentra registrado")
+    // body("userName")
+    //     .custom(async function (value) {
+
+    //             var user = await db.User.findOne({where: {username: value}})
+
+    //             console.log("sdfasdfafdafdasda    " + user.id)
+
+    //             if (user.id != null) {return true} 
+                
+    //             return false
+    //     }
+             
+    //     ).withMessage("El username ya se encuentra registrado")
 ];

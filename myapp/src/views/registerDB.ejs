@@ -8,32 +8,32 @@
         <div class="row">
             <div class="containerColumn d-flex flex-wrap align-items-center justify-content-center col-12 col-sm-6 col-lg-5 mt-0 mb-0 m-auto shadow rounded-lg">
                 <div class="containerBlock d-flex flex-wrap justify-content-between w-100 m-4">
-                    <form class=" d-flex flex-wrap justify-content-between w-100" action="/users/register" method="POST"
+                    <form class=" d-flex flex-wrap justify-content-between w-100" action="/users/registerDB" method="POST"
                         enctype="multipart/form-data">
                         <div class="mt-0 p-0 mb-3 text-center w-100">
                             <h4 class="text-center font-weight-bold">Registrate!</h4>
                         </div>
                         <div class="w-100 m-0 p-0">
                             <small class=" text-danger text-center">
-                                <%= (typeof errors != "undefined" && errors.userName) ? errors.userName.msg : "" %></small>
+                                <%= (typeof errors != "undefined") ? errors.errors : "" %></small>
                             <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
                                 type="text" name="userName" placeholder="Username"
-                                value="<%= (typeof old != 'undefined' && !errors.userName) ? old.userName : '' %>">
+                                value="<%= (typeof old != 'undefined' && !errors.username) ? old.userName : '' %>">
 
                         </div>
                         <div class="w-100 m-0 p-0">
                             <small class=" text-danger text-center">
-                                <%= (typeof errors != "undefined" && errors.userEmail) ? errors.userEmail.msg : "" %></small>
+                                <%= (typeof errors != "undefined" && errors.email) ? errors.email.msg : "" %></small>
                             <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
                                 type="email" name="userEmail" placeholder="Email"
-                                value="<%= (typeof old != 'undefined' && !errors.userEmail) ? old.userEmail : '' %>">
+                                value="<%= (typeof old != 'undefined' && !errors.email) ? old.userEmail : '' %>">
                         </div>
                         <div class="w-100 m-0 p-0">
                             <small class=" text-danger text-center">
-                                <%= (typeof errors != "undefined" && errors.userPassword) ? errors.userPassword.msg : "" %></small>
+                                <%= (typeof errors != "undefined" && errors.password) ? errors.password.msg : "" %></small>
                             <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
                                 type="password" placeholder="Contraseña" name="userPassword"
-                                value="<%= (typeof old != 'undefined' && !errors.userPassword) ? old.userPassword : '' %>">
+                                value="<%= (typeof old != 'undefined' && !errors.password) ? old.userPassword : '' %>">
                         </div>
                         <div class="w-100 m-0 p-0">
                             <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"

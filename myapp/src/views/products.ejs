@@ -27,7 +27,7 @@
                   <figure class="figure">
                         <% for(let j = 0; j < products.length; j++) { 
                                 if(products[j].category == productsCategories[i]) { %>
-                     <img src="/images/products/<%= products[j].image[0] %>" class="figure-img img-fluid shadow rounded-lg" alt="...">
+                     <img src="/images/products/<%= products[j].image %>" class="figure-img img-fluid shadow rounded-lg" alt="...">
                      <% break } } %>
                      <figcaption class="figure-caption text-center">
                         <%= productsCategories[i] %>
@@ -39,7 +39,7 @@
                                                         if(products[j].category == productsCategories[i]) { %>
                   <a class="dropdown-item col-5 m-0 ml-3 p-0" href="/products/index/<%= products[j].id %>">
                      <figure class="figure w-100 m-0 p-0">
-                        <img src="/images/products/<%= products[j].image[0] %>" class="m-0 p-0 figure-img img-fluid shadow rounded-lg w-100"
+                        <img src="/images/products/<%= products[j].image %>" class="m-0 p-0 figure-img img-fluid shadow rounded-lg w-100"
                            alt="...">
                         <figcaption class="m-0 p-0 figure-caption text-center">
                            <%= products[j].name %>
@@ -92,12 +92,13 @@
          <div class="col-12 d-flex flex-wrap p-0 main-product shadow rounded-lg">
             <div class="col-12 col-md-7 m-0 p-0 d-flex flex-wrap justify-content-center">
                <div class="col-12 d-flex justify-content-center flex-wrap p-4">
-                  <img class="main-product w-75 shadow rounded-lg" src="/images/products/<%= preDetail.image[0] %>" alt="">
+                  <img class="main-product w-75 shadow rounded-lg" src="/images/products/<%= preDetail.image %>" alt="">
                </div>
-               <div class="col-12 d-flex flex-wrap justify-content-center m-0 p-4">
-                        <% for(let i=0; i < preDetail.image.length; i++) { %>  
-                                  <img class="example col-3 shadow rounded-lg p-1 m-0" src="/images/products/<%= preDetail.image[i] %>" alt="">
-                         <% } %>
+               <div class="col-12 d-flex flex-wrap m-0 p-4">
+                  <img class="example col-3 shadow rounded-lg p-1 m-0" src="/images/taza-termica.png" alt="">
+                  <img class="example col-3 shadow rounded-lg p-1 m-0" src="/images/taza-termica.png" alt="">
+                  <img class="example col-3 shadow rounded-lg p-1 m-0" src="/images/taza-termica.png" alt="">
+                  <img class="example col-3 shadow rounded-lg p-1 m-0" src="/images/taza-termica.png" alt="">
                </div>
             </div>
             <div class="col-12 col-md-5 pt-4 d-flex flex-column border-left">

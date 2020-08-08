@@ -18,8 +18,12 @@ router.get('/', usersController.usersIndex);
 router.get('/check', usersController.check);
 router.get('/register', usersController.register);
 
+router.get('/registerDB', usersController.registerDB);
+
 // Chequeo que email sea valido, que user no venga vacio, que passord tenga 8 caracteres y que tanto email como user no existan en la base de datos.
 router.post('/register', upload.any(), registerValidations, usersController.createUser);
+router.post('/registerDB', upload.any(), usersController.createUserDB);
+
 
 router.get('/login', usersController.loginView);
 
@@ -33,7 +37,11 @@ router.get('/cart', authMiddleware, usersController.cart);
 
 router.get('/cart/settings', authMiddleware, usersController.purchaseSettings);
 
+router.get('/profile/checkuser', usersController.checkuser);
+
 router.get('/profile/:userId', authMiddleware, usersController.usersProfile);
+
+
 
 
 module.exports = router;
