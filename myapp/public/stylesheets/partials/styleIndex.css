@@ -3,6 +3,25 @@ div.index div.mostWanted div {
 
 }
 
+div.index div.carousel-inner {
+    background-color: var(--colorWhite);
+
+}
+
+div.index span.carousel-control-prev-icon {
+    background-color: var(--colorGray);
+    height: 5vh;
+    width: 25%;
+    border-radius: 10px;
+    }
+    div.index span.carousel-control-next-icon {
+        background-color: var(--colorGray);
+        height: 5vh;
+        width: 25%;
+        border-radius: 10px;
+        }
+    
+
 div.index div.mostWanted div.article  {
     background-color: white;
 }

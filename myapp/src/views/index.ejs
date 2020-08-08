@@ -13,18 +13,18 @@
                                 <div class="optionProducts col-12 col-md-6 flex-wrap justify-content-center m-0 p-0">
                                         <a class="" href="/products/index">
                                                 <div class="bgProducts"><img class="w-100 productsNormal"
-                                                                src="images/ProductsHomeNormal.png"
-                                                                onmouseover="this.src='images/ProductsHomeHover.png'"
-                                                                onmouseout="this.src='images/ProductsHomeNormal.png'"
+                                                                src="/images/ProductsHomeNormal.png"
+                                                                onmouseover="this.src='/images/ProductsHomeHover.png'"
+                                                                onmouseout="this.src='/images/ProductsHomeNormal.png'"
                                                                 alt="imagen"></div>
                                         </a>
                                 </div>
                                 <div class="optionMemes col-12 col-md-6 flex-wrap justify-content-center m-0 p-0">
                                         <a href="/memes">
                                                 <div class="bgMemes"><img class="w-100 memesNormal"
-                                                                src="images/MemesHomeNormal.png"
-                                                                onmouseover="this.src='images/MemesHomeHover.png'"
-                                                                onmouseout="this.src='images/MemesHomeNormal.png'"
+                                                                src="/images/MemesHomeNormal.png"
+                                                                onmouseover="this.src='/images/MemesHomeHover.png'"
+                                                                onmouseout="this.src='/images/MemesHomeNormal.png'"
                                                                 alt="imagen"></div>
                                         </a>
                                 </div>
@@ -33,7 +33,7 @@
                 <!-- Selector entre memes y productos -->
 
                 <!--Carousel With indicators-->
-                <!-- <div class="row mb-0 justify-content-center">
+                <div class="row mb-0 justify-content-center">
                         <div id="carouselExampleIndicators" class="carousel slide col-10 m-0 shadow p-0" data-ride="carousel ">
                                 <ol class="carousel-indicators">
                                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
@@ -41,15 +41,15 @@
                                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                                 </ol>
-                                <div class="carousel-inner">
+                                <div class="carousel-inner p-3">
                                         <div class="carousel-item active">
-                                                <img src="images/carrousel_img.png" class="d-block w-100" alt="...">
+                                                <img src="/images/productosconmemes/GrupoGorras.png" class="d-block w-100" alt="...">
                                         </div>
                                         <div class="carousel-item">
-                                                <img src="images/carrousel_img.png" class="d-block w-100" alt="...">
+                                                <img src="/images/productosconmemes/GrupoBolsas.png" class="d-block w-100" alt="...">
                                         </div>
                                         <div class="carousel-item">
-                                                <img src="images/carrousel_img.png" class="d-block w-100" alt="...">
+                                                <img src="/images/productosconmemes/GrupoTazas.png" class="d-block w-100" alt="...">
                                         </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
@@ -63,7 +63,7 @@
                                         <span class="sr-only">Next</span>
                                 </a>
                         </div>
-                </div> -->
+                </div>
                 <!--Carousel With indicators-->
 
                 <!-- Titulo de Los Mas Vendidos-->
@@ -82,7 +82,7 @@
                                         <div class="article p-0 rounded-lg">
                                                 <a class="text-decoration-none"
                                                         href="/products/detail/<%= sortedProducts[i].id %>">
-                                                        <img src="../images/products/<%= sortedProducts[i].image %>" class="w-100"
+                                                        <img src="/images/products/<%= sortedProducts[i].image[0] %>" class="w-100"
                                                                 alt="">
                                                         <h5 class="text-dark m-0 text-center"><%= sortedProducts[i].name %></h5>
                                                         <p class="text-dark m-0 text-center">$ <%= sortedProducts[i].price %></p>

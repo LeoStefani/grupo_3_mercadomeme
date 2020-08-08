@@ -5,6 +5,7 @@ div.mainRegister {
 }
 
 div.mainRegister div.containerColumn{
+    width: 45%;
     background-color: var(--colorWhite);    
 }
 
@@ -13,3 +14,20 @@ div.mainRegister div.containerColumn div.containerBlock a{
 }
 
 
+/*======MEDIAQUERIES======*/
+
+@media (max-width: 1020px) {
+    div.mainRegister div.containerColumn{
+        width: 65%;
+    }
+}
+@media (max-width: 600px) {
+    div.mainRegister div.containerColumn{
+        width: 85%;
+    }
+}
+@media (max-width: 425px) {
+    div.mainRegister div.containerColumn{
+        width: 100%;
+    }
+}
