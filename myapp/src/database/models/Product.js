@@ -72,6 +72,26 @@ module.exports = function(sequelize, dataTypes) {
     
         let Product = sequelize.define(alias, cols, config);
     
+        Product.associate = function(models) {
+                Product.hasMany(models.Sizes, {
+                        as: "sizes",
+                        foreignKey: "id_product_size"
+                })
+
+                Product.belongsTo(models.Categories, {
+                        as: "categories",
+                        foreignKey: "id_category"
+                })
+
+                Product.belongsToMany(models.Colors, {
+                        as: "colors",
+                        through: "product_color",
+                        foreignKey: "id_product",
+                        otherKey: "id_color",
+                        timestamps: false
+                })
+        }
+
         return Product;
     
     }
