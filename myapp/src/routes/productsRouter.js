@@ -6,6 +6,8 @@ const multer = require('multer');
 let upload = require('../middlewares/multerProductsMW');
 
 
+router.get('/test', productsController.productTest);
+
 // General products render 
 router.get('/index/:id?', productsController.productsIndex);
 
@@ -25,6 +27,9 @@ router.delete('/delete/:id', productsController.delete);
 // Product details 
 router.get('/detail/:id', productsController.detail);
 // router.get('/:id', productsController.productsIndex);
+
+
+
 
 
 

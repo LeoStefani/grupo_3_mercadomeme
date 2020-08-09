@@ -24,7 +24,7 @@ module.exports = function(sequelize, dataTypes) {
             },
             code:{
                 type: dataTypes.STRING,
-                notNull: true,
+                allowNull: false,
                 validate: {
                         notNull: { msg: 'El campo "código" no puede quedar vacío.'},
                         notEmpty: { msg: 'El campo "código" no puede quedar vacío.'}
@@ -46,7 +46,7 @@ module.exports = function(sequelize, dataTypes) {
         let Color = sequelize.define(alias, cols, config);
 
         Color.associate = function(models) {
-                Color.belongsToMany(models.Products, {
+                Color.belongsToMany(models.Product, {
                         as: "Products",
                         through: "product_color",
                         foreignKey: "id_color",

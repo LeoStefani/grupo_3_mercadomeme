@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+
+<body>
+   <!-- <header> -->
+   <%- include('partials/header') %>
+   <!-- </header> -->
+
+
+   <div class="products container">
+        
+        <% for(let j=0; j < products.length; j++) { %>
+
+        <h1> Nombre: <%= products[j].name %></h1>
+        <p> <%= products[j].description %></p>
+        <h4> Precio: $<%= products[j].price %></h4>
+        <h5> Categoría: <%= products[j].categories.name %></h5>
+        <h4>Tamaños: </h4>
+        <ul>
+                <% for(let i=0; i < products[j].sizes.length; i++) { %>
+                        <li> <%= products[j].sizes[i].tag %> : <%= products[j].sizes[i].size_main %></li>
+                <% } %>
+        </ul>
+        <h4>Colores: </h4>
+        <ul>
+                <% for(let i=0; i < products[j].colors.length; i++) { %>
+                        <li> <%= products[j].colors[i].name %> || code: <%= products[j].colors[i].code %></li>
+                <% } %>
+        </ul>
+        <div><img src="/images/products/<%= products[j].image_0 %>" alt=""></div>
+
+        <% } %>
+   </div>
+
+   <!-- <footer> -->
+   <%- include('partials/footer') %>
+   <!-- </footer> -->
+   <%- include('partials/scriptsBootstrap') %>
+
+</body>
+
+</html>

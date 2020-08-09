@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const db = require("../database/models");
+
 
 let products = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/products.json'), 'utf-8'));
 
@@ -238,5 +240,23 @@ module.exports = {
                 fs.writeFileSync(path.join(__dirname, '../data/products.json'), productsJSON);
 
                 res.redirect('/products/upload');
+        },
+
+        productTest: function(req, res) {
+
+                db.Product.findAll({
+                        include: [{
+                                all: true
+                        }]
+                })
+                        .then(function(products){ 
+                                // res.send(products) })
+                                res.render("productTest",{
+                                title: "Mi Perfil",
+                                products: products
+                                })
+                        })
+                        .catch(function (error){console.log(error)});
+
         }
 };
