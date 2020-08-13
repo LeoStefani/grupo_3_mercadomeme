@@ -1,3 +1,7 @@
 div.productDetailDivContainers {
     background-color: var(--colorWhite);
 }
+
+ul.productDetailSizesList {
+        list-style-type: none;
+}

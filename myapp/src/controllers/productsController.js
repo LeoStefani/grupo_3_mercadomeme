@@ -53,18 +53,31 @@ module.exports = {
         },
 
         detail: function (req, res, next) {
+                // DATABASE - Este bloque se encarga de buscar el producto segun el id recibido, y guardarlo en productDetail
+                db.Product.findByPk(req.params.id, {
+                        include: [{
+                                all: true
+                        }]
+                }).then(function(productDetail){
+                //         // res.send(productDetail) })
+                                res.render("detail",{
+                                        title: 'Detalle de productos',
+                                productDetail: productDetail
+                                })
+                        })
+                        .catch(function (error){console.log(error)});
                 // Este bloque se encarga de buscar el producto segun el id recibido, y guardarlo en productDetail
-                let productDetail;
-                for (let i = 0; i < products.length; i++) {
-                        if (products[i].id == req.params.id) {
-                                productDetail = products[i];
-                        };
-                };
-                // Renderizado de la vista. Paso el productDetail
-                res.render('detail', {
-                        title: 'Detalle de productos',
-                        productDetail: productDetail
-                });
+                // let productDetail;
+                // for (let i = 0; i < products.length; i++) {
+                //         if (products[i].id == req.params.id) {
+                //                 productDetail = products[i];
+                //         };
+                // };
+                // // Renderizado de la vista. Paso el productDetail
+                // res.render('detail', {
+                //         title: 'Detalle de productos',
+                //         productDetail: productDetail
+                // });
         },
 
         upload: function (req, res, next) {
@@ -242,8 +255,8 @@ module.exports = {
                 res.redirect('/products/upload');
         },
 
-        productTest: function(req, res) {
-
+        productTest: function(req, res,next) {
+                
                 db.Product.findAll({
                         include: [{
                                 all: true

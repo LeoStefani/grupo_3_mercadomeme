@@ -21,15 +21,21 @@
                                 <div
                                         class="shadow productDetailDivContainers border-bottom border-right border-light p-3 col-6 d-flex flex-wrap flex-column">
                                         <a class="#" href="">
-                                                <img class="w-100" src="/images/products/<%= productDetail.image[0] %>" alt="imgbibliouser">
+                                                <img class="w-100" src="/images/products/<%= productDetail.image_0 %>" alt="imgbibliouser">
                                         </a>
                                         <!-- muestro tamaños disponibles leidos del JSON  -->
-                                        <h5><%= productDetail.name %></h5>
-                                        <h6>Tamaños: </h6>
+                                        <h5 class="mt-2">"<%= productDetail.name %>"</h5>
+                                        <h5>Tamaños: </h5>
+                                        <ul class="productDetailSizesList">
                                         <% for(let i=0; i < productDetail.sizes.length; i++) { %>
-                                        <h6><%= productDetail.sizes[i].tag %>: <%= productDetail.sizes[i].size %>
-                                                <%= productDetail.sizes[i].unit %></h6>
-                                        <% } %>
+                                                <li class="#">
+                                                        <div class="d-flex flex-wrap p-0 mb-1">
+                                                                <h6 class="col-6 p-0 m-0 text-uppercase"><%= productDetail.sizes[i].tag %>: <%= productDetail.sizes[i].size_main %></h6><h6 class="col-6 p-0 m-0"><%= productDetail.categories.size_unit %></h6>
+                                                        </div>
+                                                </li>
+                                                
+                                                <% } %>
+                                        </ul>
 
                                         <a class="align-self-end" href="/products/index"><button type="button"
                                                         class="shadow m-0 btn btn-warning btn-sm btn-radius">Cambiar</button></a>
@@ -82,9 +88,9 @@
                                                         <% for(let i=0; i < productDetail.colors.length; i++) { %>
                                                         <div class="check">
                                                                 <label class="m-0 text-capitalize"
-                                                                        for="<%= productDetail.colors[i].colorName %>"><%= productDetail.colors[i].colorName %></label>
+                                                                        for="<%= productDetail.colors[i].name %>"><%= productDetail.colors[i].name %></label>
                                                                 <input class="check ml-1" type="radio" name="colors"
-                                                                        id="<%= productDetail.colors[i].colorName %>" value="<%= productDetail.colors[i].colorName %>">
+                                                                        id="<%= productDetail.colors[i].name %>" value="<%= productDetail.colors[i].name %>">
                                                         </div>
                                                         <% } %>
 
