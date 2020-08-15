@@ -31,6 +31,7 @@ header div div nav ul li a{
     font-size: 1.4rem;
     color: var(--colorBlack);
     text-decoration: none;
+    font-family: "Staatliches";
 }
 
 header div div nav ul li a i{

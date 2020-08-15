@@ -39,98 +39,63 @@ module.exports = {
         //         };
         // };
 
-        db.User.findByPk(req.params.userId).then(function(users){
-            res.render("usersProfile",{
+        db.User.findByPk(req.params.userId).then(function (users) {
+            res.render("usersProfile", {
                 title: "Mi Perfil",
-                user: users})
+                user: users,
+                old: req.body
             })
-            .catch(function (error){console.log(error)});
+        })
+            .catch(function (error) { console.log(error) });
 
         // res.render("usersProfile", {
         //         title: "Mi Perfil",
 
-                
+
         // });
-    },
-    register: function (req, res, next) {
-        res.render('register', {
-            title: "Registro"
-        });
     },
     registerDB: function (req, res, next) {
         res.render('registerDB', {
             title: "RegistroDB"
         });
     },
-    createUser: function (req, res, next) {
-        // Setea variable newUser inicialmente vacia.
-        let newUser = {};
-        // Setea variable errors con aplicar validationResult a lo que viene por el request.
-        let errors = validationResult(req);
+    createUserDB: function (req, res, next) {
+
+        // let errors = validationResult(req);
         // Aca hace el IF grande, en el cual si viene sin errores, (errors.isEmpty()), se crea el usuario y sino manda los errores a la vista.
-        if (errors.isEmpty()) {
-            // Dado que la estructura del JSON estaba, deje el last_name vacio por defecto.
-            newUser.id = maxId();
-            newUser.user_name = req.body.userName;
-            newUser.last_name = "";
-            newUser.email = req.body.userEmail;
-            newUser.password = bcrypt.hashSync(req.body.userPassword, 10);
-            newUser.category = "user";
-            newUser.image = (req.files[0]) ? req.files[0].filename : 'iconoImagenBordesIguales.png';
-            // Aca pushea el nuevo usuario a lo existente.
-            users.push(newUser);
-            // Acá resscribe el nuevo array de usuarios.
-            fs.writeFileSync(path.join(__dirname, '../data/users.json'), JSON.stringify(users));
+        // if (errors.isEmpty() && db.User.Errors == undefined) {
+        let VRerrors = validationResult(req);
+        // Aca hace el IF grande, en el cual si viene sin errores, (errors.isEmpty()), se crea el usuario y sino manda los errores a la vista.
+        if (VRerrors.isEmpty()) {
+
+
+            db.User.create({
+                username: req.body.userName,
+                email: req.body.userEmail,
+                password: bcrypt.hashSync(req.body.userPassword, 10),
+                avatar: (req.files[0]) ? req.files[0].filename : 'usuario.png'
+            })
+                .then(function (user) {
+                    res.redirect("/users/login")
+                })
+                .catch(function (errors) {
+                    // res.send(errors);
+                    res.render("registerDB", {
+                        errors: errors,
+                        title: "RegistroDBError",
+                        old: req.body
+                    })
+                })
         } else {
             // Este ELSE viene de si habia errores en el ingreso de datos, para lo cual renderiza de nuevo el register
             // pero esta vez enviando que errores hubo al llenar los campos. Tambien con OLD retiene lo que habian enviado bien
-            return res.render("register", {
-                errors: errors.mapped(),
+            return res.render("registerDB", {
+                errors: VRerrors.mapped(),
                 title: "Registro",
                 old: req.body
             })
         };
-        // Si se creó todo bien, te redirige al HOME. Si habría errores, el ELSE te hubiese pateado al register de nuevo.
-        res.redirect("/");
-    },
-    createUserDB: function (req, res, next) {
-       
-        // let errors = validationResult(req);
-        // Aca hace el IF grande, en el cual si viene sin errores, (errors.isEmpty()), se crea el usuario y sino manda los errores a la vista.
-        // if (errors.isEmpty() && db.User.Errors == undefined) {
 
-            db.User.create({
-            username: req.body.userName,
-            email: req.body.userEmail,
-            password: bcrypt.hashSync(req.body.userPassword, 10),
-            avatar: (req.files[0]) ? req.files[0].filename : 'iconoImagenBordesIguales.png'})
-            .then(function(user){
-                res.redirect("/")
-            })
-            .catch(function(errors){
-                console.log("ACA VA ERROR SOLOOOOOO   : " + errors)
-
-                console.log("asdaasdfaaasasddasdfasfdfasfdasfdfasfdfasfdasffdasfdfasfdfsdasdad    : " + errors.message)
-
-
-                res.render("registerDB", {
-                    errors: errors,
-                    title: "RegistroDBError",
-                    old: req.body
-                })
-            })
-
-        // } else {
-            // Este ELSE viene de si habia errores en el ingreso de datos, para lo cual renderiza de nuevo el register
-            // pero esta vez enviando que errores hubo al llenar los campos. Tambien con OLD retiene lo que habian enviado bien
-            // return res.render("registerDB", {
-            //     errors: errors.mapped(),
-            //     title: "Registro",
-            //     old: req.body
-            // })
-        // };
-        // Si se creó todo bien, te redirige al HOME. Si habría errores, el ELSE te hubiese pateado al register de nuevo.
-        
     },
     cart: function (req, res, next) {
         res.render("cart", {
@@ -144,76 +109,127 @@ module.exports = {
     },
     login: function (req, res, next) {
 
-        // Setea variable errors con aplicar validationResult a lo que viene por el request.
-        let errors = validationResult(req);
+        // Setea variable VRerrors con aplicar validationResult a lo que viene por el request.
+        let VRerrors = validationResult(req);
 
-        // Aca hace el IF grande, en el cual si viene sin errores, (errors.isEmpty()), se loggea el usuario y sino manda los errores a la vista.
-        if (errors.isEmpty()) {
-            // inicializo la variable userToLogin
-            let userToLogin;
-            // recorre todos los usuarios para ver si el email puesto en el body del login coincide con alguno guardado en el JSON.
-            // Si coincide alguno, revisa que la contraseña hasheada sea comparable.
-            for (let i = 0; i < users.length; i++) {
-                if (users[i].email == req.body.loginEmail) {
-                    if (bcrypt.compareSync(req.body.loginPassword, users[i].password)) {
-                        userToLogin = users[i];
-                        break;
+        // Aca hace el IF grande, en el cual si viene sin errores, (VRerrors.isEmpty()), se loggea el usuario y sino manda los errores a la vista.
+        if (VRerrors.isEmpty()) {
+
+            // Busco con findOne si el email ingresado es correcto. 
+            db.User.findOne({ where: { email: req.body.loginEmail } })
+                .then(function (user) {
+
+                    if (user != null) {
+
+                        if (bcrypt.compareSync(req.body.loginPassword, user.password)) {
+
+                            // En caso de que haya encontrado algo, lo guardo en session
+                            req.session.loggedUser = user;
+                            // Ademas, si no hay cookie guardada, en este momento se genera guardando los datos del usuario matcheado.
+                            if (req.body.rememberMe != undefined) {
+                                res.cookie('rememberMe', user.id, { maxAge: 120 * 1000 })
+                            }
+                            // Por úlitmo se lo redirigiria al HOME.
+                            res.redirect('/')
+                        } else {
+                            res.render("login", {
+                                title: "login - Error",
+                                old: req.body,
+                                errormsg: "Mail o contraseña inválidos",
+                                errors: VRerrors.mapped()
+                            })
+                        }
+
+
+                    } else {
+                        res.render("login", {
+                            title: "login - Error",
+                            old: req.body,
+                            errormsg: "Mail o contraseña inválidos",
+                            errors: VRerrors.mapped()
+                        })
                     }
-                }
-            };
-
-            // si llego al final del for y no encontro ninguno, entonces userToLogin sigue indefinido, y por lo tanto manda mensaje que 
-            // o usuario o contraseña estan mal. Tambien con OLD retiene lo que habian enviado bien
-            if (userToLogin == undefined) {
-                return res.render("login",{
-                    title: 'Login',
-                    errors: errors.mapped(),
-                    error: "Usuario o contraseña inválidos",
-                    old: req.body
+                    ;
+                }).catch(function (error) {
+                    // console.log(error)
                 })
-            };
 
-            // Dado que si userToLogin quedo indefinido se ejecutó el IF anterior que tiene return, esta parte no se ejecuta al menos que si
-            // se encuentre el usuario. En ese caso, todos los datos del mismo se guardan en session.
-            req.session.loggedUser = userToLogin;
-
-            // Ademas, si no hay cookie guardada, en este momento se genera guardando los datos del usuario matcheado.
-            if (req.body.rememberMe != undefined) {
-                res.cookie('rememberMe', userToLogin.email, { maxAge:60*1000})
-            }
-            // Por ultimo te redirige al home.
-            res.redirect('/');
         } else {
-            // Este ELSE viene de si habia errores en el ingreso de datos, para lo cual renderiza de nuevo el login
-            // pero esta vez enviando que errores hubo al llenar los campos.
-            res.render("login", {
-                title: 'Login',
-                errors: errors.mapped(),
+            // Este ELSE viene de si habia errores en el ingreso de datos, para lo cual renderiza de nuevo el register
+            // pero esta vez enviando que errores hubo al llenar los campos. Tambien con OLD retiene lo que habian enviado bien
+            return res.render("login", {
+                errors: VRerrors.mapped(),
+                title: "login - Error",
                 old: req.body
             })
         }
     },
-    logout: function (req,res,next){
+    logout: function (req, res, next) {
         // Cuando se entra a la ruta /users/logout hace un session destroy y manda un mensaje.
         req.session.destroy();
-        res.cookie('rememberMe', '', { maxAge: -1});
+        res.cookie('rememberMe', '', { maxAge: -1 });
         res.redirect('/users/login');
     },
-    check: function (req, res, next){
+    check: function (req, res, next) {
         // Cuando se entra a la ruta /users/check manda un mensaje de quien esta loggeado en session.
-        res.send("El usuario loggeado es " + req.session.loggedUser.user_name);
+        res.send("El usuario loggeado es " + req.session.loggedUser.username);
     },
-    purchaseSettings: function (req,res,next){
-           res.render("purchaseSettings", {
+    purchaseSettings: function (req, res, next) {
+        res.render("purchaseSettings", {
             title: "Configuración de compra"
         });
     },
-    checkuser: function (req,res,next){
-        db.User.findByPk(1).then(function(users){
-            res.send(users)
-            }).catch(function (error){
-                console.log(error)
-        })
-    }
+    usersProfileEdit: function (req, res, next) {
 
-};
+        // let errors = validationResult(req);
+        // Aca hace el IF grande, en el cual si viene sin errores, (errors.isEmpty()), se crea el usuario y sino manda los errores a la vista.
+        // if (errors.isEmpty() && db.User.Errors == undefined) {
+        let VRerrors = validationResult(req);
+        // Aca hace el IF grande, en el cual si viene sin errores, (errors.isEmpty()), se crea el usuario y sino manda los errores a la vista.
+        if (VRerrors.isEmpty()) {
+
+            if (req.files) {
+
+                db.User.update({
+                    avatar: req.files[0].filename
+                },
+                    { where: { id: req.params.userId } })
+                    .then(function (users) { res.redirect("/users/profile/" + req.params.userId) })
+                    .catch(function (error) { console.log(error) })
+
+            } else {
+
+                db.User.update({
+                    first_name: req.body.firstName,
+                    last_name: req.body.lastName,
+                    dni: req.body.dni,
+                    phone_0: req.body.phone_0,
+                    phone_1: req.body.phone_1,
+                    credit_card_0: req.body.credit_card_0,
+                    credit_card_1: req.body.credit_card_1,
+                    address_0: req.body.address_0,
+                    address_1: req.body.address_1
+                },
+                    { where: { id: req.params.userId } })
+                    .then(function (users) { res.redirect("/users/profile/" + req.params.userId) })
+                    .catch(function (error) { console.log(error) })
+
+            }
+
+        } else {
+            // Este ELSE viene de si habia errores en el ingreso de datos, para lo cual renderiza de nuevo el register
+            // pero esta vez enviando que errores hubo al llenar los campos. Tambien con OLD retiene lo que habian enviado bien
+            return db.User.findByPk(req.params.userId).then(function (users) {
+                res.render("usersProfile", {
+                    title: "Mi Perfil",
+                    user: users,
+                    errors: VRerrors.mapped(),
+                                   })
+            })
+                .catch(function (error) { console.log(error) })   
+
+        }
+
+
+    }
+}

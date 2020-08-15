@@ -21,7 +21,7 @@ let sortedProducts = products.sort(GetSortOrder("qtySold"));
 
 let controller = {
         index: function (req, res, next) {
-                console.log(req.session.loggedUser);
+
                 res.render('index', {
                         title: 'Bienvenidos!',
                         sortedProducts: sortedProducts

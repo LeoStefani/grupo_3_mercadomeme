@@ -13,28 +13,12 @@ module.exports = function(sequelize, dataTypes) {
         username:{
             type: dataTypes.STRING,
             allowNull: false,
-            unique: {
-                args: true,
-                message: 'El nombre de usuario indicado ya se encuentra registrado',
-                fields: [sequelize.fn('lower', sequelize.col('username'))]
-            },
-            validate: {
-                notNull: {
-                msg: 'El campo "username" no puede quedar vacío.'},
-                notEmpty: { 
-                msg: 'El campo "username" no puede quedar vacío.'
-                }
-            } 
+            unique: true
         },
         email:{
             type: dataTypes.STRING,
             allowNull: false,
-            unique: true,
-            validate: {
-                notNull: {
-                    msg: 'El campo "username" no puede quedar vacío.' 
-                }
-            }  
+            unique: true
         },
         password:{
             type: dataTypes.STRING,

@@ -18,6 +18,8 @@
                                 
                                 <div class="w-100 m-0 p-0">
                                     <small class=" text-danger text-center"> <%= (typeof errors != "undefined" && errors.loginEmail) ? errors.loginEmail.msg : "" %></small>
+                                    <small class=" text-danger text-center"> <%= (typeof errormsg != "undefined") ? errormsg : "" %></small>
+
                                     <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow" type="text"
                                         placeholder="Email" name="loginEmail" value="<%= (typeof old != 'undefined' && !errors.loginEmail) ? old.loginEmail : '' %>">
                                 </div>
