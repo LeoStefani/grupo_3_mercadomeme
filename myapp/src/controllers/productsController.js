@@ -31,25 +31,33 @@ let productNew = { sizes: [], colors: [], others: [], qtySold: 0 };
 
 module.exports = {
         productsIndex: function (req, res, next) {
-
-                // Este bloque se encarga de la previsualizacion en el index de productos. Si no elegiste ninguno aun, muestra el primero del JSON. Si entra uno por params, te muestra ese...
-                let preDetail = products[0];
-                if (req.params.id) {
-                        // validacion 
-                        for (let i = 0; i < products.length; i++) {
-                                if (products[i].id == req.params.id) {
-                                        preDetail = products[i];
+                // recupero productos con db
+                db.Product.findAll({
+                        include: [{
+                                all: true
+                        }]
+                }).then(function(products){
+                        db.Category.findAll()
+                        .then(function(categories){
+                                // Este bloque se encarga de la previsualizacion en el index de productos. Si no elegiste ninguno aun, muestra el primero de lo que traiga en products. Si entra uno por params, te muestra ese...
+                                let preDetail = products[0];
+                                if (req.params.id) {
+                                        for (let i = 0; i < products.length; i++) {
+                                                if (products[i].id == req.params.id) {
+                                                        preDetail = products[i];
+                                                        break;
+                                                };
+                                        };
                                 };
-                        };
-                };
-
-                // Renderizado de la vista. Paso el JSON completo parseado, el array de categorias y la previsualizacion...
-                res.render('products', {
-                        title: 'Productos',
-                        products: products,
-                        productsCategories: productsCategories,
-                        preDetail: preDetail
-                });
+                                // Renderizado de la vista. Paso el JSON completo parseado, el array de categorias y la previsualizacion...
+                                res.render("products",{
+                                        title: 'productos',
+                                        products: products,
+                                        categories: categories,
+                                        preDetail: preDetail
+                                        })
+                        }) })
+                        .catch(function (error){console.log(error)});
         },
 
         detail: function (req, res, next) {
@@ -59,25 +67,12 @@ module.exports = {
                                 all: true
                         }]
                 }).then(function(productDetail){
-                //         // res.send(productDetail) })
                                 res.render("detail",{
                                         title: 'Detalle de productos',
-                                productDetail: productDetail
+                                        productDetail: productDetail
                                 })
                         })
                         .catch(function (error){console.log(error)});
-                // Este bloque se encarga de buscar el producto segun el id recibido, y guardarlo en productDetail
-                // let productDetail;
-                // for (let i = 0; i < products.length; i++) {
-                //         if (products[i].id == req.params.id) {
-                //                 productDetail = products[i];
-                //         };
-                // };
-                // // Renderizado de la vista. Paso el productDetail
-                // res.render('detail', {
-                //         title: 'Detalle de productos',
-                //         productDetail: productDetail
-                // });
         },
 
         upload: function (req, res, next) {
