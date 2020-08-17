@@ -60,9 +60,9 @@
                             <select class="flex-grow-1 mt-1 p-1 border border-white rounded-lg ml-3" name="category"
                                 id="typeSearchInput" disabled>
                                 <option value="typeOfProduct">Buscar por tipo de producto</option>
-                                <% for (let i=0; i< productsCategories.length; i++) { %>
+                                <% for (let i=0; i< categories.length; i++) { %>
 
-                                <option  value="<%= productsCategories[i] %>"><%= productsCategories[i] %></option>
+                                <option  value="<%= categories[i].name %>"><%= categories[i].name %></option>
 
                                 <% } %>
 
@@ -108,16 +108,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <% for (let i=0; i< productsSearch.length; i++) { %>
+                                <% for (let i=0; i< products.length; i++) { %>
 
                                     <tr class="clickable-row">
-                                        <td class="p-1" scope="row"><%= productsSearch[i].id %></td>
-                                        <td class="p-1"  ><%= productsSearch[i].category %></td>
-                                        <td class="p-1"  ><%= productsSearch[i].name %></td>
-                                        <td class="p-1"  >$ <%= productsSearch[i].price %></td>
-                                        <td class="d-none p-1"><form action="/products/delete/<%= productsSearch[i].id %>" method="GET"><button class="btn btn-warning btn-sm w-100">Eliminar</button></form></td>
-                                        <td class="p-1"  ><form action="/products/edit/<%= productsSearch[i].id %>" method="GET"><button class="btn btn-warning btn-sm w-100">Editar</i></button></form></td>
-                                        <td class="p-1"  ><form action="/products/delete/<%= productsSearch[i].id %>" method="GET"><button class="btn btn-warning btn-sm w-100"><i class="far fa-trash-alt"></i></button></form></td>
+                                        <td class="p-1" scope="row"><%= products[i].id %></td>
+                                        <td class="p-1"  ><%= products[i].categories.name %></td>
+                                        <td class="p-1"  ><%= products[i].name %></td>
+                                        <td class="p-1"  >$ <%= products[i].price %></td>
+                                        <td class="d-none p-1"><form action="/products/delete/<%= products[i].id %>" method="GET"><button class="btn btn-warning btn-sm w-100">Eliminar</button></form></td>
+                                        <td class="p-1"  ><form action="/products/edit/<%= products[i].id %>" method="GET"><button class="btn btn-warning btn-sm w-100">Editar</i></button></form></td>
+                                        <td class="p-1"  ><form action="/products/delete/<%= products[i].id %>" method="GET"><button class="btn btn-warning btn-sm w-100"><i class="far fa-trash-alt"></i></button></form></td>
                                     </tr>
     
                                     <% } %>

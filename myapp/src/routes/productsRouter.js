@@ -6,7 +6,6 @@ const multer = require('multer');
 let upload = require('../middlewares/multerProductsMW');
 
 
-router.get('/test', productsController.productTest);
 
 // General products render 
 router.get('/index/:id?', productsController.productsIndex);

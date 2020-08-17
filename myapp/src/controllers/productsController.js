@@ -77,23 +77,24 @@ module.exports = {
 
         upload: function (req, res, next) {
 
-                let productsSearch = [];
-
-                // console.log(req.query.nameOfProduct)
-
-                //        Aca la idea es lograr que si llega ID, se muestre solo ID. Si llega name, se muestre solo el name, y si llega category, que se muestren todos los de esa category
-                for (let i = 0; i < products.length; i++) {
-
-                        if (req.query.idOfProduct == products[i].id || req.query.category == products[i].category || req.query.nameOfProduct == products[i].name) {
-                                productsSearch.push(products[i]);
-                        };
-                }
-
-                res.render('upload', {
-                        title: 'Carga de productos',
-                        productsSearch: productsSearch,
-                        productsCategories: productsCategories
-                });
+                db.Product.findAll( {
+                        include: [ {all: true} ]
+                })
+                .then((products) => {
+                        // Aca la idea es lograr que si llega ID, se muestre solo ID. Si llega name, se muestre solo el name, y si llega category, que se muestren todos los de esa category
+                        if(Object.keys(req.query).length !== 0) {
+                                products = products.filter((element) => {
+                                        return (element.id == req.query.idOfProduct || element.name == req.query.nameOfProduct || element.categories.name == req.query.category); 
+                                });
+                        }
+                        db.Category.findAll()
+                        .then(function(categories){
+                                res.render('upload', {
+                                        title: 'Carga de productos',
+                                        products: products,
+                                        categories: categories
+                                });
+                }) });
         },
 
         create: function (req, res, next) {
@@ -248,23 +249,5 @@ module.exports = {
                 fs.writeFileSync(path.join(__dirname, '../data/products.json'), productsJSON);
 
                 res.redirect('/products/upload');
-        },
-
-        productTest: function(req, res,next) {
-                
-                db.Product.findAll({
-                        include: [{
-                                all: true
-                        }]
-                })
-                        .then(function(products){ 
-                                // res.send(products) })
-                                res.render("productTest",{
-                                title: "Mi Perfil",
-                                products: products
-                                })
-                        })
-                        .catch(function (error){console.log(error)});
-
         }
 };
