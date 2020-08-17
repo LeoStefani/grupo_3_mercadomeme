@@ -113,49 +113,78 @@ module.exports = {
     },
 
     createNew: function (req, res, next) {
+        // Tendriamos que validar el caso donde no llegue ningun size.
+        let newProductSizes = [];
+        if (req.body.xs != undefined && req.body.sizeXsValue != "") { newProductSizes.push({ tag: req.body.xs, size_main: parseFloat(req.body.sizeXsValue) }) };
+        if (req.body.s != undefined && req.body.sizeSValue != "") { newProductSizes.push({ tag: req.body.s, size_main: parseFloat(req.body.sizeSValue) }) };
+        if (req.body.m != undefined && req.body.sizeMValue != "") { newProductSizes.push({ tag: req.body.m, size_main: parseFloat(req.body.sizeMValue) }) };
+        if (req.body.l != undefined && req.body.sizeLValue != "") { newProductSizes.push({ tag: req.body.l, size_main: parseFloat(req.body.sizeLValue) }) };
+        if (req.body.xl != undefined && req.body.sizeXlValue != "") { newProductSizes.push({ tag: req.body.xl, size_main: parseFloat(req.body.sizeXlValue) }) };
 
-        productNew.id = maxId();
-        if (req.body.productNewName != undefined) { productNew.name = req.body.productNewName };
-        if (req.body.productNewDescription != undefined) { productNew.description = req.body.productNewDescription };
-        if (req.body.productNewCategory != undefined && req.body.typeAddInput == undefined) { productNew.category = req.body.productNewCategory };
-        if (req.body.productNewCategory != undefined && req.body.typeAddInput != undefined) { productNew.category = req.body.typeAddInput };
-        if (req.body.productNewPrice != undefined) { productNew.price = parseFloat(req.body.productNewPrice) };
 
-        // busco unidad de medida segun la categoria ingresada
-        let unitNew;
-        for (let i = 0; i < products.length; i++) {
-            if (products[i].category == req.body.productNewCategory) {
-                unitNew = products[i].sizes[0].unit;
-                break;
-            };
-        };
+        console.log(req.body);
 
-        productNew.image = req.files[0].filename;
+        db.Product.create({
+            name: req.body.productNewName,
+            description: req.body.productNewDescription,
+            price: parseFloat(req.body.productNewPrice),
+            qty_sold: 0,
+            id_category: req.body.productNewCategory,
+            sizes: newProductSizes,
+            // images: [
+            //     { name: req.files[0].filename }
+            // ]
+        }
+        , { include: [{ all: true }] }
+          )
+        .then((parameter) => {
+            res.redirect("/")
+        })
+            .catch(function (error) { console.log(error) });
 
-        // si existen dichos campos, pego en productNew - Tamaños
-        if (req.body.xs != undefined && req.body.sizeXsValue != "") { productNew.sizes.push({ tag: req.body.xs, size: parseFloat(req.body.sizeXsValue), unit: unitNew }) };
-        if (req.body.s != undefined && req.body.sizeSValue != "") { productNew.sizes.push({ tag: req.body.s, size: parseFloat(req.body.sizeSValue), unit: unitNew }) };
-        if (req.body.m != undefined && req.body.sizeMValue != "") { productNew.sizes.push({ tag: req.body.m, size: parseFloat(req.body.sizeMValue), unit: unitNew }) };
-        if (req.body.l != undefined && req.body.sizeLValue != "") { productNew.sizes.push({ tag: req.body.l, size: parseFloat(req.body.sizeLValue), unit: unitNew }) };
-        if (req.body.xl != undefined && req.body.sizeXlValue != "") { productNew.sizes.push({ tag: req.body.xl, size: parseFloat(req.body.sizeXlValue), unit: unitNew }) };
-        // Colores 
-        if (req.body.colorBlack != undefined) { productNew.colors.push({ colorName: req.body.colorBlack, colorCode: "#000000" }) };
-        if (req.body.colorRed != undefined) { productNew.colors.push({ colorName: req.body.colorRed, colorCode: "#FF0000" }) };
-        if (req.body.colorBlue != undefined) { productNew.colors.push({ colorName: req.body.colorBlue, colorCode: "#0000FF" }) };
-        if (req.body.colorGreen != undefined) { productNew.colors.push({ colorName: req.body.colorGreen, colorCode: "#008000" }) };
-        if (req.body.colorWhite != undefined) { productNew.colors.push({ colorName: req.body.colorWhite, colorCode: "#ffffff" }) };
-        if (req.body.colorYellow != undefined) { productNew.colors.push({ colorName: req.body.colorYellow, colorCode: "#ffff00" }) };
-        if (req.body.colorGray != undefined) { productNew.colors.push({ colorName: req.body.colorGray, colorCode: "#808080" }) };
-        if (req.body.colorPink != undefined) { productNew.colors.push({ colorName: req.body.colorPink, colorCode: "#ffc0cb" }) };
-        if (req.body.colorBrown != undefined) { productNew.colors.push({ colorName: req.body.colorBrown, colorCode: "#a52a2a" }) };
 
-        products.push(productNew);
+        // productNew.id = maxId();
+        // if (req.body.productNewName != undefined) { productNew.name = req.body.productNewName };
+        // if (req.body.productNewDescription != undefined) { productNew.description = req.body.productNewDescription };
+        // if (req.body.productNewCategory != undefined && req.body.typeAddInput == undefined) { productNew.category = req.body.productNewCategory };
+        // if (req.body.productNewCategory != undefined && req.body.typeAddInput != undefined) { productNew.category = req.body.typeAddInput };
+        // if (req.body.productNewPrice != undefined) { productNew.price = parseFloat(req.body.productNewPrice) };
 
-        let productsJSON = JSON.stringify(products);
+        // // busco unidad de medida segun la categoria ingresada
+        // let unitNew;
+        // for (let i = 0; i < products.length; i++) {
+        //     if (products[i].category == req.body.productNewCategory) {
+        //         unitNew = products[i].sizes[0].unit;
+        //         break;
+        //     };
+        // };
 
-        fs.writeFileSync(path.join(__dirname, '../data/products.json'), productsJSON);
+        // productNew.image = req.files[0].filename;
 
-        res.redirect('/products/upload');
+        // // si existen dichos campos, pego en productNew - Tamaños
+        // if (req.body.xs != undefined && req.body.sizeXsValue != "") { productNew.sizes.push({ tag: req.body.xs, size: parseFloat(req.body.sizeXsValue), unit: unitNew }) };
+        // if (req.body.s != undefined && req.body.sizeSValue != "") { productNew.sizes.push({ tag: req.body.s, size: parseFloat(req.body.sizeSValue), unit: unitNew }) };
+        // if (req.body.m != undefined && req.body.sizeMValue != "") { productNew.sizes.push({ tag: req.body.m, size: parseFloat(req.body.sizeMValue), unit: unitNew }) };
+        // if (req.body.l != undefined && req.body.sizeLValue != "") { productNew.sizes.push({ tag: req.body.l, size: parseFloat(req.body.sizeLValue), unit: unitNew }) };
+        // if (req.body.xl != undefined && req.body.sizeXlValue != "") { productNew.sizes.push({ tag: req.body.xl, size: parseFloat(req.body.sizeXlValue), unit: unitNew }) };
+        // // Colores 
+        // if (req.body.colorBlack != undefined) { productNew.colors.push({ colorName: req.body.colorBlack, colorCode: "#000000" }) };
+        // if (req.body.colorRed != undefined) { productNew.colors.push({ colorName: req.body.colorRed, colorCode: "#FF0000" }) };
+        // if (req.body.colorBlue != undefined) { productNew.colors.push({ colorName: req.body.colorBlue, colorCode: "#0000FF" }) };
+        // if (req.body.colorGreen != undefined) { productNew.colors.push({ colorName: req.body.colorGreen, colorCode: "#008000" }) };
+        // if (req.body.colorWhite != undefined) { productNew.colors.push({ colorName: req.body.colorWhite, colorCode: "#ffffff" }) };
+        // if (req.body.colorYellow != undefined) { productNew.colors.push({ colorName: req.body.colorYellow, colorCode: "#ffff00" }) };
+        // if (req.body.colorGray != undefined) { productNew.colors.push({ colorName: req.body.colorGray, colorCode: "#808080" }) };
+        // if (req.body.colorPink != undefined) { productNew.colors.push({ colorName: req.body.colorPink, colorCode: "#ffc0cb" }) };
+        // if (req.body.colorBrown != undefined) { productNew.colors.push({ colorName: req.body.colorBrown, colorCode: "#a52a2a" }) };
+
+        // products.push(productNew);
+
+        // let productsJSON = JSON.stringify(products);
+
+        // fs.writeFileSync(path.join(__dirname, '../data/products.json'), productsJSON);
+
+        // res.redirect('/products/upload');
     },
 
     editViewer: function (req, res, next) {
