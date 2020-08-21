@@ -23,6 +23,7 @@ footer div div nav ul li{
 footer div div nav ul li a{
     font-size: 1.4rem;
     color: var(--colorBlack);
+    font-family: "Staatliches";
 }
 
 

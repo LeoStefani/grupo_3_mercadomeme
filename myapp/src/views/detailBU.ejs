@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+
+
+<body>
+
+  <!-- <header> -->
+  <%- include('partials/header') %>
+  <!-- </header> -->
+
+
+  <div class="detail container">
+
+    <!-- Principal 1st Row -->
+    <div class="row mainRow p-0 m-0 d-flex flex-wrap justify-content-center align-items-center rounded-lg">
+
+      <!-- Columna de previsualizacion - Izquierda -->
+      <div class="col-8 col-md-4 d-flex flex-wrap justify-content-center align-items-center p-0 m-0 rounded-lg">
+        <div
+          class="m-0 p-0 shadow productDetailDivContainers col-12 d-flex flex-wrap justify-content-start align-items-center">
+          <div class="m-0 p-0 d-flex flex-wrap justify-content-center col-12">
+            <img class="m-0 p-2 rounded-lg w-100 shadow final align-self-center" src="/images/tazaMemeJs.png"
+              alt="variantedeproducto">
+          </div>
+        </div>
+      </div>
+      <!-- Columna de previsualizacion - Izquierda -->
+      
+
+      <!-- Columna de memes y detalle de producto - Derecha -->
+      <div class="col-12 col-md-8 d-flex flex-wrap justify-content-center align-items-center p-0 m-0">
+
+        <!-- row de producto -->
+        <div
+          class="m-0 p-0 row productRow shadow productDetailDivContainers col-12 d-flex flex-wrap justify-content-start align-items-between">
+          <div class="col-2 justify-content-center align-items-center d-flex flex-wrap p-0 m-0">
+            <i class="fas fa-angle-double-right"></i>
+          </div>
+          <div class="col-3 justify-content-center d-flex flex-wrap p-0 m-0">
+            <a class="#" href="">
+              <img class="productMain rounded-lg side w-100 p-2"
+                src="/images/products/<%= productDetail.image[0] %>" alt="imgbibliouser">
+            </a>
+          </div>
+          <div class="col-7 d-flex flex-wrap p-0 m-0 justify-content-start">
+            <div class="col-12 d-flex flex-wrap m-0 p-0 align-items-center">
+            <!-- muestro tamaños disponibles leidos del JSON  -->
+            <h4 class="text-center pt-2 w-100 text-uppercase"><%= productDetail.name %>!</h4>
+            <h5 class="w-100 m-auto text-center pb-2"><%= productDetail.description %></h5>
+
+            <div class="col-12 d-flex flex-wrap m-0 p-0 align-items-center">
+            
+            <h5 class="w-25 p-0 m-0">Tamaños: </h5>
+            <% for(let i=0; i < productDetail.sizes.length; i++) { %>
+            <span class="pr-2 pl-0 pt-0 pb-0"><%= productDetail.sizes[i].tag %>: <%= productDetail.sizes[i].size %>
+              <%= productDetail.sizes[i].unit %> - </span>
+            <% } %>
+          </div>
+
+          <div class="col-12 d-flex flex-wrap m-0 p-0 align-items-center">
+            
+            <h5 class="w-25 p-0 m-0">Colores: </h5>
+            <% for(let i=0; i < productDetail.colors.length; i++) { %>
+            <span class="pr-2 pl-0 pt-0 pb-0"><i class="fas fa-tint p-1" style="color: <%= productDetail.colors[i].colorCode%>"></i><%= productDetail.colors[i].colorName %></span>
+            <% } %>
+
+          </div>
+
+          </div>
+            <div class="col-12 d-flex flex-wrap p-0 m-0 justify-content-end">
+              <a href="/products/index"><button type="button"
+                class="shadow m-0 btn btn-warning  btn-radius mr-3">Cambiar producto</button></a>
+              </div>
+          </div>
+          
+        </div>
+        <!-- row de producto -->
+
+        <!-- row de memes -->
+        <div
+          class="m-0 p-0 row memeRow shadow  productDetailDivContainers col-12 d-flex flex-wrap justify-content-start align-items-center">
+          <!-- meme elegido -->
+          <div class="m-0 p-0 col-3 d-flex flex-wrap justify-content-start">
+            <a href="">
+              <img class="memeMain rounded-lg w-100 p-2" src="/images/memes/memeUser2.png" alt="imgbibliouser">
+            </a>
+          </div>
+          <!-- meme elegido -->
+
+          <!-- biblioteca de memes -->
+          <div class="p-0 m-0 col-7 d-flex flex-wrap justify-content-center align-items-between memeLibraryDiv p-2">
+            <div class="p-0 m-0 col-12">
+              <h5 class="text-center p-0 m-0 w-100 align-self-start">Biblioteca de memes</h5>
+            </div>
+            <div class="p-0 m-0 col-12 d-flex flex-wrap justify-content-center">
+              <div class="p-1 col-2 d-flex flex-wrap">
+                <a href="">
+                  <img class="memeLibrary rounded-lg shadow w-100" src="/images/memes/memeUser12.png" alt="imgbibliouser">
+                </a>
+              </div>
+              <div class="p-1 col-2 d-flex flex-wrap">
+                <a href="">
+                  <img class="memeLibrary rounded-lg shadow w-100" src="/images/memes/memeUser11.png" alt="imgbibliouser">
+                </a>
+              </div>
+              <div class="p-1 col-2 d-flex flex-wrap">
+                <a href="">
+                  <img class="memeLibrary rounded-lg shadow w-100" src="/images/memes/memeUser10.png" alt="imgbibliouser">
+                </a>
+              </div>
+              <div class="p-1 col-2 d-flex flex-wrap">
+                <a href="">
+                  <img class="memeLibrary rounded-lg shadow w-100" src="/images/memes/memeUser8.png" alt="imgbibliouser">
+                </a>
+              </div>
+              <div class="p-1 col-2 d-flex flex-wrap">
+                <a href="">
+                  <img class="memeLibrary rounded-lg shadow w-100" src="/images/memes/memeUser9.png" alt="imgbibliouser">
+                </a>
+              </div>
+              <div class="p-1 col-2 d-flex flex-wrap">
+                <a href="">
+                  <img class="memeLibrary rounded-lg shadow w-100" src="/images/memes/memeUser7.png" alt="imgbibliouser">
+                </a>
+              </div>
+            </div>
+            <div class="p-0 m-0 col-12 d-flex flex-wrap justify-content-center">
+              <div class="p-1 col-2 d-flex flex-wrap">
+                <a href="">
+                  <img class="memeLibrary rounded-lg shadow w-100" src="/images/memes/memeUser12.png" alt="imgbibliouser">
+                </a>
+              </div>
+              <div class="p-1 col-2 d-flex flex-wrap">
+                <a href="">
+                  <img class="memeLibrary rounded-lg shadow w-100" src="/images/memes/memeUser11.png" alt="imgbibliouser">
+                </a>
+              </div>
+              <div class="p-1 col-2 d-flex flex-wrap">
+                <a href="">
+                  <img class="memeLibrary rounded-lg shadow w-100" src="/images/memes/memeUser10.png" alt="imgbibliouser">
+                </a>
+              </div>
+              <div class="p-1 col-2 d-flex flex-wrap">
+                <a href="">
+                  <img class="memeLibrary rounded-lg shadow w-100" src="/images/memes/memeUser8.png" alt="imgbibliouser">
+                </a>
+              </div>
+              <div class="p-1 col-2 d-flex flex-wrap">
+                <a href="">
+                  <img class="memeLibrary rounded-lg shadow w-100" src="/images/memes/memeUser9.png" alt="imgbibliouser">
+                </a>
+              </div>
+              <div class="p-1 col-2 d-flex flex-wrap">
+                <a href="">
+                  <img class="memeLibrary rounded-lg shadow w-100" src="/images/memes/memeUser7.png" alt="imgbibliouser">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 justify-content-center align-items-center d-flex flex-wrap p-0 m-0 arrow">
+            <i class="fas fa-angle-double-left"></i>
+          </div>
+
+          <!-- biblioteca de memes -->
+
+        </div>
+        <!-- row de memes -->
+
+      </div>
+      <!-- Columna de memes y detalle de producto - Derecha -->
+
+    </div>
+    <!-- Principal 1st Row -->
+
+  
+
+  <div class="row m-0 p-0">
+
+    <!-- size selector -->
+    <div
+      class="productDetailDivContainers m-0 mt-2 p-2 col-6 d-flex flex-wrap size align-items-center">
+      <form class="col-12 m-0 p-0 d-flex flex-wrap align-items-center" action="">
+        <div class="col-3 m-0 p-0">
+          <h5 class="p-0 m-0">Tamaños: </h5>
+        </div>
+        <div class="col-9 m-0 p-0 d-flex flex-wrap justify-content-around align-items-center">
+          <!-- agrego selectores segun los tamaños disponibles de ese producto                                                          -->
+          <% for(let i=0; i < productDetail.sizes.length; i++) { %>
+          <div class="check">
+            <label class="m-0 p-0 text-uppercase"
+              for="<%= productDetail.sizes[i].tag %>"><%= productDetail.sizes[i].tag %></label>
+            <input class="check ml-1" type="radio" name="sizes" id="<%= productDetail.sizes[i].tag %>"
+              value="<%= productDetail.sizes[i].tag %>">
+          </div>
+          <% } %>
+
+        </div>
+      </form>
+    </div>
+    <!-- size selector -->
+
+    <!-- color selector -->
+    <div class="productDetailDivContainers m-0 mt-2 p-2 col-6 d-flex flex-wrap size align-items-center">
+      <form class="col-12 d-flex flex-wrap align-items-center" action="">
+        <div class="col-3 m-0 p-0">
+          <h5 class="p-0 m-0">Colores: </h5>
+        </div>
+        <div class="col-9 m-0 p-0 d-flex flex-wrap justify-content-between align-items-center">
+          <!-- agrego selectores segun los COLORES disponibles de ese producto                                                          -->
+          <% for(let i=0; i < productDetail.colors.length; i++) { %>
+          <div class="check">
+            <label class="m-0 p-0 text-capitalize" for="<%= productDetail.colors[i].colorName %>"><i class="fas fa-tint"
+                style="color: <%= productDetail.colors[i].colorCode%>"></i>
+              <%= productDetail.colors[i].colorName %></label>
+
+
+            <input class="check ml-1" type="radio" name="colors" id="<%= productDetail.colors[i].colorName %>"
+              value="<%= productDetail.colors[i].colorName %>">
+          </div>
+          <% } %>
+
+        </div>
+      </form>
+    </div>
+    <!-- color selector -->
+  </div>
+
+
+
+  <!-- Final buttons row, add to shopCart, buy now! -->
+  <div class="row">
+                        <div class="col-12 mt-2 d-flex flex-wrap justify-content-end">
+                                <button type="button" class="shadow m-1 btn btn-warning btn-lg btn-radius">Agregar al
+                                        carrito</button>
+                                <a href="/users/cart"><button type="button"
+                                                class="shadow m-1 btn btn-warning btn-lg btn-radius">Comprar</button></a>
+                        </div>
+                </div>
+  <!-- Final buttons row, add to shopCart, buy now! -->
+
+  </div>
+  </div>
+</div>
+  
+
+
+  <!-- <footer> -->
+  <%- include('partials/footer') %>
+  <!-- </footer> -->
+
+  <%- include('partials/scriptsBootstrap') %>
+
+
+</body>
+
+</html>
