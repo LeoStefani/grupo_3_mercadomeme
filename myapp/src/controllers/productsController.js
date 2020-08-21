@@ -185,7 +185,7 @@ module.exports = {
                 }
 
                 products[indexToEdit].price = parseFloat(req.body.productEditPrice);
-                products[indexToEdit].image = "iconoImagenBordesIguales.png";
+                // products[indexToEdit].image = "iconoImagenBordesIguales.png";
 
                 products[indexToEdit].sizes = [];
                 products[indexToEdit].colors = [];
