@@ -307,15 +307,18 @@
                 "sizes": [
                         {
                                 "tag": "S",
-                                "size": 70
+                                "size": 70,
+                                "unit": "cm"
                         },
                         {
                                 "tag": "M",
-                                "size": 90
+                                "size": 90,
+                                "unit": "cm"
                         },
                         {
                                 "tag": "L",
-                                "size": 120
+                                "size": 120,
+                                "unit": "cm"
                         }
                 ],
                 "colors": [
@@ -347,15 +350,18 @@
                 "sizes": [
                         {
                                 "tag": "S",
-                                "size": 70
+                                "size": 70,
+                                "unit": "cm"
                         },
                         {
                                 "tag": "M",
-                                "size": 90
+                                "size": 90,
+                                "unit": "cm"
                         },
                         {
                                 "tag": "L",
-                                "size": 110
+                                "size": 110,
+                                "unit": "cm"
                         }
                 ],
                 "colors": [
@@ -387,15 +393,18 @@
                 "sizes": [
                         {
                                 "tag": "S",
-                                "size": 70
+                                "size": 70,
+                                "unit": "cm"
                         },
                         {
                                 "tag": "M",
-                                "size": 90
+                                "size": 90,
+                                "unit": "cm"
                         },
                         {
                                 "tag": "L",
-                                "size": 110
+                                "size": 110,
+                                "unit": "cm"
                         }
                 ],
                 "colors": [

@@ -174,8 +174,7 @@
               
               <h5 class="w-25 p-0 m-0">Tamaños: </h5>
               <% for(let i=0; i < productDetail.sizes.length; i++) { %>
-              <span class="pr-2 pl-0 pt-0 pb-0"><%= productDetail.sizes[i].tag %>: <%= productDetail.sizes[i].size %>
-                <%= productDetail.sizes[i].unit %> - </span>
+              <span class="pr-2 pl-0 pt-0 pb-0"><%= productDetail.sizes[i].tag %>: <%= productDetail.sizes[i].size %> <%= productDetail.sizes[i].unit %> - </span>
               <% } %>
             </div>
   
@@ -183,7 +182,7 @@
               
               <h5 class="w-25 p-0 m-0">Colores: </h5>
               <% for(let i=0; i < productDetail.colors.length; i++) { %>
-              <span class="pr-2 pl-0 pt-0 pb-0"><i class="fas fa-tint p-1" style="color: <%= productDetail.colors[i].colorCode%>"></i><%= productDetail.colors[i].colorName %></span>
+              <span class="pr-2 pl-0 pt-0 pb-0"><i class="fas fa-tint p-1" style="color: <%= productDetail.colors[i].colorCode%> "></i><%= productDetail.colors[i].colorName %></span>
               <% } %>
   
             </div>
