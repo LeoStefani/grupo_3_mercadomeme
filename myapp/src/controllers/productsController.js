@@ -121,6 +121,11 @@ module.exports = {
         if (req.body.l != undefined && req.body.sizeLValue != "") { newProductSizes.push({ tag: req.body.l, size_main: parseFloat(req.body.sizeLValue) }) };
         if (req.body.xl != undefined && req.body.sizeXlValue != "") { newProductSizes.push({ tag: req.body.xl, size_main: parseFloat(req.body.sizeXlValue) }) };
 
+        // Tendriamos que dar la opcion de subir muchas img
+        let newProductImages = [];
+        (req.files[0]) ? newProductImages.push({ name: req.files[0].filename }) : 'buzo_azul.jpg'
+
+
 
         console.log(req.body);
 
