@@ -8,6 +8,7 @@ const registerValidations = require("../validations/registerValidations");
 const loginValidations = require('../validations/loginValidations');
 const multer = require('multer');
 const authMiddleware = require('../middlewares/authMiddleware');
+const profileAuthMW = require('../middlewares/profileAuthMW');
 let upload = require('../middlewares/multerUsersMW');
 
 
@@ -33,7 +34,7 @@ router.get('/cart', authMiddleware, usersController.cart);
 
 router.get('/cart/settings', authMiddleware, usersController.purchaseSettings);
 
-router.get('/profile/:userId', authMiddleware, usersController.usersProfile);
+router.get('/profile/:userId', authMiddleware, profileAuthMW, usersController.usersProfile);
 
 
 module.exports = router;
