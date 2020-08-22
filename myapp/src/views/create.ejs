@@ -4,277 +4,212 @@
 
 
 <body>
-        <%- include('partials/header') %>
-        <div class="create container">
-                <div class="row">
-                        <form class="w-100 d-flex flex-wrap justify-content-center align-items-start"
-                                action="/products/create" method="POST" enctype="multipart/form-data" id="createForm">
-                                <div
-                                        class="firstColumn d-flex flex-wrap flex-column justify-content-start align-items-center col-12 col-md-8">
+    <%- include('partials/header') %>
+    <div class="create container">
+        <div class="row">
+            <form class="w-100 d-flex flex-wrap justify-content-center align-items-start" action="/products/create"
+                method="POST" enctype="multipart/form-data" id="createForm">
+                <div
+                    class="firstColumn d-flex flex-wrap flex-column justify-content-start align-items-center col-12 col-md-8">
 
-                                        <!-- Data Block -->
-                                        <div
-                                                class="dataBlock w-100 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-3 mt-4">
-                                                <div
-                                                        class="w-100 d-flex flex-wrap justify-content-end align-items-center">
+                    <!-- Data Block -->
+                    <div
+                        class="dataBlock w-100 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-3 mt-4">
+                        <div class="w-100 d-flex flex-wrap justify-content-end align-items-center">
 
-                                                        <h5 class="w-100 text-center">Información del producto</h5>
-                                                        <h5 class="w-100 text-start mb-1 p-0">ID: <%= lastId %></h5>
-                                                        <div class="d-flex flex-wrap productName w-100 mt-2">
-                                                                <input class="w-100 border border-white rounded-lg p-1"
-                                                                        type="text" name="productNewName" value=""
-                                                                        placeholder="Nombre del producto:">
-                                                        </div>
-                                                        <div class="d-flex flex-wrap w-100">
+                            <h5 class="w-100 text-center">Información del producto</h5>
+                            <h5 class="w-100 text-start mb-1 p-0">ID: xxx</h5>
+                            <div class="d-flex flex-wrap productName w-100 mt-2">
+                                <input class="w-100 border border-white rounded-lg p-1" type="text"
+                                    name="productNewName" value="" placeholder="Nombre del producto:">
+                            </div>
+                            <div class="d-flex flex-wrap w-100">
 
-                                                                <select class="flex-grow-1 mt-2 p-0 border border-white rounded-lg mr-2"
-                                                                        name="productNewCategory" id="typeSearchInput">
-                                                                        <% for (let i=0; i< productsCategories.length; i++) { %>
-                                                                        <option value="<%= productsCategories[i] %>">
-                                                                                <%= productsCategories[i] %></option>
-                                                                        <% } %>
-                                                                </select>
-                                                                <input class="w-25 mt-2 border border-white rounded-lg p-1"
-                                                                        type="number" name="productNewPrice" value=""
-                                                                        placeholder="Precio $" size="10">
-                                                        </div>
-                                                        <input class="check mr-3 p-0" type="checkbox" name="typeAdd"
-                                                                id="typeAddCheck" value="typeAdd">
-                                                        <input class="flex-grow-1 mt-2 p-1 border border-white rounded-lg mr-0"
-                                                                type="text" name="typeAddInput"
-                                                                placeholder="Escriba la nueva categoría"
-                                                                id="typeAddInput" disabled>
+                                <select class="flex-grow-1 mt-2 p-0 border border-white rounded-lg mr-2"
+                                    name="productNewCategory" id="typeSearchInput">
+                                    <% for (let i=0; i< categories.length; i++) { %>
+                                    <option value="<%= categories[i].id %>">
+                                        <%= categories[i].name %></option>
+                                    <% } %>
+                                </select>
+                                <input class="w-25 mt-2 border border-white rounded-lg p-1" type="number"
+                                    name="productNewPrice" value="" placeholder="Precio $" size="10">
+                            </div>
+                            <input class="check mr-3 p-0" type="checkbox" name="typeAdd" id="typeAddCheck"
+                                value="typeAdd">
+                            <input class="flex-grow-1 mt-2 p-1 border border-white rounded-lg mr-0" type="text"
+                                name="typeAddInput" placeholder="Escriba la nueva categoría" id="typeAddInput" disabled>
 
-                                                        <script>
-                                                                document.getElementById('typeAddCheck').onchange = function () {
-                                                                        document.getElementById('typeAddInput').disabled = !this.checked;
-                                                                        document.getElementById('typeSearchInput').disabled = this.checked;
-                                                                };
-                                                        </script>
-                                                </div>
+                            <script>
+                                document.getElementById('typeAddCheck').onchange = function () {
+                                    document.getElementById('typeAddInput').disabled = !this.checked;
+                                    document.getElementById('typeSearchInput').disabled = this.checked;
+                                };
+                            </script>
+                        </div>
 
+                    </div>
+                    <!-- Data Block -->
+
+                    <!-- Collapse Tamaños -->
+                    <p class="w-100 shadow rounded-lg">
+                        <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
+                            data-target="#collapseSize" aria-expanded="false" aria-controls="collapseSize"><i
+                                class="fas fa-chevron-down"></i> Tamaños <i class="fas fa-chevron-down"></i></button>
+                    </p>
+                    <div class="collapse w-100 mb-3" id="collapseSize">
+                        <div class="card card-body w-100">
+                            <div class="size w-100 mb-2 p-2">
+                                <div>
+
+                                    <h6 class="text-center font-italic text-secondary mb-2">
+                                        Taza [ml] / Mochila [lt] / Remera [cm] /
+                                        Gorra [cm]</h6>
+
+                                    <div class="d-flex flex-wrap justify-content-between w-100">
+                                        <div class="check p-1 m-0 mb-1 text-end">
+                                            <label for="XS">XS
+                                            </label><input class="check m-0 ml-1" type="checkbox" name="xs" id="XS"
+                                                value="XS">
                                         </div>
-                                        <!-- Data Block -->
+                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" size="15" type="text"
+                                            name="sizeXsValue" id="xsInput" placeholder="ml / lt / cm" disabled>
+                                        <script>
+                                            document.getElementById('XS').onchange = function () {
+                                                document.getElementById('xsInput').disabled = !this.checked;
+                                            };
+                                        </script>
 
-                                        <!-- Collapse Tamaños -->
-                                        <p class="w-100 shadow rounded-lg">
-                                                <button class="btn btn-light btn-block" type="button"
-                                                        data-toggle="collapse" data-target="#collapseSize"
-                                                        aria-expanded="false" aria-controls="collapseSize"><i
-                                                                class="fas fa-chevron-down"></i> Tamaños <i
-                                                                class="fas fa-chevron-down"></i></button>
-                                        </p>
-                                        <div class="collapse w-100 mb-3" id="collapseSize">
-                                                <div class="card card-body w-100">
-                                                        <div class="size w-100 mb-2 p-2">
-                                                                <div>
-
-                                                                        <h6
-                                                                                class="text-center font-italic text-secondary mb-2">
-                                                                                Taza [ml] / Mochila [lt] / Remera [cm] /
-                                                                                Gorra [cm]</h6>
-
-                                                                        <div
-                                                                                class="d-flex flex-wrap justify-content-between w-100">
-                                                                                <div
-                                                                                        class="check p-1 m-0 mb-1 text-end">
-                                                                                        <label for="XS">XS
-                                                                                        </label><input
-                                                                                                class="check m-0 ml-1"
-                                                                                                type="checkbox"
-                                                                                                name="xs" id="XS"
-                                                                                                value="XS">
-                                                                                </div>
-                                                                                <input class="border border-light rounded-lg p-1 m-0 mb-1"
-                                                                                        size="15" type="text"
-                                                                                        name="sizeXsValue" id="xsInput"
-                                                                                        placeholder="ml / lt / cm"
-                                                                                        disabled>
-                                                                                <script>
-                                                                                        document.getElementById('XS').onchange = function () {
-                                                                                                document.getElementById('xsInput').disabled = !this.checked;
-                                                                                        };
-                                                                                </script>
-
-                                                                        </div>
-                                                                        <div
-                                                                                class="d-flex flex-wrap justify-content-between w-100">
-                                                                                <div
-                                                                                        class="check p-1 m-0 mb-1 text-center">
-                                                                                        <label for="S">S
-                                                                                        </label><input
-                                                                                                class="check m-0 ml-1"
-                                                                                                type="checkbox" name="s"
-                                                                                                id="S" value="S">
-                                                                                </div>
-                                                                                <input class="border border-light rounded-lg p-1 m-0 mb-1"
-                                                                                        size="15" type="text"
-                                                                                        name="sizeSValue" id="sInput"
-                                                                                        placeholder="ml / lt / cm"
-                                                                                        disabled>
-                                                                                <script>
-                                                                                        document.getElementById('S').onchange = function () {
-                                                                                                document.getElementById('sInput').disabled = !this.checked;
-                                                                                        };
-                                                                                </script>
-
-                                                                        </div>
-                                                                        <div
-                                                                                class="d-flex flex-wrap justify-content-between w-100">
-                                                                                <div
-                                                                                        class="check p-1 m-0 mb-1 text-center">
-                                                                                        <label for="M">M
-                                                                                        </label><input
-                                                                                                class="check m-0 ml-1"
-                                                                                                type="checkbox" name="m"
-                                                                                                id="M" value="M">
-                                                                                </div>
-                                                                                <input class="border border-light rounded-lg p-1 m-0 mb-1"
-                                                                                        size="15" type="text"
-                                                                                        name="sizeMValue" id="mInput"
-                                                                                        placeholder="ml / lt / cm"
-                                                                                        disabled>
-                                                                                <script>
-                                                                                        document.getElementById('M').onchange = function () {
-                                                                                                document.getElementById('mInput').disabled = !this.checked;
-                                                                                        };
-                                                                                </script>
-
-                                                                        </div>
-                                                                        <div
-                                                                                class="d-flex flex-wrap justify-content-between w-100">
-                                                                                <div
-                                                                                        class="check p-1 m-0 mb-1 text-center">
-                                                                                        <label for="L">L
-                                                                                        </label><input
-                                                                                                class="check m-0 ml-1"
-                                                                                                type="checkbox" name="l"
-                                                                                                id="L" value="L">
-                                                                                </div>
-                                                                                <input class="border border-light rounded-lg p-1 m-0 mb-1"
-                                                                                        size="15" type="text"
-                                                                                        name="sizeLValue" id="lInput"
-                                                                                        placeholder="ml / lt / cm"
-                                                                                        disabled>
-                                                                                <script>
-                                                                                        document.getElementById('L').onchange = function () {
-                                                                                                document.getElementById('lInput').disabled = !this.checked;
-                                                                                        };
-                                                                                </script>
-
-                                                                        </div>
-                                                                        <div
-                                                                                class="d-flex flex-wrap justify-content-between w-100">
-                                                                                <div
-                                                                                        class="check p-1 text-center m-0 mb-1">
-                                                                                        <label for="XL">XL
-                                                                                        </label><input
-                                                                                                class="check m-0 ml-1"
-                                                                                                type="checkbox"
-                                                                                                name="xl" id="XL"
-                                                                                                value="XL">
-                                                                                </div>
-                                                                                <input class="border border-light rounded-lg p-1 m-0 mb-1"
-                                                                                        size="15" type="text"
-                                                                                        name="sizeXlValue" id="xlInput"
-                                                                                        placeholder="ml / lt / cm"
-                                                                                        disabled>
-                                                                                <script>
-                                                                                        document.getElementById('XL').onchange = function () {
-                                                                                                document.getElementById('xlInput').disabled = !this.checked;
-                                                                                        };
-                                                                                </script>
-
-                                                                        </div>
-                                                                        <button class="btn btn-warning btn-sm btn-block mt-1"
-                                                                                disabled>Agregar otro
-                                                                                tamaño</button>
-
-                                                                </div>
-                                                        </div>
-                                                </div>
+                                    </div>
+                                    <div class="d-flex flex-wrap justify-content-between w-100">
+                                        <div class="check p-1 m-0 mb-1 text-center">
+                                            <label for="S">S
+                                            </label><input class="check m-0 ml-1" type="checkbox" name="s" id="S"
+                                                value="S">
                                         </div>
-                                        <!-- Collapse Tamaños -->
+                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" size="15" type="text"
+                                            name="sizeSValue" id="sInput" placeholder="ml / lt / cm" disabled>
+                                        <script>
+                                            document.getElementById('S').onchange = function () {
+                                                document.getElementById('sInput').disabled = !this.checked;
+                                            };
+                                        </script>
 
-                                        <!-- Collapse Color -->
-                                        <p class="w-100 shadow rounded-lg">
-                                                <button class="btn btn-light btn-block" type="button"
-                                                        data-toggle="collapse" data-target="#collapseColors"
-                                                        aria-expanded="false" aria-controls="collapseColors"><i
-                                                                class="fas fa-chevron-down"></i> Colores <i
-                                                                class="fas fa-chevron-down"></i></button>
-                                        </p>
-                                        <div class="collapse w-100 mb-3" id="collapseColors">
-                                                <div class="card card-body w-100">
-                                                        <div class="colors w-100 p-2">
-                                                                <div class="d-flex flex-wrap justify-content-around">
-                                                                        <div class="d-flex justify-content-between">
-                                                                                <label for="black">Negro</label>
-                                                                                <input class="ml-1" type="checkbox"
-                                                                                        name="colorBlack" id="black"
-                                                                                        value="Negro">
-                                                                        </div>
-                                                                        <div class="d-flex justify-content-between">
-                                                                                <label for="red">Rojo</label>
-                                                                                <input class="ml-1" type="checkbox"
-                                                                                        name="colorRed" id="red"
-                                                                                        value="Rojo">
-                                                                        </div>
-                                                                        <div class="d-flex justify-content-between">
-                                                                                <label for="blue">Azul</label>
-                                                                                <input class="ml-1" type="checkbox"
-                                                                                        name="colorBlue" id="blue"
-                                                                                        value="Azul">
-                                                                        </div>
-                                                                        <div class="d-flex justify-content-between">
-                                                                                <label for="green">Verde</label>
-                                                                                <input class="ml-1" type="checkbox"
-                                                                                        name="colorGreen" id="green"
-                                                                                        value="Verde">
-                                                                        </div>
-                                                                        <div class="d-flex justify-content-between">
-                                                                                <label for="white">Blanco</label>
-                                                                                <input class="ml-1" type="checkbox"
-                                                                                        name="colorWhite" id="white"
-                                                                                        value="Blanco">
-                                                                        </div>
-                                                                        <div class="d-flex justify-content-between">
-                                                                                <label for="yellow">Amarillo</label>
-                                                                                <input class="ml-1" type="checkbox"
-                                                                                        name="colorYellow" id="yellow"
-                                                                                        value="Amarillo">
-                                                                        </div>
-                                                                        <div class="d-flex justify-content-between">
-                                                                                <label for="gray">Gris</label>
-                                                                                <input class="ml-1" type="checkbox"
-                                                                                        name="colorGray" id="gray"
-                                                                                        value="Gris">
-                                                                        </div>
-
-                                                                        <div class="d-flex justify-content-between">
-                                                                                <label for="pink">Rosa</label>
-                                                                                <input class="ml-1" type="checkbox"
-                                                                                        name="colorPink" id="pink"
-                                                                                        value="Rosa">
-                                                                        </div>
-                                                                        <div class="d-flex justify-content-between">
-                                                                                <label for="brown">Marrón</label>
-                                                                                <input class="ml-1" type="checkbox"
-                                                                                        name="colorBrown" id="brown"
-                                                                                        value="Marrón">
-                                                                        </div>
-                                                                        <button class="btn btn-warning btn-sm btn-block"
-                                                                                disabled>Agregar otro color</button>
-
-                                                                </div>
-
-                                                        </div>
-                                                </div>
+                                    </div>
+                                    <div class="d-flex flex-wrap justify-content-between w-100">
+                                        <div class="check p-1 m-0 mb-1 text-center">
+                                            <label for="M">M
+                                            </label><input class="check m-0 ml-1" type="checkbox" name="m" id="M"
+                                                value="M">
                                         </div>
-                                        <!-- Collapse Color -->
+                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" size="15" type="text"
+                                            name="sizeMValue" id="mInput" placeholder="ml / lt / cm" disabled>
+                                        <script>
+                                            document.getElementById('M').onchange = function () {
+                                                document.getElementById('mInput').disabled = !this.checked;
+                                            };
+                                        </script>
 
-                                        <!-- Collapse OtherParameters -->
-                                        <!-- <p class="w-100 shadow rounded-lg">
+                                    </div>
+                                    <div class="d-flex flex-wrap justify-content-between w-100">
+                                        <div class="check p-1 m-0 mb-1 text-center">
+                                            <label for="L">L
+                                            </label><input class="check m-0 ml-1" type="checkbox" name="l" id="L"
+                                                value="L">
+                                        </div>
+                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" size="15" type="text"
+                                            name="sizeLValue" id="lInput" placeholder="ml / lt / cm" disabled>
+                                        <script>
+                                            document.getElementById('L').onchange = function () {
+                                                document.getElementById('lInput').disabled = !this.checked;
+                                            };
+                                        </script>
+
+                                    </div>
+                                    <div class="d-flex flex-wrap justify-content-between w-100">
+                                        <div class="check p-1 text-center m-0 mb-1">
+                                            <label for="XL">XL
+                                            </label><input class="check m-0 ml-1" type="checkbox" name="xl" id="XL"
+                                                value="XL">
+                                        </div>
+                                        <input class="border border-light rounded-lg p-1 m-0 mb-1" size="15" type="text"
+                                            name="sizeXlValue" id="xlInput" placeholder="ml / lt / cm" disabled>
+                                        <script>
+                                            document.getElementById('XL').onchange = function () {
+                                                document.getElementById('xlInput').disabled = !this.checked;
+                                            };
+                                        </script>
+
+                                    </div>
+                                    <button class="btn btn-warning btn-sm btn-block mt-1" disabled>Agregar otro
+                                        tamaño</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Collapse Tamaños -->
+
+                    <!-- Collapse Color -->
+                    <p class="w-100 shadow rounded-lg">
+                        <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
+                            data-target="#collapseColors" aria-expanded="false" aria-controls="collapseColors"><i
+                                class="fas fa-chevron-down"></i> Colores <i class="fas fa-chevron-down"></i></button>
+                    </p>
+                    <div class="collapse w-100 mb-3" id="collapseColors">
+                        <div class="card card-body w-100">
+                            <div class="colors w-100 p-2">
+                                <div class="d-flex flex-wrap justify-content-around">
+                                    <div class="d-flex justify-content-between">
+                                        <label for="black">Negro</label>
+                                        <input class="ml-1" type="checkbox" name="colorBlack" id="black" value="Negro">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <label for="red">Rojo</label>
+                                        <input class="ml-1" type="checkbox" name="colorRed" id="red" value="Rojo">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <label for="blue">Azul</label>
+                                        <input class="ml-1" type="checkbox" name="colorBlue" id="blue" value="Azul">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <label for="green">Verde</label>
+                                        <input class="ml-1" type="checkbox" name="colorGreen" id="green" value="Verde">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <label for="white">Blanco</label>
+                                        <input class="ml-1" type="checkbox" name="colorWhite" id="white" value="Blanco">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <label for="yellow">Amarillo</label>
+                                        <input class="ml-1" type="checkbox" name="colorYellow" id="yellow"
+                                            value="Amarillo">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <label for="gray">Gris</label>
+                                        <input class="ml-1" type="checkbox" name="colorGray" id="gray" value="Gris">
+                                    </div>
+
+                                    <div class="d-flex justify-content-between">
+                                        <label for="pink">Rosa</label>
+                                        <input class="ml-1" type="checkbox" name="colorPink" id="pink" value="Rosa">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <label for="brown">Marrón</label>
+                                        <input class="ml-1" type="checkbox" name="colorBrown" id="brown" value="Marrón">
+                                    </div>
+                                    <button class="btn btn-warning btn-sm btn-block" disabled>Agregar otro
+                                        color</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Collapse Color -->
+
+                    <!-- Collapse OtherParameters -->
+                    <!-- <p class="w-100 shadow rounded-lg">
                     <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
                         data-target="#collapseOtherParameters" aria-expanded="false"
                         aria-controls="collapseOtherParameters"><i class="fas fa-chevron-down"></i> Otros Parámetros <i class="fas fa-chevron-down"></i></button>
@@ -306,72 +241,68 @@
                         </div>
                     </div>
                 </div> -->
-                                        <!-- Collapse OtherParameters -->
+                    <!-- Collapse OtherParameters -->
 
-                                        <!-- Collapse Description -->
-                                        <p class="w-100 shadow rounded-lg">
-                                                <button class="btn btn-light btn-block" type="button"
-                                                        data-toggle="collapse" data-target="#collapseDescription"
-                                                        aria-expanded="false" aria-controls="collapseDescription"><i
-                                                                class="fas fa-chevron-down"></i> Descripción <i
-                                                                class="fas fa-chevron-down"></i></button>
-                                        </p>
-                                        <div class="collapse w-100 mb-3" id="collapseDescription">
-                                                <div class="card card-body w-100">
-                                                        <div class="d-flex flex-wrap justify-content-center">
+                    <!-- Collapse Description -->
+                    <p class="w-100 shadow rounded-lg">
+                        <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
+                            data-target="#collapseDescription" aria-expanded="false"
+                            aria-controls="collapseDescription"><i class="fas fa-chevron-down"></i> Descripción <i
+                                class="fas fa-chevron-down"></i></button>
+                    </p>
+                    <div class="collapse w-100 mb-3" id="collapseDescription">
+                        <div class="card card-body w-100">
+                            <div class="d-flex flex-wrap justify-content-center">
 
-                                                                <input class="border border-white rounded-lg p-5 m-0 w-100"
-                                                                        type="text" name="productNewDescription"
-                                                                        placeholder="Descripción" value="">
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <!-- Collapse Description -->
+                                <input class="border border-white rounded-lg p-5 m-0 w-100" type="text"
+                                    name="productNewDescription" placeholder="Descripción" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Collapse Description -->
 
-                                        <!-- Collapse Image -->
-                                        <p class="w-100 shadow rounded-lg">
-                                                <button class="btn btn-light btn-block" type="button"
-                                                        data-toggle="collapse" data-target="#collapseImages"
-                                                        aria-expanded="false" aria-controls="collapseimages"><i
-                                                                class="fas fa-chevron-down"></i> Imagenes <i
-                                                                class="fas fa-chevron-down"></i></button>
-                                        </p>
-                                        <div class="collapse w-100 mb-3" id="collapseImages">
-                                                <div class="card card-body w-100">
-                                                        
-                                                        <div class="text-center p-2">
-                                                                <input type="file" name="imgProduct" id="image1">
-                                                        </div>
-                                                        <div class="text-center p-2">
-                                                                <input type="file" name="imgProduct2" id="image2" disabled>
-                                                        </div>
-                                                        <div class="text-center p-2">
-                                                                <input type="file" name="imgProduct3" id="image3" disabled>
-                                                        </div>
-                                                        <div class="text-center p-2">
-                                                                <input type="file" name="imgProduct4" id="image4" disabled>
-                                                        </div>
-                                                        <div class="text-center p-2">
-                                                                <input type="file" name="imgProduct5" id="image5" disabled>
-                                                        </div>
+                    <!-- Collapse Image -->
+                    <p class="w-100 shadow rounded-lg">
+                        <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
+                            data-target="#collapseImages" aria-expanded="false" aria-controls="collapseimages"><i
+                                class="fas fa-chevron-down"></i> Imagenes <i class="fas fa-chevron-down"></i></button>
+                    </p>
+                    <div class="collapse w-100 mb-3" id="collapseImages">
+                        <div class="card card-body w-100">
+
+                            <div class="text-center p-2">
+                                <input type="file" name="imgProduct" id="image1">
+                            </div>
+                            <div class="text-center p-2">
+                                <input type="file" name="imgProduct2" id="image2" disabled>
+                            </div>
+                            <div class="text-center p-2">
+                                <input type="file" name="imgProduct3" id="image3" disabled>
+                            </div>
+                            <div class="text-center p-2">
+                                <input type="file" name="imgProduct4" id="image4" disabled>
+                            </div>
+                            <div class="text-center p-2">
+                                <input type="file" name="imgProduct5" id="image5" disabled>
+                            </div>
 
 
-                                                </div>
-                                        </div>
-                                        <!-- Collapse Image -->
+                        </div>
+                    </div>
+                    <!-- Collapse Image -->
 
-                                </div>
-
-                                <div class="col-12 col-md-8 text-center">
-                                        <button class="btn btn-warning btn-lg m-auto mt-3 w-100 shadow rounded-lg"
-                                                type="submit" form="createForm">Crear
-                                                producto</button>
-                                </div>
-                        </form>
                 </div>
+
+                <div class="col-12 col-md-8 text-center">
+                    <button class="btn btn-warning btn-lg m-auto mt-3 w-100 shadow rounded-lg" type="submit"
+                        form="createForm">Crear
+                        producto</button>
+                </div>
+            </form>
         </div>
-        <%- include('partials/footer') %>
-        <%- include('partials/scriptsBootstrap') %>
+    </div>
+    <%- include('partials/footer') %>
+    <%- include('partials/scriptsBootstrap') %>
 </body>
 
 </html>

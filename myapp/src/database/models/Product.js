@@ -41,22 +41,7 @@ module.exports = function(sequelize, dataTypes) {
             id_category:{
                 type: dataTypes.INTEGER,
                 notNull: true
-            },
-            image_0:{
-                type: dataTypes.STRING
-            },
-            image_1:{
-                type: dataTypes.STRING
-            },
-            image_2:{
-                type: dataTypes.STRING
-            },
-            image_3:{
-                type: dataTypes.STRING
-            },
-            image_4:{
-                type: dataTypes.STRING
-            }            
+            }       
         };
     
         let config = {
@@ -76,6 +61,11 @@ module.exports = function(sequelize, dataTypes) {
                 Product.hasMany(models.Size, {
                         as: "sizes",
                         foreignKey: "id_product_size"
+                })
+
+                Product.hasMany(models.Image, {
+                        as: "images",
+                        foreignKey: "id_product_image"
                 })
 
                 Product.belongsTo(models.Category, {
