@@ -160,7 +160,14 @@
                         <div class="card card-body w-100">
                             <div class="colors w-100 p-2">
                                 <div class="d-flex flex-wrap justify-content-around">
-                                    <div class="d-flex justify-content-between">
+                                    <% for (let i=0; i< colors.length; i++) { %>
+                                        <div class="d-flex justify-content-between">
+                                            <label class="text-capitalize" for="<%= colors[i].id %>"><%= colors[i].name %></label>
+                                            <input class="ml-1" type="checkbox" name="color<%= colors[i].id %>" id="<%= colors[i].id %>" value="<%= colors[i].id %>">
+                                        </div>
+                                        <% } %>
+
+                                    <!-- <div class="d-flex justify-content-between">
                                         <label for="black">Negro</label>
                                         <input class="ml-1" type="checkbox" name="colorBlack" id="black" value="Negro">
                                     </div>
@@ -197,7 +204,7 @@
                                     <div class="d-flex justify-content-between">
                                         <label for="brown">Marrón</label>
                                         <input class="ml-1" type="checkbox" name="colorBrown" id="brown" value="Marrón">
-                                    </div>
+                                    </div> -->
                                     <button class="btn btn-warning btn-sm btn-block" disabled>Agregar otro
                                         color</button>
 
