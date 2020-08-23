@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `mm_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-USE `mm_db`;
+CREATE DATABASE  IF NOT EXISTS `mercadomeme` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+USE `mercadomeme`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: mm_db
+-- Host: 127.0.0.1    Database: mercadomeme
 -- ------------------------------------------------------
 -- Server version	5.5.5-10.4.13-MariaDB
 

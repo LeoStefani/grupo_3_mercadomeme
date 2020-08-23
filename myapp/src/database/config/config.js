@@ -8,10 +8,10 @@ module.exports = {
     "operatorAliases": false
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "username": "mercadomeme",
+    "password": "passmercadomeme",
+    "database": "mercadomeme",
+    "host": "db4free.net",
     "dialect": "mysql"
   },
   "production": {
