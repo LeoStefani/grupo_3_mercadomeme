@@ -137,6 +137,7 @@ module.exports = {
             price: parseFloat(req.body.productNewPrice),
             qty_sold: 0,
             id_category: req.body.productNewCategory,
+            status: 1,
             sizes: newProductSizes,
             images: newProductImages,
             }
@@ -234,29 +235,33 @@ module.exports = {
     },
 
     deleteViewer: function (req, res, next) {
-        let productToDelete;
-        for (let i = 0; i < products.length; i++) {
-            if (products[i].id == req.params.id) {
-                productToDelete = products[i];
-            };
-        };
-        res.render('delete', {
-            title: 'Eliminar producto',
-            productToDelete: productToDelete,
-            productsCategories: productsCategories
-        });
+
+        db.Product.findByPk(req.params.id, {
+            include: [{
+                all: true
+            }]
+        }).then(function (productToDelete) {
+            // res.send(productToDelete)});
+            res.render("delete", {
+                title: 'Eliminar producto',
+                productToDelete: productToDelete,
+            })
+        })
+            .catch(function (error) { console.log(error) });
     },
 
     delete: function (req, res, next) {
-
-        products = products.filter(function (element) {
-            return element.id != req.params.id
-        });
-
-        let productsJSON = JSON.stringify(products);
-
-        fs.writeFileSync(path.join(__dirname, '../data/products.json'), productsJSON);
-
-        res.redirect('/products/upload');
+        db.Product.update({
+            status: 0
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        // falta crear status en tabla intermedia y asignarle cero a todos los que tengan este id_product
+        .then(result => 
+            {
+                res.redirect('/products/upload');
+            });
     }
 };
