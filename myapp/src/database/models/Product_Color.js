@@ -9,21 +9,14 @@ module.exports = function(sequelize, dataTypes) {
                 allowNull: false,
                 autoIncrement: true,
             },
-            name:{
-                type: dataTypes.STRING,
-                allowNull: false,
-                validate: {
-                        notNull: { msg: 'Este campo no puede quedar vacío.'}
-                    }  
-            },
-            size_unit:{
-                type: dataTypes.STRING,
-                allowNull: false,
-                unsigned: true,
-                validate: {
-                    notNull: { msg: 'Este campo no puede quedar vacío.'}
-                }  
-            }
+            id_product:{
+                type: dataTypes.INTEGER,
+                notNull: true
+            } ,
+            id_color:{
+                type: dataTypes.INTEGER,
+                notNull: true
+            } 
         };
     
         let config = {
