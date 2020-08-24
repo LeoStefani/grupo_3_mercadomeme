@@ -42,9 +42,9 @@
             <p class="w-100 shadow rounded-lg">
                <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
                   data-target="#collapsePersonalData" aria-expanded="false" aria-controls="collapsePersonalData"><span class=" text-danger text-center">
-                     <%= (typeof errors != "undefined" && errors.dni) ? "⚠" : "" %></span><i
+                     <%= (typeof errors != "undefined" && (errors.dni || errors.firstName || errors.lastName )) ? "⚠" : "" %></span><i
                      class="fas fa-chevron-down"></i> Datos personales <i class="fas fa-chevron-down"></i><span class=" text-danger text-center">
-                        <%= (typeof errors != "undefined" && errors.dni) ? "⚠" : "" %></span></button>
+                        <%= (typeof errors != "undefined" && (errors.dni || errors.firstName || errors.lastName )) ? "⚠" : "" %></span></button>
             </p>
             <div class="collapse w-100 mb-3" id="collapsePersonalData">
                <div class="card card-body w-100 m-0 p-0">
@@ -53,6 +53,8 @@
                         <div class="d-flex flex-wrap justify-content-between w-100 m-0 p-0">
                            <div class="d-flex align-items-center col-12 col-sm-4 title p-1 m-0">
                               <h6 class="w-100 text-start p-1 m-0">Nombre y apellido:</h6>
+                              <span class=" text-danger text-center">
+                                 <%= (typeof errors != "undefined" && (errors.firstName || errors.lastName ) ) ? "⚠" : "" %></span>
                            </div>
                            <div class="d-flex align-items-center  col-9 col-sm-6 input p-1 m-0">
                               <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
@@ -150,7 +152,9 @@
                   <div class="creditCardsData w-100 d-flex flex-wrap p-2">
                      <div class="w-100 d-flex flex-wrap justify-content-start align-items-between m-0 p-0 mb-2">
                         <div class="d-flex flex-wrap align-items-center col-2 m-0 p-0 ">
-                           <img class="w-100 shadow m-0 p-0 mb-1" src="/Images/logoVisa.png" alt="">
+
+                           
+                           <img class="w-100 shadow m-0 p-0 mb-1" src= "<%= user.credit_card_0.toString().split('')[0]==4 ? '/Images/logoVisa.png' :  user.credit_card_0.toString().split('')[0]==5 ? '/Images/logoMasterCard.png' : user.credit_card_0.toString().split('')[0]==3 ? '/images/logoAmex.png' : '/Images/logoDesconocido.png' %>">
                            <!-- Button trigger modal -->
                            <div class="d-flex flex-wrap align-items-center w-100 m-0">
                               <button type="button" class="btn btn-warning btn-sm w-100" data-toggle="modal"
@@ -165,14 +169,14 @@
                            <h6 class="d-flex align-items-center flex-grow-1 text-start p-1 rounded-lg m-0">
                               <%= user.credit_card_0 ? user.credit_card_0 : 'No disponible' %></h6>
                               
-                           <h6 class="d-flex align-items-center w-100 text-start p-1 rounded-lg mt-2 mb-2">Emisor -
-                              Banco</h6>
+                              <h6 class="d-flex align-items-center w-100 text-start p-1 mt-2 mb-2 rounded-lg">
+                                 Emisor: <%= user.credit_card_0.toString().split('')[0]==4 ? 'VISA' :  user.credit_card_0.toString().split('')[0]==5 ? 'Master Card' : user.credit_card_0.toString().split('')[0]==3 ? 'American Express' : 'Otro' %></h6>
                            <h6 class="d-flex align-items-center w-100 text-start p-1 rounded-lg m-0">Vencimiento</h6>
                         </div>
                      </div>
                      <div class="w-100 d-flex flex-wrap justify-content-start align-items-between m-0 p-0">
                         <div class="d-flex flex-wrap align-items-center col-2 m-0 p-0 ">
-                           <img class="w-100 shadow m-0 p-0 mb-1" src="/Images/logoMasterCard.png" alt="">
+                           <img class="w-100 shadow m-0 p-0 mb-1" src= "<%= user.credit_card_1.toString().split('')[0]==4 ? '/Images/logoVisa.png' :  user.credit_card_1.toString().split('')[0]==5 ? '/Images/logoMasterCard.png' : user.credit_card_1.toString().split('')[0]==3 ? '/images/logoAmex.png' : '/Images/logoDesconocido.png' %>">
                            <!-- Button trigger modal -->
                            <div class="d-flex flex-wrap align-items-center w-100 m-0">
                               <button type="button" class="btn btn-warning btn-sm w-100" data-toggle="modal"
@@ -186,8 +190,8 @@
                               <%= (typeof errors != "undefined" && errors.credit_card_1) ? "⚠" : "" %></span>
                            <h6 class="d-flex align-items-center flex-grow-1 text-start p-1 m-0 rounded-lg">
                               <%= user.credit_card_1 ? user.credit_card_1 : 'No disponible' %></h6>
-                           <h6 class="d-flex align-items-center w-100 text-start p-1 mt-2 mb-2 rounded-lg">Emisor -
-                              Banco</h6>
+                           <h6 class="d-flex align-items-center w-100 text-start p-1 mt-2 mb-2 rounded-lg">
+                              Emisor: <%= user.credit_card_1.toString().split('')[0]==4 ? 'VISA' :  user.credit_card_1.toString().split('')[0]==5 ? 'Master Card' : user.credit_card_1.toString().split('')[0]==3 ? 'American Express' : 'Otro' %></h6>
                            <h6 class="d-flex align-items-center w-100 text-start p-1 m-0 rounded-lg">Vencimiento</h6>
                         </div>
                      </div>
@@ -305,11 +309,15 @@
                         <form role="form" class=" d-flex flex-wrap justify-content-between" method="POST"
                            action="/users/profile/<%=user.id%>" id="nameForm">
                            <div class="w-100 m-0 p-0">
+                              <small class=" text-danger text-center">
+                                 <%= (typeof errors != "undefined" && errors.firstName) ? errors.firstName.msg : "" %></small>
                               <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
                                  type="text" name="firstName" placeholder="Nombre"
                                  value="<%= (typeof user.first_name != 'undefined') ? user.first_name : '' %>">
                            </div>
                            <div class="w-100 m-0 p-0">
+                              <small class=" text-danger text-center">
+                                 <%= (typeof errors != "undefined" && errors.lastName) ? errors.lastName.msg : "" %></small>
                               <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
                                  type="text" name="lastName" placeholder="Apellido"
                                  value="<%= (typeof user.last_name != 'undefined') ? user.last_name : '' %>">
