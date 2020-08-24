@@ -127,7 +127,7 @@ module.exports = {
                             req.session.loggedUser = user;
                             // Ademas, si no hay cookie guardada, en este momento se genera guardando los datos del usuario matcheado.
                             if (req.body.rememberMe != undefined) {
-                                res.cookie('rememberMe', user.id, { maxAge: 120 * 1000 })
+                                res.cookie('rememberMe', user.id, { maxAge: 120 * 1000 * 20 })
                             }
                             // Por úlitmo se lo redirigiria al HOME.
                             res.redirect('/')
@@ -212,7 +212,12 @@ module.exports = {
                 },
                     { where: { id: req.params.userId } })
                     .then(function (users) { res.redirect("/users/profile/" + req.params.userId) })
-                    .catch(function (error) { console.log(error) })
+                    .catch(function (errors) { 
+                        res.render("usersProfile", {
+                        errors: errors,
+                        title: "Mi Perfil - Error",
+                        old: req.body })
+                    })
 
             }
 

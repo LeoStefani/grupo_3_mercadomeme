@@ -28,7 +28,8 @@ module.exports = function(sequelize, dataTypes) {
             type: dataTypes.STRING
         },
         first_name:{
-            type: dataTypes.STRING
+            type: dataTypes.STRING(65)
+            
         },
         last_name:{
             type: dataTypes.STRING
