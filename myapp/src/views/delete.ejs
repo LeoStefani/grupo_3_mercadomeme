@@ -20,7 +20,7 @@
                                                                 <div class="colors w-100 p-2">
                                                                         <h6 class="w-100 text-start mb-1 p-0">ID: <%= productToDelete.id %></h6>
                                                                         <h6 class="w-100 text-start mb-1 p-0">Nombre: <%= productToDelete.name %></h6>
-                                                                        <h6 class="w-100 text-start mb-1 p-0">Categoría: <%= productToDelete.category %></h6>
+                                                                        <h6 class="w-100 text-start mb-1 p-0">Categoría: <%= productToDelete.categories.name %></h6>
                                                                         <h6 class="w-100 text-start mb-1 p-0">Precio: $<%= productToDelete.price %></h6>
                                                                 </div>
                                                         </div>
@@ -43,8 +43,8 @@
                                                                                 <h5 class="mt-1">Tamaños: </h5>
                                                                                 <% for(let i=0; i < productToDelete.sizes.length; i++) { %>
                                                                                 <h6><%= productToDelete.sizes[i].tag %>:
-                                                                                        <%= productToDelete.sizes[i].size %>
-                                                                                        <%= productToDelete.sizes[i].unit %>
+                                                                                        <%= productToDelete.sizes[i].size_main %>
+                                                                                        <%= productToDelete.categories.size_unit %>
                                                                                 </h6>
                                                                                 <% } %>
                                                                         </div>
@@ -67,7 +67,7 @@
                                                                 <div class="col-12 d-flex flex-column">
                                                                         <h5 class="mt-1">Colores: </h5>
                                                                         <% for(let i=0; i < productToDelete.colors.length; i++) { %>
-                                                                        <h6><%= productToDelete.colors[i].colorName %>
+                                                                        <h6><%= productToDelete.colors[i].name %>
                                                                         </h6>
                                                                         <% } %>
                                                                 </div>

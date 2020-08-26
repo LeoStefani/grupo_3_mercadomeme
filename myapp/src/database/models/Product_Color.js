@@ -16,7 +16,11 @@ module.exports = function(sequelize, dataTypes) {
             id_color:{
                 type: dataTypes.INTEGER,
                 notNull: true
-            } 
+            },
+            status:{
+                type: dataTypes.INTEGER,
+                notNull: true
+            }  
         };
     
         let config = {
