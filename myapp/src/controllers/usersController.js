@@ -3,6 +3,7 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const { check, validationResult, body } = require("express-validator");
 const db = require("../database/models");
+const { serialize } = require('v8');
 
 // Si llega a leer el JSON y no hay nadie registrado, lo inicializa como array vacio.
 let usersJSON = fs.readFileSync(path.join(__dirname, '../data/users.json'), 'utf-8');
@@ -46,7 +47,7 @@ module.exports = {
                 old: req.body
             })
         })
-            .catch(function (error) { console.log(error) });
+            .catch(function (error) { res.send(error)});
 
         // res.render("usersProfile", {
         //         title: "Mi Perfil",
@@ -79,10 +80,10 @@ module.exports = {
                     res.redirect("/users/login")
                 })
                 .catch(function (errors) {
-                    // res.send(errors);
+                    // res.send(errors)
                     res.render("registerDB", {
                         errors: errors,
-                        title: "RegistroDBError",
+                        title: "Registro - Error",
                         old: req.body
                     })
                 })
@@ -91,7 +92,7 @@ module.exports = {
             // pero esta vez enviando que errores hubo al llenar los campos. Tambien con OLD retiene lo que habian enviado bien
             return res.render("registerDB", {
                 errors: VRerrors.mapped(),
-                title: "Registro",
+                title: "Registro - Error",
                 old: req.body
             })
         };
@@ -199,6 +200,28 @@ module.exports = {
 
             } else {
 
+                // if (req.body.username != loggedUser.username) {
+
+                //     db.User.update({
+                //         username: req.body.username
+                //     },
+                //         { where: { id: req.params.userId } })
+                //         .then(function (result) { 
+                      
+                //             res.redirect("/users/login")
+                //          })
+                //         .catch(function (errors) { 
+                //             // res.send(errors)
+                //             res.render("usersProfile", {
+                //             errorsDB: errors,
+                //             user: users,
+                //             title: "Mi Perfil - Error",
+                //         })
+                //         })
+
+
+                // }
+
                 db.User.update({
                     first_name: req.body.firstName,
                     last_name: req.body.lastName,
@@ -211,27 +234,33 @@ module.exports = {
                     address_1: req.body.address_1
                 },
                     { where: { id: req.params.userId } })
-                    .then(function (users) { res.redirect("/users/profile/" + req.params.userId) })
+                    .then(function (result) { 
+                  
+                        res.redirect("/users/profile/" + req.params.userId)
+                     })
                     .catch(function (errors) { 
+                        // res.send(errors)
                         res.render("usersProfile", {
-                        errors: errors,
+                        errorsDB: errors,
+                        user: users,
                         title: "Mi Perfil - Error",
-                        old: req.body })
+                    })
                     })
 
+                ;
             }
 
         } else {
             // Este ELSE viene de si habia errores en el ingreso de datos, para lo cual renderiza de nuevo el register
-            // pero esta vez enviando que errores hubo al llenar los campos. Tambien con OLD retiene lo que habian enviado bien
+            // pero esta vez enviando que errores hubo al llenar los campos.
             return db.User.findByPk(req.params.userId).then(function (users) {
                 res.render("usersProfile", {
-                    title: "Mi Perfil",
+                    title: "Mi Perfil - Error",
                     user: users,
-                    errors: VRerrors.mapped(),
+                    errors: VRerrors.mapped()
                                    })
             })
-                .catch(function (error) { console.log(error) })   
+                .catch(function (error) { res.send(error) })   
 
         }
 

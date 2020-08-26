@@ -14,6 +14,7 @@ function cookieMW (req,res,next) {
     .catch(function(error){
     })}
 
+
     setTimeout(next,100);
 };
 module.exports = cookieMW
