@@ -42,12 +42,16 @@
     <div class="row w-100 m-0 mb-3 p-1 mt-3 product-selector shadow rounded-lg">
 
       <!-- Cada una de las categorias que va a desplegar el collapsable -->
+      <% for (let i=0; i<12; i++) { %>
+
       <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
         <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
-            src="/images/memes/memeEj1.png">
+            src="<%= memes[i].url %>">
         </a>
       </div>
-      <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
+
+      <% } %>
+      <!-- <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
         <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
             src="/images/memes/memeEj2.png">
         </a>
@@ -101,7 +105,7 @@
         <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
             src="/images/memes/memeEj2.png">
         </a>
-      </div>
+      </div> -->
 
       <!-- Cada una de las categorias que va a desplegar el collapsable -->
 

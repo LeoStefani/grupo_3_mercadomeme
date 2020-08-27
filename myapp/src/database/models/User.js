@@ -76,6 +76,10 @@ module.exports = function(sequelize, dataTypes) {
         },
         address_2:{
             type: dataTypes.STRING
+        },
+        admin:{
+            type: dataTypes.INTEGER(2).UNSIGNED,
+            allowNull: false
         }
         
     };

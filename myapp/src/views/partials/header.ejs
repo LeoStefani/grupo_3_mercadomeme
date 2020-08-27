@@ -13,9 +13,11 @@
                     <li><a class="text-decoration-none" href="/memes">MEMES</a></li>
                 </ul>
                 <ul class="right-navbar d-flex justify-content-between m-0 mb-1 mt-1">
-                        <% if (loggedUser.username) { %>
+                        <% if (loggedUser.username) { 
+                                 if (loggedUser.admin == 1) { %> <li><a class="text-decoration-none" href="/products/upload">Upload</a></li> <%}%>
                                 <li><a class="text-decoration-none" href="/users/profile/<%= loggedUser.id %>"><%= loggedUser.username %></a></li>          
-                                <li><a class="text-decoration-none" href="/users/logout">Logout</a></li>          
+                                <li><a class="text-decoration-none" href="/users/logout">Logout</a></li>    
+                                      
                                 <% } else { %>
                                         <li><a class="text-decoration-none" href="/users/registerDB">Registrarme</a></li>
                                         <li><a class="text-decoration-none" href="/users/login">Login</a></li>

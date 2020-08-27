@@ -29,28 +29,23 @@
                   </div>
                   <div class="d-flex flex-wrap align-items-center col-12 col-sm-10 m-0 pl-2 pr-0">
                      <div class="d-flex flex-wrap align-items-center col-12 title p-1 m-0">
-                        <h6 class="w-100 text-start p-1 m-0">Username: <small class=" text-danger text-center">
-                           <%= typeof errorsDB != "undefined" && typeof errorsDB.errors != "undefined" && errorsDB.errors[0].message == "username_UNIQUE must be unique" ? "El nombre de usuario ya se encuentra registrado en la base de datos." : "" %></small></h6>
-
-                        <span class=" text-danger text-center">
-                           <%= typeof errorsDB != "undefined" && typeof errorsDB.errors != "undefined" && errorsDB.errors[0].message == "username_UNIQUE must be unique" ? "⚠" : "" %></span>
+                        <h6 class="w-100 text-start p-1 m-0">Username: </h6>
+                           
                         <h6 class="bg m-0 text-start p-1 rounded-lg flex-grow-1 mr-2"><%= user.username %></h6>
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-warning btn-sm pl-2 pr-2 " data-toggle="modal"
-                           data-target="#usernameModal">
+                           data-target="#usernameModal" disabled>
                            Editar
                         </button>
                      </div>
                      <div class="d-flex flex-wrap align-items-center col-12 title p-1 m-0">
-                        <h6 class="w-100 text-start p-1 m-0">Email: <small class=" text-danger text-center">
-                           <%= typeof errorsDB != "undefined" && typeof errorsDB.errors != "undefined" && errorsDB.errors[0].message == "email_UNIQUE must be unique" ? "El email ya se encuentra registrado en la base de datos." : "" %></small></h6>
-                        <span class=" text-danger text-center">
-                           <%= typeof errorsDB != "undefined" && typeof errorsDB.errors != "undefined" && errorsDB.errors[0].message == "email_UNIQUE must be unique" ? "⚠" : "" %></span>
+                        <h6 class="w-100 text-start p-1 m-0">Email: 
+                        </h6>
                         <h6 class="bg m-0 text-start p-1 rounded-lg flex-grow-1 mr-2"><%= user.email %></h6>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-warning btn-sm pl-2 pr-2 " data-toggle="modal"
-                           data-target="#emailModal">
+                           data-target="#emailModal" disabled>
                            Editar
                         </button>
                      </div>
@@ -235,7 +230,7 @@
                      </div>
                   </div>
                   <div class="d-flex flex-wrap align-items-center col-12 p-2 m-0">
-                     <button class="btn btn-warning btn-block m-0 p-0 shadow">Agregar nueva tarjeta</button>
+                     <button class="btn btn-warning btn-block m-0 p-0 shadow" disabled>Agregar nueva tarjeta</button>
                   </div>
                </div>
             </div>
@@ -293,7 +288,7 @@
                         </div>
                      </div>
                      <div class="d-flex flex-wrap align-items-center col-12 p-1 m-0">
-                        <button class="btn btn-warning btn-block m-0 p-0 shadow">Agregar nueva dirección</button>
+                        <button class="btn btn-warning btn-block m-0 p-0 shadow" disabled>Agregar nueva dirección</button>
                      </div>
 
                   </div>
@@ -376,8 +371,6 @@
                         <form role="form" class=" d-flex flex-wrap justify-content-between" method="POST"
                            action="/users/profile/<%=user.id%>" id="emailForm">
                            <div class="w-100 m-0 p-0">
-                              <small class=" text-danger text-center">
-                                 <%= typeof errorsDB != "undefined" && typeof errorsDB.errors != "undefined" && errorsDB.errors[0].message == "email_UNIQUE must be unique" ? "El email ya se encuentra registrado en la base de datos." : "" %></small>
                               <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
                                  type="text" name="email" placeholder="Email"
                                  value="<%=user.email%>">
