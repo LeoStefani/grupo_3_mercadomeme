@@ -1,639 +1,633 @@
 [
-    {
-            "sizes": [
-                    {
-                            "tag": "M",
-                            "size": 250,
-                            "unit": "ml"
-                    },
-                    {
-                            "tag": "L",
-                            "size": 350,
-                            "unit": "ml"
-                    }
-            ],
-            "colors": [
-                    {
-                            "colorName": "Rojo",
-                            "colorCode": "#FF0000"
-                    },
-                    {
-                            "colorName": "Azul",
-                            "colorCode": "#0000FF"
-                    },
-                    {
-                            "colorName": "Blanco",
-                            "colorCode": "#ffffff"
-                    }
-            ],
-            "others": [],
-            "qtySold": 15,
-            "id": 17,
-            "name": "Taza cerámica",
-            "description": "Taza cerámica estándar. Fino y suave acabado. Fácil de lavar. Con asas para tomar bebidas calientes sin quemarte!",
-            "category": "Tazas",
-            "price": 250,
-            "image": [
-                    "imgProduct-1596581084823.png"
-            ]
-    },
-    {
-            "sizes": [
-                    {
-                            "tag": "M",
-                            "size": 250,
-                            "unit": "ml"
-                    },
-                    {
-                            "tag": "L",
-                            "size": 350,
-                            "unit": "ml"
-                    }
-            ],
-            "colors": [
-                    {
-                            "colorName": "Negro",
-                            "colorCode": "#000000"
-                    },
-                    {
-                            "colorName": "Rojo",
-                            "colorCode": "#FF0000"
-                    },
-                    {
-                            "colorName": "Azul",
-                            "colorCode": "#0000FF"
-                    }
-            ],
-            "others": [],
-            "qtySold": 250,
-            "id": 18,
-            "name": "Taza mágica",
-            "description": "La taza mágica cambia de color con bebidas calientes. Agregale un meme y sorprendé a quien quieras!",
-            "category": "Tazas",
-            "price": 400,
-            "image": [
-                    "imgProduct-1596581221067.png",
-                    "imgProduct-1596681221067.png",
-                    "imgProduct-1596681221068.png"
-            ]
-    },
-    {
-            "sizes": [
-                    {
-                            "tag": "M",
-                            "size": 250,
-                            "unit": "ml"
-                    },
-                    {
-                            "tag": "L",
-                            "size": 500,
-                            "unit": "ml"
-                    },
-                    {
-                            "tag": "XL",
-                            "size": 750,
-                            "unit": "ml"
-                    }
-            ],
-            "colors": [
-                    {
-                            "colorName": "Negro",
-                            "colorCode": "#000000"
-                    },
-                    {
-                            "colorName": "Blanco",
-                            "colorCode": "#ffffff"
-                    },
-                    {
-                            "colorName": "Gris",
-                            "colorCode": "#808080"
-                    },
-                    {
-                            "colorName": "Marrón",
-                            "colorCode": "#a52a2a"
-                    }
-            ],
-            "others": [],
-            "qtySold": 180,
-            "id": 19,
-            "name": "Taza térmica",
-            "description": "Ideal para bebidas calientes. Para tomar té o café fuera de casa, o de camino al trabajo!",
-            "category": "Tazas",
-            "price": 350,
-            "image": [
-                    "imgProduct-1596581308555.png"
-            ]
-    },
-    {
-            "sizes": [
-                    {
-                            "tag": "S",
-                            "size": 60,
-                            "unit": "cm"
-                    },
-                    {
-                            "tag": "M",
-                            "size": 80,
-                            "unit": "cm"
-                    },
-                    {
-                            "tag": "L",
-                            "size": 110,
-                            "unit": "cm"
-                    }
-            ],
-            "colors": [
-                    {
-                            "colorName": "Rojo",
-                            "colorCode": "#FF0000"
-                    },
-                    {
-                            "colorName": "Azul",
-                            "colorCode": "#0000FF"
-                    },
-                    {
-                            "colorName": "Blanco",
-                            "colorCode": "#ffffff"
-                    },
-                    {
-                            "colorName": "Rosa",
-                            "colorCode": "#ffc0cb"
-                    }
-            ],
-            "others": [],
-            "qtySold": 296,
-            "id": 20,
-            "name": "Remera hombre",
-            "description": "Remera de hombre lisa con cuello redondo. Ideal para cualquier tipo de personalización.",
-            "category": "Remeras",
-            "price": 750,
-            "image": [
-                    "imgProduct-1596581467913.png",
-                    "imgProduct-1596681221069.png",
-                    "imgProduct-1596681221070.png",
-                    "imgProduct-1596681221071.png"
-            ]
-    },
-    {
-            "sizes": [
-                    {
-                            "tag": "S",
-                            "size": 50,
-                            "unit": "cm"
-                    },
-                    {
-                            "tag": "M",
-                            "size": 65,
-                            "unit": "cm"
-                    },
-                    {
-                            "tag": "L",
-                            "size": 90,
-                            "unit": "cm"
-                    }
-            ],
-            "colors": [
-                    {
-                            "colorName": "Negro",
-                            "colorCode": "#000000"
-                    },
-                    {
-                            "colorName": "Rojo",
-                            "colorCode": "#FF0000"
-                    },
-                    {
-                            "colorName": "Azul",
-                            "colorCode": "#0000FF"
-                    },
-                    {
-                            "colorName": "Blanco",
-                            "colorCode": "#ffffff"
-                    }
-            ],
-            "others": [],
-            "qtySold": 155,
-            "id": 21,
-            "name": "Remera mujer",
-            "description": "Remera de mujer, lisa con cuello redondo. Ideal para cualquier tipo de personalización.",
-            "category": "Remeras",
-            "price": 750,
-            "image": [
-                    "imgProduct-1596581543118.png","imgProduct-1596681221075.png","imgProduct-1596681221076.png","imgProduct-1596681221077.png"
-            ]
-    },
-    {
-            "sizes": [
-                    {
-                            "tag": "S",
-                            "size": 60,
-                            "unit": "cm"
-                    },
-                    {
-                            "tag": "M",
-                            "size": 80,
-                            "unit": "cm"
-                    },
-                    {
-                            "tag": "L",
-                            "size": 110,
-                            "unit": "cm"
-                    }
-            ],
-            "colors": [
-                    {
-                            "colorName": "Negro",
-                            "colorCode": "#000000"
-                    },
-                    {
-                            "colorName": "Blanco",
-                            "colorCode": "#ffffff"
-                    }
-            ],
-            "others": [],
-            "qtySold": 24,
-            "id": 22,
-            "name": "Musculosa",
-            "description": "Musculosa de hombre lisa. Ideal para los días mas calurosos! 100% algodón.",
-            "category": "Remeras",
-            "price": 950,
-            "image": [
-                    "imgProduct-1596581620394.png"
-            ]
-    },
-    {
-            "sizes": [
-                    {
-                            "tag": "S",
-                            "size": 60,
-                            "unit": "cm"
-                    },
-                    {
-                            "tag": "M",
-                            "size": 80,
-                            "unit": "cm"
-                    },
-                    {
-                            "tag": "L",
-                            "size": 110,
-                            "unit": "cm"
-                    }
-            ],
-            "colors": [
-                    {
-                            "colorName": "Azul",
-                            "colorCode": "#0000FF"
-                    },
-                    {
-                            "colorName": "Blanco",
-                            "colorCode": "#ffffff"
-                    },
-                    {
-                            "colorName": "Rosa",
-                            "colorCode": "#ffc0cb"
-                    }
-            ],
-            "others": [],
-            "qtySold": 214,
-            "id": 23,
-            "name": "Remera cuello en V",
-            "description": "Remera de hombre cuello en \"V\". Para darle un toque mas fino y elegante. 100% algodón",
-            "category": "Remeras",
-            "price": 1200,
-            "image": [
-                    "imgProduct-1596581693167.png","imgProduct-1596681221072.png","imgProduct-1596681221073.png","imgProduct-1596681221074.png"
-            ]
-    },
-    {
-            "sizes": [
-                    {
-                            "tag": "S",
-                            "size": 70,
-                            "unit": "cm"
-                    },
-                    {
-                            "tag": "M",
-                            "size": 90,
-                            "unit": "cm"
-                    },
-                    {
-                            "tag": "L",
-                            "size": 120,
-                            "unit": "cm"
-                    }
-            ],
-            "colors": [
-                    {
-                            "colorName": "Rojo",
-                            "colorCode": "#FF0000"
-                    },
-                    {
-                            "colorName": "Azul",
-                            "colorCode": "#0000FF"
-                    },
-                    {
-                            "colorName": "Gris",
-                            "colorCode": "#808080"
-                    }
-            ],
-            "others": [],
-            "qtySold": 18,
-            "id": 24,
-            "name": "Buzo unisex",
-            "category": "Abrigos",
-            "description": "Buzo unisex 100% algodón.",
-            "price": 1800,
-            "image": [
-                    "imgProduct-1596581924218.png","imgProduct-1596681221078.png","imgProduct-1596681221079.png"
-            ]
-    },
-    {
-            "sizes": [
-                    {
-                            "tag": "S",
-                            "size": 70,
-                            "unit": "cm"
-                    },
-                    {
-                            "tag": "M",
-                            "size": 90,
-                            "unit": "cm"
-                    },
-                    {
-                            "tag": "L",
-                            "size": 110,
-                            "unit": "cm"
-                    }
-            ],
-            "colors": [
-                    {
-                            "colorName": "Negro",
-                            "colorCode": "#000000"
-                    },
-                    {
-                            "colorName": "Rojo",
-                            "colorCode": "#FF0000"
-                    },
-                    {
-                            "colorName": "Gris",
-                            "colorCode": "#808080"
-                    }
-            ],
-            "others": [],
-            "qtySold": 241,
-            "id": 25,
-            "name": "Buzo canguro",
-            "description": "Buzo canguro unisex. 100% algodón. Amplio bolsillo para meter las manos.",
-            "category": "Abrigos",
-            "price": 2000,
-            "image": [
-                    "imgProduct-1596582174297.png","imgProduct-1596681221080.png","imgProduct-1596681221081.png"
-            ]
-    },
-    {
-            "sizes": [
-                    {
-                            "tag": "S",
-                            "size": 70,
-                            "unit": "cm"
-                    },
-                    {
-                            "tag": "M",
-                            "size": 90,
-                            "unit": "cm"
-                    },
-                    {
-                            "tag": "L",
-                            "size": 110,
-                            "unit": "cm"
-                    }
-            ],
-            "colors": [
-                    {
-                            "colorName": "Rojo",
-                            "colorCode": "#FF0000"
-                    },
-                    {
-                            "colorName": "Azul",
-                            "colorCode": "#0000FF"
-                    },
-                    {
-                            "colorName": "Gris",
-                            "colorCode": "#808080"
-                    }
-            ],
-            "others": [],
-            "qtySold": 96,
-            "id": 26,
-            "name": "Campera unisex",
-            "description": "Campera unisex. 100% algodón. Con capucha.",
-            "category": "Abrigos",
-            "price": 2300,
-            "image": [
-                    "imgProduct-1596582234992.png","imgProduct-1596681221082.png","imgProduct-1596681221083.png"
-            ]
-    },
-    {
-            "sizes": [
-                    {
-                            "tag": "M",
-                            "size": 12,
-                            "unit": "lts"
-                    },
-                    {
-                            "tag": "L",
-                            "size": 18,
-                            "unit": "lts"
-                    }
-            ],
-            "colors": [
-                    {
-                            "colorName": "Negro",
-                            "colorCode": "#000000"
-                    },
-                    {
-                            "colorName": "Azul",
-                            "colorCode": "#0000FF"
-                    },
-                    {
-                            "colorName": "Gris",
-                            "colorCode": "#808080"
-                    }
-            ],
-            "others": [],
-            "qtySold": 109,
-            "id": 27,
-            "name": "Mochila notebook",
-            "description": "Mochila para notebook. Amplio espacio. Apta para notebooks de hasta 17\" en su versión \"L\"",
-            "category": "Mochilas",
-            "price": 3500,
-            "image": [
-                    "imgProduct-1596582364103.png"
-            ]
-    },
-    {
-            "sizes": [
-                    {
-                            "tag": "XS",
-                            "size": 5,
-                            "unit": "lts"
-                    },
-                    {
-                            "tag": "M",
-                            "size": 12,
-                            "unit": "lts"
-                    }
-            ],
-            "colors": [
-                    {
-                            "colorName": "Rojo",
-                            "colorCode": "#FF0000"
-                    },
-                    {
-                            "colorName": "Azul",
-                            "colorCode": "#0000FF"
-                    },
-                    {
-                            "colorName": "Amarillo",
-                            "colorCode": "#ffff00"
-                    }
-            ],
-            "others": [],
-            "qtySold": 74,
-            "id": 28,
-            "name": "Mochila sport",
-            "description": "Mochila sport, ideal para el día a día. Elegila en sus dos tamaños, estandar y mini para llevar objetos personales.",
-            "category": "Mochilas",
-            "price": 1800,
-            "image": [
-                    "imgProduct-1596582441137.png","imgProduct-1596681221084.png","imgProduct-1596681221085.png"
-            ]
-    },
-    {
-            "sizes": [
-                    {
-                            "tag": "S",
-                            "size": 8,
-                            "unit": "lts"
-                    },
-                    {
-                            "tag": "M",
-                            "size": 10,
-                            "unit": "lts"
-                    },
-                    {
-                            "tag": "L",
-                            "size": 15,
-                            "unit": "lts"
-                    }
-            ],
-            "colors": [
-                    {
-                            "colorName": "Rojo",
-                            "colorCode": "#FF0000"
-                    },
-                    {
-                            "colorName": "Azul",
-                            "colorCode": "#0000FF"
-                    },
-                    {
-                            "colorName": "Blanco",
-                            "colorCode": "#ffffff"
-                    },
-                    {
-                            "colorName": "Amarillo",
-                            "colorCode": "#ffff00"
-                    }
-            ],
-            "others": [],
-            "qtySold": 230,
-            "id": 29,
-            "name": "Sacola",
-            "description": "Sacola lisa. Ideal llevar tus pertenencias de manera fácil y liviana.",
-            "category": "Mochilas",
-            "price": 900,
-            "image": [
-                    "imgProduct-1596582574462.png","imgProduct-1596681221086.png","imgProduct-1596681221087.png","imgProduct-1596681221088.png"
-            ]
-    },
-    {
-            "sizes": [
-                    {
-                            "tag": "M",
-                            "size": 20,
-                            "unit": "cm"
-                    },
-                    {
-                            "tag": "L",
-                            "size": 25,
-                            "unit": "cm"
-                    }
-            ],
-            "colors": [
-                    {
-                            "colorName": "Negro",
-                            "colorCode": "#000000"
-                    },
-                    {
-                            "colorName": "Rojo",
-                            "colorCode": "#FF0000"
-                    },
-                    {
-                            "colorName": "Azul",
-                            "colorCode": "#0000FF"
-                    }
-            ],
-            "others": [],
-            "qtySold": 169,
-            "id": 30,
-            "name": "Gorra unisex",
-            "description": "Gorra bi color, unisex. Ideal para protegerte los días de mucho sol.",
-            "category": "Accesorios",
-            "price": 400,
-            "image": [
-                    "imgProduct-1596582673660.png","imgProduct-1596681221089.png","imgProduct-1596681221090.png","imgProduct-1596681221091.png"
-            ]
-    },
-    {
-            "sizes": [
-                    {
-                            "tag": "S",
-                            "size": 25,
-                            "unit": "cm"
-                    },
-                    {
-                            "tag": "M",
-                            "size": 40,
-                            "unit": "cm"
-                    },
-                    {
-                            "tag": "L",
-                            "size": 50,
-                            "unit": "cm"
-                    }
-            ],
-            "colors": [
-                    {
-                            "colorName": "Rojo",
-                            "colorCode": "#FF0000"
-                    },
-                    {
-                            "colorName": "Verde",
-                            "colorCode": "#008000"
-                    },
-                    {
-                            "colorName": "Blanco",
-                            "colorCode": "#ffffff"
-                    }
-            ],
-            "others": [],
-            "qtySold": 212,
-            "id": 31,
-            "name": "Totebag",
-            "description": "Totebag de tela. Ideal para el super y las compras. Lavable y reutilizable.",
-            "category": "Accesorios",
-            "price": 250,
-            "image": [
-                    "imgProduct-1596582768415.png"
-            ]
-    }
+        {
+                "sizes": [
+                        {
+                                "tag": "M",
+                                "size": 250,
+                                "unit": "ml"
+                        },
+                        {
+                                "tag": "L",
+                                "size": 350,
+                                "unit": "ml"
+                        }
+                ],
+                "colors": [
+                        {
+                                "colorName": "Rojo",
+                                "colorCode": "#FF0000"
+                        },
+                        {
+                                "colorName": "Azul",
+                                "colorCode": "#0000FF"
+                        },
+                        {
+                                "colorName": "Blanco",
+                                "colorCode": "#ffffff"
+                        }
+                ],
+                "others": [],
+                "qtySold": 15,
+                "id": 17,
+                "name": "Taza cerámica",
+                "description": "Taza cerámica estándar. Fino y suave acabado. Fácil de lavar. Con asas para tomar bebidas calientes sin quemarte!",
+                "category": "Tazas",
+                "price": 250,
+                "image": [
+                        "imgProduct-1596581084823.png"
+                ]
+        },
+        {
+                "sizes": [
+                        {
+                                "tag": "M",
+                                "size": 250,
+                                "unit": "ml"
+                        },
+                        {
+                                "tag": "L",
+                                "size": 350,
+                                "unit": "ml"
+                        }
+                ],
+                "colors": [
+                        {
+                                "colorName": "Negro",
+                                "colorCode": "#000000"
+                        },
+                        {
+                                "colorName": "Rojo",
+                                "colorCode": "#FF0000"
+                        },
+                        {
+                                "colorName": "Azul",
+                                "colorCode": "#0000FF"
+                        }
+                ],
+                "others": [],
+                "qtySold": 250,
+                "id": 18,
+                "name": "Taza mágica",
+                "description": "La taza mágica cambia de color con bebidas calientes. Agregale un meme y sorprendé a quien quieras!",
+                "category": "Tazas",
+                "price": 400,
+                "image": [
+                        "imgProduct-1596581221067.png",
+                        "imgProduct-1596681221067.png",
+                        "imgProduct-1596681221068.png"
+                ]
+        },
+        {
+                "sizes": [
+                        {
+                                "tag": "M",
+                                "size": 250,
+                                "unit": "ml"
+                        },
+                        {
+                                "tag": "L",
+                                "size": 500,
+                                "unit": "ml"
+                        },
+                        {
+                                "tag": "XL",
+                                "size": 750,
+                                "unit": "ml"
+                        }
+                ],
+                "colors": [
+                        {
+                                "colorName": "Negro",
+                                "colorCode": "#000000"
+                        },
+                        {
+                                "colorName": "Blanco",
+                                "colorCode": "#ffffff"
+                        },
+                        {
+                                "colorName": "Gris",
+                                "colorCode": "#808080"
+                        },
+                        {
+                                "colorName": "Marrón",
+                                "colorCode": "#a52a2a"
+                        }
+                ],
+                "others": [],
+                "qtySold": 180,
+                "id": 19,
+                "name": "Taza térmica",
+                "description": "Ideal para bebidas calientes. Para tomar té o café fuera de casa, o de camino al trabajo!",
+                "category": "Tazas",
+                "price": 350,
+                "image": [
+                        "imgProduct-1596581308555.png"
+                ]
+        },
+        {
+                "sizes": [
+                        {
+                                "tag": "S",
+                                "size": 60,
+                                "unit": "cm"
+                        },
+                        {
+                                "tag": "M",
+                                "size": 80,
+                                "unit": "cm"
+                        },
+                        {
+                                "tag": "L",
+                                "size": 110,
+                                "unit": "cm"
+                        }
+                ],
+                "colors": [
+                        {
+                                "colorName": "Rojo",
+                                "colorCode": "#FF0000"
+                        },
+                        {
+                                "colorName": "Azul",
+                                "colorCode": "#0000FF"
+                        },
+                        {
+                                "colorName": "Blanco",
+                                "colorCode": "#ffffff"
+                        },
+                        {
+                                "colorName": "Rosa",
+                                "colorCode": "#ffc0cb"
+                        }
+                ],
+                "others": [],
+                "qtySold": 296,
+                "id": 20,
+                "name": "Remera hombre",
+                "description": "Remera de hombre lisa con cuello redondo. Ideal para cualquier tipo de personalización.",
+                "category": "Remeras",
+                "price": 750,
+                "image": [
+                        "imgProduct-1596581467913.png",
+                        "imgProduct-1596681221069.png",
+                        "imgProduct-1596681221070.png",
+                        "imgProduct-1596681221071.png"
+                ]
+        },
+        {
+                "sizes": [
+                        {
+                                "tag": "S",
+                                "size": 50,
+                                "unit": "cm"
+                        },
+                        {
+                                "tag": "M",
+                                "size": 65,
+                                "unit": "cm"
+                        },
+                        {
+                                "tag": "L",
+                                "size": 90,
+                                "unit": "cm"
+                        }
+                ],
+                "colors": [
+                        {
+                                "colorName": "Negro",
+                                "colorCode": "#000000"
+                        },
+                        {
+                                "colorName": "Rojo",
+                                "colorCode": "#FF0000"
+                        },
+                        {
+                                "colorName": "Azul",
+                                "colorCode": "#0000FF"
+                        },
+                        {
+                                "colorName": "Blanco",
+                                "colorCode": "#ffffff"
+                        }
+                ],
+                "others": [],
+                "qtySold": 155,
+                "id": 21,
+                "name": "Remera mujer",
+                "description": "Remera de mujer, lisa con cuello redondo. Ideal para cualquier tipo de personalización.",
+                "category": "Remeras",
+                "price": 750,
+                "image": [
+                        "imgProduct-1596581543118.png","imgProduct-1596681221075.png","imgProduct-1596681221076.png","imgProduct-1596681221077.png"
+                ]
+        },
+        {
+                "sizes": [
+                        {
+                                "tag": "S",
+                                "size": 60,
+                                "unit": "cm"
+                        },
+                        {
+                                "tag": "M",
+                                "size": 80,
+                                "unit": "cm"
+                        },
+                        {
+                                "tag": "L",
+                                "size": 110,
+                                "unit": "cm"
+                        }
+                ],
+                "colors": [
+                        {
+                                "colorName": "Negro",
+                                "colorCode": "#000000"
+                        },
+                        {
+                                "colorName": "Blanco",
+                                "colorCode": "#ffffff"
+                        }
+                ],
+                "others": [],
+                "qtySold": 24,
+                "id": 22,
+                "name": "Musculosa",
+                "description": "Musculosa de hombre lisa. Ideal para los días mas calurosos! 100% algodón.",
+                "category": "Remeras",
+                "price": 950,
+                "image": [
+                        "imgProduct-1596581620394.png"
+                ]
+        },
+        {
+                "sizes": [
+                        {
+                                "tag": "S",
+                                "size": 60,
+                                "unit": "cm"
+                        },
+                        {
+                                "tag": "M",
+                                "size": 80,
+                                "unit": "cm"
+                        },
+                        {
+                                "tag": "L",
+                                "size": 110,
+                                "unit": "cm"
+                        }
+                ],
+                "colors": [
+                        {
+                                "colorName": "Azul",
+                                "colorCode": "#0000FF"
+                        },
+                        {
+                                "colorName": "Blanco",
+                                "colorCode": "#ffffff"
+                        },
+                        {
+                                "colorName": "Rosa",
+                                "colorCode": "#ffc0cb"
+                        }
+                ],
+                "others": [],
+                "qtySold": 214,
+                "id": 23,
+                "name": "Remera cuello en V",
+                "description": "Remera de hombre cuello en \"V\". Para darle un toque mas fino y elegante. 100% algodón",
+                "category": "Remeras",
+                "price": 1200,
+                "image": [
+                        "imgProduct-1596581693167.png","imgProduct-1596681221072.png","imgProduct-1596681221073.png","imgProduct-1596681221074.png"
+                ]
+        },
+        {
+                "sizes": [
+                        {
+                                "tag": "S",
+                                "size": 70
+                        },
+                        {
+                                "tag": "M",
+                                "size": 90
+                        },
+                        {
+                                "tag": "L",
+                                "size": 120
+                        }
+                ],
+                "colors": [
+                        {
+                                "colorName": "Rojo",
+                                "colorCode": "#FF0000"
+                        },
+                        {
+                                "colorName": "Azul",
+                                "colorCode": "#0000FF"
+                        },
+                        {
+                                "colorName": "Gris",
+                                "colorCode": "#808080"
+                        }
+                ],
+                "others": [],
+                "qtySold": 18,
+                "id": 24,
+                "name": "Buzo unisex",
+                "category": "Abrigos",
+                "description": "Buzo unisex 100% algodón.",
+                "price": 1800,
+                "image": [
+                        "imgProduct-1596581924218.png","imgProduct-1596681221078.png","imgProduct-1596681221079.png"
+                ]
+        },
+        {
+                "sizes": [
+                        {
+                                "tag": "S",
+                                "size": 70
+                        },
+                        {
+                                "tag": "M",
+                                "size": 90
+                        },
+                        {
+                                "tag": "L",
+                                "size": 110
+                        }
+                ],
+                "colors": [
+                        {
+                                "colorName": "Negro",
+                                "colorCode": "#000000"
+                        },
+                        {
+                                "colorName": "Rojo",
+                                "colorCode": "#FF0000"
+                        },
+                        {
+                                "colorName": "Gris",
+                                "colorCode": "#808080"
+                        }
+                ],
+                "others": [],
+                "qtySold": 241,
+                "id": 25,
+                "name": "Buzo canguro",
+                "description": "Buzo canguro unisex. 100% algodón. Amplio bolsillo para meter las manos.",
+                "category": "Abrigos",
+                "price": 2000,
+                "image": [
+                        "imgProduct-1596582174297.png","imgProduct-1596681221080.png","imgProduct-1596681221081.png"
+                ]
+        },
+        {
+                "sizes": [
+                        {
+                                "tag": "S",
+                                "size": 70
+                        },
+                        {
+                                "tag": "M",
+                                "size": 90
+                        },
+                        {
+                                "tag": "L",
+                                "size": 110
+                        }
+                ],
+                "colors": [
+                        {
+                                "colorName": "Rojo",
+                                "colorCode": "#FF0000"
+                        },
+                        {
+                                "colorName": "Azul",
+                                "colorCode": "#0000FF"
+                        },
+                        {
+                                "colorName": "Gris",
+                                "colorCode": "#808080"
+                        }
+                ],
+                "others": [],
+                "qtySold": 96,
+                "id": 26,
+                "name": "Campera unisex",
+                "description": "Campera unisex. 100% algodón. Con capucha.",
+                "category": "Abrigos",
+                "price": 2300,
+                "image": [
+                        "imgProduct-1596582234992.png","imgProduct-1596681221082.png","imgProduct-1596681221083.png"
+                ]
+        },
+        {
+                "sizes": [
+                        {
+                                "tag": "M",
+                                "size": 12,
+                                "unit": "lts"
+                        },
+                        {
+                                "tag": "L",
+                                "size": 18,
+                                "unit": "lts"
+                        }
+                ],
+                "colors": [
+                        {
+                                "colorName": "Negro",
+                                "colorCode": "#000000"
+                        },
+                        {
+                                "colorName": "Azul",
+                                "colorCode": "#0000FF"
+                        },
+                        {
+                                "colorName": "Gris",
+                                "colorCode": "#808080"
+                        }
+                ],
+                "others": [],
+                "qtySold": 109,
+                "id": 27,
+                "name": "Mochila notebook",
+                "description": "Mochila para notebook. Amplio espacio. Apta para notebooks de hasta 17\" en su versión \"L\"",
+                "category": "Mochilas",
+                "price": 3500,
+                "image": [
+                        "imgProduct-1596582364103.png"
+                ]
+        },
+        {
+                "sizes": [
+                        {
+                                "tag": "XS",
+                                "size": 5,
+                                "unit": "lts"
+                        },
+                        {
+                                "tag": "M",
+                                "size": 12,
+                                "unit": "lts"
+                        }
+                ],
+                "colors": [
+                        {
+                                "colorName": "Rojo",
+                                "colorCode": "#FF0000"
+                        },
+                        {
+                                "colorName": "Azul",
+                                "colorCode": "#0000FF"
+                        },
+                        {
+                                "colorName": "Amarillo",
+                                "colorCode": "#ffff00"
+                        }
+                ],
+                "others": [],
+                "qtySold": 74,
+                "id": 28,
+                "name": "Mochila sport",
+                "description": "Mochila sport, ideal para el día a día. Elegila en sus dos tamaños, estandar y mini para llevar objetos personales.",
+                "category": "Mochilas",
+                "price": 1800,
+                "image": [
+                        "imgProduct-1596582441137.png","imgProduct-1596681221084.png","imgProduct-1596681221085.png"
+                ]
+        },
+        {
+                "sizes": [
+                        {
+                                "tag": "S",
+                                "size": 8,
+                                "unit": "lts"
+                        },
+                        {
+                                "tag": "M",
+                                "size": 10,
+                                "unit": "lts"
+                        },
+                        {
+                                "tag": "L",
+                                "size": 15,
+                                "unit": "lts"
+                        }
+                ],
+                "colors": [
+                        {
+                                "colorName": "Rojo",
+                                "colorCode": "#FF0000"
+                        },
+                        {
+                                "colorName": "Azul",
+                                "colorCode": "#0000FF"
+                        },
+                        {
+                                "colorName": "Blanco",
+                                "colorCode": "#ffffff"
+                        },
+                        {
+                                "colorName": "Amarillo",
+                                "colorCode": "#ffff00"
+                        }
+                ],
+                "others": [],
+                "qtySold": 230,
+                "id": 29,
+                "name": "Sacola",
+                "description": "Sacola lisa. Ideal llevar tus pertenencias de manera fácil y liviana.",
+                "category": "Mochilas",
+                "price": 900,
+                "image": [
+                        "imgProduct-1596582574462.png","imgProduct-1596681221086.png","imgProduct-1596681221087.png","imgProduct-1596681221088.png"
+                ]
+        },
+        {
+                "sizes": [
+                        {
+                                "tag": "M",
+                                "size": 20,
+                                "unit": "cm"
+                        },
+                        {
+                                "tag": "L",
+                                "size": 25,
+                                "unit": "cm"
+                        }
+                ],
+                "colors": [
+                        {
+                                "colorName": "Negro",
+                                "colorCode": "#000000"
+                        },
+                        {
+                                "colorName": "Rojo",
+                                "colorCode": "#FF0000"
+                        },
+                        {
+                                "colorName": "Azul",
+                                "colorCode": "#0000FF"
+                        }
+                ],
+                "others": [],
+                "qtySold": 169,
+                "id": 30,
+                "name": "Gorra unisex",
+                "description": "Gorra bi color, unisex. Ideal para protegerte los días de mucho sol.",
+                "category": "Accesorios",
+                "price": 400,
+                "image": [
+                        "imgProduct-1596582673660.png","imgProduct-1596681221089.png","imgProduct-1596681221090.png","imgProduct-1596681221091.png"
+                ]
+        },
+        {
+                "sizes": [
+                        {
+                                "tag": "S",
+                                "size": 25,
+                                "unit": "cm"
+                        },
+                        {
+                                "tag": "M",
+                                "size": 40,
+                                "unit": "cm"
+                        },
+                        {
+                                "tag": "L",
+                                "size": 50,
+                                "unit": "cm"
+                        }
+                ],
+                "colors": [
+                        {
+                                "colorName": "Rojo",
+                                "colorCode": "#FF0000"
+                        },
+                        {
+                                "colorName": "Verde",
+                                "colorCode": "#008000"
+                        },
+                        {
+                                "colorName": "Blanco",
+                                "colorCode": "#ffffff"
+                        }
+                ],
+                "others": [],
+                "qtySold": 212,
+                "id": 31,
+                "name": "Totebag",
+                "description": "Totebag de tela. Ideal para el super y las compras. Lavable y reutilizable.",
+                "category": "Accesorios",
+                "price": 250,
+                "image": [
+                        "imgProduct-1596582768415.png"
+                ]
+        }
 ]
+
+
+

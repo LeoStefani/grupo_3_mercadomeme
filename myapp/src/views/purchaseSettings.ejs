@@ -18,11 +18,11 @@
                         class="dataBlock w-100 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-3 mt-2">
                         <div class="w-100 d-flex flex-wrap justify-content-end align-items-center">
                             <div class="d-flex flex-wrap productName w-100 mt-2">
-                                <p class="col-12 col-md-6 p-1"><b>Direccion:</b> Habana 4310 (Casi Segurola)</p>
+                                <p class="col-12 col-md-6 p-1"><b>Direccion:</b><%= loggedUser.address_0 %></p>
                                 <p class="col-12 col-md-6 p-1"><b>Localidad:</b> Villa Devoto </p>
-                                <p class="col-6 col-md-3 p-1"><b>Tel:</b> 1121727338</p>
+                                <p class="col-6 col-md-3 p-1"><b>Tel:</b><%= loggedUser.phone_0 %></p>
                                 <p class="col-6 col-md-3 p-1"><b>CP:</b> 1425</p>
-                                <p class="col-6 col-md-6 p-1"><b>Email:</b> debutoconunpibe@gmail.com</p>
+                                <p class="col-6 col-md-6 p-1"><b>Email:</b> <%= loggedUser.email %></p>
                             </div>
                             <div class="w-100 text-center">
                                 <a href="#" role="button" class="btn btn-sm col-12 col-md-6 btn-warning shadow">Elegir
@@ -47,7 +47,7 @@
                                         <input class="m-0 ml-1" type="radio" name="delivery" id="" value=""
                                             form="purchaseSettingsForm">
                                     </div>
-                                    <p class="col-11 p-1"><b>Envío a domicilio:</b> Habana 4310 (Casi Segurola)</p>
+                                    <p class="col-11 p-1"><b>Envío a domicilio:</b> <%= loggedUser.address_0 %></p>
                                     <p class="col-11 p-1"><b><i class="fas fa-shipping-fast"></i> Llega mañana</b></p>
                                 </div>
                                 <div class="d-flex flex-wrap justify-content-end shopDelivery w-100 mt-2">
@@ -56,7 +56,7 @@
                                             form="purchaseSettingsForm">
                                     </div>
                                     <p class="col-11 p-1"><b>Retiro en sucursal</b></p>
-                                    <p class="col-11 p-1">Direccion de la sucursal</p>
+                                    <p class="col-11 p-1">Habana 4310 (Casi Segurola)</p>
                                     <p class="col-11 p-1">Abierto de 09:00 a 20:00</p>
                                 </div>
                                 <div class="d-flex flex-wrap  justify-content-end  pickupDelivery w-100 mt-2">

@@ -4,24 +4,26 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-2 d-flex justify-content-center mb-1 mt-1">
                 <a class="align-self-center" href="/">
-                    <img src="../../images/mm_logov2.png" alt="logo de mercadomeme">
+                    <img src="/images/mm_logov2.png" alt="logo de mercadomeme">
                 </a>
             </div>
             <nav class="col-xs-12 col-sm-12 col-md-9 col-lg-10 col-xl-10 flex-grow-1 d-flex justify-content-center justify-content-md-between justify-content-lg-between align-items-center flex-wrap">
                 <ul class="left-navbar d-flex justify-content-between m-0 mb-1 mt-1">
-                    <li><a class="text-decoration-none" href="/products/index">Productos</a></li>
-                    <li><a class="text-decoration-none" href="/memes">Memes</a></li>
+                    <li><a class="text-decoration-none" href="/products/index">PRODUCTOS</a></li>
+                    <li><a class="text-decoration-none" href="/memes">MEMES</a></li>
                 </ul>
                 <ul class="right-navbar d-flex justify-content-between m-0 mb-1 mt-1">
-                        <% if (loggedUser.user_name) { %>
-                                <li><a class="text-decoration-none" href="/users/profile/<%= loggedUser.id %>"><%= loggedUser.user_name %></a></li>          
-                                <li><a class="text-decoration-none" href="/users/logout">Logout</a></li>          
+                        <% if (loggedUser.username) { 
+                                 if (loggedUser.admin == 1) { %> <li><a class="text-decoration-none" href="/products/upload">Upload</a></li> <%}%>
+                                <li><a class="text-decoration-none" href="/users/profile/<%= loggedUser.id %>"><%= loggedUser.username %></a></li>          
+                                <li><a class="text-decoration-none" href="/users/logout">Logout</a></li>    
+                                      
                                 <% } else { %>
-                                        <li><a class="text-decoration-none" href="/users/register">Registrarme</a></li>
+                                        <li><a class="text-decoration-none" href="/users/registerDB">Registrarme</a></li>
                                         <li><a class="text-decoration-none" href="/users/login">Login</a></li>
                         <% } %>
                     <li><a class="text-decoration-none" href="/users/cart"><i class="fas fa-shopping-cart"></i></a></li>
-                    <li><a class="text-decoration-none" href="#"><i class="fas fa-question-circle"></i></a></li>
+                    <li><a class="text-decoration-none" href="/products/upload"><i class="fas fa-question-circle"></i></a></li>
                 </ul>
             </nav>
         </div>

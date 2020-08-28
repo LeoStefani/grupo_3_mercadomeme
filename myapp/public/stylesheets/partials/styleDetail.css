@@ -1,27 +1,56 @@
 div.detail div.card {
-background-color: var(--colorWhite);
-border-radius: 15px;
+    background-color: var(--colorWhite);
+    border-radius: 15px;
 }
 
 div.detail div.modal-body {
     background-color: var(--colorWhite);
-    }
+}
 
 
 div.detail div.banner h3{
-font-family: "Open sans";
-border-bottom: 2px solid
+    font-family: "Open sans";
+    font-style: italic;
+    font-weight: bolder;
+    border-bottom: 2px solid
 }  
 
+div.detail img.memeLibrary{
+    height: 15vh;
+} 
+
 div.detail div.banner h3 i{
-font-size: large;
+    font-size: large;
 }  
 
 div.detail img.meme{
-height: 40vh;
-    }  
+    height: 30vh;
+}  
 
 div.detail img.product{
-height: 40vh;
+    height: 30vh;
+}  
+
+div.detail img.productMeme{
+    height: 30vh;
+}  
+
+@media (min-width: 992px) {
+    div.detail img.meme{
+        height: 30vh;
+    }  
+    
+    div.detail img.product{
+        height: 30vh;
+    }  
+    
+    div.detail img.productMeme{
+        height: 40vh;
     }  
 
+    div.detail img.memeLibrary{
+        height: 10vh;
+    } 
+    
+    
+}

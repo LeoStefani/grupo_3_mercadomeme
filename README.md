@@ -87,7 +87,6 @@ https://trello.com/b/24CXEKkc/mercadomeme
 * Se pueden realizar testeos y recuperar el JSON desde backupProducts.JSON.
 
 
-
 ### Sprint 4:
 
 * Ver archivo retro.md
@@ -103,9 +102,35 @@ https://trello.com/b/24CXEKkc/mercadomeme
 * Se agregó además un middleware de aplicación que checkea en el acceso a cualquier ruta, si el usuario está loggeado. En caso de estar loggeado, carga los datos de ese usuario en una variable loggedUser en la propiedad locals del objeto response. Luego, desde las vistas (partial/header.ejs), si encuentra un usario almacenado en esa variable cambia las opciones de Registrame y Login, por el nombre del usuario y Logout. En caso de clickear sobre el nombre de usuario, se redirigirá al perfil de usuario. En caso de hacer click en logout se ejectará un método que destruye la session, destruye la cookie, y redirige al usuario al login nuevamente.
 
 
+### Sprint 5:
+
+* Ver archivo retro.md
+* Ver tablero de trabajo.
+* Implementacion de base de datos. Se implementó Sequelize para obtener toda la información de una base de datos SQL. Se puede ver la estructura adoptada en el archivo mercadomeme.drawio que se encuentra dentro de la carpeta "myapp" en la web https://app.diagrams.net/.
+
+* Productos. Se trabajo en todo lo relacionado a los productos introduciendo base de datos. Se generó la creación, edición y borrado de producto por parte del administrador de la página. Para poder acceder, debe estar loggeado un perfil de administrador. Para pruebas, ingresar con:
+email: admin@admin.com
+password: adminadmin
+Una vez loggeado, aparecerá la opción "upload" en el header. (hidden trick ;) en caso de no poder loggearse como admin, solo por ahora, se puede acceder al upload de productos desde el icono ? de ayuda en el header).
+Desde esta vista se puede crear un producto nuevo, eliminar o editar uno existente.
+Actualmente se muestra la lista completas de productos. Se pueden filtrar por id, categoria o nombre. Cuando la lista sea mas larga, se agregará paginado. 
+Cuando se edita un producto, el sistema desactiva el mismo de la base de datos y crea uno nuevo con las modificaciones. Lo mismo sucede cuando se borra un producto, se desactiva el nombre y se pasa a status 0. Nótese, que en la tabla intermedia de productos y colores también se lleva a status 0, ya que si alguien quiere consultar todos los productos que tienen algún color particular, no queremos que se muestren los productos que fueron eliminados.
+Detalle: si se carga un nuevo color en la base de datos, nótese que aparecerá disponible en el create o edit de productos automáticamente.
+Mejoras pendientes: Disponibilizar agregar una nueva categoría desde el create del producto. Dar la opción de subir multiples imágenes con multer (nos pareció incómodo el input de tipo multiple, trabajaremos con JSfront). Dar la opción de editar las imágenes de un producto.
+Home, los 4 productos del home se traen de la base de datos ordenados según cantidad vendida en orden descendiente y limitados en 4.
 
 
+* Usuarios. Se creo una columna "admin" con valores 0 o 1, de modo de poder saber que usuario poseen perfil de administrador y por ende acceso a la edición de productos.
 
+* Perfil de usuario. Se trabajó en el perfil de usuario, al cual se puede acceder unicamente una vez loggeado en la página. De la misma manera, se corrigió un pequeño error que permitia que, una vez loggeado un usuario, pudiera entrar a otro perfil modificando los parámetros de ruta.
+Todos los valores (a excepcion de los relacionados a la biblioteca de memes) se leen desde la base de datos. Se pueden editar todos, a excepción del nombre de usuario y el email.
+Además, se dividieron los datos en colapsables para mejorar la experiencia del usuario, principalmente en entorno mobile. En cada colapsable, se puede editar los campos a través de un modal que permite el ingreso de los nuevos valores. Cada valor ingresado pasa por una validación, la cual si resulta falsa, devuelve la vista con la impresión de dichos errores. Dado que los campos se encuentran dentro de colapsables, en cada botón correspondiente se imprime una señal de que hubo errores en la edición. Una vez que se ingresa al colapsable indicado, también se muestra el error en el campo correspondiente. Si se vuelve a tocar en el botón "Editar" de dicho campo, se ingresa al modal en el cual se muestra la descripción completa del error para que el usuario entienda que és lo que no era correcto.
+Por ejemplo, en el caso de las tarjetas de crédito, se valida que el número sea válido a traves del algoritmo de Luhn, y se renderiza automáticamente el logo y nombre del emisor para los casos de Visa, MasterCard y American Express.
+
+* Registro de usuarios. Se agregaron validaciones. Utilizando JS en el front, se valida que el valor ingresado en el campo "confirmar contraseña" coincida con lo ingresado en el campo "contraseña". Recién una vez validado eso, se produce el submit del formulario, caso en el cual pasa por express validator, onde se validad que el username y el email no existan previamente en la base de datos, que la password tenga al menos 8 caracteres, que el email ingresado sea válido y que los campos no queden vacíos. En cada caso, se imprimen los errores por pantalla para que el usuario pueda saber que corregir.
+En caso de ser correcto, se redirige al usuario al login.
+
+* Memes: Se comenzó a trabajar con una API de img.flip que permite obtener memes. Los memes que se muestran como ejemplo de categorias, son obtenidos a traves de la API. Aún resta la creación de la biblioteca de memes de cada usuario y trabajar sobre el editor para la personalización.
 
 
 

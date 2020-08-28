@@ -1,0 +1,70 @@
+{
+    "tables": {
+        "categories": {
+            "tableName": "categories",
+            "indexes": []
+        },
+        "colors": {
+            "tableName": "colors",
+            "indexes": {
+                "232073a82d92e46da01eba572d87b01bcd998e53": {
+                    "unique": true,
+                    "fields": [
+                        "name"
+                    ],
+                    "name": "colors_name",
+                    "options": {
+                        "indexName": "colors_name",
+                        "indicesType": "UNIQUE"
+                    }
+                }
+            }
+        },
+        "images": {
+            "tableName": "images",
+            "indexes": []
+        },
+        "products": {
+            "tableName": "products",
+            "indexes": {
+                "9dd2edc930f7f10b335f43252cedb15236e6c240": {
+                    "unique": true,
+                    "fields": [
+                        "name"
+                    ],
+                    "name": "products_name",
+                    "options": {
+                        "indexName": "products_name",
+                        "indicesType": "UNIQUE"
+                    }
+                }
+            }
+        },
+        "product_color": {
+            "tableName": "product_color",
+            "indexes": []
+        },
+        "sizes": {
+            "tableName": "sizes",
+            "indexes": []
+        },
+        "users": {
+            "tableName": "users",
+            "indexes": {
+                "b5916a7aaf4b90618b4ebb198c693e1f5075b0c5": {
+                    "unique": true,
+                    "fields": [
+                        "username",
+                        "email"
+                    ],
+                    "name": "users_username_email",
+                    "options": {
+                        "indexName": "users_username_email",
+                        "indicesType": "UNIQUE"
+                    }
+                }
+            }
+        }
+    },
+    "revision": 1
+}

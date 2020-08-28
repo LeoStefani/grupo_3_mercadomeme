@@ -1,32 +1,32 @@
 const fs = require('fs');
 const path = require('path');
-
-let products = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/products.json'), 'utf-8'));
-
-
-// funcion para ordenar los productos segun cantidad vendida 
-function GetSortOrder(prop) {
-        return function (a, b) {
-                if (a[prop] > b[prop]) {
-                        return 1;
-                } else if (a[prop] < b[prop]) {
-                        return -1;
-                }
-                return 0;
-        }
-};
-// orden de los productos en sortedProducts (ATENCION! Estan de menor a mayor!)
-let sortedProducts = products.sort(GetSortOrder("qtySold"));
+const db = require("../database/models");
+const { Op } = require("sequelize");
 
 
 let controller = {
         index: function (req, res, next) {
-                console.log(req.session.loggedUser);
-                res.render('index', {
-                        title: 'Bienvenidos!',
-                        sortedProducts: sortedProducts
-                });
+
+            db.Product.findAll({
+                include: [{
+                    all: true
+                }],
+                where: {
+                    status: {[Op.eq]: 1}
+                },
+                order: [ ['qty_sold', 'DESC'] ],
+                limit: 4
+
+            })
+            .then(function (sortedProducts) {
+                    res.render('index', {
+                            title: 'Bienvenidos!',
+                            sortedProducts: sortedProducts
+                    });
+                
+            });
         },
+
         error: function (req, res, next) {
                 res.render('error', {
                         title: "Error"
