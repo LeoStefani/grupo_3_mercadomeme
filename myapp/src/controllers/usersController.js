@@ -3,7 +3,6 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const { check, validationResult, body } = require("express-validator");
 const db = require("../database/models");
-const { serialize } = require('v8');
 
 // Si llega a leer el JSON y no hay nadie registrado, lo inicializa como array vacio.
 let usersJSON = fs.readFileSync(path.join(__dirname, '../data/users.json'), 'utf-8');
@@ -186,6 +185,8 @@ module.exports = {
         // Aca hace el IF grande, en el cual si viene sin errores, (errors.isEmpty()), se crea el usuario y sino manda los errores a la vista.
         // if (errors.isEmpty() && db.User.Errors == undefined) {
         let VRerrors = validationResult(req);
+        console.log(req.session.loggedUser)
+
         // Aca hace el IF grande, en el cual si viene sin errores, (errors.isEmpty()), se crea el usuario y sino manda los errores a la vista.
         if (VRerrors.isEmpty()) {
 
@@ -199,28 +200,6 @@ module.exports = {
                     .catch(function (error) { console.log(error) })
 
             } else {
-
-                // if (req.body.username != loggedUser.username) {
-
-                //     db.User.update({
-                //         username: req.body.username
-                //     },
-                //         { where: { id: req.params.userId } })
-                //         .then(function (result) { 
-                      
-                //             res.redirect("/users/login")
-                //          })
-                //         .catch(function (errors) { 
-                //             // res.send(errors)
-                //             res.render("usersProfile", {
-                //             errorsDB: errors,
-                //             user: users,
-                //             title: "Mi Perfil - Error",
-                //         })
-                //         })
-
-
-                // }
 
                 db.User.update({
                     first_name: req.body.firstName,
@@ -254,8 +233,10 @@ module.exports = {
             // Este ELSE viene de si habia errores en el ingreso de datos, para lo cual renderiza de nuevo el register
             // pero esta vez enviando que errores hubo al llenar los campos.
             return db.User.findByPk(req.params.userId).then(function (users) {
+
+                // res.send(VRerrors.mapped())
                 res.render("usersProfile", {
-                    title: "Mi Perfil - Error",
+                    title: "Mi Perfil",
                     user: users,
                     errors: VRerrors.mapped()
                                    })

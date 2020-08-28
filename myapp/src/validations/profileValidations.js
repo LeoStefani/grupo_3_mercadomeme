@@ -1,6 +1,9 @@
 const { check, validationResult, body } = require('express-validator');
+const db = require("../database/models");
+
 
 module.exports = [
+    
     body("firstName")
         .custom(
             function (value) {

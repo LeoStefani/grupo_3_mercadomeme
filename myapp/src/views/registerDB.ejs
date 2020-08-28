@@ -17,7 +17,7 @@
                         <div class="w-100 m-0 p-0">
                             <small class=" text-danger text-center">
                                 <%= (typeof errors != "undefined" && typeof errors.errors != "undefined" && errors.errors[0].message == "username_UNIQUE must be unique") ? "El usuario ya se encuentra registrado en la base de datos." : "" %></small>
-                            <small class=" text-danger text-center">
+                            <small class=" text-danger text-center username">
                                 <%= (typeof errors != "undefined" && errors.userName) ? errors.userName.msg : "" %></small>
                             <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
                                 type="text" name="userName" placeholder="Username"
@@ -27,20 +27,22 @@
                         <div class="w-100 m-0 p-0">
                             <small class=" text-danger text-center">
                                 <%= (typeof errors != "undefined" && typeof errors.errors != "undefined" && errors.errors[0].message == "email_UNIQUE must be unique") ? "El email ingresado ya se encuentra registrado en la base de datos." : "" %></small>
-                            <small class=" text-danger text-center">
+                            <small class=" text-danger text-center email">
                                 <%= (typeof errors != "undefined" && errors.userEmail) ? errors.userEmail.msg : "" %></small>
+
                             <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
                                 type="email" name="userEmail" placeholder="Email"
                                 value="<%= (typeof old != 'undefined' && !errors.email) ? old.userEmail : '' %>">
                         </div>
                         <div class="w-100 m-0 p-0">
-                            <small class=" text-danger text-center">
+                            <small class=" text-danger text-center password">
                                 <%= (typeof errors != "undefined" && errors.userPassword) ? errors.userPassword.msg : "" %></small>
                             <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
                                 type="password" placeholder="Contraseña" name="userPassword"
                                 value="<%= (typeof old != 'undefined' && !errors.userPassword) ? old.userPassword : '' %>">
                         </div>
                         <div class="w-100 m-0 p-0">
+                            <small class=" text-danger text-center rePassword"></small>
                             <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
                                 type="password" placeholder="Confirmar contraseña" name="userRePassword">
                         </div>
@@ -56,7 +58,7 @@
                         <button class="btn btn-warning mt-3 flex-grow-1 col-5 shadow">Seguir con <i
                                 class="fab fa-google"></i></button>
                         <img src="/images/captcha.png" class="captcha rounded-lg w-100 mt-3 shadow" alt="">
-                        <button class="btn btn-warning mt-3 col-12 font-weight-bold shadow"
+                        <button class="btn btn-warning mt-3 col-12 font-weight-bold shadow submit"
                             type="submit">REGISTRARSE</button>
                     </form>
                     <div class="d-flex flex-wrap justify-content-center w-100">
@@ -73,6 +75,7 @@
     <%- include('partials/footer') %>
 
     <%- include('partials/scriptsBootstrap') %>
+    <script src="/js/register.js"></script>
 </body>
 
 </html>

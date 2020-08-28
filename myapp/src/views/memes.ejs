@@ -42,70 +42,67 @@
     <div class="row w-100 m-0 mb-3 p-1 mt-3 product-selector shadow rounded-lg">
 
       <!-- Cada una de las categorias que va a desplegar el collapsable -->
+      <% for (let i=0; i<12; i++) { %>
+
       <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-        <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
-            src="/images/memes/memeEj1.png">
-        </a>
-      </div>
-      <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-        <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
-            src="/images/memes/memeEj2.png">
-        </a>
-      </div>
-      <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-        <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
-            src="/images/memes/memeEj3.png">
-        </a>
-      </div>
-      <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-        <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
-            src="/images/memes/memeEj4.png">
-        </a>
-      </div>
-      <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-        <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
-            src="/images/memes/memeEj5.png">
-        </a>
-      </div>
-      <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-        <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
-            src="/images/memes/memeEj6.png">
-        </a>
-      </div>
-      <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-        <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
-            src="/images/memes/memeEj7.png">
-        </a>
-      </div>
-      <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-        <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
-            src="/images/memes/memeEj8.png">
-        </a>
-      </div>
-      <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-        <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
-            src="/images/memes/memeEj9.png">
-        </a>
-      </div>
-      <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-        <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
-            src="/images/memes/memeEj10.png">
-        </a>
-      </div>
-      <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-        <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
-            src="/images/memes/memeEj1.png">
-        </a>
-      </div>
-      <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-        <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
-            src="/images/memes/memeEj2.png">
+        <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1" src="<%= memes[i].url %>">
         </a>
       </div>
 
-      <!-- Cada una de las categorias que va a desplegar el collapsable -->
+      <% } %>
+      <p class="w-100 shadow rounded-lg">
+        <button class="btn btn-light btn-block" type="button" data-toggle="collapse" data-target="#collapseLibrary"
+          aria-expanded="false" aria-controls="collapseLibrary"><i class="fas fa-chevron-down"></i> Ver más <i
+            class="fas fa-chevron-down"></i></button>
+      </p>
+      <div class="collapse w-100 m-0 p-0" id="collapseLibrary">
+        <div class="card card-body w-100 m-0 p-0">
+          <div class="row w-100 m-0 p-1  product-selector rounded-lg">
 
+            <!-- Cada una de las categorias que va a desplegar el collapsable -->
+            <% for (let i=12; i<24; i++) { %>
+
+            <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
+              <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
+                  src="<%= memes[i].url %>">
+              </a>
+            </div>
+
+            <% } %>
+          </div>
+          <div class="row w-100 m-0  p-1  product-selector rounded-lg">
+
+            <!-- Cada una de las categorias que va a desplegar el collapsable -->
+            <% for (let i=24; i<36; i++) { %>
+
+            <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
+              <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
+                  src="<%= memes[i].url %>">
+              </a>
+            </div>
+
+            <% } %>
+          </div>
+          <div class="row w-100 m-0  p-1  product-selector rounded-lg">
+
+            <!-- Cada una de las categorias que va a desplegar el collapsable -->
+            <% for (let i=36; i<48; i++) { %>
+
+            <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
+              <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
+                  src="<%= memes[i].url %>">
+              </a>
+            </div>
+
+            <% } %>
+          </div>
+        </div>
+
+        <!-- Cada una de las categorias que va a desplegar el collapsable -->
+
+      </div>
     </div>
+
     <!-- banner con categorias -->
 
     <!-- colapsable que adentro tiene los ejemplos segun la categoria que elegiste -->
