@@ -79,12 +79,12 @@ module.exports = {
                     res.redirect("/users/login")
                 })
                 .catch(function (errors) {
-                    // res.send(errors)
-                    res.render("registerDB", {
-                        errors: errors,
-                        title: "Registro - Error",
-                        old: req.body
-                    })
+                    res.send(errors)
+                    // res.render("registerDB", {
+                    //     errors: errors,
+                    //     title: "Registro - Error",
+                    //     old: req.body
+                    // })
                 })
         } else {
             // Este ELSE viene de si habia errores en el ingreso de datos, para lo cual renderiza de nuevo el register

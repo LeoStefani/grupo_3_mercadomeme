@@ -78,8 +78,8 @@ module.exports = function(sequelize, dataTypes) {
             type: dataTypes.STRING
         },
         admin:{
-            type: dataTypes.INTEGER(2).UNSIGNED,
-            allowNull: false
+            type: dataTypes.INTEGER(2).UNSIGNED
+            
         }
         
     };
