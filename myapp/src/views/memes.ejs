@@ -45,7 +45,7 @@
       <% for (let i=0; i<12; i++) { %>
 
       <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-        <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1" src="<%= memes[i].url %>">
+        <a class="text-center text-decoration-none memeCategory"><img class="col-12 rounded-lg m-0 p-1 memeCategory" src="<%= memes[i].url %>">
         </a>
       </div>
 
@@ -161,32 +161,6 @@
           </a>
         </div>
 
-        <!-- <div class="row m-0 p-0 d-flex flex-wrap">
-          <a class="collapse-item col-2 text-center" href=""><figure class="w-100 m-0 p-0 figure">
-            <img src="/images/iconoImagenBordesIguales.png" class="w-100 m-0 p-0 figure-img img-fluid rounded" alt="...">
-            <figcaption class="figure-caption">Lorem</figcaption>
-          </figure></a>
-          <a class="collapse-item col-2 text-center" href=""><figure class="w-100 m-0 p-0 figure">
-            <img src="/images/iconoImagenBordesIguales.png" class="w-100 m-0 p-0 figure-img img-fluid rounded" alt="...">
-            <figcaption class="figure-caption">Lorem</figcaption>
-          </figure></a>
-          <a class="collapse-item col-2 text-center" href=""><figure class="w-100 m-0 p-0 figure">
-            <img src="/images/iconoImagenBordesIguales.png" class="w-100 m-0 p-0 figure-img img-fluid rounded" alt="...">
-            <figcaption class="figure-caption">Lorem</figcaption>
-          </figure></a>
-          <a class="collapse-item col-2 text-center" href=""><figure class="w-100 m-0 p-0 figure">
-            <img src="/images/iconoImagenBordesIguales.png" class="w-100 m-0 p-0 figure-img img-fluid rounded" alt="...">
-            <figcaption class="figure-caption">Lorem</figcaption>
-          </figure></a>
-          <a class="collapse-item col-2 text-center" href=""><figure class="w-100 m-0 p-0 figure">
-            <img src="/images/iconoImagenBordesIguales.png" class="w-100 m-0 p-0 figure-img img-fluid rounded" alt="...">
-            <figcaption class="figure-caption">Lorem</figcaption>
-          </figure></a>
-          <a class="collapse-item col-2 text-center" href=""><figure class="w-100 m-0 p-0 figure">
-            <img src="/images/iconoImagenBordesIguales.png" class="w-100 m-0 p-0 figure-img img-fluid rounded" alt="...">
-            <figcaption class="figure-caption">Lorem</figcaption>
-          </figure></a>
-        </div> -->
       </div>
     </div>
     <!-- colapsable que adentro tiene los ejemplos segun la categoria que elegiste -->
@@ -342,6 +316,7 @@
 
   <%- include('partials/footer') %>
   <%- include('partials/scriptsBootstrap') %>
+  <script src="/js/memes.js"></script>
 </body>
 
 </html>
