@@ -111,7 +111,14 @@ https://trello.com/b/24CXEKkc/mercadomeme
 * Productos. Se trabajo en todo lo relacionado a los productos introduciendo base de datos. Se generó la creación, edición y borrado de producto por parte del administrador de la página. Para poder acceder, debe estar loggeado un perfil de administrador. Para pruebas, ingresar con:
 email: admin@admin.com
 password: adminadmin
-Una vez loggeado, aparecerá la opción "upload" en el header.
+Una vez loggeado, aparecerá la opción "upload" en el header. (hidden trick ;) en caso de no poder loggearse como admin, solo por ahora, se puede acceder al upload de productos desde el icono ? de ayuda en el header).
+Desde esta vista se puede crear un producto nuevo, eliminar o editar uno existente.
+Actualmente se muestra la lista completas de productos. Se pueden filtrar por id, categoria o nombre. Cuando la lista sea mas larga, se agregará paginado. 
+Cuando se edita un producto, el sistema desactiva el mismo de la base de datos y crea uno nuevo con las modificaciones. Lo mismo sucede cuando se borra un producto, se desactiva el nombre y se pasa a status 0. Nótese, que en la tabla intermedia de productos y colores también se lleva a status 0, ya que si alguien quiere consultar todos los productos que tienen algún color particular, no queremos que se muestren los productos que fueron eliminados.
+Detalle: si se carga un nuevo color en la base de datos, nótese que aparecerá disponible en el create o edit de productos automáticamente.
+Mejoras pendientes: Disponibilizar agregar una nueva categoría desde el create del producto. Dar la opción de subir multiples imágenes con multer (nos pareció incómodo el input de tipo multiple, trabajaremos con JSfront). Dar la opción de editar las imágenes de un producto.
+Home, los 4 productos del home se traen de la base de datos ordenados según cantidad vendida en orden descendiente y limitados en 4.
+
 
 * Usuarios. Se creo una columna "admin" con valores 0 o 1, de modo de poder saber que usuario poseen perfil de administrador y por ende acceso a la edición de productos.
 
