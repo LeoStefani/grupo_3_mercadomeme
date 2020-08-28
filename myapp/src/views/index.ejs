@@ -77,12 +77,12 @@
                 <!-- los mas vendidos (muestra los 4 productos mas vendidos) -->
                 <div class="mostWanted row mb-4 d-flex flex-wrap  justify-content-center">
                         <div class="col-10 shadow d-flex flex-wrap justify-content-center m-0 p-2">
-                                <% for(let i = sortedProducts.length-1; i > sortedProducts.length-5; i--) { %>
+                                <% for(let i = 0; i < sortedProducts.length; i++) { %>
                                 <div class="prearticle col-6 col-md-3 m-0 p-2">
                                         <div class="article p-0 rounded-lg">
                                                 <a class="text-decoration-none"
                                                         href="/products/detail/<%= sortedProducts[i].id %>">
-                                                        <img src="/images/products/<%= sortedProducts[i].image[0] %>" class="w-100"
+                                                        <img src="/images/products/<%= sortedProducts[i].images[0].name %>" class="w-100"
                                                                 alt="">
                                                         <h5 class="text-dark m-0 text-center"><%= sortedProducts[i].name %></h5>
                                                         <p class="text-dark m-0 text-center">$ <%= sortedProducts[i].price %></p>

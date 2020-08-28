@@ -44,7 +44,7 @@
                                     placeholder="$ <%= productDetail.price %>" size="10">
                             </div>
                             <input class="check mr-3 p-0" type="checkbox" name="typeAdd" id="typeAddCheck"
-                                value="typeAdd">
+                                value="typeAdd" disabled>
                             <input class="flex-grow-1 mt-2 p-1 border border-white rounded-lg mr-0" type="text"
                                 name="productEditCategoryAlternative" placeholder="Escriba la nueva categoría"
                                 id="typeAddInput" disabled>
@@ -76,18 +76,18 @@
 
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 m-0 mb-1 text-center">
-                                            <label for="xs">XS
-                                            </label><input class="check m-0 ml-1" type="checkbox" name="xs" id="xs"
-                                                value="xs" <% for (let i=0; i<productDetail.sizes.length ; i++) {
+                                            <label for="XS">XS
+                                            </label><input class="check m-0 ml-1" type="checkbox" name="xs" id="XS"
+                                                value="XS" <% for (let i=0; i<productDetail.sizes.length ; i++) {
                                                         
-                                                        if (productDetail.sizes[i].tag == "xs") {
+                                                        if (productDetail.sizes[i].tag == "XS") {
                                                             var xsChecked = true;
                                                             %> checked <% }} %>>
                                         </div>
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" size="15" type="text"
                                             name="sizeXsValue" id="xsInput" <% for (let i=0; i<productDetail.sizes.length ; i++) {
                                                             
-                                                            if (productDetail.sizes[i].tag == "xs") {
+                                                            if (productDetail.sizes[i].tag == "XS") {
                                                                 
                                                                 %> value="<%= productDetail.sizes[i].size_main %>"
                                             <% }} %> <% if(!xsChecked) { %> disabled <% } %> placeholder="ml / lt / cm">
@@ -100,18 +100,18 @@
                                     </div>
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 m-0 mb-1 text-center">
-                                            <label for="s">S
-                                            </label><input class="check m-0 ml-1" type="checkbox" name="s" id="s"
-                                                value="s" <% for (let i=0; i<productDetail.sizes.length ; i++) {
+                                            <label for="S">S
+                                            </label><input class="check m-0 ml-1" type="checkbox" name="s" id="S"
+                                                value="S" <% for (let i=0; i<productDetail.sizes.length ; i++) {
                                                                             
-                                            if (productDetail.sizes[i].tag == "s") {
+                                            if (productDetail.sizes[i].tag == "S") {
                                                 var sChecked = true;
                                                 %> checked <% }} %>>
                                         </div>
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" size="15" type="text"
                                             name="sizeSValue" id="sInput" <% for (let i=0; i<productDetail.sizes.length ; i++) {
                                                                                 
-                                            if (productDetail.sizes[i].tag == "s") {
+                                            if (productDetail.sizes[i].tag == "S") {
                                                 
                                                 %> value="<%= productDetail.sizes[i].size_main %>" <% }} %>
                                             <% if(!sChecked) { %> disabled <% } %> placeholder="ml / lt / cm">
@@ -124,18 +124,18 @@
                                     </div>
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 m-0 mb-1 text-center">
-                                            <label for="m">M
-                                            </label><input class="check m-0 ml-1" type="checkbox" name="m" id="m"
-                                                value="m" <% for (let i=0; i<productDetail.sizes.length ; i++) {
+                                            <label for="M">M
+                                            </label><input class="check m-0 ml-1" type="checkbox" name="m" id="M"
+                                                value="M" <% for (let i=0; i<productDetail.sizes.length ; i++) {
                                                                                                 
-                                                if (productDetail.sizes[i].tag == "m") {
+                                                if (productDetail.sizes[i].tag == "M") {
                                                     var mChecked = true;
                                                     %> checked <% }} %>>
                                         </div>
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" size="15" type="text"
                                             name="sizeMValue" id="mInput" <% for (let i=0; i<productDetail.sizes.length ; i++) {
                                                                                                     
-                                            if (productDetail.sizes[i].tag == "m") {
+                                            if (productDetail.sizes[i].tag == "M") {
                                                 
                                                 %> value="<%= productDetail.sizes[i].size_main %>" <% }} %>
                                             <% if(!mChecked) { %> disabled <% } %> placeholder="ml / lt / cm">
@@ -148,18 +148,18 @@
                                     </div>
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 m-0 mb-1 text-center">
-                                            <label for="l">L
-                                            </label><input class="check m-0 ml-1" type="checkbox" name="l" id="l"
-                                                value="l" <% for (let i=0; i<productDetail.sizes.length ; i++) {
+                                            <label for="L">L
+                                            </label><input class="check m-0 ml-1" type="checkbox" name="l" id="L"
+                                                value="L" <% for (let i=0; i<productDetail.sizes.length ; i++) {
                                                                                                                 
-                                            if (productDetail.sizes[i].tag == "l") {
+                                            if (productDetail.sizes[i].tag == "L") {
                                                 var lChecked = true;
                                                 %> checked <% }} %>>
                                         </div>
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" size="15" type="text"
                                             name="sizeLValue" id="lInput" <% for (let i=0; i<productDetail.sizes.length ; i++) {
                                                                                                                         
-                                            if (productDetail.sizes[i].tag == "l") {
+                                            if (productDetail.sizes[i].tag == "L") {
                                                 
                                                 %> value="<%= productDetail.sizes[i].size_main %>" <% }} %>
                                             <% if(!lChecked) { %> disabled <% } %> placeholder="ml / lt / cm">
@@ -172,18 +172,18 @@
                                     </div>
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 text-center m-0 mb-1">
-                                            <label for="xl">XL
-                                            </label><input class="check m-0 ml-1" type="checkbox" name="xl" id="xl"
-                                                value="xl" <% for (let i=0; i<productDetail.sizes.length ; i++) {
+                                            <label for="XL">XL
+                                            </label><input class="check m-0 ml-1" type="checkbox" name="xl" id="XL"
+                                                value="XL" <% for (let i=0; i<productDetail.sizes.length ; i++) {
                                                                                                                                         
-                                            if (productDetail.sizes[i].tag == "xl") {
+                                            if (productDetail.sizes[i].tag == "XL") {
                                                 var xlChecked = true;
                                                 %> checked <% }} %>>
                                         </div>
                                         <input class="border border-light rounded-lg p-1 m-0 mb-1" size="15" type="text"
                                             name="sizeXlValue" id="xlInput" <% for (let i=0; i<productDetail.sizes.length ; i++) {
                                                                                                                                             
-                                            if (productDetail.sizes[i].tag == "xl") {
+                                            if (productDetail.sizes[i].tag == "XL") {
                                                 
                                                 %> value="<%= productDetail.sizes[i].size_main %>" <% }} %>
                                             <% if(!xlChecked) { %> disabled <% } %> placeholder="ml / lt / cm">
