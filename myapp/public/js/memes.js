@@ -6,20 +6,20 @@ window.addEventListener("load", function () {
     var qsa = function (element) {return document.querySelectorAll(element)}
 
     
-    // let category = qsa("a.memeCategory");
-    // let image = qs("img.memeCategory");
+    let memeToComplete = qs("img.memeToComplete");
+    let memeCategory = qsa("img.memeCategory");
 
+    for (let i=0; i<memeCategory.length; i++) {
 
-    document.querySelectorAll("a.memeCategory").addEventListener("click", function (event) {
-
-        event.preventDefault();
-
+    memeCategory[i].addEventListener("click", function (event) {
         console.log(event)
+    
+        memeToComplete.src = event.srcElement.currentSrc
 
-    })
+   })
     
      
-    
+}
     
     
     })

@@ -44,7 +44,9 @@ div.memes div.product-selector img {
 div.memes div.memeEditorImage {
     background-color: var(--colorWhite);
 }
-
+div.memes img.memeToComplete {
+    height: 35vh;
+}
 /*====MEMES EXAMPLES=====*/
 
 div.memes div.arrayMemesExample{
