@@ -63,7 +63,7 @@
             <% for (let i=12; i<24; i++) { %>
 
             <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-              <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
+              <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1 memeCategory "
                   src="<%= memes[i].url %>">
               </a>
             </div>
@@ -76,7 +76,7 @@
             <% for (let i=24; i<36; i++) { %>
 
             <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-              <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
+              <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1 memeCategory"
                   src="<%= memes[i].url %>">
               </a>
             </div>
@@ -89,7 +89,7 @@
             <% for (let i=36; i<48; i++) { %>
 
             <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-              <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1"
+              <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1 memeCategory"
                   src="<%= memes[i].url %>">
               </a>
             </div>
@@ -105,65 +105,7 @@
 
     <!-- banner con categorias -->
 
-    <!-- colapsable que adentro tiene los ejemplos segun la categoria que elegiste -->
-    <div class="collapse m-0 p-0 mb-3 rounded-lg shadow" id="collapse">
-      <div class="card card-body">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
 
-            <div class="carousel-item active m-0 p-0 text-center">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-            </div>
-
-            <div class="carousel-item m-0 p-0 text-center">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-            </div>
-
-            <div class="carousel-item m-0 p-0 text-center">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-              <img src="/images/iconoImagenBordesIguales.png" class="d-inline-block col-1 m-0 p-0" alt="...">
-            </div>
-
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-
-      </div>
-    </div>
-    <!-- colapsable que adentro tiene los ejemplos segun la categoria que elegiste -->
 
     <!-- Selector de memes con desplegable -->
 
