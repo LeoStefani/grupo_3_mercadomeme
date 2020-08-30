@@ -18,7 +18,7 @@
                   <h5 class="col-12 text-center">Datos de cuenta</h5>
 
                   <div class="d-flex flex-wrap justify-content-center align-items-between col-12 col-sm-2 p-0">
-                     <img class="col-6 col-sm-12 m-0 shadow p-0" src="/images/users/<%=user.avatar%>" alt="">
+                     <img class="col-6 col-sm-12 m-0 shadow p-0 avatar" src="/images/users/<%=user.avatar%>" alt="">
                      <!-- Button trigger modal -->
                      <div class="d-flex flex-wrap align-items-center justify-content-center col-12 mt-2 p-0">
                         <button type="button" class="btn btn-warning btn-sm col-4 col-sm-12 m-0" data-toggle="modal"
@@ -307,18 +307,21 @@
                            <span aria-hidden="true">&times;</span>
                         </button>
                      </div>
-                     <div class="modal-body">
-                        <form role="form" class=" d-flex flex-wrap justify-content-between"
+                     <div class="modal-body col-12 d-flex flex-wrap justify-content-center">
+                        <form role="form" class=" d-flex flex-wrap justify-content-center"
                            enctype="multipart/form-data" method="POST" action="/users/profile/<%=user.id%>"
                            id="avatarForm">
-                           <div class="w-100 m-0 p-0">
-                              <input class="text-truncate" type="file" name="avatar" id="avatar">
+                           <div class="col-12 justify-content-center text-center m-0 mb-2 p-0">
+                              <input class="text-truncate " type="file" name="avatar" id="avatar">
                            </div>
+                           <div class="col-6 m-0 p-0 justify-content-center">
+                              <img class="col-12 shadow p-0 m-0 previewAvatar rounded-lg" src="/images/users/<%= user.avatar %>" alt="">
+                          </div>
                         </form>
                      </div>
                      <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-warning" form="avatarForm">Guardar
+                        <button type="submit" class="btn btn-warning" form="avatarForm" id="submitAvatar" disabled>Guardar
                            cambios</button>
                      </div>
                   </div>
@@ -755,6 +758,8 @@
    </div>
    <%- include('partials/footer') %>
    <%- include('partials/scriptsBootstrap') %>
+   <script src="/js/usersProfile.js"></script>
+
 </body>
 
 </html>

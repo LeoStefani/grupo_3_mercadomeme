@@ -9,6 +9,10 @@ div.mainRegister img.captcha{
 height: 75px;
 }
 
+div.mainRegister img.previewAvatar{
+    border-radius: 50%;
+    }
+
 div.mainRegister div.containerColumn{
     width: 45%;
     background-color: var(--colorWhite);    
