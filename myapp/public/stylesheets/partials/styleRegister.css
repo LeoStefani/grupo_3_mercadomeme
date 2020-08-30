@@ -4,6 +4,11 @@ div.mainRegister {
     margin: 0 auto;
 }
 
+
+div.mainRegister img.captcha{
+height: 75px;
+}
+
 div.mainRegister div.containerColumn{
     width: 45%;
     background-color: var(--colorWhite);    
