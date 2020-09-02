@@ -45,7 +45,8 @@
       <% for (let i=0; i<12; i++) { %>
 
       <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-        <a class="text-center text-decoration-none memeCategory"><img class="col-12 rounded-lg m-0 p-1 memeCategory" src="<%= memes[i].url %>">
+        <a class="text-center text-decoration-none memeCategory"><img class="col-12 rounded-lg m-0 p-1 memeCategory"
+            src="<%= memes[i].url %>">
         </a>
       </div>
 
@@ -151,8 +152,10 @@
             <button class="flex-grow-1 text-truncate mt-2 mb-2 ml-1  btn btn-warning btn-sm shadow">Rotar</button>
           </form>
         </div>
-        <div class="w-100">
+        <div class="w-100 memeToComplete">
           <img class="w-100 shadow rounded-lg memeToComplete" src="images/memeParaCompletar.png" alt="">
+          <p class="upperText m-0 p-0 w-100">TEXTO SUPERIOR</p>
+          <p class="lowerText m-0 p-0 w-100">TEXTO INFERIOR</p>
         </div>
         <div>
           <button class="mt-2 mb-2 btn btn-warning btn-sm btn-block shadow">CARGAR MI PROPIA IMAGEN</button>
@@ -166,18 +169,22 @@
         <div
           class="d-flex textInput mb-2 w-100 text-center align-items-center justify-content-end flex-column flex-wrap ">
           <div class="d-flex flex-wrap w-100 mt-2 mb-1">
-            <input class="mr-1 flex-grow-1 border border-white rounded-lg shadow" type="text" placeholder="Text#1"
-              size="1">
-            <button class="border border-dark mr-1 btn btn-sm btn-light shadow"></button>
-            <button class="border border-dark mr-1 btn btn-sm btn-dark shadow"></button>
-            <button class="btn btn-sm btn-warning shadow pt-2"><i class="fas fa-cog"></i></button>
+            <input class="mr-1 flex-grow-1 border border-white rounded-lg shadow" name="upperText" type="text"
+              placeholder="Texto Superior" size="1">
+            <button class="border border-dark mr-1 btn btn-sm btn-light shadow colorToggle"><i
+                class="fas fa-adjust"></i></button>
+            <!-- <button class="border border-dark mr-1 btn btn-sm btn-dark shadow"></button> -->
+            <button class="btn btn-sm btn-warning shadow pt-2 up mr-1"><i class="fas fa-arrow-circle-up"></i></button>
+            <button class="btn btn-sm btn-warning shadow pt-2 down"><i class="fas fa-arrow-circle-down"></i></button>
+
           </div>
           <div class="d-flex flex-wrap w-100 mt-1 mb-1">
-            <input class="mr-1 flex-grow-1  border border-white rounded-lg shadow" type="text" placeholder="Text#2"
-              size="1">
-            <button class="border border-dark mr-1 btn btn-sm btn-light shadow"></button>
-            <button class="border border-dark mr-1 btn btn-sm btn-dark shadow"></button>
-            <button class="btn btn-sm btn-warning shadow pt-2"><i class="fas fa-cog"></i></button>
+            <input class="mr-1 flex-grow-1  border border-white rounded-lg shadow" name="lowerText" type="text"
+              placeholder="Texto Inferior" size="1">
+            <button class="border border-dark mr-1 btn btn-sm btn-light shadow colorToggle"><i
+                class="fas fa-adjust"></i></button>
+            <button class="btn btn-sm btn-warning shadow pt-2 up mr-1"><i class="fas fa-arrow-circle-up"></i></button>
+            <button class="btn btn-sm btn-warning shadow pt-2 down"><i class="fas fa-arrow-circle-down"></i></button>
           </div>
           <div class="d-flex flex-wrap w-100 mt-1 mb-1">
             <input class="mr-1 flex-grow-1  border border-white rounded-lg shadow" type="text" placeholder="Text#3"

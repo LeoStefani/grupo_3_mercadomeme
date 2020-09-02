@@ -19,6 +19,12 @@ div.products .product-title {
    font-family: 'Bungee';
 
 }
+
+div.products h4.productName {
+    font-family: "Open sans";
+    font-style: italic;
+    font-weight: bolder;
+}
 div.products div.dropdown img {
     height: 100px;
 }

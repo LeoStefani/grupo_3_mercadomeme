@@ -3,8 +3,20 @@ div.detail div.card {
     border-radius: 15px;
 }
 
-div.detail div.modal-body {
+div.detail div.modal-content {
     background-color: var(--colorWhite);
+    border-radius: 15px;
+}
+
+div.detail div.modal-body {
+    background-color: White;
+}
+
+
+div.detail h5.modal-title {
+    font-family: "Open sans";
+    font-style: italic;
+    font-weight: bolder;
 }
 
 

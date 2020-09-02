@@ -45,13 +45,55 @@ div.memes div.memeEditorImage {
     background-color: var(--colorWhite);
 }
 div.memes img.memeToComplete {
-    height: 35vh;
+    /* position: relative; */
+    max-height: 60vh;
 }
+
+div.memes div.memeToComplete {
+    position: relative;
+}
+
+div.memes p.upperText{
+    font-family: Impact;
+    font-size: 2.5rem;
+    position: absolute;
+    text-align: center;
+    top: 15%;
+    left:50%;
+    /* color: black; */
+
+    -webkit-text-stroke: 1px white;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+
+}
+
+div.memes p.lowerText{
+    font-family: Impact;
+    font-size: 2.5rem;
+    position: absolute;
+    text-align: center;
+    top: 75%;
+    left:50%;
+    /* color: black; */
+    -webkit-text-stroke: 1px white;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+
+}
+
+.dark {
+    color: white !important;
+    -webkit-text-stroke: 1px black !important;
+}
+
+
 /*====MEMES EXAMPLES=====*/
 
 div.memes div.arrayMemesExample{
     background-color: var(--colorWhite);
 }
+
 
 
 div.memes div.arrayMemesExample img{
