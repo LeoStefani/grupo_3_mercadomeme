@@ -60,8 +60,7 @@ div.memes p.upperText{
     text-align: center;
     top: 15%;
     left:50%;
-    /* color: black; */
-
+    word-spacing: 2px;
     -webkit-text-stroke: 1px white;
     transform: translate(-50%, -50%);
     text-transform: uppercase;
@@ -75,7 +74,7 @@ div.memes p.lowerText{
     text-align: center;
     top: 75%;
     left:50%;
-    /* color: black; */
+    word-spacing: 2px;
     -webkit-text-stroke: 1px white;
     transform: translate(-50%, -50%);
     text-transform: uppercase;
