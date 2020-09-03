@@ -163,7 +163,7 @@ module.exports = {
             
         Promise.all([productDetail, productsCategories, colors])
             .then((values) => {
-                // res.send(values) });
+                // res.send(values) })
                 res.render('edit', {
                     title: 'Editar producto',
                     productDetail: values[0],
