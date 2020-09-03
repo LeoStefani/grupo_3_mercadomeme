@@ -66,3 +66,9 @@ div.create div.firstColumn div.anotherParameters form div {
     width: 35%;
 }
 
+div.create img.previewAvatar {
+    height: 100px;
+    width: 100px;
+
+}
+

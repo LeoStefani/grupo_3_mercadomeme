@@ -1,8 +1,15 @@
-const { slice } = require("./profileValidations");
 
-let tarjeta = 5547302373315927;
+for (var i=0; i<4; i++) {
 
-console.log(tarjeta.toString().split('')[0])
+    console.log("aa"+i);
+}
+
+for (i=i; i<6; i++) {
+
+    console.log("bb"+i);
+}
+
+
     
 // let ultimo = tarjeta.slice(-1);
 // let primeros = tarjeta.slice(0,-1);

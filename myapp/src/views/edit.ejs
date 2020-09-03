@@ -390,11 +390,11 @@
                         </div>
                     </div>
 
-<% for (let i=1; i<productDetail.images.length; i++) { %>
+<% for (var j=1; j<productDetail.images.length; j++) { %>
 
     <div class="image w-50 p-1">
-        <h5 class="m-0 text-center">Alternativa<%=i%></h5>
-        <img class="w-100 shadow rounded-lg" src="/images/products/<%= productDetail.images[i].name %>" alt="">
+        <h5 class="m-0 text-center">Alternativa<%=j%></h5>
+        <img class="w-100 shadow rounded-lg" src="/images/products/<%= productDetail.images[j].name %>" alt="">
         <div>
             <a href=""><i class="far fa-trash-alt"></i></a>
             <br>
@@ -403,7 +403,20 @@
         </div>
     </div>
 
+<% } %>
 
+<% for (let i=j; i<5; i++) { %>
+
+    <div class="image w-50 p-1">
+        <h5 class="m-0 text-center">Alternativa<%=i%></h5>
+        <img class="w-100 shadow rounded-lg" src="/images/products/noImage.png" alt="">
+        <div>
+            <a href=""><i class="far fa-trash-alt"></i></a>
+            <br>
+            <br>
+            <a href=""><i class="far fa-plus-square"></i></a>
+        </div>
+    </div>
 
 <% } %>
 
