@@ -140,7 +140,7 @@ window.addEventListener("load", function () {
         }
     })
 
-    upperTextInput.addEventListener("change", function (event) {
+    upperTextInput.addEventListener("keyup", function (event) {
         upperText.innerText = event.srcElement.value;
     })
 
@@ -243,7 +243,7 @@ window.addEventListener("load", function () {
     })
    
 
-    lowerTextInput.addEventListener("change", function (event) {
+    lowerTextInput.addEventListener("keyup", function (event) {
         lowerText.innerText = event.srcElement.value;
     })
 

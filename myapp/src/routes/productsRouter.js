@@ -20,7 +20,7 @@ router.get('/delete/:id', productsController.deleteViewer);
 // router.post('/create', productsController.upload);
 
 router.post('/create', upload.any(), productsController.createNew);
-router.put('/edit/:id', productsController.edit);
+router.put('/edit/:id', upload.any(), productsController.edit);
 router.delete('/delete/:id', productsController.delete);
 
 // Product details 
