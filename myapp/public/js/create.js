@@ -26,6 +26,9 @@ window.addEventListener("load", function () {
 
         for (let i=0; i<event.srcElement.files.length; i++) {
 
+        // FALTA VALIDAR QUE SE PUEDAN SUBIR MAXIMO 5 y MINIMO 1. Aprovechar codigo que quedo comentado para poner disabled en el boton del submit
+
+
         if (event.srcElement.files[i] != undefined) {
             previewAvatar[i].src = URL.createObjectURL(event.srcElement.files[i]);
             // submitAvatar.removeAttribute("disabled")}
