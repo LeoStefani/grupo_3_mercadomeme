@@ -114,10 +114,12 @@ module.exports = {
         if (req.body.l != undefined && req.body.sizeLValue != "") { newProductSizes.push({ tag: req.body.l, size_main: parseFloat(req.body.sizeLValue) }) };
         if (req.body.xl != undefined && req.body.sizeXlValue != "") { newProductSizes.push({ tag: req.body.xl, size_main: parseFloat(req.body.sizeXlValue) }) };
 
+
+        console.log(req.files);
         // Tendriamos que dar la opcion de subir muchas img
         let newProductImages = [];
         for (let i=0; i<req.files.length; i++) {
-        newProductImages[i] = { name: req.files[i].filename };
+            newProductImages[i] = { name: req.files[i].filename };
         }
         db.Product.create({
             name: req.body.productNewName,
@@ -178,6 +180,24 @@ module.exports = {
 
     edit: function (req, res, next) {
 
+        let editedProductImages = req.body.oldImgEdition;
+
+        for (let i=0 ; i<5; i++) {
+            for (let j=0; j<req.files.length; j++) {
+                if (req.files[j].fieldname == 'imgProduct' + i) {
+                    editedProductImages[i] = req.files[j].filename;
+                }
+            };
+        }
+
+        let editedProductImagesMapped = editedProductImages.map(function(element) { 
+            let obj = {};
+            obj.name = element;
+            return obj
+         });
+
+        // res.send(editedProductImagesMapped);
+
         // Tendriamos que validar el caso donde no llegue ningun size.
         let editProductSizes = [];
         if (req.body.xs != undefined && req.body.sizeXsValue != "") { editProductSizes.push({ tag: req.body.xs, size_main: parseFloat(req.body.sizeXsValue) }) };
@@ -185,10 +205,6 @@ module.exports = {
         if (req.body.m != undefined && req.body.sizeMValue != "") { editProductSizes.push({ tag: req.body.m, size_main: parseFloat(req.body.sizeMValue) }) };
         if (req.body.l != undefined && req.body.sizeLValue != "") { editProductSizes.push({ tag: req.body.l, size_main: parseFloat(req.body.sizeLValue) }) };
         if (req.body.xl != undefined && req.body.sizeXlValue != "") { editProductSizes.push({ tag: req.body.xl, size_main: parseFloat(req.body.sizeXlValue) }) };
-
-        // // Tendriamos que dar la opcion de modificar las imagenes...
-        // let newProductImages = [];
-        // (req.files[0]) ? newProductImages.push({ name: req.files[0].filename }) : 'buzo_azul.jpg';
 
 
         // Asigno: name compuesto por el id + "deleted" y status 0 al producto pasado por id.    
@@ -219,12 +235,14 @@ module.exports = {
                                 id_category: req.body.productEditCategory,
                                 status: 1,
                                 sizes: editProductSizes,
-                                // images: newProductImages,
+                                images: editedProductImagesMapped,
                                 }
                                 , { include: [{ all: true }] }
                                 )
+
                                 .then((protoProduct) => {
                                     let colorScope = []; //inicializo una array.
+
                                     for(let key in req.body) {
                                         if (key.includes('color')) {
                                             colorScope.push({
@@ -234,16 +252,10 @@ module.exports = {
                                             });
                                         }; //Si el campo del req.body contiene la palabra color, pushea en la array un {} con las propiedades id_product: el id del producto que estamos creando, y id_color: el valor del campo del req.body que representa al id del color.
                                     };
-                                    db.Product_Color.bulkCreate(colorScope)
+
+                                    db.Product_Color.bulkCreate(colorScope) });
                                     // Por ahora pondremos las mismas imagenes que tenia el producto anterior
-                                    .then(results => db.Image.update({
-                                                    id_product_image: protoProduct.id   
-                                                }, {
-                                                    where: {
-                                                        id_product_image: req.params.id
-                                                    }
-                                                })   
-                                    )});
+                                   
 
                                 
         // Redirijo a products/upload otra vez.
