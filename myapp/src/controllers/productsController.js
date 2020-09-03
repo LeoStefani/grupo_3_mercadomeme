@@ -116,8 +116,9 @@ module.exports = {
 
         // Tendriamos que dar la opcion de subir muchas img
         let newProductImages = [];
-        (req.files[0]) ? newProductImages.push({ name: req.files[0].filename }) : 'buzo_azul.jpg';
-
+        for (let i=0; i<req.files.length; i++) {
+        newProductImages[i] = { name: req.files[i].filename };
+        }
         db.Product.create({
             name: req.body.productNewName,
             description: req.body.productNewDescription,
@@ -163,7 +164,7 @@ module.exports = {
             
         Promise.all([productDetail, productsCategories, colors])
             .then((values) => {
-                // res.send(values) });
+                // res.send(values) })
                 res.render('edit', {
                     title: 'Editar producto',
                     productDetail: values[0],

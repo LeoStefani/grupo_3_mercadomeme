@@ -11,6 +11,12 @@ div.userProfile .userName {
 
 }
 
+div.userProfile h5.block-title {
+    font-family: "Open sans";
+    font-style: italic;
+    font-weight: bolder;
+}
+
 
 /*====FIRST COLUMN=====*/
 

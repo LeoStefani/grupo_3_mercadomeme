@@ -110,7 +110,7 @@ window.addEventListener("load", function () {
 
 
         if (password.value.length < 8) {
-            qs("small.password").innerText = "la contraseña debe tener al menos ocho caracteres";
+            qs("small.password").innerText = "La contraseña debe tener al menos ocho caracteres";
             errors.lengthPassword = 1;
         } else {
             errors.lengthPassword = 0;

@@ -102,8 +102,9 @@ div.edit div.firstColumn div.searchBlock{
 
 /*====SECOND COLUMN=====*/
 div.edit div.secondColumn div.image{
-    width: 50%;
+
     position: relative;
+    background-color: var(--colorWhite);
 }
 
 div.edit div.secondColumn div.image div{

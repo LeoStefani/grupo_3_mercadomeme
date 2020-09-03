@@ -71,7 +71,7 @@
                   </div>
                </div>
                <div class="col-12 col-md-5 pt-4 d-flex flex-column border-left">
-                  <h4 class="text-center"><%= preDetail.name %></h4>
+                  <h4 class="text-center productName pb-3"><%= preDetail.name %></h4>
                   <p class="text-justify text-center"><%= preDetail.description %></p>
                   <div class="d-flex flex-wrap">
                      <!-- Este bloque muestra los tamaños y colores disponibles del producto seleccionado -->
@@ -87,7 +87,7 @@
                      <div class="col-6 d-flex m-0 p-0 flex-column text-center">
                         <h5 class="mt-1">Colores: </h5>
                         <% for(let i=0; i < preDetail.colors.length; i++) { %>
-                        <h6><%= preDetail.colors[i].name %></h6>
+                        <h6 class="text-capitalize"><%= preDetail.colors[i].name %></h6>
                         <% } %>
                      </div>
                   </div>
