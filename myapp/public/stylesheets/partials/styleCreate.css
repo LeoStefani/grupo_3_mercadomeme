@@ -73,10 +73,10 @@ div.create img.image {
 }
 
 div.create button.editImage {
-  border-radius: 50%;
   position: absolute;
-  right: 20px;
-  bottom: 10px;
+  transform: translate(-115%, 250%);
+  /* top:57.5%; */
+  /* bottom:0; */
 
 
 }
