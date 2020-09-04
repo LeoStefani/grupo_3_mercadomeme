@@ -11,7 +11,7 @@ window.addEventListener("load", function () {
     let buttonReset = qsa("button.resetImage");
     let input = qsa("input.editInput");
 
-    originalImages = [];
+    let originalImages = [];
 
     for (let i=0; i<5; i++) {
 
@@ -36,6 +36,7 @@ window.addEventListener("load", function () {
                 else {
                     // submitAvatar.setAttribute("disabled", "true"); 
                     URL.revokeObjectURL(image[i].src);
+                    
                     // en teoría esto libera el cache subido, pero no estoy seguro que este funcionando correctamente
                 }
     

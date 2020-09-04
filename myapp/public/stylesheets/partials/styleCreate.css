@@ -66,9 +66,18 @@ div.create div.firstColumn div.anotherParameters form div {
     width: 35%;
 }
 
-div.create img.previewAvatar {
+div.create img.image {
     height: 100px;
     width: 100px;
+
+}
+
+div.create button.editImage {
+  border-radius: 50%;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+
 
 }
 

@@ -5,9 +5,9 @@ div.delete{
     
     /*====FIRST COLUMN=====*/
     
-    div.delete div.firstColumn div.dataBlock{
-    background-color: var(--colorWhite);
-    }
+    /* div.delete div.firstColumn div.dataBlock{ */
+    /* background-color: var(--colorWhite); */
+    /* } */
     
     div.delete div.firstColumn div.dataBlock form button{
         width: 49%;
@@ -16,12 +16,12 @@ div.delete{
     
     div.delete div.firstColumn div.card{
         /* border: gray 1px solid; */
-        background-color: var(--colorWhite);
+        background-color: White;
     }
     
     div.delete div.firstColumn div.size{
         /* border: gray 1px solid; */
-        background-color: var(--colorWhite);
+        background-color: var(--colorWhite;
     }
     
     div.delete div.firstColumn div.size h4{
@@ -72,32 +72,10 @@ div.delete{
         width: 50%;
         position: relative;
     }
-    
-    div.delete div.secondColumn div.image div{
-        position: absolute;
-        right: 25px;
-        bottom: 25px;
-    }
-    div.delete div.secondColumn div.image div i{
-        font-size: 2rem;
-        color: gray;
-    }
+
+
     div.delete div.secondColumn div.image h5{
         font-size: 1.1rem;
     }
     
     
-    
-    /*====MEDIA QUERIES=====*/
-    
-    @media (min-width: 768px) {
-    
-        div.delete div.secondColumn div.image div i{
-            font-size: 1.5rem;
-        }
-        div.delete div.secondColumn div.image div{
-            position: absolute;
-            right: 10px;
-            bottom: 10px;
-        }
-    }

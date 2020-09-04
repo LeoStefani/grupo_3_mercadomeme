@@ -80,7 +80,6 @@ CREATE TABLE `images` (
   `name` varchar(100) NOT NULL,
   `id_product_image` int(10) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name_UNIQUE` (`name`),
   KEY `id_product_image_idx` (`id_product_image`),
   CONSTRAINT `id_product_image` FOREIGN KEY (`id_product_image`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4;
@@ -241,4 +240,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-28 17:52:59
+-- Dump completed on 2020-09-04 11:09:04

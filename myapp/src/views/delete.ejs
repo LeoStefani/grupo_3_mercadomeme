@@ -13,7 +13,7 @@
 
                                         <!-- Data Block -->
                                         <div
-                                                class="dataBlock w-100 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-3 mt-4">
+                                                class="dataBlock w-100 d-flex flex-wrap justify-content-between rounded-lg p-2 mb-3 mt-4">
                                                 <div class="w-100 d-flex flex-wrap justify-content-end align-items-center">
                                                         <h5 class="w-100 text-center">Información del producto que estás eliminando</h5>
                                                         <div class="card card-body w-100">
@@ -67,7 +67,7 @@
                                                                 <div class="col-12 d-flex flex-column">
                                                                         <h5 class="mt-1">Colores: </h5>
                                                                         <% for(let i=0; i < productToDelete.colors.length; i++) { %>
-                                                                        <h6><%= productToDelete.colors[i].name %>
+                                                                        <h6 class="text-capitalize"><%= productToDelete.colors[i].name %>
                                                                         </h6>
                                                                         <% } %>
                                                                 </div>
@@ -94,58 +94,28 @@
 
                                 </div>
 
-                                <div class="secondColumn col-12 col-md-4 d-flex flex-wrap align-items-center">
-                                        <div class="image w-100 position-relative p-1">
-                                                <h5 class="text-center m-0">Portada</h5>
-                                                <img class="w-100 shadow rounded-lg" src="/Images/remeraNegra.jpg" alt="">
-                                                <div>
-                                                        <a href=""><i class="far fa-trash-alt"></i></a>
-                                                        <br>
-                                                        <br>
-                                                        <a href=""><i class="far fa-plus-square"></i></a>
-                                                </div>
-                                        </div>
-                                        <div class="image w-50 p-1">
-                                                <h5 class="m-0 text-center">Alternativa1</h5>
-                                                <img class="w-100 shadow rounded-lg" src="/Images/remeraNegra.jpg" alt="">
-                                                <div>
-                                                        <a href=""><i class="far fa-trash-alt"></i></a>
-                                                        <br>
-                                                        <br>
-                                                        <a href=""><i class="far fa-plus-square"></i></a>
-                                                </div>
-                                        </div>
-                                        <div class="image w-50 p-1">
-                                                <h5 class="m-0 text-center">Alternativa2</h5>
-                                                <img class="w-100 shadow rounded-lg" src="/Images/remeraNegra.jpg" alt="">
-                                                <div>
-                                                        <a href=""><i class="far fa-trash-alt"></i></a>
-                                                        <br>
-                                                        <br>
-                                                        <a href=""><i class="far fa-plus-square"></i></a>
-                                                </div>
-                                        </div>
-                                        <div class="image w-50 p-1">
-                                                <h5 class="m-0 text-center">Alternativa3</h5>
-                                                <img class="w-100 shadow rounded-lg" src="/Images/remeraNegra.jpg" alt="">
-                                                <div>
-                                                        <a href=""><i class="far fa-trash-alt"></i></a>
-                                                        <br>
-                                                        <br>
-                                                        <a href=""><i class="far fa-plus-square"></i></a>
-                                                </div>
-                                        </div>
-                                        <div class="image w-50 p-1">
-                                                <h5 class="m-0 text-center">Alternativa4</h5>
-                                                <img class="w-100 shadow rounded-lg" src="/Images/remeraNegra.jpg" alt="">
-                                                <div>
-                                                        <a href=""><i class="far fa-trash-alt"></i></a>
-                                                        <br>
-                                                        <br>
-                                                        <a href=""><i class="far fa-plus-square"></i></a>
-                                                </div>
-                                        </div>
-                                </div>
+                                <!-- Image editor -->
+                <div class="secondColumn col-12 col-md-4 d-flex flex-wrap align-content-start mt-4 rounded-lg">
+
+                        <div class="image col-12 position-relative p-2 rounded-lg">
+                            <h5 class="text-center m-0 p-1">Portada</h5>
+                            <img class="w-100 shadow rounded-lg image"
+                                src="/images/products/<%= productToDelete.images[0].name %>" alt="">
+       
+                        </div>
+    
+                        <% for (var j=1; j<productToDelete.images.length; j++) { %>
+    
+                        <div class="image col-6 p-2 m-0">
+                            <h5 class="m-0 text-center p-1">Alternativa<%=j%></h5>
+                            <img class="w-100 shadow rounded-lg image"
+                                src="/images/products/<%= productToDelete.images[j].name %>" alt="">
+                        </div>
+    
+                        <% } %>
+      
+                    </div>
+                    <!-- Image editor -->
 
                                 <button class="btn btn-warning btn-lg btn-block mt-3 shadow rounded-lg m-3" form="deleteForm" type="submit">ELIMINAR</button>
                         </form>
