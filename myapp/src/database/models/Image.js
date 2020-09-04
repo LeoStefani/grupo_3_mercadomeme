@@ -11,12 +11,7 @@ module.exports = function(sequelize, dataTypes) {
             },
             name:{
                 type: dataTypes.STRING,
-                allowNull: false,
-                unique: {
-                    args: true,
-                    message: 'El nombre de la imagen ya existe',
-                //     fields: [sequelize.fn('lower', sequelize.col('name'))]
-                },
+                allowNull: false
             },
             id_product_image: {
                 type: dataTypes.INTEGER,

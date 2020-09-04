@@ -8,7 +8,8 @@
     <div class="edit container">
         <div class="row">
             <form class="w-100 d-flex flex-wrap justify-content-center align-items-start"
-                action="/products/edit/<%= productDetail.id %>?_method=PUT" method="POST" id="editForm">
+                action="/products/edit/<%= productDetail.id %>?_method=PUT" enctype="multipart/form-data" method="POST"
+                id="editForm">
                 <div
                     class="firstColumn d-flex flex-wrap flex-column justify-content-start align-items-center col-12 col-md-8">
 
@@ -92,7 +93,7 @@
                                                                 %> value="<%= productDetail.sizes[i].size_main %>"
                                             <% }} %> <% if(!xsChecked) { %> disabled <% } %> placeholder="ml / lt / cm">
                                         <script>
-                                            document.getElementById('xs').onchange = function () {
+                                            document.getElementById('XS').onchange = function () {
                                                 document.getElementById('xsInput').disabled = !this.checked;
                                             };
                                         </script>
@@ -116,7 +117,7 @@
                                                 %> value="<%= productDetail.sizes[i].size_main %>" <% }} %>
                                             <% if(!sChecked) { %> disabled <% } %> placeholder="ml / lt / cm">
                                         <script>
-                                            document.getElementById('s').onchange = function () {
+                                            document.getElementById('S').onchange = function () {
                                                 document.getElementById('sInput').disabled = !this.checked;
                                             };
                                         </script>
@@ -140,7 +141,7 @@
                                                 %> value="<%= productDetail.sizes[i].size_main %>" <% }} %>
                                             <% if(!mChecked) { %> disabled <% } %> placeholder="ml / lt / cm">
                                         <script>
-                                            document.getElementById('m').onchange = function () {
+                                            document.getElementById('M').onchange = function () {
                                                 document.getElementById('mInput').disabled = !this.checked;
                                             };
                                         </script>
@@ -164,7 +165,7 @@
                                                 %> value="<%= productDetail.sizes[i].size_main %>" <% }} %>
                                             <% if(!lChecked) { %> disabled <% } %> placeholder="ml / lt / cm">
                                         <script>
-                                            document.getElementById('l').onchange = function () {
+                                            document.getElementById('L').onchange = function () {
                                                 document.getElementById('lInput').disabled = !this.checked;
                                             };
                                         </script>
@@ -188,7 +189,7 @@
                                                 %> value="<%= productDetail.sizes[i].size_main %>" <% }} %>
                                             <% if(!xlChecked) { %> disabled <% } %> placeholder="ml / lt / cm">
                                         <script>
-                                            document.getElementById('xl').onchange = function () {
+                                            document.getElementById('XL').onchange = function () {
                                                 document.getElementById('xlInput').disabled = !this.checked;
                                             };
                                         </script>
@@ -214,105 +215,17 @@
                             <div class="colors w-100 p-2">
                                 <div class="d-flex flex-wrap justify-content-around">
                                     <% for (let i=0; i< colors.length; i++) { %>
-                                        <div class="d-flex justify-content-between">
-                                            <label class="text-capitalize" for="<%= colors[i].id %>"><%= colors[i].name %></label>
-                                            <input class="ml-1" type="checkbox" name="color<%= colors[i].id %>" id="<%= colors[i].id %>" value="<%= colors[i].id %>"
-                                            <% for (let j=0; j<productDetail.colors.length ; j++) {
+                                    <div class="d-flex justify-content-between">
+                                        <label class="text-capitalize"
+                                            for="<%= colors[i].id %>"><%= colors[i].name %></label>
+                                        <input class="ml-1" type="checkbox" name="color<%= colors[i].id %>"
+                                            id="<%= colors[i].id %>" value="<%= colors[i].id %>" <% for (let j=0; j<productDetail.colors.length ; j++) {
                                                 if (productDetail.colors[j].name == colors[i].name) {
                                                     %> checked <% }} %>>
-                                        </div>
+                                    </div>
                                     <% } %>
 
-                                    <!-- <div class="d-flex justify-content-between">
-                                        <label for="black">Negro</label>
-                                        <input type="checkbox" class="ml-1" name="colorBlack" id="black" value="Negro"
-                                            <% for (let i=0; i<productDetail.colors.length ; i++) {
-                                                                                                                                                            
-                                            if (productDetail.colors[i].colorName == "Negro") {
-                                                
-                                                %> checked <% }} %>>
-                                    </div> -->
-                                    <!-- <div class="d-flex justify-content-between">
-                                        <label for="red">Rojo</label>
-                                        <input type="checkbox" class="ml-1" name="colorRed" id="red" value="Rojo"
-                                            <% for (let i=0; i<productDetail.colors.length ; i++) {
-                                                                                                                                                                    
-                                            if (productDetail.colors[i].colorName == "Rojo") {
-                                                
-                                                %> checked <% }} %>>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <label for="blue">Azul</label>
-                                        <input type="checkbox" class="ml-1" name="colorBlue" id="blue" value="Azul"
-                                            <% for (let i=0; i<productDetail.colors.length ; i++) {
-                                                                                                                                                                            
-                                            if (productDetail.colors[i].colorName == "Azul") {
-                                                
-                                                %> checked
-                                            <% }} %>>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <label for="green">Verde</label>
-                                        <input type="checkbox" class="ml-1" name="colorGreen" id="green" value="Verde"
-                                            <% for (let i=0; i<productDetail.colors.length ; i++) {
-                                                                                                                                                                                    
-                                            if (productDetail.colors[i].colorName == "Verde") {
-                                                
-                                                %> checked
-                                            <% }} %>>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <label for="white">Blanco</label>
-                                        <input type="checkbox" class="ml-1" name="colorWhite" id="white" value="Blanco"
-                                            <% for (let i=0; i<productDetail.colors.length ; i++) {
-                                                                                                                                                                                            
-                                            if (productDetail.colors[i].colorName == "Blanco") {
-                                                
-                                                %>
-                                            checked <% }} %>>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <label for="yellow">Amarillo</label>
-                                        <input type="checkbox" class="ml-1" name="colorYellow" id="yellow"
-                                            value="Amarillo"
-                                            <% for (let i=0; i<productDetail.colors.length ; i++) {
-                                                                                                                                                                                                    
-                                            if (productDetail.colors[i].colorName == "Amarillo") {
-                                                
-                                                %>
-                                            checked <% }} %>>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <label for="gray">Gris</label>
-                                        <input type="checkbox" class="ml-1" name="colorGray" id="gray" value="Gris"
-                                            <% for (let i=0; i<productDetail.colors.length ; i++) {
-                                                                                                                                                                                                            
-                                            if (productDetail.colors[i].colorName == "Gris") {
-                                                
-                                                %>
-                                            checked <% }} %>>
-                                    </div>
 
-                                    <div class="d-flex justify-content-between">
-                                        <label for="pink">Rosa</label>
-                                        <input type="checkbox" class="ml-1" name="colorPink" id="pink" value="Rosa"
-                                            <% for (let i=0; i<productDetail.colors.length ; i++) {
-                                                                                                                                                                                                                    
-                                            if (productDetail.colors[i].colorName == "Rosa") {
-                                                
-                                                %>
-                                            checked <% }} %>>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <label for="brown">Marrón</label>
-                                        <input type="checkbox" class="ml-1" name="colorBrown" id="brown" value="Marrón"
-                                            <% for (let i=0; i<productDetail.colors.length ; i++) {
-                                                                                                                                                                                                                            
-                                            if (productDetail.colors[i].colorName == "Marrón") {
-                                                
-                                                %>
-                                            checked <% }} %>>
-                                    </div> -->
                                     <button class="btn btn-warning btn-sm btn-block" disabled>Agregar otro
                                         color</button>
 
@@ -323,39 +236,6 @@
                     </div>
                     <!-- Collapse Color -->
 
-                    <!-- Collapse OtherParameters -->
-                    <!-- <p class="w-100 shadow rounded-lg">
-                                                                                                                                                                                                                    <button class="btn btn-light btn-block" type="button" data-toggle="collapse"                                                                                                                                                                       data-target="#collapseOtherParameters" aria-expanded="false"
-                                                                                                                                                                                                                    aria-controls="collapseOtherParameters"><i class="fas fa-chevron-down"></i> Otros Parámetros <i class="fas fa-chevron-down"></i></button>
-                                                                                                                                                                                                                </p>
-                                                                                                                                                                                                                <div class="collapse w-100 mb-3" id="collapseOtherParameters">
-                                                                                                                                                                                                                    <div class="card card-body w-100">
-                                                                                                                                                                                                                        <div class="anotherParameters w-100 mb-2">
-                                                                                                                                                                                                                            <form class="d-flex flex-wrap justify-content-around" action="">
-                                                                                                                                                                                                                                <div class="d-flex justify-content-between">
-                                                                                                                                                                                                                                    <label for="cotton">Algodón</label>
-                                                                                                                                                                                                                                    <input type="checkbox" name="extras" id="cotton" value="cotton">
-                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                <div class="d-flex justify-content-between">
-                                                                                                                                                                                                                                    <label for="poliester">Poliester</label>
-                                                                                                                                                                                                                                    <input type="checkbox" name="extras" id="poliester" value="poliester">
-                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                <div class="d-flex justify-content-between">
-                                                                                                                                                                                                                                    <label for="roundNeck">Cuello redondo</label>
-                                                                                                                                                                                                                                    <input type="checkbox" name="extras" id="roundNeck" value="roundNeck">
-                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                <div class="d-flex justify-content-between">
-                                                                                                                                                                                                                                    <label for="vNeck">Cuello en V</label>
-                                                                                                                                                                                                                                    <input type="checkbox" name="extras" id="vNeck" value="vNeck">
-                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                <button class="btn btn-warning btn-sm btn-block">Agregar otro parámetro</button>
-                                                                                                                                                                                                                                <button class="btn btn-warning btn-sm btn-block mt-3 shadow rounded-lg m-0" type="submit">Confirmar parámetros</button>
-                                                                                                                                                                                                                            </form>
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                </div> -->
-                    <!-- Collapse OtherParameters -->
 
                     <!-- Collapse Description -->
                     <p class="w-100 shadow rounded-lg">
@@ -378,42 +258,71 @@
                     <!-- Collapse Description -->
 
                 </div>
+
+                <!-- Image editor -->
                 <div class="secondColumn col-12 col-md-4 d-flex flex-wrap align-content-start mt-4 rounded-lg">
 
-                    <input type="file" name="edit" id="edit" multiple hidden>
+
                     <div class="image col-12 position-relative p-2 rounded-lg">
                         <h5 class="text-center m-0 p-1">Portada</h5>
-                        <img class="w-100 shadow rounded-lg" src="/images/products/<%= productDetail.images[0].name %>" alt="">
+                        <img class="w-100 shadow rounded-lg image"
+                            src="/images/products/<%= productDetail.images[0].name %>" alt="">
+                        <button class="btn btn-sm btn-warning editImage" action="" type="button">Editar</button>
+                        <button class="btn btn-sm btn-warning resetImage" action="" type="button">Reset</button>
+
+
                         <div>
-                            <button class="btn btn-sm btn-warning">Editar</button>
+                            <!-- <button class="btn btn-sm btn-warning">Editar</button> -->
+                            <input type="file" name="imgProduct0" id="imgProduct0" class="text-truncate editInput"
+                                hidden>
+                                <input type="text" value="<%= productDetail.images[0].name %>" name="oldImgEdition"
+                                id="oldImgEdition" class="text-truncate" hidden>
                         </div>
                     </div>
 
-<% for (var j=1; j<productDetail.images.length; j++) { %>
+                    <% for (var j=1; j<productDetail.images.length; j++) { %>
 
-    <div class="image col-6 p-2 m-0">
-        <h5 class="m-0 text-center p-1">Alternativa<%=j%></h5>
-        <img class="w-100 shadow rounded-lg" src="/images/products/<%= productDetail.images[j].name %>" alt="">
-        <div>
-            <button class="btn btn-sm btn-warning">Editar</button>
-        </div>
-    </div>
+                    <div class="image col-6 p-2 m-0">
+                        <h5 class="m-0 text-center p-1">Alternativa<%=j%></h5>
+                        <img class="w-100 shadow rounded-lg image"
+                            src="/images/products/<%= productDetail.images[j].name %>" alt="">
+                        <button class="btn btn-sm btn-warning editImage" action="" type="button">Editar</button>
+                        <button class="btn btn-sm btn-warning resetImage" action="" type="button">Reset</button>
 
-<% } %>
 
-<% for (let i=j; i<5; i++) { %>
+                        <div>
+                            <!-- <button class="btn btn-sm btn-warning">Editar</button> -->
+                            <input type="file" name="imgProduct<%= j %>" id="imgProduct<%= j %>"
+                                class="text-truncate editInput" hidden>
+                            <input type="text" value="<%= productDetail.images[j].name %>" name="oldImgEdition"
+                                id="oldImgEdition" class="text-truncate" hidden>
 
-    <div class="image col-6 p-2 m-0">
-        <h5 class="m-0 text-center p-1">Alternativa<%=i%></h5>
-        <img class="w-100 rounded-lg" src="/images/products/noImage.png" alt="">
-        <div>
-        <button class="btn btn-sm btn-warning">Editar</button>
-        </div>
-    </div>
+                        </div>
+                    </div>
 
-<% } %>
+                    <% } %>
+
+                    <% for (let i=j; i<5; i++) { %>
+
+                    <div class="image col-6 p-2 m-0">
+                        <h5 class="m-0 text-center p-1">Alternativa<%=i%></h5>
+                        <img class="w-100 rounded-lg image" src="/images/noImage.png" alt="">
+                        <button class="btn btn-sm btn-warning editImage" action="" type="button">Editar</button>
+                        <button class="btn btn-sm btn-warning resetImage" action="" type="button">Reset</button>
+
+
+                        <div>
+                            <input type="file" name="imgProduct<%= i %>" id="imgProduct<%= i %>"
+                                class="text-truncate editInput" hidden>
+
+                        </div>
+                    </div>
+
+                    <% } %>
 
                 </div>
+                <!-- Image editor -->
+
 
                 <button class="btn btn-warning btn-lg btn-block mt-3 shadow rounded-lg m-3" type="submit"
                     form="editForm">Confirmar edición de
@@ -423,6 +332,8 @@
     </div>
     <%- include('partials/footer') %>
     <%- include('partials/scriptsBootstrap') %>
+    <script src="/js/edit.js"></script>
+
 </body>
 
 </html>

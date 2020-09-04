@@ -107,11 +107,23 @@ div.edit div.secondColumn div.image{
     background-color: var(--colorWhite);
 }
 
-div.edit div.secondColumn div.image div{
+div.edit div.secondColumn div.image button.editImage{
     position: absolute;
     right: 25px;
     bottom: 25px;
 }
+
+div.edit div.secondColumn div.image button.resetImage{
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+}
+
+/* div.edit div.secondColumn div.image div{
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+} */
 div.edit div.secondColumn div.image div i{
     font-size: 2rem;
     color: gray;

@@ -101,34 +101,41 @@
 
         </div>
 
-        <!-- color selector -->
-        <div class="m-0 p-3 col-12  col-md-8 d-flex flex-wrap size align-items-center justify-content-center">
-          <form class="col-10 col-lg-8  m-0 p-0 d-flex flex-wrap justify-content-between align-items-center">
-            <h6 class="p-0 m-0 w-75">Seleccionar color: </h6>
-            <select class="w-25 text-capitalize" name="colors" id="">
-              <% for(let i=0; i < productDetail.colors.length; i++) { %>
-              <option class="w-100 text-center text-capitalize" name="colors" id="<%= productDetail.colors[i].name %>"
-                value="<%= productDetail.colors[i].name %>"><%= productDetail.colors[i].name%></option>
-
-              <% } %>
-            </select>
-          </form>
+        <!-- color and size selector -->
+        <div>
+            <form class="w-100 d-flex flex-wrap justify-content-center align-items-start" action="/" method="POST" enctype="multipart/form-data" id="addToShopCart">
+                <div class="m-0 p-3 col-12  col-md-8 d-flex flex-wrap size align-items-center justify-content-center">
+                    <div class="col-10 col-lg-8  m-0 p-0 d-flex flex-wrap justify-content-between align-items-center">
+                      <h6 class="p-0 m-0 w-75">Seleccionar color: </h6>
+                      <select class="w-25 text-capitalize" name="colors" id="selectedColor">
+                        <% for(let i=0; i < productDetail.colors.length; i++) { %>
+                        <option class="w-100 text-center text-capitalize" name="colors" id="<%= productDetail.colors[i].name %>"
+                          value="<%= productDetail.colors[i].name %>"><%= productDetail.colors[i].name%></option>
+          
+                        <% } %>
+                      </select>
+                    </div>
+                </div>
+                <div class="m-0 p-3 col-12  col-md-8 d-flex flex-wrap size align-items-center justify-content-center">
+                    <div class="col-10 col-lg-8 m-0 p-0 d-flex flex-wrap justify-content-center align-items-center">
+                      <h6 class="p-0 m-0 w-75">Seleccionar tamaño: </h6>
+                      <select class="w-25 text-capitalize" name="sizes" id="selectedSize">
+                        <% for(let i=0; i < productDetail.sizes.length; i++) { %>
+                        <option class="w-100 text-capitalize" name="sizes" id="<%= productDetail.sizes[i].tag %>"
+                          value="<%= productDetail.sizes[i].tag %>"><%= productDetail.sizes[i].tag %></option>
+                        <% } %>
+                      </select>
+                    </div>
+                </div>
+    
+                <div class="m-0 p-3 col-12  col-md-8 d-flex flex-wrap size align-items-center justify-content-center">
+                    <button type="submit" class="shadow w-100 p-1 mt-1 btn btn-warning btn-lg btn-radius">Agregar al
+                        carrito</button>
+                </div>
+            </form>
         </div>
-        <!-- color selector -->
-        <!-- size selector -->
-        <div class="m-0 p-3 col-12  col-md-8 d-flex flex-wrap size align-items-center justify-content-center">
-          <form class="col-10 col-lg-8 m-0 p-0 d-flex flex-wrap justify-content-center align-items-center">
-            <h6 class="p-0 m-0 w-75">Seleccionar tamaño: </h6>
-            <select class="w-25 text-capitalize" name="sizes" id="">
-              <% for(let i=0; i < productDetail.sizes.length; i++) { %>
-              <option class="w-100 text-capitalize" name="sizes" id="<%= productDetail.sizes[i].tag %>"
-                value="<%= productDetail.sizes[i].tag %>"><%= productDetail.sizes[i].tag %></option>
-              <% } %>
-            </select>
-          </form>
-        </div>
-        <!-- size selector -->
-      </div>
+        <!-- scolor and size selector -->
+        
       <!-- card de previsualizacion -->
     </div>
     <!-- row de previsualizacion -->
@@ -137,15 +144,15 @@
 
 
     <!-- Final buttons row, add to shopCart, buy now! -->
-    <div class="row m-0 p-0 d-flex flex-wrap justify-content-center">
+    <!-- <div class="row m-0 p-0 d-flex flex-wrap justify-content-center">
       <div class="mt-2 p-0 col-12 col-lg-6 col-md-10   d-flex flex-wrap justify-content-between">
-        <a class="w-50 pr-1">
-          <button type="button" class="shadow w-100 p-1 mt-1 btn btn-warning btn-lg btn-radius">Agregar al
-            carrito</button></a>
+        <form class="w-50 pr-1" >
+          <button type="submit" class="shadow w-100 p-1 mt-1 btn btn-warning btn-lg btn-radius">Agregar al
+            carrito</button></form>
         <a href="/users/cart" class="w-50 pl-1"><button type="button"
             class="shadow w-100 mt-1 btn p-1 btn-warning btn-lg btn-radius">Ir al carrito</button></a>
       </div>
-    </div>
+    </div> -->
     <!-- Final buttons row, add to shopCart, buy now! -->
 
 
@@ -280,6 +287,7 @@
 
   <%- include('partials/scriptsBootstrap') %>
 
+  <script src="/js/detail.js"></script>
 
 </body>
 
