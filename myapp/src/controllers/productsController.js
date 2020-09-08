@@ -105,52 +105,52 @@ module.exports = {
 
     createNew: function (req, res, next) {
 
-        res.send(req.body);
+        // res.send(req.body);
 
-        // // Tendriamos que validar el caso donde no llegue ningun size.
-        // let newProductSizes = [];
-        // if (req.body.xs != undefined && req.body.sizeXsValue != "") { newProductSizes.push({ tag: req.body.xs, size_main: parseFloat(req.body.sizeXsValue) }) };
-        // if (req.body.s != undefined && req.body.sizeSValue != "") { newProductSizes.push({ tag: req.body.s, size_main: parseFloat(req.body.sizeSValue) }) };
-        // if (req.body.m != undefined && req.body.sizeMValue != "") { newProductSizes.push({ tag: req.body.m, size_main: parseFloat(req.body.sizeMValue) }) };
-        // if (req.body.l != undefined && req.body.sizeLValue != "") { newProductSizes.push({ tag: req.body.l, size_main: parseFloat(req.body.sizeLValue) }) };
-        // if (req.body.xl != undefined && req.body.sizeXlValue != "") { newProductSizes.push({ tag: req.body.xl, size_main: parseFloat(req.body.sizeXlValue) }) };
+        // Tendriamos que validar el caso donde no llegue ningun size.
+        let newProductSizes = [];
+        if (req.body.xs != undefined && req.body.sizeXsValue != "") { newProductSizes.push({ tag: req.body.xs, size_main: parseFloat(req.body.sizeXsValue) }) };
+        if (req.body.s != undefined && req.body.sizeSValue != "") { newProductSizes.push({ tag: req.body.s, size_main: parseFloat(req.body.sizeSValue) }) };
+        if (req.body.m != undefined && req.body.sizeMValue != "") { newProductSizes.push({ tag: req.body.m, size_main: parseFloat(req.body.sizeMValue) }) };
+        if (req.body.l != undefined && req.body.sizeLValue != "") { newProductSizes.push({ tag: req.body.l, size_main: parseFloat(req.body.sizeLValue) }) };
+        if (req.body.xl != undefined && req.body.sizeXlValue != "") { newProductSizes.push({ tag: req.body.xl, size_main: parseFloat(req.body.sizeXlValue) }) };
 
 
-        // console.log(req.files);
+        console.log(req.files);
 
-        // let newProductImages = [];
-        // for (let i=0; i<req.files.length; i++) {
-        //     newProductImages[i] = { name: req.files[i].filename };
-        // }
-        // db.Product.create({
-        //     name: req.body.productNewName,
-        //     description: req.body.productNewDescription,
-        //     price: parseFloat(req.body.productNewPrice),
-        //     qty_sold: 0,
-        //     id_category: req.body.productNewCategory,
-        //     status: 1,
-        //     sizes: newProductSizes,
-        //     images: newProductImages,
-        // }
-        //     , { include: [{ all: true }] }
-        // )
-        //     .then((protoProduct) => {
-        //         let colorScope = []; //inicializo una array.
-        //         for (let key in req.body) {
-        //             if (key.includes('color')) {
-        //                 colorScope.push({
-        //                     id_product: protoProduct.id,
-        //                     id_color: req.body[key],
-        //                     status: 1
-        //                 });
-        //             }; //Si el campo del req.body contiene la palabra color, pushea en la array un {} con las propiedades id_product: el id del producto que estamos creando, y id_color: el valor del campo del req.body que representa al id del color.
-        //         };
-        //         db.Product_Color.bulkCreate(colorScope) // Este bulkcreate, admite como parametro una array con {} con cada fila de la tabla que quiera crear.
-        //             .then(result => {
-        //                 res.redirect("/products/upload")
-        //             })
-        //             .catch(function (error) { console.log(error) });
-        //     });
+        let newProductImages = [];
+        for (let i=0; i<req.files.length; i++) {
+            newProductImages[i] = { name: req.files[i].filename };
+        }
+        db.Product.create({
+            name: req.body.productNewName,
+            description: req.body.productNewDescription,
+            price: parseFloat(req.body.productNewPrice),
+            qty_sold: 0,
+            id_category: req.body.productNewCategory,
+            status: 1,
+            sizes: newProductSizes,
+            images: newProductImages,
+        }
+            , { include: [{ all: true }] }
+        )
+            .then((protoProduct) => {
+                let colorScope = []; //inicializo una array.
+                for (let key in req.body) {
+                    if (key.includes('color')) {
+                        colorScope.push({
+                            id_product: protoProduct.id,
+                            id_color: req.body[key],
+                            status: 1
+                        });
+                    }; //Si el campo del req.body contiene la palabra color, pushea en la array un {} con las propiedades id_product: el id del producto que estamos creando, y id_color: el valor del campo del req.body que representa al id del color.
+                };
+                db.Product_Color.bulkCreate(colorScope) // Este bulkcreate, admite como parametro una array con {} con cada fila de la tabla que quiera crear.
+                    .then(result => {
+                        res.redirect("/products/upload")
+                    })
+                    .catch(function (error) { console.log(error) });
+            });
 
     },
 

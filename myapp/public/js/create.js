@@ -14,6 +14,9 @@ window.addEventListener("load", function () {
         originalImages[i] = image[i].src;
     }
 
+    // imgValidator es el flag para asegurarse que haya al menos una img...
+    let imgValidator = false;
+
     for (let i = 0; i < buttonEdit.length; i++) {
 
         buttonEdit[i].addEventListener("click", function (event) {
@@ -26,6 +29,7 @@ window.addEventListener("load", function () {
     
                 if (event.srcElement.files[0] != undefined) {
                     image[i].src = URL.createObjectURL(event.srcElement.files[0]);
+                    imgValidator = true;
                     // submitAvatar.removeAttribute("disabled")}
                 }
                 // si no se selecciona foto, file es undefined, por lo que se vuelve a deshabilitar el boton de submit
@@ -35,11 +39,8 @@ window.addEventListener("load", function () {
                     image[i].src = originalImages[i];
                     // en teoría esto libera el cache subido, pero no estoy seguro que este funcionando correctamente
                 }
-    
             })
-
         });
-
     }
 
     // ============ VALIDATIONS ============
@@ -54,9 +55,6 @@ window.addEventListener("load", function () {
 
     let inputDescription = qs('#productNewDescription');
     let errorDescription = qs('small#errorDescription');
-
-    // let inputMainImage = qs('#img0');
-    // let errorImage = qs('#img0');
 
     let createErrors = {};
 
@@ -119,6 +117,7 @@ window.addEventListener("load", function () {
             };
         }
 
+        // El siguiente bloque valida caso por caso que si está checkeado un tamaño, tengo un valor correcto.
         let sizesValidations = {
             inputSizeXsCheck : qs('input#XS'),
             inputSizeXsValue : qs('input#xsInput'),
@@ -179,10 +178,11 @@ window.addEventListener("load", function () {
 
         let finalErrors = qs('small#finalErrors');
 
-        if (inputName.value.length > 0 && inputPrice.value.length > 0 && inputDescription.value.length > 0 && Object.keys(createErrors).length == 0 && colorContainerChecked && sizeContainerChecked && xsValidation && sValidation && mValidation && lValidation && xlValidation) { 
+
+        // Bloque final, recopila todas las validaciones, si esta todo Ok hace el submit, sino imprime un error.
+        if (inputName.value.length > 0 && inputPrice.value.length > 0 && inputDescription.value.length > 0 && Object.keys(createErrors).length == 0 && colorContainerChecked && sizeContainerChecked && xsValidation && sValidation && mValidation && lValidation && xlValidation && imgValidator) { 
             createForm.submit();
         } else { 
-            console.log("mal");
             finalErrors.innerText = 'Debes completar todos los campos requeridos y cargar al menos un tamaño, un color, y una imagen del producto';
         };
 
