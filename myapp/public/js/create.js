@@ -98,6 +98,7 @@ window.addEventListener("load", function () {
 
     createForm.addEventListener('submit', event => {
         event.preventDefault();
+
         //Busco y checkeo que haya al menos un color checkeado.
         let colorContainer = qsa('.createColorCheckbox');
         let colorContainerChecked = false;
@@ -117,29 +118,72 @@ window.addEventListener("load", function () {
                 break;
             };
         }
-        let inputSizeXsCheck = qs('input#XS');
-        let inputSizeXsValue = qs('input#xsInput');
-        let inputSizeSCheck = qs('input#S');
-        let inputSizeSValue = qs('input#sInput');
-        let inputSizeMCheck = qs('input#M');
-        let inputSizeMValue = qs('input#mInput');
-        let inputSizeLCheck = qs('input#L');
-        let inputSizeLValue = qs('input#lInput');
-        let inputSizeXlCheck = qs('input#XL');
-        let inputSizeXlValue = qs('input#xlInput');
 
-        let xsValidation = (inputSizeXsCheck.checked && inputSizeXsValue.value.length > 0 && inputSizeXsValue.value.match(numberRegEx));
-        // let sValidation = (inputSizeSCheck.checked && inputSizeSValue.value.length > 0 && inputSizeSValue.value.match(numberRegEx));
-        // let mValidation = (inputSizeMCheck.checked && inputSizeMValue.value.length > 0 && inputSizeMValue.value.match(numberRegEx));
-        // let lValidation = (inputSizeLCheck.checked && inputSizeLValue.value.length > 0 && inputSizeLValue.value.match(numberRegEx));
-        // let xlValidation = (inputSizeXlCheck.checked && inputSizeXlValue.value.length > 0 && inputSizeXlValue.value.match(numberRegEx));
+        let sizesValidations = {
+            inputSizeXsCheck : qs('input#XS'),
+            inputSizeXsValue : qs('input#xsInput'),
+            inputSizeSCheck : qs('input#S'),
+            inputSizeSValue : qs('input#sInput'),
+            inputSizeMCheck : qs('input#M'),
+            inputSizeMValue : qs('input#mInput'),
+            inputSizeLCheck : qs('input#L'),
+            inputSizeLValue : qs('input#lInput'),
+            inputSizeXlCheck : qs('input#XL'),
+            inputSizeXlValue : qs('input#xlInput')
+        };
 
+        let xsValidation = true;
+        if (sizesValidations.inputSizeXsCheck.checked) {
+            if(sizesValidations.inputSizeXsValue.value.length > 0 && sizesValidations.inputSizeXsValue.value.match(numberRegEx)) {
+                xsValidation = true;
+            } else {
+                xsValidation = false;
+            };
+        };
 
+        let sValidation = true;
+        if (sizesValidations.inputSizeSCheck.checked) {
+            if(sizesValidations.inputSizeSValue.value.length > 0 && sizesValidations.inputSizeSValue.value.match(numberRegEx)) {
+                sValidation = true;
+            } else {
+                sValidation = false;
+            };
+        };
 
-        if (inputName.value.length > 0 && inputPrice.value.length > 0 && inputDescription.value.length > 0 && Object.keys(createErrors).length == 0 && colorContainerChecked && sizeContainerChecked && xsValidation ) { 
+        let mValidation = true;
+        if (sizesValidations.inputSizeMCheck.checked) {
+            if(sizesValidations.inputSizeMValue.value.length > 0 && sizesValidations.inputSizeMValue.value.match(numberRegEx)) {
+                mValidation = true;
+            } else {
+                mValidation = false;
+            };
+        };
+
+        let lValidation = true;
+        if (sizesValidations.inputSizeLCheck.checked) {
+            if(sizesValidations.inputSizeLValue.value.length > 0 && sizesValidations.inputSizeLValue.value.match(numberRegEx)) {
+                lValidation = true;
+            } else {
+                lValidation = false;
+            };
+        };
+
+        let xlValidation = true;
+        if (sizesValidations.inputSizeXlCheck.checked) {
+            if(sizesValidations.inputSizeXlValue.value.length > 0 && sizesValidations.inputSizeXlValue.value.match(numberRegEx)) {
+            xlValidation = true;
+            } else {
+            xlValidation = false;
+            };
+        };
+
+        let finalErrors = qs('small#finalErrors');
+
+        if (inputName.value.length > 0 && inputPrice.value.length > 0 && inputDescription.value.length > 0 && Object.keys(createErrors).length == 0 && colorContainerChecked && sizeContainerChecked && xsValidation && sValidation && mValidation && lValidation && xlValidation) { 
             createForm.submit();
         } else { 
             console.log("mal");
+            finalErrors.innerText = 'Debes completar todos los campos requeridos y cargar al menos un tamaño, un color, y una imagen del producto';
         };
 
     })
