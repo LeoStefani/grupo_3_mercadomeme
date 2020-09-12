@@ -6,6 +6,8 @@ window.addEventListener("load", function () {
     let image = qsa("img.image");
     let buttonEdit = qsa("button.editImage");
     let input = qsa("input.editInput");
+    let errorImages = qs('small#errorImages');
+
 
     let originalImages = [];
 
@@ -15,7 +17,7 @@ window.addEventListener("load", function () {
     }
 
     // imgValidator es el flag para asegurarse que haya al menos una img...
-    let imgValidator = false;
+    let imgValidator = [false, false, false, false, false];
 
     for (let i = 0; i < buttonEdit.length; i++) {
 
@@ -25,23 +27,28 @@ window.addEventListener("load", function () {
 
             input[i].addEventListener("change", function (event) {
 
-                console.log(event);
+                // console.log(event);
     
-                if (event.srcElement.files[0] != undefined) {
+                if (event.srcElement.files[0] != undefined && (input[i].files[0].type.slice(6) === 'jpeg' || input[i].files[0].type.slice(6) === 'jpg' || input[i].files[0].type.slice(6) === 'png' || input[i].files[0].type.slice(6) === 'gif')) {
                     image[i].src = URL.createObjectURL(event.srcElement.files[0]);
-                    imgValidator = true;
+                    imgValidator[i] = true;
+                    errorImages.innerText = '';
                     // submitAvatar.removeAttribute("disabled")}
+                } else if (event.srcElement.files[0] != undefined && !(input[i].files[0].type.slice(6) === 'jpeg' || input[i].files[0].type.slice(6) === 'jpg' || input[i].files[0].type.slice(6) === 'png' || input[i].files[0].type.slice(6) === 'gif')) {
+                    errorImages.innerText = 'Ingresa un formato de imagen válido (jpeg, jpg, png, gif)';
                 }
                 // si no se selecciona foto, file es undefined, por lo que se vuelve a deshabilitar el boton de submit
                 else {
                     // submitAvatar.setAttribute("disabled", "true"); 
                     URL.revokeObjectURL(image[i].src);
                     image[i].src = originalImages[i];
+                    imgValidator[i] = false;
+
                     // en teoría esto libera el cache subido, pero no estoy seguro que este funcionando correctamente
                 }
             })
         });
-    }
+    };
 
     // ============ VALIDATIONS ============
     
@@ -65,8 +72,8 @@ window.addEventListener("load", function () {
     //Name validation
     inputName.addEventListener('blur', function() {        
         delete createErrors.name;
-        if(!inputName.value.length > 0) {
-            createErrors.name = "Debés ingresar un nombre de producto";
+        if(!(inputName.value.length > 4)) {
+            createErrors.name = "Debés ingresar un nombre de producto de al menos 5 caracteres";
         } else if(!inputName.value.match(stringRegEx)) {
             createErrors.name = "El nombre de producto debe ser de tipo texto";
         }
@@ -76,7 +83,7 @@ window.addEventListener("load", function () {
     //Price validation
     inputPrice.addEventListener('blur', function() {        
         delete createErrors.price;
-        if(!inputPrice.value.length > 0) {
+        if(!(inputPrice.value.length > 0)) {
             createErrors.price = "Debés ingresar un precio de producto válido";
         } else if(!inputPrice.value.match(numberRegEx)) {
             createErrors.price = "El precio del producto debe ser numérico";
@@ -87,8 +94,8 @@ window.addEventListener("load", function () {
     //Description validation
     inputDescription.addEventListener('blur', function() {        
         delete createErrors.description;
-        if(!(inputDescription.value.length > 0 && inputDescription.value.length < 501)) {
-            createErrors.description = "Debés ingresar una descripción del producto y no puede tener mas de 500 caracteres";
+        if(!(inputDescription.value.length > 19 && inputDescription.value.length < 501)) {
+            createErrors.description = "Debés ingresar una descripción del producto de entre 20 y 500 caracteres";
         } 
         errorDescription.innerText = (createErrors.description) ? createErrors.description : '';
     });
@@ -180,7 +187,7 @@ window.addEventListener("load", function () {
 
 
         // Bloque final, recopila todas las validaciones, si esta todo Ok hace el submit, sino imprime un error.
-        if (inputName.value.length > 0 && inputPrice.value.length > 0 && inputDescription.value.length > 0 && Object.keys(createErrors).length == 0 && colorContainerChecked && sizeContainerChecked && xsValidation && sValidation && mValidation && lValidation && xlValidation && imgValidator) { 
+        if (inputName.value.length > 0 && inputPrice.value.length > 0 && inputDescription.value.length > 0 && Object.keys(createErrors).length == 0 && colorContainerChecked && sizeContainerChecked && xsValidation && sValidation && mValidation && lValidation && xlValidation && imgValidator.includes(true)) { 
             createForm.submit();
         } else { 
             finalErrors.innerText = 'Debes completar todos los campos requeridos y cargar al menos un tamaño, un color, y una imagen del producto';
