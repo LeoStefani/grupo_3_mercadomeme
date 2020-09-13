@@ -180,97 +180,98 @@ module.exports = {
     },
 
     edit: function (req, res, next) {
+        res.send(req.body);
 
-        let editedProductImages = req.body.oldImgEdition;
-        console.log(req.body.oldImgEdition);
-        console.log(editedProductImages);
+        // let editedProductImages = req.body.oldImgEdition;
+        // console.log(req.body.oldImgEdition);
+        // console.log(editedProductImages);
 
-        for (let i=0 ; i<5; i++) {
-            for (let j=0; j<req.files.length; j++) {
-                console.log(req.files[j].fieldname);
+        // for (let i=0 ; i<5; i++) {
+        //     for (let j=0; j<req.files.length; j++) {
+        //         console.log(req.files[j].fieldname);
 
-                if (req.files[j].fieldname == 'imgProduct' + i) {
-                    console.log(editedProductImages[i]);
-                    editedProductImages[i] = req.files[j].filename;
-                    console.log(editedProductImages[i]);
-                }
-            };
-        }
+        //         if (req.files[j].fieldname == 'imgProduct' + i) {
+        //             console.log(editedProductImages[i]);
+        //             editedProductImages[i] = req.files[j].filename;
+        //             console.log(editedProductImages[i]);
+        //         }
+        //     };
+        // }
 
-        let editedProductImagesMapped = editedProductImages.map(function(element) { 
-            let obj = {};
-            obj.name = element;
-            return obj
-         });
+        // let editedProductImagesMapped = editedProductImages.map(function(element) { 
+        //     let obj = {};
+        //     obj.name = element;
+        //     return obj
+        //  });
 
-        // res.send(editedProductImagesMapped);
+        // // res.send(editedProductImagesMapped);
 
-        // Tendriamos que validar el caso donde no llegue ningun size.
-        let editProductSizes = [];
-        if (req.body.xs != undefined && req.body.sizeXsValue != "") { editProductSizes.push({ tag: req.body.xs, size_main: parseFloat(req.body.sizeXsValue) }) };
-        if (req.body.s != undefined && req.body.sizeSValue != "") { editProductSizes.push({ tag: req.body.s, size_main: parseFloat(req.body.sizeSValue) }) };
-        if (req.body.m != undefined && req.body.sizeMValue != "") { editProductSizes.push({ tag: req.body.m, size_main: parseFloat(req.body.sizeMValue) }) };
-        if (req.body.l != undefined && req.body.sizeLValue != "") { editProductSizes.push({ tag: req.body.l, size_main: parseFloat(req.body.sizeLValue) }) };
-        if (req.body.xl != undefined && req.body.sizeXlValue != "") { editProductSizes.push({ tag: req.body.xl, size_main: parseFloat(req.body.sizeXlValue) }) };
-
-
-        // Asigno: name compuesto por el id + "deleted" y status 0 al producto pasado por id.    
-        let deletedProduct = db.Product.update({
-            status: 0,
-            name: req.params.id + 'deleted',
-        }, {
-            where: {
-                id: req.params.id
-            }
-        });
-
-        // Voy a la tabla intermedia y le doy status 0 a todos las filas que tengan como producto al del id.
-        let deletedProCol = db.Product_Color.update({
-            status: 0
-        }, {
-            where: {
-                id_product: req.params.id
-            }
-        });
+        // // Tendriamos que validar el caso donde no llegue ningun size.
+        // let editProductSizes = [];
+        // if (req.body.xs != undefined && req.body.sizeXsValue != "") { editProductSizes.push({ tag: req.body.xs, size_main: parseFloat(req.body.sizeXsValue) }) };
+        // if (req.body.s != undefined && req.body.sizeSValue != "") { editProductSizes.push({ tag: req.body.s, size_main: parseFloat(req.body.sizeSValue) }) };
+        // if (req.body.m != undefined && req.body.sizeMValue != "") { editProductSizes.push({ tag: req.body.m, size_main: parseFloat(req.body.sizeMValue) }) };
+        // if (req.body.l != undefined && req.body.sizeLValue != "") { editProductSizes.push({ tag: req.body.l, size_main: parseFloat(req.body.sizeLValue) }) };
+        // if (req.body.xl != undefined && req.body.sizeXlValue != "") { editProductSizes.push({ tag: req.body.xl, size_main: parseFloat(req.body.sizeXlValue) }) };
 
 
-        let editCreation = db.Product.create({
-                                name: req.body.productEditName,
-                                description: req.body.productEditDescription,
-                                price: parseFloat(req.body.productEditPrice),
-                                qty_sold: 0, //Resetea qty_sold. Debemos mejorar este manejo.
-                                id_category: req.body.productEditCategory,
-                                status: 1,
-                                sizes: editProductSizes,
-                                images: editedProductImagesMapped,
-                                }
-                                , { include: [{ all: true }] }
-                                )
+        // // Asigno: name compuesto por el id + "deleted" y status 0 al producto pasado por id.    
+        // let deletedProduct = db.Product.update({
+        //     status: 0,
+        //     name: req.params.id + 'deleted',
+        // }, {
+        //     where: {
+        //         id: req.params.id
+        //     }
+        // });
 
-                                .then((protoProduct) => {
-                                    let colorScope = []; //inicializo una array.
+        // // Voy a la tabla intermedia y le doy status 0 a todos las filas que tengan como producto al del id.
+        // let deletedProCol = db.Product_Color.update({
+        //     status: 0
+        // }, {
+        //     where: {
+        //         id_product: req.params.id
+        //     }
+        // });
 
-                                    for(let key in req.body) {
-                                        if (key.includes('color')) {
-                                            colorScope.push({
-                                                id_product: protoProduct.id, 
-                                                id_color: req.body[key],
-                                                status: 1
-                                            });
-                                        }; //Si el campo del req.body contiene la palabra color, pushea en la array un {} con las propiedades id_product: el id del producto que estamos creando, y id_color: el valor del campo del req.body que representa al id del color.
-                                    };
 
-                                    db.Product_Color.bulkCreate(colorScope) });
-                                    // Por ahora pondremos las mismas imagenes que tenia el producto anterior
+        // let editCreation = db.Product.create({
+        //                         name: req.body.productEditName,
+        //                         description: req.body.productEditDescription,
+        //                         price: parseFloat(req.body.productEditPrice),
+        //                         qty_sold: 0, //Resetea qty_sold. Debemos mejorar este manejo.
+        //                         id_category: req.body.productEditCategory,
+        //                         status: 1,
+        //                         sizes: editProductSizes,
+        //                         images: editedProductImagesMapped,
+        //                         }
+        //                         , { include: [{ all: true }] }
+        //                         )
+
+        //                         .then((protoProduct) => {
+        //                             let colorScope = []; //inicializo una array.
+
+        //                             for(let key in req.body) {
+        //                                 if (key.includes('color')) {
+        //                                     colorScope.push({
+        //                                         id_product: protoProduct.id, 
+        //                                         id_color: req.body[key],
+        //                                         status: 1
+        //                                     });
+        //                                 }; //Si el campo del req.body contiene la palabra color, pushea en la array un {} con las propiedades id_product: el id del producto que estamos creando, y id_color: el valor del campo del req.body que representa al id del color.
+        //                             };
+
+        //                             db.Product_Color.bulkCreate(colorScope) });
+        //                             // Por ahora pondremos las mismas imagenes que tenia el producto anterior
                                    
 
                                 
-        // Redirijo a products/upload otra vez.
-        Promise.all([deletedProduct, deletedProCol, editCreation])
-            .then((values) => {
-                res.redirect('/products/upload');
-            })
-            .catch(function (error) { console.log(error) });
+        // // Redirijo a products/upload otra vez.
+        // Promise.all([deletedProduct, deletedProCol, editCreation])
+        //     .then((values) => {
+        //         res.redirect('/products/upload');
+        //     })
+        //     .catch(function (error) { console.log(error) });
 
     },
 

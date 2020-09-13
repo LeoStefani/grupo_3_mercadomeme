@@ -1,3 +1,20 @@
+
+function sizeValidator(inputCheck, inputValue) {
+    if (inputCheck.checked) {
+        if(inputValue.length > 0 && inputValue.match(numberRegEx)) {
+            return true;
+        } else {
+            return false;
+        };
+    } else {
+        return false;
+    }; 
+}
+
+let stringRegEx =  /^[a-z\s]+$/i;
+let numberRegEx = /^[0-9]+([,.][0-9]+)?$/g;
+
+
 window.addEventListener("load", function () {
 
     let qs = function (element) { return document.querySelector(element) }
@@ -17,7 +34,7 @@ window.addEventListener("load", function () {
     };
 
     // imgValidator es el flag para asegurarse que haya al menos una img...
-    let imgValidator = [false, false, false, false, false];
+    let imgValidator = [true, false, false, false, false];
 
     for (let i = 0; i < buttonEdit.length; i++) {
 
@@ -33,13 +50,12 @@ window.addEventListener("load", function () {
                     image[i].src = URL.createObjectURL(event.srcElement.files[0]);
                     imgValidator[i] = true;
                     errorImages.innerText = '';
-                    // submitAvatar.removeAttribute("disabled")}
-                } else if (event.srcElement.files[0] != undefined && !(input[i].files[0].type.slice(6) === 'jpeg' || input[i].files[0].type.slice(6) === 'jpg' || input[i].files[0].type.slice(6) === 'png' || input[i].files[0].type.slice(6) === 'gif')) {
+                } 
+                else if (event.srcElement.files[0] != undefined && !(input[i].files[0].type.slice(6) === 'jpeg' || input[i].files[0].type.slice(6) === 'jpg' || input[i].files[0].type.slice(6) === 'png' || input[i].files[0].type.slice(6) === 'gif')) {
                     errorImages.innerText = 'Ingresa un formato de imagen válido (jpeg, jpg, png, gif)';
                 }
                 // si no se selecciona foto, file es undefined, por lo que se vuelve a deshabilitar el boton de submit
                 else {
-                    // submitAvatar.setAttribute("disabled", "true"); 
                     URL.revokeObjectURL(image[i].src);
                     imgValidator[i] = false;
                     
@@ -48,6 +64,7 @@ window.addEventListener("load", function () {
             })
         });
     }
+    console.log(imgValidator);
 
     for (let i = 0; i < buttonReset.length; i++) {
 
@@ -60,22 +77,18 @@ window.addEventListener("load", function () {
 
     // ============ VALIDATIONS ============
     
-    let createForm = qs('form#createForm');
+    let editForm = qs('form#editForm');
 
-    let inputName = qs('#productNewName');
+    let inputName = qs('#productEditName');
     let errorName = qs('small#errorName');
 
-    let inputPrice = qs('#productNewPrice');
+    let inputPrice = qs('#productEditPrice');
     let errorPrice = qs('small#errorPrice');
 
-    let inputDescription = qs('#productNewDescription');
+    let inputDescription = qs('#productEditDescription');
     let errorDescription = qs('small#errorDescription');
 
     let createErrors = {};
-
-    let stringRegEx =  /^[a-z\s]+$/i;
-    let numberRegEx = /^[0-9]+([,.][0-9]+)?$/g;
-
 
     //Name validation
     inputName.addEventListener('blur', function() {        
@@ -109,11 +122,11 @@ window.addEventListener("load", function () {
     });
 
 
-    createForm.addEventListener('submit', event => {
+    editForm.addEventListener('submit', event => {
         event.preventDefault();
 
         //Busco y checkeo que haya al menos un color checkeado.
-        let colorContainer = qsa('.createColorCheckbox');
+        let colorContainer = qsa('.editColorCheckbox');
         let colorContainerChecked = false;
         for (let i = 0; i < colorContainer.length; i++) {
             if(colorContainer[i].checked) {
@@ -123,7 +136,7 @@ window.addEventListener("load", function () {
         }
 
         //Busco y checkeo que haya al menos un size checkeado.
-        let sizeContainer = qsa('.createsizeCheckbox');
+        let sizeContainer = qsa('.editSizeCheckbox');
         let sizeContainerChecked = false;
         for (let i = 0; i < sizeContainer.length; i++) {
             if(sizeContainer[i].checked) {
@@ -146,57 +159,68 @@ window.addEventListener("load", function () {
             inputSizeXlValue : qs('input#xlInput')
         };
 
+
+
         let xsValidation = true;
-        if (sizesValidations.inputSizeXsCheck.checked) {
-            if(sizesValidations.inputSizeXsValue.value.length > 0 && sizesValidations.inputSizeXsValue.value.match(numberRegEx)) {
-                xsValidation = true;
-            } else {
-                xsValidation = false;
-            };
-        };
+        xsValidation = sizeValidator(sizesValidations.inputSizeXsCheck, sizesValidations.inputSizeXsValue.value);
+        // if (sizesValidations.inputSizeXsCheck.checked) {
+        //     if(sizesValidations.inputSizeXsValue.value.length > 0 && sizesValidations.inputSizeXsValue.value.match(numberRegEx)) {
+        //         xsValidation = true;
+        //     } else {
+        //         xsValidation = false;
+        //     };
+        // };
 
         let sValidation = true;
-        if (sizesValidations.inputSizeSCheck.checked) {
-            if(sizesValidations.inputSizeSValue.value.length > 0 && sizesValidations.inputSizeSValue.value.match(numberRegEx)) {
-                sValidation = true;
-            } else {
-                sValidation = false;
-            };
-        };
+        sValidation = sizeValidator(sizesValidations.inputSizeSCheck, sizesValidations.inputSizeSValue.value);
+        // if (sizesValidations.inputSizeSCheck.checked) {
+        //     if(sizesValidations.inputSizeSValue.value.length > 0 && sizesValidations.inputSizeSValue.value.match(numberRegEx)) {
+        //         sValidation = true;
+        //     } else {
+        //         sValidation = false;
+        //     };
+        // };
+
 
         let mValidation = true;
-        if (sizesValidations.inputSizeMCheck.checked) {
-            if(sizesValidations.inputSizeMValue.value.length > 0 && sizesValidations.inputSizeMValue.value.match(numberRegEx)) {
-                mValidation = true;
-            } else {
-                mValidation = false;
-            };
-        };
+        mValidation = sizeValidator(sizesValidations.inputSizeMCheck, sizesValidations.inputSizeMValue.value);
+        // if (sizesValidations.inputSizeMCheck.checked) {
+        //     if(sizesValidations.inputSizeMValue.value.length > 0 && sizesValidations.inputSizeMValue.value.match(numberRegEx)) {
+        //         mValidation = true;
+        //     } else {
+        //         mValidation = false;
+        //     };
+        // };
+
 
         let lValidation = true;
-        if (sizesValidations.inputSizeLCheck.checked) {
-            if(sizesValidations.inputSizeLValue.value.length > 0 && sizesValidations.inputSizeLValue.value.match(numberRegEx)) {
-                lValidation = true;
-            } else {
-                lValidation = false;
-            };
-        };
+        lValidation = sizeValidator(sizesValidations.inputSizeLCheck, sizesValidations.inputSizeLValue.value);
+        // if (sizesValidations.inputSizeLCheck.checked) {
+        //     if(sizesValidations.inputSizeLValue.value.length > 0 && sizesValidations.inputSizeLValue.value.match(numberRegEx)) {
+        //         lValidation = true;
+        //     } else {
+        //         lValidation = false;
+        //     };
+        // };
+
 
         let xlValidation = true;
-        if (sizesValidations.inputSizeXlCheck.checked) {
-            if(sizesValidations.inputSizeXlValue.value.length > 0 && sizesValidations.inputSizeXlValue.value.match(numberRegEx)) {
-            xlValidation = true;
-            } else {
-            xlValidation = false;
-            };
-        };
+        xlValidation = sizeValidator(sizesValidations.inputSizeXlCheck, sizesValidations.inputSizeXlValue.value);
+        // if (sizesValidations.inputSizeXlCheck.checked) {
+        //     if(sizesValidations.inputSizeXlValue.value.length > 0 && sizesValidations.inputSizeXlValue.value.match(numberRegEx)) {
+        //     xlValidation = true;
+        //     } else {
+        //     xlValidation = false;
+        //     };
+        // };
+
 
         let finalErrors = qs('small#finalErrors');
 
 
         // Bloque final, recopila todas las validaciones, si esta todo Ok hace el submit, sino imprime un error.
         if (inputName.value.length > 0 && inputPrice.value.length > 0 && inputDescription.value.length > 0 && Object.keys(createErrors).length == 0 && colorContainerChecked && sizeContainerChecked && xsValidation && sValidation && mValidation && lValidation && xlValidation && imgValidator.includes(true)) { 
-            createForm.submit();
+            editForm.submit();
         } else { 
             finalErrors.innerText = 'Debes completar todos los campos requeridos y cargar al menos un tamaño, un color, y una imagen del producto';
         };
