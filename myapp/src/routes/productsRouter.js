@@ -4,6 +4,7 @@ const path = require('path');
 const productsController = require('../controllers/productsController');
 const multer = require('multer');
 let upload = require('../middlewares/multerProductsMW');
+const createValidations = require('../validations/createValidations');
 
 
 
@@ -19,7 +20,7 @@ router.get('/edit/:id', productsController.editViewer);
 router.get('/delete/:id', productsController.deleteViewer);
 // router.post('/create', productsController.upload);
 
-router.post('/create', upload.any(), productsController.createNew);
+router.post('/create', upload.any(), createValidations, productsController.createNew);
 router.put('/edit/:id', upload.any(), productsController.edit);
 router.delete('/delete/:id', productsController.delete);
 

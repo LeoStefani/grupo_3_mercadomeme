@@ -229,10 +229,4 @@ window.addEventListener("load", function () {
 
     // ============ VALIDATIONS ============
 
-
-
-
-
-
-
 })
