@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 const db = require("../database/models");
 const { Op } = require("sequelize");
 
@@ -106,6 +104,9 @@ module.exports = {
     },
 
     createNew: function (req, res, next) {
+
+        // res.send(req.body);
+
         // Tendriamos que validar el caso donde no llegue ningun size.
         let newProductSizes = [];
         if (req.body.xs != undefined && req.body.sizeXsValue != "") { newProductSizes.push({ tag: req.body.xs, size_main: parseFloat(req.body.sizeXsValue) }) };
