@@ -7,8 +7,8 @@ window.addEventListener("load", function () {
 
     let memeToComplete = qs("img.memeToComplete");
     let memeCategory = qsa("img.memeCategory");
-    let upperText = qs("p.upperText");
-    let lowerText = qs("p.lowerText");
+    let upperText = qs("pre.upperText");
+    let lowerText = qs("pre.lowerText");
     let upperTextInput = qs("input[name='upperText']");
     let lowerTextInput = qs("input[name='lowerText']");
     let buttonColorToggle = qsa("button.colorToggle");
@@ -20,6 +20,7 @@ window.addEventListener("load", function () {
     let buttonMoreSpacing = qsa("button.moreSpacing");
     let buttonLessSpacing = qsa("button.lessSpacing");
     let buttonReset = qsa("button.reset");
+    // let buttonCompress = qsa("button.compress");
 
 
     let upperTextInitialPosition = 15
@@ -42,10 +43,17 @@ window.addEventListener("load", function () {
     // ======================================UPPER TEXT========================================================
 
     buttonColorToggle[0].addEventListener("click", function (event) {
-        console.log(event);
+        // console.log(event);
         upperText.classList.toggle("dark");
 
     })
+
+    // buttonCompress[0].addEventListener("click", function (event) {
+    //     // console.log(event);
+    //     upperText.classList.toggle("w-100");
+    //     upperText.classList.toggle("w-50");
+
+    // })
 
     buttonDown[0].addEventListener("click", function (event) {
         upperTextInitialPosition += 2.5
@@ -151,6 +159,13 @@ window.addEventListener("load", function () {
         lowerText.classList.toggle("dark");
 
     })
+
+    // buttonCompress[1].addEventListener("click", function (event) {
+    //     // console.log(event);
+    //     lowerText.classList.toggle("w-100");
+    //     lowerText.classList.toggle("w-50");
+
+    // })
 
     buttonDown[1].addEventListener("click", function (event) {
         lowerTextInitialPosition += 2.5
