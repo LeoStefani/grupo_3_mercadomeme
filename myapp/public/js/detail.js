@@ -23,13 +23,15 @@ window.addEventListener("load", function () {
             size: qs('#selectedSize').value
         }
         // console.log(productToCart);
-        localStorage.setItem('addedProduct' + productToCart.id ,JSON.stringify(productToCart));
+        localStorage.setItem('addedProduct' + productToCart.id + Date.now() ,JSON.stringify(productToCart));
         alert('Producto agregado con éxito!!');
         let items = allStorage(localStorage);
         // console.log(localStorage);
-        console.log(items);
+        // console.log(items);
         // localStorage.clear();
+       
     })
+    
     
     
     });

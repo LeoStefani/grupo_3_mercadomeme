@@ -32,6 +32,7 @@ router.post('/login', loginValidations, usersController.login);
 router.get('/logout', usersController.logout);
 
 router.get('/cart', authMiddleware, usersController.cart);
+router.post('/cart', usersController.cartData)
 
 router.get('/cart/settings', authMiddleware, usersController.purchaseSettings);
 

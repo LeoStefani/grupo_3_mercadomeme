@@ -100,9 +100,22 @@ module.exports = {
 
     },
     cart: function (req, res, next) {
+        // console.log(req.session.userCart);
+        // console.log(req.session);
+        console.log("que carajo pasa");
         res.render("cart", {
             title: "Carrito"
         });
+    },
+    cartData: function (req,res,next) {
+
+        req.session.userCart = req.body
+
+        // console.log(req.session);
+        
+        res.redirect('/users/cart');
+        
+
     },
     loginView: function (req, res, next) {
         res.render('login', {

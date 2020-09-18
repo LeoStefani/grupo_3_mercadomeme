@@ -15,21 +15,29 @@ window.addEventListener("load", function () {
         //     size: qs('#selectedSize').value
         // }
         // console.log(productToCart);
-        alert('Clickeaste el carrito');
+        // alert('Clickeaste el carrito');
 
         let data = localStorage;
+
 
         fetch(shopCartIcon.href, {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
                 'Content-Type' : 'application/json'
-            }.then(function(response) {
+            }}).then(function(response) {
                 return response.json();
+            }).then(function(info){
+                console.log(info);
+                // location.href = shopCartIcon.href;
+            }).catch(function (error) {
+                console.log(error);
             })
-        });
         
-        location.href = shopCartIcon.href;
+        
+        // location.href = shopCartIcon.href;
+
+
     })
     
     
