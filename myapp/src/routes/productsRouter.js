@@ -21,17 +21,6 @@ router.get('/delete/:id', productsController.deleteViewer);
 // router.post('/create', productsController.upload);
 
 router.post('/create', upload.any(), createValidations, productsController.createNew);
-// router.post('/create', upload.any(), productsController.createNew);
-// router.post('/create', function(req, res) {
-//     upload.any()(req, res, function (err) {
-//         if (err instanceof multer.MulterError) {
-//           console.log('aa');
-//         } else if (err) {
-//             console.log('bb');
-//         }
-//         console.log('exito');
-//       })
-// });
 
 router.put('/edit/:id', upload.any(), productsController.edit);
 router.delete('/delete/:id', productsController.delete);

@@ -22,14 +22,12 @@ window.addEventListener("load", function () {
             color: qs('#selectedColor').value,
             size: qs('#selectedSize').value
         }
-        // console.log(productToCart);
-        localStorage.setItem('addedProduct' + productToCart.id ,JSON.stringify(productToCart));
+        localStorage.setItem('addedProduct' + Date.now() ,JSON.stringify(productToCart));
         alert('Producto agregado con éxito!!');
-        let items = allStorage(localStorage);
-        // console.log(localStorage);
-        console.log(items);
-        // localStorage.clear();
+        // let items = allStorage(localStorage);
+       
     })
+    
     
     
     });

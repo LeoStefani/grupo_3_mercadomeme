@@ -17,9 +17,8 @@ var upload = multer({
         cb(null, true);
       } else {
           file.error = true;
-          req.file = file;
-        cb(null, false);
-        return cb(new Error('Debes ingresar una imagen válida (jpeg, jpg, png, gif)'));
+          req.files.push(file);
+        cb(null, false, new Error('Formato de imagen inválido'));
       }
     }
   });

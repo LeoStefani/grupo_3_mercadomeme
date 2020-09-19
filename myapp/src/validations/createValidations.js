@@ -28,5 +28,17 @@ module.exports = [
             return ( (value.length > 19) && (value.length < 501) )
         })
         .withMessage("Debés ingresar una descripción del producto de entre 20 y 500 caracteres"),
+    body("imgProduct")
+        .custom( (value, {req}) => {
+            if (typeof req.files[0] != 'undefined') {
+                if(typeof req.files[0].error != 'undefined') {
+                    throw new Error('Solo puedes subir imágenes en formato jpeg, jpg, png o gif')
+                } else {
+                    return true;
+                }
+            } else {
+                throw new Error('Debes subir al menos una imagen válida (jpeg, jpg, png, gif)');
+            }
+        })
 ];
 

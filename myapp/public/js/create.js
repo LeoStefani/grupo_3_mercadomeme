@@ -27,8 +27,9 @@ window.addEventListener("load", function () {
 
             input[i].addEventListener("change", function (event) {
 
-                if (true
-                    // event.srcElement.files[0] != undefined && (input[i].files[0].type.slice(6) === 'jpeg' || input[i].files[0].type.slice(6) === 'jpg' || input[i].files[0].type.slice(6) === 'png' || input[i].files[0].type.slice(6) === 'gif')
+                if (
+                    // true
+                    event.srcElement.files[0] != undefined && (input[i].files[0].type.slice(6) === 'jpeg' || input[i].files[0].type.slice(6) === 'jpg' || input[i].files[0].type.slice(6) === 'png' || input[i].files[0].type.slice(6) === 'gif')
                     ) {
                     image[i].src = URL.createObjectURL(event.srcElement.files[0]);
                     imgValidator[i] = true;
@@ -185,8 +186,9 @@ window.addEventListener("load", function () {
 
 
         // Bloque final, recopila todas las validaciones, si esta todo Ok hace el submit, sino imprime un error.
-        if ( true
-            // inputName.value.length > 0 && inputPrice.value.length > 0 && inputDescription.value.length > 0 && Object.keys(createErrors).length == 0 && colorContainerChecked && sizeContainerChecked && xsValidation && sValidation && mValidation && lValidation && xlValidation && imgValidator.includes(true)
+        if ( 
+            // true
+            inputName.value.length > 0 && inputPrice.value.length > 0 && inputDescription.value.length > 0 && Object.keys(createErrors).length == 0 && colorContainerChecked && sizeContainerChecked && xsValidation && sValidation && mValidation && lValidation && xlValidation && imgValidator.includes(true)
             ) { 
             createForm.submit();
         } else { 

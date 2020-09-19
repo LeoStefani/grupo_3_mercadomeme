@@ -4,29 +4,6 @@ const bcrypt = require('bcrypt');
 const { check, validationResult, body } = require("express-validator");
 const db = require("../database/models");
 
-// Si llega a leer el JSON y no hay nadie registrado, lo inicializa como array vacio.
-let usersJSON = fs.readFileSync(path.join(__dirname, '../data/users.json'), 'utf-8');
-let users;
-if (usersJSON == "") {
-    users = [];
-} else {
-    users = JSON.parse(usersJSON)
-};
-
-let maxId = function () {
-
-    idAcumulator = 0;
-    for (let i = 0; i < users.length; i++) {
-        if (users[i].id > idAcumulator) {
-            idAcumulator = users[i].id;
-        };
-    };
-    return idAcumulator + 1;
-    // TENER CUIDADO QUE NO ES EL MÁXIMO ID DE LOS PRODUCTOS ACTUALES, SINO EL SIGUIENTE LIBRE, DADO QUE ESTA PENSADO PARA LA CARGA DE PRODUCTOS NUEVOS
-};
-
-
-
 module.exports = {
     usersIndex: function (req, res, next) {
         res.send("Acá no se bien que va a ir, deberíamos esperar a ver que pasa con eso de session en clase");
@@ -100,9 +77,22 @@ module.exports = {
 
     },
     cart: function (req, res, next) {
-        res.render("cart", {
-            title: "Carrito"
-        });
+        console.log(req.session.userCart);
+        console.log('perfect Get');
+        res.json(req.session.userCart);
+
+        // res.render("cart", {
+        //     title: "Carrito",
+        //     products: req.session.userCart
+        // });
+    },
+    dataCart: function (req,res,next) {
+
+        req.session.userCart = req.body;
+        console.log(req.session.userCart);
+        // res.send(req.body);
+        res.status(304).redirect('/users/cart');
+
     },
     loginView: function (req, res, next) {
         res.render('login', {

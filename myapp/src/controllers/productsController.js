@@ -118,7 +118,7 @@ module.exports = {
             newProductSizes.push({ tag: req.body.xs, size_main: parseFloat(req.body.sizeXsValue) });
             sizeValidator[0] = true; 
             } else {
-            VRerrors.errors.push({'msg': "Debes agregar un valor numérico para el tamaño XS" })
+            VRerrors.errors.push({'msg': "Debes agregar un valor numérico para el tamaño XS", "param": "sizeXs" })
             };
         };
 
@@ -127,7 +127,7 @@ module.exports = {
             newProductSizes.push({ tag: req.body.s, size_main: parseFloat(req.body.sizeSValue) });
             sizeValidator[1] = true; 
             } else {
-            VRerrors.errors.push({'msg': "Debes agregar un valor numérico para el tamaño S" })
+            VRerrors.errors.push({'msg': "Debes agregar un valor numérico para el tamaño S", "param": "sizeS" })
             };
         };
 
@@ -136,7 +136,7 @@ module.exports = {
             newProductSizes.push({ tag: req.body.m, size_main: parseFloat(req.body.sizeMValue) });
             sizeValidator[2] = true; 
             } else {
-            VRerrors.errors.push({'msg': "Debes agregar un valor numérico para el tamaño M" })
+            VRerrors.errors.push({'msg': "Debes agregar un valor numérico para el tamaño M", "param": "sizeM" })
             };
         };
 
@@ -145,7 +145,7 @@ module.exports = {
             newProductSizes.push({ tag: req.body.l, size_main: parseFloat(req.body.sizeLValue) });
             sizeValidator[3] = true; 
             } else {
-            VRerrors.errors.push({'msg': "Debes agregar un valor numérico para el tamaño L" })
+            VRerrors.errors.push({'msg': "Debes agregar un valor numérico para el tamaño L", "param": "sizeL" })
             };
         };
 
@@ -154,12 +154,12 @@ module.exports = {
             newProductSizes.push({ tag: req.body.xl, size_main: parseFloat(req.body.sizeXlValue) });
             sizeValidator[4] = true; 
             } else {
-            VRerrors.errors.push({'msg': "Debes agregar un valor numérico para el tamaño XL" })
+            VRerrors.errors.push({'msg': "Debes agregar un valor numérico para el tamaño XL", "param": "sizeXl" })
             };
         };
 
         if (!sizeValidator.includes(true)) {
-            VRerrors.errors.push({'msg': "Debes seleccionar al menos un tamaño" })
+            VRerrors.errors.push({'msg': "Debes seleccionar al menos un tamaño", "param": "size" })
         }
         
         let colorValidator = false;
@@ -171,7 +171,7 @@ module.exports = {
         }; 
         
         if(colorValidator === false) {
-            VRerrors.errors.push({'msg': "Debes seleccionar al menos un color" })
+            VRerrors.errors.push({'msg': "Debes seleccionar al menos un color", "param": "color" })
         };        
             
         let newProductImages = [];
@@ -179,42 +179,43 @@ module.exports = {
             newProductImages[i] = { name: req.files[i].filename };
         }
 
-        if(newProductImages.length === 0) {
-            VRerrors.errors.push({'msg': "Debes ingresar al menos una imagen válida (jpeg, jpg, png, gif)" })
-        };  
-        // console.log(req.files);
-        // res.send(req.files);
-
-
-        db.Product.create({
-            name: req.body.productNewName,
-            description: req.body.productNewDescription,
-            price: parseFloat(req.body.productNewPrice),
-            qty_sold: 0,
-            id_category: req.body.productNewCategory,
-            status: 1,
-            sizes: newProductSizes,
-            images: newProductImages,
-        }
-            , { include: [{ all: true }] }
-        )
-            .then((protoProduct) => {
-                let colorScope = []; //inicializo una array.
-                for (let key in req.body) {
-                    if (key.includes('color')) {
-                        colorScope.push({
-                            id_product: protoProduct.id,
-                            id_color: req.body[key],
-                            status: 1
-                        });
-                    }; //Si el campo del req.body contiene la palabra color, pushea en la array un {} con las propiedades id_product: el id del producto que estamos creando, y id_color: el valor del campo del req.body que representa al id del color.
-                };
-                db.Product_Color.bulkCreate(colorScope) // Este bulkcreate, admite como parametro una array con {} con cada fila de la tabla que quiera crear.
-                    .then(result => {
-                        res.redirect("/products/upload")
-                    })
-                    .catch(function (error) { console.log(error) });
+        if (VRerrors.isEmpty()) {
+            db.Product.create({
+                name: req.body.productNewName,
+                description: req.body.productNewDescription,
+                price: parseFloat(req.body.productNewPrice),
+                qty_sold: 0,
+                id_category: req.body.productNewCategory,
+                status: 1,
+                sizes: newProductSizes,
+                images: newProductImages,
+            }
+                , { include: [{ all: true }] }
+            )
+                .then((protoProduct) => {
+                    let colorScope = []; //inicializo una array.
+                    for (let key in req.body) {
+                        if (key.includes('color')) {
+                            colorScope.push({
+                                id_product: protoProduct.id,
+                                id_color: req.body[key],
+                                status: 1
+                            });
+                        }; //Si el campo del req.body contiene la palabra color, pushea en la array un {} con las propiedades id_product: el id del producto que estamos creando, y id_color: el valor del campo del req.body que representa al id del color.
+                    };
+                    db.Product_Color.bulkCreate(colorScope) // Este bulkcreate, admite como parametro una array con {} con cada fila de la tabla que quiera crear.
+                        .then(result => {
+                            res.redirect("/products/upload")
+                        })
+                        .catch(function (error) { console.log(error) });
+                });
+        } else {
+            res.render('error', {
+                title: 'Errores - carga de producto',
+                errors: VRerrors.mapped()
             });
+        }
+        
 
     },
 

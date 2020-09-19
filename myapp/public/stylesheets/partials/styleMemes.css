@@ -45,7 +45,7 @@ div.memes div.memeEditorImage {
     background-color: var(--colorWhite);
 }
 div.memes img.memeToComplete {
-    /* position: relative; */
+    position: relative;
     max-height: 60vh;
 }
 
@@ -62,10 +62,10 @@ div.memes p.upperText{
     left:50%;
     word-spacing: 2px;
     -webkit-text-stroke: 1px white;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(0deg);
     text-transform: uppercase;
-
-}
+    /* overflow-wrap: inherit; */
+    }
 
 div.memes p.lowerText{
     font-family: Impact;
@@ -78,6 +78,8 @@ div.memes p.lowerText{
     -webkit-text-stroke: 1px white;
     transform: translate(-50%, -50%);
     text-transform: uppercase;
+    /* overflow-wrap: inherit; */
+
 
 }
 
