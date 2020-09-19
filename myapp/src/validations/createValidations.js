@@ -1,5 +1,4 @@
 const { check, validationResult, body } = require('express-validator');
-const db = require("../database/models");
 
 let stringRegEx =  /^[a-z\s]+$/i;
 let numberRegEx = /^[0-9]+([,.][0-9]+)?$/g;
@@ -29,7 +28,5 @@ module.exports = [
             return ( (value.length > 19) && (value.length < 501) )
         })
         .withMessage("Debés ingresar una descripción del producto de entre 20 y 500 caracteres"),
-    
-    
 ];
 

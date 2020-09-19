@@ -107,7 +107,7 @@ module.exports = {
     },
 
     createNew: function (req, res, next) {
-
+    
         let VRerrors = validationResult(req);
 
         let newProductSizes = [];
@@ -174,9 +174,6 @@ module.exports = {
             VRerrors.errors.push({'msg': "Debes seleccionar al menos un color" })
         };        
             
-
-        // console.log(req.files);
-
         let newProductImages = [];
         for (let i=0; i<req.files.length; i++) {
             newProductImages[i] = { name: req.files[i].filename };
@@ -185,8 +182,8 @@ module.exports = {
         if(newProductImages.length === 0) {
             VRerrors.errors.push({'msg': "Debes ingresar al menos una imagen válida (jpeg, jpg, png, gif)" })
         };  
-
-        res.send(VRerrors.errors);
+        // console.log(req.files);
+        // res.send(req.files);
 
 
         db.Product.create({

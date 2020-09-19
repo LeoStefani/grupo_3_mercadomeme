@@ -10,6 +10,19 @@ var storage = multer.diskStorage({
         }
       })
        
-      var upload = multer({ storage: storage })
+var upload = multer({
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+      if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg" || file.mimetype == "image/gif") {
+        cb(null, true);
+      } else {
+          file.error = true;
+          req.file = file;
+        cb(null, false);
+        return cb(new Error('Debes ingresar una imagen válida (jpeg, jpg, png, gif)'));
+      }
+    }
+  });
+
 
 module.exports = upload;

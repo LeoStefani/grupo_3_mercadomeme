@@ -27,19 +27,17 @@ window.addEventListener("load", function () {
 
             input[i].addEventListener("change", function (event) {
 
-                // console.log(event);
-    
-                if (event.srcElement.files[0] != undefined && (input[i].files[0].type.slice(6) === 'jpeg' || input[i].files[0].type.slice(6) === 'jpg' || input[i].files[0].type.slice(6) === 'png' || input[i].files[0].type.slice(6) === 'gif')) {
+                if (true
+                    // event.srcElement.files[0] != undefined && (input[i].files[0].type.slice(6) === 'jpeg' || input[i].files[0].type.slice(6) === 'jpg' || input[i].files[0].type.slice(6) === 'png' || input[i].files[0].type.slice(6) === 'gif')
+                    ) {
                     image[i].src = URL.createObjectURL(event.srcElement.files[0]);
                     imgValidator[i] = true;
                     errorImages.innerText = '';
-                    // submitAvatar.removeAttribute("disabled")}
                 } else if (event.srcElement.files[0] != undefined && !(input[i].files[0].type.slice(6) === 'jpeg' || input[i].files[0].type.slice(6) === 'jpg' || input[i].files[0].type.slice(6) === 'png' || input[i].files[0].type.slice(6) === 'gif')) {
                     errorImages.innerText = 'Ingresa un formato de imagen válido (jpeg, jpg, png, gif)';
                 }
                 // si no se selecciona foto, file es undefined, por lo que se vuelve a deshabilitar el boton de submit
                 else {
-                    // submitAvatar.setAttribute("disabled", "true"); 
                     URL.revokeObjectURL(image[i].src);
                     image[i].src = originalImages[i];
                     imgValidator[i] = false;
