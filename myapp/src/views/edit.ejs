@@ -27,8 +27,9 @@
                                 name="productEditId" value="<%= productDetail.id %>">
                             <div class="d-flex flex-wrap productName w-100 mt-2">
                                 <input class="w-100 border border-white rounded-lg p-1" type="text"
-                                    name="productEditName" value="<%= productDetail.name %>"
+                                    name="productEditName" id="productEditName" value="<%= productDetail.name %>"
                                     placeholder="<%= productDetail.name %>">
+                                <small class="text-danger" id="errorName"></small>
                             </div>
                             <div class="d-flex flex-wrap w-100">
                                 <select class="flex-grow-1 mt-2 p-0 border border-white rounded-lg mr-2"
@@ -41,14 +42,15 @@
                                     <% } %>
                                 </select>
                                 <input class="w-25 mt-2 border border-white rounded-lg p-1" type="text"
-                                    name="productEditPrice" value="<%= productDetail.price %>"
+                                    name="productEditPrice" id="productEditPrice" value="<%= productDetail.price %>"
                                     placeholder="$ <%= productDetail.price %>" size="10">
-                            </div>
-                            <input class="check mr-3 p-0" type="checkbox" name="typeAdd" id="typeAddCheck"
+                                </div>
+                                <input class="check mr-3 p-0" type="checkbox" name="typeAdd" id="typeAddCheck"
                                 value="typeAdd" disabled>
-                            <input class="flex-grow-1 mt-2 p-1 border border-white rounded-lg mr-0" type="text"
+                                <input class="flex-grow-1 mt-2 p-1 border border-white rounded-lg mr-0" type="text"
                                 name="productEditCategoryAlternative" placeholder="Escriba la nueva categoría"
                                 id="typeAddInput" disabled>
+                                <small class="text-danger" id="errorPrice"></small>
 
                             <script>
                                 document.getElementById('typeAddCheck').onchange = function () {
@@ -78,7 +80,7 @@
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 m-0 mb-1 text-center">
                                             <label for="XS">XS
-                                            </label><input class="check m-0 ml-1" type="checkbox" name="xs" id="XS"
+                                            </label><input class="check m-0 ml-1 editSizeCheckbox" type="checkbox" name="xs" id="XS"
                                                 value="XS" <% for (let i=0; i<productDetail.sizes.length ; i++) {
                                                         
                                                         if (productDetail.sizes[i].tag == "XS") {
@@ -102,7 +104,7 @@
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 m-0 mb-1 text-center">
                                             <label for="S">S
-                                            </label><input class="check m-0 ml-1" type="checkbox" name="s" id="S"
+                                            </label><input class="check m-0 ml-1 editSizeCheckbox" type="checkbox" name="s" id="S"
                                                 value="S" <% for (let i=0; i<productDetail.sizes.length ; i++) {
                                                                             
                                             if (productDetail.sizes[i].tag == "S") {
@@ -126,7 +128,7 @@
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 m-0 mb-1 text-center">
                                             <label for="M">M
-                                            </label><input class="check m-0 ml-1" type="checkbox" name="m" id="M"
+                                            </label><input class="check m-0 ml-1 editSizeCheckbox" type="checkbox" name="m" id="M"
                                                 value="M" <% for (let i=0; i<productDetail.sizes.length ; i++) {
                                                                                                 
                                                 if (productDetail.sizes[i].tag == "M") {
@@ -150,7 +152,7 @@
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 m-0 mb-1 text-center">
                                             <label for="L">L
-                                            </label><input class="check m-0 ml-1" type="checkbox" name="l" id="L"
+                                            </label><input class="check m-0 ml-1 editSizeCheckbox" type="checkbox" name="l" id="L"
                                                 value="L" <% for (let i=0; i<productDetail.sizes.length ; i++) {
                                                                                                                 
                                             if (productDetail.sizes[i].tag == "L") {
@@ -174,7 +176,7 @@
                                     <div class="d-flex flex-wrap justify-content-between w-100">
                                         <div class="check p-1 text-center m-0 mb-1">
                                             <label for="XL">XL
-                                            </label><input class="check m-0 ml-1" type="checkbox" name="xl" id="XL"
+                                            </label><input class="check m-0 ml-1 editSizeCheckbox" type="checkbox" name="xl" id="XL"
                                                 value="XL" <% for (let i=0; i<productDetail.sizes.length ; i++) {
                                                                                                                                         
                                             if (productDetail.sizes[i].tag == "XL") {
@@ -218,7 +220,7 @@
                                     <div class="d-flex justify-content-between">
                                         <label class="text-capitalize"
                                             for="<%= colors[i].id %>"><%= colors[i].name %></label>
-                                        <input class="ml-1" type="checkbox" name="color<%= colors[i].id %>"
+                                        <input class="ml-1 editColorCheckbox" type="checkbox" name="color<%= colors[i].id %>"
                                             id="<%= colors[i].id %>" value="<%= colors[i].id %>" <% for (let j=0; j<productDetail.colors.length ; j++) {
                                                 if (productDetail.colors[j].name == colors[i].name) {
                                                     %> checked <% }} %>>
@@ -249,9 +251,10 @@
                             <div class="d-flex flex-wrap justify-content-center">
 
                                 <input class="border border-white rounded-lg p-5 m-0 w-100" type="text"
-                                    name="productEditDescription"
+                                    name="productEditDescription" id="productEditDescription"
                                     placeholder="Descripción: <%= productDetail.description %>"
                                     value="<%= productDetail.description %>">
+                                <small class="text-danger" id="errorDescription"></small>
                             </div>
                         </div>
                     </div>
@@ -262,7 +265,6 @@
                 <!-- Image editor -->
                 <div class="secondColumn col-12 col-md-4 d-flex flex-wrap align-content-start mt-4 rounded-lg">
 
-
                     <div class="image col-12 position-relative p-2 rounded-lg">
                         <h5 class="text-center m-0 p-1">Portada</h5>
                         <img class="w-100 shadow rounded-lg image"
@@ -272,10 +274,9 @@
 
 
                         <div>
-                            <!-- <button class="btn btn-sm btn-warning">Editar</button> -->
                             <input type="file" name="imgProduct0" id="imgProduct0" class="text-truncate editInput"
                                 hidden>
-                                <input type="text" value="<%= productDetail.images[0].name %>" name="oldImgEdition"
+                            <input type="text" value="<%= productDetail.images[0].name %>" name="oldImgEdition"
                                 id="oldImgEdition" class="text-truncate" hidden>
                         </div>
                     </div>
@@ -291,7 +292,6 @@
 
 
                         <div>
-                            <!-- <button class="btn btn-sm btn-warning">Editar</button> -->
                             <input type="file" name="imgProduct<%= j %>" id="imgProduct<%= j %>"
                                 class="text-truncate editInput" hidden>
                             <input type="text" value="<%= productDetail.images[j].name %>" name="oldImgEdition"
@@ -319,11 +319,12 @@
                     </div>
 
                     <% } %>
+                    <small class="text-danger" id="errorImages"></small>
 
                 </div>
                 <!-- Image editor -->
 
-
+                <small class="text-danger" id="finalErrors"></small>
                 <button class="btn btn-warning btn-lg btn-block mt-3 shadow rounded-lg m-3" type="submit"
                     form="editForm">Confirmar edición de
                     producto</button>

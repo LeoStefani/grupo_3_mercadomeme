@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 const productsController = require('../controllers/productsController');
-const multer = require('multer');
 let upload = require('../middlewares/multerProductsMW');
+const createValidations = require('../validations/createValidations');
+const editValidations = require('../validations/editValidations');
 
 
 
@@ -17,10 +17,10 @@ router.get('/upload/:id?', productsController.upload);
 router.get('/create', productsController.create);
 router.get('/edit/:id', productsController.editViewer);
 router.get('/delete/:id', productsController.deleteViewer);
-// router.post('/create', productsController.upload);
 
-router.post('/create', upload.any(), productsController.createNew);
-router.put('/edit/:id', upload.any(), productsController.edit);
+router.post('/create', upload.any(), createValidations, productsController.createNew);
+
+router.put('/edit/:id', upload.any(), editValidations, productsController.edit);
 router.delete('/delete/:id', productsController.delete);
 
 // Product details 
