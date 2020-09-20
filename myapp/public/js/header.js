@@ -7,7 +7,7 @@ window.addEventListener("load", function () {
     
     shopCartIcon.addEventListener('click', event => {
         event.preventDefault();
-        
+        console.log('00');
         fetch(shopCartIcon.href, {
             method: 'POST',
             body: JSON.stringify(localStorage),
@@ -15,14 +15,17 @@ window.addEventListener("load", function () {
                 'Content-Type' : 'application/json'
                 },
             }).then(function(response) {
-                return response.json();
-            }).then(function(info){
-                console.log(info);
+                console.log('11');
+                console.log(response);
+                location.href = shopCartIcon.href;
+            // }).then(function(info){
+            //     console.log('22');
+            //     console.log(info);
             }).catch(function (error) {
+                console.log('33');
                 console.log(error);
             });
         
-        // location.href = shopCartIcon.href;
 
     });
     

@@ -79,6 +79,7 @@ module.exports = {
     cart: function (req, res, next) {
         console.log(req.session.userCart);
         console.log('perfect Get');
+        // res.json(req.session.userCart);
         res.json(req.session.userCart);
 
         // res.render("cart", {
@@ -90,8 +91,7 @@ module.exports = {
 
         req.session.userCart = req.body;
         console.log(req.session.userCart);
-        // res.send(req.body);
-        res.status(304).redirect('/users/cart');
+        res.send('okPost');
 
     },
     loginView: function (req, res, next) {

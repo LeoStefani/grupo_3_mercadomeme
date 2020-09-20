@@ -1,3 +1,19 @@
+function sizeValidator(inputCheck, inputValue) {
+    if (inputCheck.checked) {
+        if(inputValue.length > 0 && inputValue.match(numberRegEx)) {
+            return true;
+        } else {
+            return false;
+        };
+    } else {
+        return false;
+    }; 
+}
+
+let stringRegEx =  /^[a-z\s]+$/i;
+let numberRegEx = /^[0-9]+([,.][0-9]+)?$/g;
+
+
 window.addEventListener("load", function () {
 
     let qs = function (element) { return document.querySelector(element) }
@@ -63,10 +79,6 @@ window.addEventListener("load", function () {
     let errorDescription = qs('small#errorDescription');
 
     let createErrors = {};
-
-    let stringRegEx =  /^[a-z\s]+$/i;
-    let numberRegEx = /^[0-9]+([,.][0-9]+)?$/g;
-
 
     //Name validation
     inputName.addEventListener('blur', function() {        
@@ -138,49 +150,19 @@ window.addEventListener("load", function () {
         };
 
         let xsValidation = true;
-        if (sizesValidations.inputSizeXsCheck.checked) {
-            if(sizesValidations.inputSizeXsValue.value.length > 0 && sizesValidations.inputSizeXsValue.value.match(numberRegEx)) {
-                xsValidation = true;
-            } else {
-                xsValidation = false;
-            };
-        };
+        xsValidation = sizeValidator(sizesValidations.inputSizeXsCheck, sizesValidations.inputSizeXsValue.value);
 
         let sValidation = true;
-        if (sizesValidations.inputSizeSCheck.checked) {
-            if(sizesValidations.inputSizeSValue.value.length > 0 && sizesValidations.inputSizeSValue.value.match(numberRegEx)) {
-                sValidation = true;
-            } else {
-                sValidation = false;
-            };
-        };
+        sValidation = sizeValidator(sizesValidations.inputSizeSCheck, sizesValidations.inputSizeSValue.value);
 
         let mValidation = true;
-        if (sizesValidations.inputSizeMCheck.checked) {
-            if(sizesValidations.inputSizeMValue.value.length > 0 && sizesValidations.inputSizeMValue.value.match(numberRegEx)) {
-                mValidation = true;
-            } else {
-                mValidation = false;
-            };
-        };
+        mValidation = sizeValidator(sizesValidations.inputSizeMCheck, sizesValidations.inputSizeMValue.value);
 
         let lValidation = true;
-        if (sizesValidations.inputSizeLCheck.checked) {
-            if(sizesValidations.inputSizeLValue.value.length > 0 && sizesValidations.inputSizeLValue.value.match(numberRegEx)) {
-                lValidation = true;
-            } else {
-                lValidation = false;
-            };
-        };
+        lValidation = sizeValidator(sizesValidations.inputSizeLCheck, sizesValidations.inputSizeLValue.value);
 
         let xlValidation = true;
-        if (sizesValidations.inputSizeXlCheck.checked) {
-            if(sizesValidations.inputSizeXlValue.value.length > 0 && sizesValidations.inputSizeXlValue.value.match(numberRegEx)) {
-            xlValidation = true;
-            } else {
-            xlValidation = false;
-            };
-        };
+        xlValidation = sizeValidator(sizesValidations.inputSizeXlCheck, sizesValidations.inputSizeXlValue.value);
 
         let finalErrors = qs('small#finalErrors');
 
@@ -198,6 +180,5 @@ window.addEventListener("load", function () {
     })
 
     // ============ VALIDATIONS ============
-    
        
 })
