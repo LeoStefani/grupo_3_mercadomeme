@@ -9,23 +9,30 @@
 
                 <!-- Selector entre memes y productos -->
                 <div class="row mb-0 mt-4 justify-content-center">
-                        <div class="col-10 d-flex flex-wrap justify-content-center shadow m-0 p-0">
+                        <div class="col-10 d-flex flex-wrap justify-content-center shadow m-0 p-3 prod-memes rounded-lg">
                                 <div class="optionProducts col-12 col-md-6 flex-wrap justify-content-center m-0 p-0">
                                         <a class="" href="/products/index">
-                                                <div class="bgProducts"><img class="w-100 productsNormal"
-                                                                src="/images/ProductsHomeNormal.png"
-                                                                onmouseover="this.src='/images/ProductsHomeHover.png'"
-                                                                onmouseout="this.src='/images/ProductsHomeNormal.png'"
-                                                                alt="imagen"></div>
+                                                <div class="bgProducts">
+                                                        <!--  AnimeJs Text <h1 class="ml13 products">Empezar buscando productos</h1> -->
+                                                        <img class="w-100 productsNormal rounded-lg"
+                                                                
+                                                                src="/images/products_stop_contipo.png"
+                                                                onmouseover="this.src='/images/products_action_contipo.gif'"
+                                                                onmouseout="this.src='/images/products_stop_contipo.png'"
+                                                                alt="buscar-productos">
+                                                                
+                                                        </div>
                                         </a>
                                 </div>
                                 <div class="optionMemes col-12 col-md-6 flex-wrap justify-content-center m-0 p-0">
                                         <a href="/memes">
-                                                <div class="bgMemes"><img class="w-100 memesNormal"
-                                                                src="/images/MemesHomeNormal.png"
-                                                                onmouseover="this.src='/images/MemesHomeHover.png'"
-                                                                onmouseout="this.src='/images/MemesHomeNormal.png'"
-                                                                alt="imagen"></div>
+                                                <div class="bgMemes">
+                                                        <!--  AnimeJs Text <h1 class="ml13 memes">Empezar buscando productos</h1> -->
+                                                        <img class="w-100 memesNormal rounded-lg"
+                                                                src="/images/memes_stop_contipo.png"
+                                                                onmouseover="this.src='/images/memes_action_contipo1.gif'"
+                                                                onmouseout="this.src='/images/memes_stop_contipo.png'"
+                                                                alt="buscar-meme"></div>
                                         </a>
                                 </div>
                         </div>
@@ -33,16 +40,16 @@
                 <!-- Selector entre memes y productos -->
 
                 <!--Carousel With indicators-->
-                <div class="row mb-0 justify-content-center">
-                        <div id="carouselExampleIndicators" class="carousel slide col-10 m-0 shadow p-0" data-ride="carousel ">
-                                <ol class="carousel-indicators">
+                <div class="row mb-0 justify-content-center rounded-lg">
+                        <div id="carouselExampleIndicators" class="carousel slide col-10 m-0 shadow p-0 rounded-lg" data-ride="carousel ">
+                                <ol class="carousel-indicators rounded-lg">
                                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
                                         </li>
                                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                                 </ol>
                                 <div class="carousel-inner p-3">
-                                        <div class="carousel-item active">
+                                        <div class="carousel-item active rounded-lg">
                                                 <img src="/images/productosconmemes/GrupoGorras.png" class="d-block w-100" alt="...">
                                         </div>
                                         <div class="carousel-item">
@@ -76,7 +83,7 @@
 
                 <!-- los mas vendidos (muestra los 4 productos mas vendidos) -->
                 <div class="mostWanted row mb-4 d-flex flex-wrap  justify-content-center">
-                        <div class="col-10 shadow d-flex flex-wrap justify-content-center m-0 p-2">
+                        <div class="col-10 shadow d-flex flex-wrap justify-content-center m-0 p-2 rounded-lg">
                                 <% for(let i = 0; i < sortedProducts.length; i++) { %>
                                 <div class="prearticle col-6 col-md-3 m-0 p-2">
                                         <div class="article p-0 rounded-lg">
@@ -102,6 +109,11 @@
         <!-- </scripts bootstrap> -->
         <%- include('partials/scriptsBootstrap') %>
         <!-- </scripts bootstrap> -->
+        <!-- </scripts propios> -->
+        <script src="/js/index.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+        <!-- </scripts propios> -->
+
 
 </body>
 

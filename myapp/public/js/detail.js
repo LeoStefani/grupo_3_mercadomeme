@@ -22,9 +22,10 @@ window.addEventListener("load", function () {
             color: qs('#selectedColor').value,
             size: qs('#selectedSize').value
         }
-        // console.log(productToCart);
+        // console.log(productToCart); 
         localStorage.setItem('addedProduct' + productToCart.id ,JSON.stringify(productToCart));
         alert('Producto agregado con éxito!!');
+        console.log(alert);
         let items = allStorage(localStorage);
         // console.log(localStorage);
         console.log(items);
