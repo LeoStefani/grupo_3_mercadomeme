@@ -65,7 +65,7 @@
 
             <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
               <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1 memeCategory "
-                  src="<%= memes[i].url %>">
+                  src="<%= memes[i].url %>" crossorigin="anonymous">
               </a>
             </div>
 
@@ -78,7 +78,7 @@
 
             <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
               <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1 memeCategory"
-                  src="<%= memes[i].url %>">
+                  src="<%= memes[i].url %>" crossorigin="anonymous">
               </a>
             </div>
 
@@ -91,7 +91,7 @@
 
             <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
               <a class="text-center text-decoration-none"><img class="col-12 rounded-lg m-0 p-1 memeCategory"
-                  src="<%= memes[i].url %>">
+                  src="<%= memes[i].url %>" crossorigin="anonymous">
               </a>
             </div>
 
@@ -191,8 +191,8 @@
             <button class="flex-grow-1 text-truncate mt-2 mb-2 ml-1  btn btn-warning btn-sm shadow">Rotar</button>
           </form>
         </div>
-        <div class="w-100 memeToComplete" id="capture">
-          <img class="w-100 shadow rounded-lg memeToComplete" src="images/memeParaCompletar.png" alt="">
+        <div class="w-100 memeToComplete m-0 p-0" id="capture" crossorigin="anonymous">
+          <img class="w-100 shadow rounded-lg memeToComplete" src="images/memeParaCompletar.png" crossorigin="anonymous" alt="">
           <p class="upperText  m-0 p-0 w-100">TEXTO SUPERIOR</p>
           <p class="lowerText  m-0 p-0 w-100">TEXTO INFERIOR</p>
         </div>
@@ -332,6 +332,7 @@
   <%- include('partials/footer') %>
   <%- include('partials/scriptsBootstrap') %>
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
   <script src="/js/memes.js"></script>
 </body>
 

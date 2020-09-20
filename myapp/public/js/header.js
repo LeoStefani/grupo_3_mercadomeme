@@ -27,11 +27,6 @@ window.addEventListener("load", function () {
                 'Content-Type' : 'application/json'
             }}).then(function(response) {
                 return response.json();
-            }).then(function(info){
-                console.log(info);
-                // location.href = shopCartIcon.href;
-            }).catch(function (error) {
-                console.log(error);
             })
         
         
