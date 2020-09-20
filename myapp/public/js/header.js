@@ -5,35 +5,28 @@ window.addEventListener("load", function () {
     
     let shopCartIcon = qs("#shopCartIcon");
     
-    
     shopCartIcon.addEventListener('click', event => {
         event.preventDefault();
-        // Hacer el fetch y pasarle todo lo de localStorage
-        // productToCart = {
-        //     id: document.documentURI.substring(document.documentURI.lastIndexOf('/') + 1),
-        //     color: qs('#selectedColor').value,
-        //     size: qs('#selectedSize').value
-        // }
-        // console.log(productToCart);
-        // alert('Clickeaste el carrito');
-
-        let data = localStorage;
-
-
+        console.log('00');
         fetch(shopCartIcon.href, {
             method: 'POST',
-            body: JSON.stringify(data),
+            body: JSON.stringify(localStorage),
             headers: {
                 'Content-Type' : 'application/json'
-            }}).then(function(response) {
-                return response.json();
-            })
+                },
+            }).then(function(response) {
+                console.log('11');
+                console.log(response);
+                location.href = shopCartIcon.href;
+            // }).then(function(info){
+            //     console.log('22');
+            //     console.log(info);
+            }).catch(function (error) {
+                console.log('33');
+                console.log(error);
+            });
         
-        
-        // location.href = shopCartIcon.href;
 
-
-    })
-    
-    
     });
+    
+});

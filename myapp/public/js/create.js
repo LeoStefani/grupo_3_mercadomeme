@@ -1,3 +1,19 @@
+function sizeValidator(inputCheck, inputValue) {
+    if (inputCheck.checked) {
+        if(inputValue.length > 0 && inputValue.match(numberRegEx)) {
+            return true;
+        } else {
+            return false;
+        };
+    } else {
+        return false;
+    }; 
+}
+
+let stringRegEx =  /^[a-z\s]+$/i;
+let numberRegEx = /^[0-9]+([,.][0-9]+)?$/g;
+
+
 window.addEventListener("load", function () {
 
     let qs = function (element) { return document.querySelector(element) }
@@ -6,6 +22,8 @@ window.addEventListener("load", function () {
     let image = qsa("img.image");
     let buttonEdit = qsa("button.editImage");
     let input = qsa("input.editInput");
+    let errorImages = qs('small#errorImages');
+
 
     let originalImages = [];
 
@@ -15,7 +33,7 @@ window.addEventListener("load", function () {
     }
 
     // imgValidator es el flag para asegurarse que haya al menos una img...
-    let imgValidator = false;
+    let imgValidator = [false, false, false, false, false];
 
     for (let i = 0; i < buttonEdit.length; i++) {
 
@@ -25,23 +43,27 @@ window.addEventListener("load", function () {
 
             input[i].addEventListener("change", function (event) {
 
-                console.log(event);
-    
-                if (event.srcElement.files[0] != undefined) {
+                if (
+                    // true
+                    event.srcElement.files[0] != undefined && (input[i].files[0].type.slice(6) === 'jpeg' || input[i].files[0].type.slice(6) === 'jpg' || input[i].files[0].type.slice(6) === 'png' || input[i].files[0].type.slice(6) === 'gif')
+                    ) {
                     image[i].src = URL.createObjectURL(event.srcElement.files[0]);
-                    imgValidator = true;
-                    // submitAvatar.removeAttribute("disabled")}
+                    imgValidator[i] = true;
+                    errorImages.innerText = '';
+                } else if (event.srcElement.files[0] != undefined && !(input[i].files[0].type.slice(6) === 'jpeg' || input[i].files[0].type.slice(6) === 'jpg' || input[i].files[0].type.slice(6) === 'png' || input[i].files[0].type.slice(6) === 'gif')) {
+                    errorImages.innerText = 'Ingresa un formato de imagen válido (jpeg, jpg, png, gif)';
                 }
                 // si no se selecciona foto, file es undefined, por lo que se vuelve a deshabilitar el boton de submit
                 else {
-                    // submitAvatar.setAttribute("disabled", "true"); 
                     URL.revokeObjectURL(image[i].src);
                     image[i].src = originalImages[i];
+                    imgValidator[i] = false;
+
                     // en teoría esto libera el cache subido, pero no estoy seguro que este funcionando correctamente
                 }
             })
         });
-    }
+    };
 
     // ============ VALIDATIONS ============
     
@@ -58,15 +80,11 @@ window.addEventListener("load", function () {
 
     let createErrors = {};
 
-    let stringRegEx =  /^[a-z\s]+$/i;
-    let numberRegEx = /^[0-9]+([,.][0-9]+)?$/g;
-
-
     //Name validation
     inputName.addEventListener('blur', function() {        
         delete createErrors.name;
-        if(!inputName.value.length > 0) {
-            createErrors.name = "Debés ingresar un nombre de producto";
+        if(!(inputName.value.length > 4)) {
+            createErrors.name = "Debés ingresar un nombre de producto de al menos 5 caracteres";
         } else if(!inputName.value.match(stringRegEx)) {
             createErrors.name = "El nombre de producto debe ser de tipo texto";
         }
@@ -76,7 +94,7 @@ window.addEventListener("load", function () {
     //Price validation
     inputPrice.addEventListener('blur', function() {        
         delete createErrors.price;
-        if(!inputPrice.value.length > 0) {
+        if(!(inputPrice.value.length > 0)) {
             createErrors.price = "Debés ingresar un precio de producto válido";
         } else if(!inputPrice.value.match(numberRegEx)) {
             createErrors.price = "El precio del producto debe ser numérico";
@@ -87,8 +105,8 @@ window.addEventListener("load", function () {
     //Description validation
     inputDescription.addEventListener('blur', function() {        
         delete createErrors.description;
-        if(!(inputDescription.value.length > 0 && inputDescription.value.length < 501)) {
-            createErrors.description = "Debés ingresar una descripción del producto y no puede tener mas de 500 caracteres";
+        if(!(inputDescription.value.length > 19 && inputDescription.value.length < 501)) {
+            createErrors.description = "Debés ingresar una descripción del producto de entre 20 y 500 caracteres";
         } 
         errorDescription.innerText = (createErrors.description) ? createErrors.description : '';
     });
@@ -132,55 +150,28 @@ window.addEventListener("load", function () {
         };
 
         let xsValidation = true;
-        if (sizesValidations.inputSizeXsCheck.checked) {
-            if(sizesValidations.inputSizeXsValue.value.length > 0 && sizesValidations.inputSizeXsValue.value.match(numberRegEx)) {
-                xsValidation = true;
-            } else {
-                xsValidation = false;
-            };
-        };
+        xsValidation = sizeValidator(sizesValidations.inputSizeXsCheck, sizesValidations.inputSizeXsValue.value);
 
         let sValidation = true;
-        if (sizesValidations.inputSizeSCheck.checked) {
-            if(sizesValidations.inputSizeSValue.value.length > 0 && sizesValidations.inputSizeSValue.value.match(numberRegEx)) {
-                sValidation = true;
-            } else {
-                sValidation = false;
-            };
-        };
+        sValidation = sizeValidator(sizesValidations.inputSizeSCheck, sizesValidations.inputSizeSValue.value);
 
         let mValidation = true;
-        if (sizesValidations.inputSizeMCheck.checked) {
-            if(sizesValidations.inputSizeMValue.value.length > 0 && sizesValidations.inputSizeMValue.value.match(numberRegEx)) {
-                mValidation = true;
-            } else {
-                mValidation = false;
-            };
-        };
+        mValidation = sizeValidator(sizesValidations.inputSizeMCheck, sizesValidations.inputSizeMValue.value);
 
         let lValidation = true;
-        if (sizesValidations.inputSizeLCheck.checked) {
-            if(sizesValidations.inputSizeLValue.value.length > 0 && sizesValidations.inputSizeLValue.value.match(numberRegEx)) {
-                lValidation = true;
-            } else {
-                lValidation = false;
-            };
-        };
+        lValidation = sizeValidator(sizesValidations.inputSizeLCheck, sizesValidations.inputSizeLValue.value);
 
         let xlValidation = true;
-        if (sizesValidations.inputSizeXlCheck.checked) {
-            if(sizesValidations.inputSizeXlValue.value.length > 0 && sizesValidations.inputSizeXlValue.value.match(numberRegEx)) {
-            xlValidation = true;
-            } else {
-            xlValidation = false;
-            };
-        };
+        xlValidation = sizeValidator(sizesValidations.inputSizeXlCheck, sizesValidations.inputSizeXlValue.value);
 
         let finalErrors = qs('small#finalErrors');
 
 
         // Bloque final, recopila todas las validaciones, si esta todo Ok hace el submit, sino imprime un error.
-        if (inputName.value.length > 0 && inputPrice.value.length > 0 && inputDescription.value.length > 0 && Object.keys(createErrors).length == 0 && colorContainerChecked && sizeContainerChecked && xsValidation && sValidation && mValidation && lValidation && xlValidation && imgValidator) { 
+        if ( 
+            // true
+            inputName.value.length > 0 && inputPrice.value.length > 0 && inputDescription.value.length > 0 && Object.keys(createErrors).length == 0 && colorContainerChecked && sizeContainerChecked && xsValidation && sValidation && mValidation && lValidation && xlValidation && imgValidator.includes(true)
+            ) { 
             createForm.submit();
         } else { 
             finalErrors.innerText = 'Debes completar todos los campos requeridos y cargar al menos un tamaño, un color, y una imagen del producto';
@@ -189,6 +180,5 @@ window.addEventListener("load", function () {
     })
 
     // ============ VALIDATIONS ============
-    
        
 })

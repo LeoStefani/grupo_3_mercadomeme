@@ -13,9 +13,6 @@ const profileAuthMW = require('../middlewares/profileAuthMW');
 let upload = require('../middlewares/multerUsersMW');
 
 
-let users = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/users.json'), 'utf-8'));
-
-
 router.get('/', usersController.usersIndex);
 router.get('/check', usersController.check);
 
@@ -32,7 +29,7 @@ router.post('/login', loginValidations, usersController.login);
 router.get('/logout', usersController.logout);
 
 router.get('/cart', authMiddleware, usersController.cart);
-router.post('/cart', usersController.cartData)
+router.post('/cart', usersController.dataCart);
 
 router.get('/cart/settings', authMiddleware, usersController.purchaseSettings);
 
