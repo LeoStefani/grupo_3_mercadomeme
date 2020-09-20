@@ -77,8 +77,8 @@ module.exports = {
 
     },
     cart: function (req, res, next) {
-        console.log(req.session.userCart);
-        console.log('perfect Get');
+        // console.log(req.session.userCart);
+        // console.log('perfect Get');
         // res.json(req.session.userCart);
         res.json(req.session.userCart);
 
@@ -90,7 +90,7 @@ module.exports = {
     dataCart: function (req,res,next) {
 
         req.session.userCart = req.body;
-        console.log(req.session.userCart);
+        // console.log(req.session.userCart);
         res.send('okPost');
 
     },
