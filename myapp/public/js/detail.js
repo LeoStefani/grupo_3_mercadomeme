@@ -5,28 +5,31 @@ window.addEventListener("load", function () {
     
     let addToCart = qs("#addToShopCart");
     
-    function allStorage() {
-        let values = [],
-            keys = Object.keys(localStorage),
-            i = keys.length;
-        while ( i-- ) {
-            values.push( JSON.parse(localStorage.getItem(keys[i])) );
-        }
-        return values;
-    };
-
     addToCart.addEventListener('submit', event => {
         event.preventDefault();
+        
         productToCart = {
-            id: document.documentURI.substring(document.documentURI.lastIndexOf('/') + 1),
+            id: Number(document.documentURI.substring(document.documentURI.lastIndexOf('/') + 1)),
             color: qs('#selectedColor').value,
             size: qs('#selectedSize').value
-        }
-        localStorage.setItem('addedProduct' + Date.now() ,JSON.stringify(productToCart));
+        };
+
+        let cart = [];
+        
+        let cartStorage = localStorage.getItem('cart');
+
+        if(cartStorage != null) {
+            cartStorage = JSON.parse(cartStorage);
+            cartStorage.push(productToCart);
+            localStorage.setItem('cart', JSON.stringify(cartStorage));
+        } else {
+            cart.push(productToCart);
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }; 
+
         alert('Producto agregado con éxito!!');
-        // let items = allStorage(localStorage);
        
-    })
+    });
     
     
     

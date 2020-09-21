@@ -7,16 +7,18 @@ window.addEventListener("load", function () {
     
     shopCartIcon.addEventListener('click', event => {
         event.preventDefault();
-        console.log('00');
+        let cartStorage = localStorage.getItem('cart');
+
+        // console.log('00');
         fetch(shopCartIcon.href, {
             method: 'POST',
-            body: JSON.stringify(localStorage),
+            body: cartStorage,
             headers: {
                 'Content-Type' : 'application/json'
                 },
             }).then(function(response) {
-                console.log('11');
-                console.log(response);
+                // console.log('11');
+                // console.log(response);
                 location.href = shopCartIcon.href;
             // }).then(function(info){
             //     console.log('22');
@@ -26,7 +28,6 @@ window.addEventListener("load", function () {
                 console.log(error);
             });
         
-
     });
     
 });

@@ -65,6 +65,7 @@ window.addEventListener("load", function () {
         });
     };
 
+
     for (let i = 0; i < buttonReset.length; i++) {
 
         buttonReset[i].addEventListener("click", function (event) {
