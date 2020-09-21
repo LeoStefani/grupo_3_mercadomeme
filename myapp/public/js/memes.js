@@ -4,7 +4,6 @@ window.addEventListener("load", function () {
     var qs = function (element) { return document.querySelector(element) }
     var qsa = function (element) { return document.querySelectorAll(element) }
 
-
     let memeToComplete = qs("img.memeToComplete");
     let memeCategory = qsa("img.memeCategory");
     let upperText = qs("p.upperText");
@@ -402,7 +401,7 @@ window.addEventListener("load", function () {
 
         // Sin el cors no podía guardar como imagen el cavnas tainted, es decir que usaba imágenes leíadas de la api.
 
-        // Luego de generado el canvas, lo que hago es 
+    //   Acá abajo una función auxiliar que permite a partir del URL64 generar mas adelante un FormData para que el file se guarde en server
 
         function srcToFile(src, fileName, mimeType) {
             return (fetch(src)
@@ -414,8 +413,12 @@ window.addEventListener("load", function () {
         html2canvas(document.querySelector("#capture"), { backgroundColor: null, useCORS: true, allowTaint: true, width: finalWidth, height: memeHeight, y: top, x: offsetLeft }).then(canvas => {
             return canvas
         })
+
+        // con la biblioteca Canvas2Image convierto el canvas en un PNG pero URL64codificado 
             .then(result => {
                 let memeGenerated = Canvas2Image.convertToPNG(result, finalWidth, memeHeight)
+
+                // función auxiliar para armar el FormData para que pueda ser tomado por multer y generar el archivo en el server.
 
                 srcToFile(
                     memeGenerated.src,
@@ -427,47 +430,74 @@ window.addEventListener("load", function () {
                         var fd = new FormData();
                         fd.append("file", file);
 
+                        // una vez que armo el formData con lo que recibió, lo manda por fetch a la ruta por post y pasa por multer
+                        // en la cual se creará un flag en session que avisa que se creo archivo. Esto servirá para que las vistas sepan que esta el creado por usuario.
+
                         return fetch('/memes', { method: 'POST', body: fd });
                     })
                     .then(function (res) {
                         return res.text();
                     })
+                    .then(function (some){
+                        location.href = "/products/index"
+                    })
                     .then(console.log)
                     .catch(console.error);
             })
-            // .then(function (final) {
-                                // location.href = "/memes";
-
-            // })
-        // .then(meme => {
-        //     fetch("/memes", {
-        //         method: 'POST',
-        //         body: { userMeme: meme },
-        //         headers: {
-        //                            },
-        //     }).then(function (response) {
-        //         console.log('11');
-        //         console.log(response);
-        //         // location.href = "/memes";
-
-        //     }).catch(function (error) {
-        //         console.log('33');
-        //         console.log(error);
-        //     });
-
-        // })
-
 
 
 
     })
 
+// ================= SUBIR IMAGEN USUARIO =========================
 
 
+let inputMulter = qs("input[name='userImg']");
+let buttonUpload = qs("button#uploadMemeUser");
 
+// Basicamente, al hacer click en el boton de "cargar imagen", se inicia un input file escondido. 
 
+buttonUpload.addEventListener("click", function (event) {
 
+    console.log(event);
 
+    inputMulter.click();
+
+// cuando se selecciona archivo, se previsualiza en el mismo div que sera capturado con HTML2CANVAS.
+
+inputMulter.addEventListener("change", function (event) {
+
+    console.log(event);
+
+    // Si lo que intento subir es jpg,jpeg,gif o png borra el anuncio y setea el error en 0.
+    if (event.srcElement.files[0] != undefined) {
+        console.log(event);
+        memeToComplete.src = URL.createObjectURL(event.srcElement.files[0])}
+        
+    else {
+        memeToComplete.src = "/images/users/usuario.png"
+        URL.revokeObjectURL(memeToComplete.src)
+
+    }
+
+})
+})
+
+    // ==================================================================================
+
+    // let goToProducts = qs("button#goToProducts");
+
+    // goToProducts.addEventListener("click", function (event) {
+
+    //     event.preventDefault();
+
+    //     buttonScreenshot.click();
+
+    // setTimeout(500);
+
+    // form.submit();
+
+    // })
 
 
 

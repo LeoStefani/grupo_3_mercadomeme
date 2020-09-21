@@ -184,11 +184,11 @@
       <div class="d-flex flex-column justify-content-between memeEditorImage m-0 p-1 col-12 col-md-6 shaded rounded-lg">
         <div class="d-flex align-items-center justify-content-between w-100">
           <form class="d-flex justify-content-between w-100" action="">
-            <button class="flex-grow-1 text-truncate mt-2 mb-2 mr-1 btn btn-warning btn-sm shadow">Agregar
+            <button class="flex-grow-1 text-truncate mt-2 mb-2 mr-1 btn btn-warning btn-sm shadow" disabled>Agregar
               sticker</button>
-            <button class="flex-grow-1 text-truncate mt-2 mb-2 btn btn-warning btn-sm shadow">Agregar imagen</button>
-            <button class="flex-grow-1 text-truncate mt-2 mb-2 ml-1 btn btn-warning btn-sm shadow">Dibujar</button>
-            <button class="flex-grow-1 text-truncate mt-2 mb-2 ml-1  btn btn-warning btn-sm shadow">Rotar</button>
+            <button class="flex-grow-1 text-truncate mt-2 mb-2 btn btn-warning btn-sm shadow" disabled>Agregar imagen</button>
+            <button class="flex-grow-1 text-truncate mt-2 mb-2 ml-1 btn btn-warning btn-sm shadow" disabled>Dibujar</button>
+            <button class="flex-grow-1 text-truncate mt-2 mb-2 ml-1  btn btn-warning btn-sm shadow" disabled>Rotar</button>
           </form>
         </div>
         <div class="w-100 memeToComplete m-0 p-0" id="capture" crossorigin="anonymous">
@@ -197,14 +197,14 @@
           <p class="lowerText  m-0 p-0 w-100">TEXTO INFERIOR</p>
         </div>
         <div>
-          <button class="mt-2 mb-2 btn btn-warning btn-sm btn-block shadow">CARGAR MI PROPIA IMAGEN</button>
+            <button class="mt-2 mb-2 btn btn-warning btn-sm btn-block shadow" id="uploadMemeUser">CARGAR MI PROPIA IMAGEN</button>
         </div>
 
         <form role="form" class=" d-flex flex-wrap justify-content-center"
         enctype="multipart/form-data" method="POST" action="/memes"
         id="memeForm" >
         <div class="col-12 justify-content-center text-center m-0 mb-2 p-0">
-           <input class="text-truncate " type="file" name="memeCreated" id="memeCreated" hidden>
+           <input class="text-truncate " type="file" name="userImg" id="userImg" hidden>
         </div>
 
      </form>
@@ -294,47 +294,12 @@
 
     <!-- SUBMIT -->
     <div class="row  p-0 m-0">
-      <a class="w-100 text-decoration-none" href="/products/index">
-        <button class="btn btn-warning btn-lg btn-block mt-3 shadow" type="submit">Ir a productos</button>
-      </a>
+              <button class="btn btn-warning btn-lg btn-block mt-3 shadow" id="screenshot">Confirmar meme e ir a productos</button>
     </div>
     <!-- SUBMIT -->
 
-    <button id="screenshot">screenshot</button>
+    <button id="screenshot2" hidden>screenshot</button>
 
-
-
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button> -->
-
-    <!-- Modal -->
-    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="w-100 memeToComplete" id="capture">
-          <img class="w-100 shadow rounded-lg memeToComplete" src="images/memeParaCompletar.png" alt="">
-          <p class="upperText  m-0 p-0 w-100">TEXTO SUPERIOR</p>
-          <p class="lowerText  m-0 p-0 w-100">TEXTO INFERIOR</p>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button id="screenshot">screenshot</button>
-
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div> -->
 
   </div>
 
