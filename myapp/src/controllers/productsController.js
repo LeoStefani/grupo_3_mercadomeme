@@ -2,7 +2,7 @@ const db = require("../database/models");
 const { Op } = require("sequelize");
 const { check, validationResult, body } = require("express-validator");
 
-let stringRegEx =  /^[a-z\s]+$/i;
+let stringRegEx =  /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g;
 let numberRegEx = /^[0-9]+([,.][0-9]+)?$/g;
 
 module.exports = {
@@ -177,7 +177,7 @@ module.exports = {
         let newProductImages = [];
         for (let i=0; i<req.files.length; i++) {
             newProductImages[i] = { name: req.files[i].filename };
-        }
+        };
 
         if (VRerrors.isEmpty()) {
             db.Product.create({
@@ -312,98 +312,84 @@ module.exports = {
         };        
 
         let editedProductImages = req.body.oldImgEdition;
-        // console.log(req.body.oldImgEdition);
-        // console.log(editedProductImages);
 
+        //Armamos una array con las imagenes viejas. Luego recorremos el req.files para ver si alguna se actualizo. De ser asi, la reemplazamos.
         for (let i=0 ; i<5; i++) {
             for (let j=0; j<req.files.length; j++) {
-                // console.log(req.files[j].fieldname);
                 if (req.files[j].fieldname == 'imgProduct' + i) {
-                    // console.log(editedProductImages[i]);
                     editedProductImages[i] = req.files[j].filename;
-                    // console.log(editedProductImages[i]);
                 };
             };
         };
 
+        //Formateamos la data para pasarsela a la base de datos.
         let editedProductImagesMapped = editedProductImages.map(function(element) { 
             let obj = {};
             obj.name = element;
             return obj
         });
 
-        res.send(VRerrors);
+        if (VRerrors.isEmpty()) {
+            // Asigno: name compuesto por el id + "deleted" y status 0 al producto pasado por id.    
+            let deletedProduct = db.Product.update({
+                status: 0,
+                name: req.params.id + 'deleted',
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            });
 
-        // if (VRerrors.isEmpty()) {
-        //     // Asigno: name compuesto por el id + "deleted" y status 0 al producto pasado por id.    
-        //     let deletedProduct = db.Product.update({
-        //         status: 0,
-        //         name: req.params.id + 'deleted',
-        //     }, {
-        //         where: {
-        //             id: req.params.id
-        //         }
-        //     });
+            // Voy a la tabla intermedia y le doy status 0 a todos las filas que tengan como producto al del id.
+            let deletedProCol = db.Product_Color.update({
+                status: 0
+            }, {
+                where: {
+                    id_product: req.params.id
+                }
+            });
 
-        //     // Voy a la tabla intermedia y le doy status 0 a todos las filas que tengan como producto al del id.
-        //     let deletedProCol = db.Product_Color.update({
-        //         status: 0
-        //     }, {
-        //         where: {
-        //             id_product: req.params.id
-        //         }
-        //     });
+            let editCreation = db.Product.create({
+                                    name: req.body.productEditName,
+                                    description: req.body.productEditDescription,
+                                    price: parseFloat(req.body.productEditPrice),
+                                    qty_sold: 0, //Resetea qty_sold. Debemos mejorar este manejo.
+                                    id_category: req.body.productEditCategory,
+                                    status: 1,
+                                    sizes: editProductSizes,
+                                    images: editedProductImagesMapped,
+                                    }
+                                    , { include: [{ all: true }] }
+                                    )
 
-        //     let editCreation = db.Product.create({
-        //                             name: req.body.productEditName,
-        //                             description: req.body.productEditDescription,
-        //                             price: parseFloat(req.body.productEditPrice),
-        //                             qty_sold: 0, //Resetea qty_sold. Debemos mejorar este manejo.
-        //                             id_category: req.body.productEditCategory,
-        //                             status: 1,
-        //                             sizes: editProductSizes,
-        //                             images: editedProductImagesMapped,
-        //                             }
-        //                             , { include: [{ all: true }] }
-        //                             )
+                                    .then((protoProduct) => {
+                                        let colorScope = []; //inicializo una array.
 
-        //                             .then((protoProduct) => {
-        //                                 let colorScope = []; //inicializo una array.
+                                        for(let key in req.body) {
+                                            if (key.includes('color')) {
+                                                colorScope.push({
+                                                    id_product: protoProduct.id, 
+                                                    id_color: req.body[key],
+                                                    status: 1
+                                                });
+                                            }; //Si el campo del req.body contiene la palabra color, pushea en la array un {} con las propiedades id_product: el id del producto que estamos creando, y id_color: el valor del campo del req.body que representa al id del color.
+                                        };
 
-        //                                 for(let key in req.body) {
-        //                                     if (key.includes('color')) {
-        //                                         colorScope.push({
-        //                                             id_product: protoProduct.id, 
-        //                                             id_color: req.body[key],
-        //                                             status: 1
-        //                                         });
-        //                                     }; //Si el campo del req.body contiene la palabra color, pushea en la array un {} con las propiedades id_product: el id del producto que estamos creando, y id_color: el valor del campo del req.body que representa al id del color.
-        //                                 };
-
-        //                                 db.Product_Color.bulkCreate(colorScope) });
-        //                                 // Por ahora pondremos las mismas imagenes que tenia el producto anterior
+                                        db.Product_Color.bulkCreate(colorScope) });
+                                        // Por ahora pondremos las mismas imagenes que tenia el producto anterior
                                     
-        //     // Redirijo a products/upload otra vez.
-        //     Promise.all([deletedProduct, deletedProCol, editCreation])
-        //         .then((values) => {
-        //             res.redirect('/products/upload');
-        //         })
-        //         .catch(function (error) { console.log(error) });    
-        // } else {
-        //     res.render('error', {
-        //         title: 'Errores - edición de producto',
-        //         errors: VRerrors.mapped()
-        //     });
-        // };
-
-
-        // Viejo codigo, probar que funcione el resto y borrar.
-        // let editProductSizes = [];
-        // if (req.body.xs != undefined && req.body.sizeXsValue != "") { editProductSizes.push({ tag: req.body.xs, size_main: parseFloat(req.body.sizeXsValue) }) };
-        // if (req.body.s != undefined && req.body.sizeSValue != "") { editProductSizes.push({ tag: req.body.s, size_main: parseFloat(req.body.sizeSValue) }) };
-        // if (req.body.m != undefined && req.body.sizeMValue != "") { editProductSizes.push({ tag: req.body.m, size_main: parseFloat(req.body.sizeMValue) }) };
-        // if (req.body.l != undefined && req.body.sizeLValue != "") { editProductSizes.push({ tag: req.body.l, size_main: parseFloat(req.body.sizeLValue) }) };
-        // if (req.body.xl != undefined && req.body.sizeXlValue != "") { editProductSizes.push({ tag: req.body.xl, size_main: parseFloat(req.body.sizeXlValue) }) };
+            // Redirijo a products/upload otra vez.
+            Promise.all([deletedProduct, deletedProCol, editCreation])
+                .then((values) => {
+                    res.redirect('/products/upload');
+                })
+                .catch(function (error) { console.log(error) });    
+        } else {
+            res.render('error', {
+                title: 'Errores - edición de producto',
+                errors: VRerrors.mapped()
+            });
+        };
     },
 
     deleteViewer: function (req, res, next) {

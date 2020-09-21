@@ -1,3 +1,4 @@
+//Esta funcion mira si hay un size checkeado que el input sea correcto.
 function sizeValidator(inputCheck, inputValue) {
     if (inputCheck.checked) {
         if(inputValue.length > 0 && inputValue.match(numberRegEx)) {
@@ -6,11 +7,11 @@ function sizeValidator(inputCheck, inputValue) {
             return false;
         };
     } else {
-        return false;
-    }; 
-}
+        return true;
+    };
+};
 
-let stringRegEx =  /^[a-z\s]+$/i;
+let stringRegEx =  /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g;
 let numberRegEx = /^[0-9]+([,.][0-9]+)?$/g;
 
 
@@ -30,7 +31,7 @@ window.addEventListener("load", function () {
     for (let i=0; i<5; i++) {
 
         originalImages[i] = image[i].src;
-    }
+    };
 
     // imgValidator es el flag para asegurarse que haya al menos una img...
     let imgValidator = [false, false, false, false, false];
@@ -42,7 +43,7 @@ window.addEventListener("load", function () {
         input[i].click();
 
             input[i].addEventListener("change", function (event) {
-
+                //Checkeo las extensiones de los archivos, si esta todo bien, la renderiza y cambia el flag a true para habilitar el submit.
                 if (
                     // true
                     event.srcElement.files[0] != undefined && (input[i].files[0].type.slice(6) === 'jpeg' || input[i].files[0].type.slice(6) === 'jpg' || input[i].files[0].type.slice(6) === 'png' || input[i].files[0].type.slice(6) === 'gif')
@@ -58,10 +59,8 @@ window.addEventListener("load", function () {
                     URL.revokeObjectURL(image[i].src);
                     image[i].src = originalImages[i];
                     imgValidator[i] = false;
-
-                    // en teoría esto libera el cache subido, pero no estoy seguro que este funcionando correctamente
-                }
-            })
+                };
+            });
         });
     };
 
@@ -123,7 +122,7 @@ window.addEventListener("load", function () {
                 colorContainerChecked = true;
                 break;
             };
-        }
+        };
 
         //Busco y checkeo que haya al menos un size checkeado.
         let sizeContainer = qsa('.createsizeCheckbox');
@@ -133,7 +132,7 @@ window.addEventListener("load", function () {
                 sizeContainerChecked = true;
                 break;
             };
-        }
+        };
 
         // El siguiente bloque valida caso por caso que si está checkeado un tamaño, tengo un valor correcto.
         let sizesValidations = {
@@ -177,8 +176,8 @@ window.addEventListener("load", function () {
             finalErrors.innerText = 'Debes completar todos los campos requeridos y cargar al menos un tamaño, un color, y una imagen del producto';
         };
 
-    })
+    });
 
     // ============ VALIDATIONS ============
        
-})
+});
