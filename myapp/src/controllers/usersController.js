@@ -95,12 +95,28 @@ module.exports = {
 
     },
     loginView: function (req, res, next) {
+
+        // cada vez que alguien renderiza el login, se guarda de que dirección vino ese request. 
+
+        req.session.lastRef = req.header("Referer");
+
         res.render('login', {
             title: 'Login'
         });
     },
     login: function (req, res, next) {
 
+        // defino una variable auxiliar para almacenar de donde vino el request cuando se fue al login por GET
+        let lastHref ;
+
+        // si vino, la seteo en con lo que vino, y sino queda al home
+        if (req.session.lastRef) {
+            lastHref = req.session.lastRef
+        }
+        else {
+        lastHref = "/"
+        }
+       
         // Setea variable VRerrors con aplicar validationResult a lo que viene por el request.
         let VRerrors = validationResult(req);
 
@@ -121,8 +137,9 @@ module.exports = {
                             if (req.body.rememberMe != undefined) {
                                 res.cookie('rememberMe', user.id, { maxAge: 120 * 1000 * 20 })
                             }
-                            // Por úlitmo se lo redirigiria al HOME.
-                            res.redirect('/')
+                            // Por úlitmo se lo redirigiria al último sitio de donde haya venido el request.   
+
+                            res.redirect(lastHref)
                         } else {
                             res.render("login", {
                                 title: "login - Error",

@@ -199,6 +199,15 @@
         <div>
           <button class="mt-2 mb-2 btn btn-warning btn-sm btn-block shadow">CARGAR MI PROPIA IMAGEN</button>
         </div>
+
+        <form role="form" class=" d-flex flex-wrap justify-content-center"
+        enctype="multipart/form-data" method="POST" action="/memes"
+        id="memeForm" >
+        <div class="col-12 justify-content-center text-center m-0 mb-2 p-0">
+           <input class="text-truncate " type="file" name="memeCreated" id="memeCreated" hidden>
+        </div>
+
+     </form>
       </div>
       <!-- MEME EDITOR -->
 

@@ -351,7 +351,7 @@ window.addEventListener("load", function () {
     let buttonScreenshot = qs("button#screenshot");
     let divCapture = qs("div#capture");
 
-// Con esta funcion auxiliar que encontré, se puede saber al posición de donde arranca el div:
+    // Con esta funcion auxiliar que encontré, se puede saber al posición de donde arranca el div:
 
     function offset(el) {
         var rect = el.getBoundingClientRect(),
@@ -362,7 +362,7 @@ window.addEventListener("load", function () {
 
     buttonScreenshot.addEventListener("click", function (event) {
 
-// las coordenadas left y top surjen de aplicar la funcion anterior:
+        // las coordenadas left y top surjen de aplicar la funcion anterior:
 
         var divOffset = offset(divCapture);
         let left = parseInt(divOffset.left);
@@ -394,44 +394,69 @@ window.addEventListener("load", function () {
             finalWidth += 2;
         }
 
-// Aplico la funcionalidad de HTML2CANVAS. 
+        // Aplico la funcionalidad de HTML2CANVAS. 
 
-// AllowTaint es necesario porque como leo de la API, cambia la estructura del source y sino no lo leia.
-// El alto funciona bien con el alto del div, lo mismo que la posicion del corte inicial.
-// Para el ancho, le paso el corte y el ancho corregidos que setee con offsetLeft y finalWidth
+        // AllowTaint es necesario porque como leo de la API, cambia la estructura del source y sino no lo leia.
+        // El alto funciona bien con el alto del div, lo mismo que la posicion del corte inicial.
+        // Para el ancho, le paso el corte y el ancho corregidos que setee con offsetLeft y finalWidth
 
-// Luego de generado el canvas, lo que hago es 
+        // Sin el cors no podía guardar como imagen el cavnas tainted, es decir que usaba imágenes leíadas de la api.
 
+        // Luego de generado el canvas, lo que hago es 
 
-        html2canvas(document.querySelector("#capture"), {useCORS:true, allowTaint: true, width: finalWidth, height: memeHeight, y: top, x: offsetLeft}).then(canvas => {
-            // document.body.appendChild(canvas)
+        function srcToFile(src, fileName, mimeType) {
+            return (fetch(src)
+                .then(function (res) { return res.arrayBuffer(); })
+                .then(function (buf) { return new File([buf], fileName, { type: mimeType }); })
+            );
+        }
 
-            // var memeReady = canvas.toDataURL('image/jpeg', 1.0).replace('image/jpeg','image/octet-stream');
-            // memeReady.crossOrigin = "Anonymous"
+        html2canvas(document.querySelector("#capture"), { backgroundColor: null, useCORS: true, allowTaint: true, width: finalWidth, height: memeHeight, y: top, x: offsetLeft }).then(canvas => {
             return canvas
-            // window.location.href = memeReady
-
-
         })
-        .then(result => {
+            .then(result => {
+                let memeGenerated = Canvas2Image.convertToPNG(result, finalWidth, memeHeight)
 
-        Canvas2Image.saveAsPNG(result, finalWidth, memeHeight)
+                srcToFile(
+                    memeGenerated.src,
+                    'meme.png',
+                    'image/png'
+                )
+                    .then(function (file) {
+                        console.log(file);
+                        var fd = new FormData();
+                        fd.append("file", file);
 
-            // console.log(result);
-            // localStorage.setItem("memeCreated", imagenFinal)
-            // let recuperar = localStorage.getItem("memeCreated");
+                        return fetch('/memes', { method: 'POST', body: fd });
+                    })
+                    .then(function (res) {
+                        return res.text();
+                    })
+                    .then(console.log)
+                    .catch(console.error);
+            })
+            // .then(function (final) {
+                                // location.href = "/memes";
 
-            // document.body.appendChild(meme)
+            // })
+        // .then(meme => {
+        //     fetch("/memes", {
+        //         method: 'POST',
+        //         body: { userMeme: meme },
+        //         headers: {
+        //                            },
+        //     }).then(function (response) {
+        //         console.log('11');
+        //         console.log(response);
+        //         // location.href = "/memes";
 
+        //     }).catch(function (error) {
+        //         console.log('33');
+        //         console.log(error);
+        //     });
 
-        //     let anchor = document.createElement('a');
-        // anchor.setAttribute('download', 'meme.jpeg');
-        // anchor.setAttribute('href', result);
-        // anchor.click(); 
-    
-    })
+        // })
 
-        
 
 
 
