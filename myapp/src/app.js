@@ -7,10 +7,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');
 const cookieMW = require("./middlewares/cookieMW");
-
-
-// comentario de coco
-
 const loggedRenderingMw = require('./middlewares/loggedRenderingMW');
 
 const indexRouter = require('./routes/indexRouter');
@@ -20,13 +16,14 @@ const memesRouter = require('./routes/memesRouter');
 
 const app = express();
 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({ extended: true, limit:'50mb' }));
 app.use(cookieParser());
 app.use(session({secret: "Aca va la frase de seguridad"}));
 app.use(methodOverride('_method'));
@@ -38,7 +35,6 @@ app.use(loggedRenderingMw);
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/', indexRouter);
-// Agrego el enrutador de productos en productsRouter
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 app.use('/memes', memesRouter);
@@ -58,5 +54,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error',{title: "Error"});
 });
+
 
 module.exports = app;

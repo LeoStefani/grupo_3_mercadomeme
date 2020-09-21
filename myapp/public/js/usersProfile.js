@@ -16,6 +16,8 @@ window.addEventListener("load", function () {
 
     inputMulter.addEventListener("change", function (event) {
 
+        console.log(event);
+
         // estoy a la espera de cambio en el input de multer en el modal
         // por defecto, el boton de cambiar foto viene deshabilitado, y solo se puede cancelar el modal
         // si se toca para seleccionar nuevo avatar, y efectivamente se selecciona uno, entonces se habilita el boton

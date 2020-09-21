@@ -50,7 +50,8 @@ module.exports = {
             if (productDetail.status == 1) {
                 res.render("detail", {
                     title: 'Detalle de productos',
-                    productDetail: productDetail
+                    productDetail: productDetail, 
+                    session: req.session.memeCreated
                 });
             } else {
                 res.redirect('/');
