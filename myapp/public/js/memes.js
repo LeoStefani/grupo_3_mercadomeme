@@ -1,5 +1,7 @@
 
-window.addEventListener("load", function () {
+window.addEventListener("load", function (e) {
+
+    console.log(e);
 
     var qs = function (element) { return document.querySelector(element) }
     var qsa = function (element) { return document.querySelectorAll(element) }
@@ -439,7 +441,7 @@ window.addEventListener("load", function () {
                         return res.text();
                     })
                     .then(function (some){
-                        location.href = "/products/index"
+                        location.href = e.target.referrer
                     })
                     .then(console.log)
                     .catch(console.error);

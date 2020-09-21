@@ -4,6 +4,7 @@ const fs = require("fs")
 module.exports = {
   memesIndex: function (req, res, next) {
 
+
     memeResources.trending().then(function (values) {
 
 
