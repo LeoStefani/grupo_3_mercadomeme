@@ -9,17 +9,18 @@
     <div class="container mainCart">
         <div class="row m-4 d-flex flex-wrap justify-content-center">
             <h2 class="col-12 text-center"><%= message %></h2>
-            <div class="col-12 m-2 d-flex flex-wrap justify-content-center"><a href="/products/index"><button type="button" class="btn btn-lg btn-warning">Seguir comprando</button></a></div>
+            <div class="col-12 m-2 d-flex flex-wrap justify-content-center"><a href="/products/index"><button type="button" class="btn btn-md btn-warning">SEGUIR COMPRANDO</button></a></div>
         </div>
         
 
         <!-- products  -->
         <% for (let i = 0; i < products.length; i++) { %> 
             <div class="row m-4 d-flex flex-wrap cartItem shadow rounded-lg">
-                <div class="col-12 col-md-2 d-flex flex-wrap image m-0 p-2">
-                    <img class="w-100 p-0 shadow rounded-lg" src="/images/products/<%= products[i].image %>" alt="">
+                <div class="col-12 col-md-4 d-flex flex-wrap image m-0 p-2">
+                    <img class="w-50 p-0 shadow rounded-lg" src="/images/products/<%= products[i].image %>" alt="">
+                    <img class="w-50 pl-1 shadow rounded-lg" src="/images/memes/<%= products[i].meme %>" alt="">
                 </div>
-                <div class="col-12 col-md-6 mt-2 pt-2 mb-2 d-inline-block cartSummary">
+                <div class="col-12 col-md-4 mt-2 pt-2 mb-2 d-inline-block cartSummary">
                     <h5 class="mt-2"><%= products[i].name %>  </h5><p>Talle: <%= products[i].size %></p><p class="text-capitalize">Color: <%= products[i].color %></p>
                     
                 </div>
