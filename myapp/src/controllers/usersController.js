@@ -111,7 +111,6 @@ module.exports = {
                             };
                         };
                     });
-                    // res.send(req.session.userCart);
                     res.render("cart", {
                             title: "Carrito",
                             message: "",
@@ -124,6 +123,7 @@ module.exports = {
     dataCart: function (req, res, next) {
 
         req.session.userCart = req.body;
+        console.log(req.session.userCart);
         res.send('okPost');
 
     },

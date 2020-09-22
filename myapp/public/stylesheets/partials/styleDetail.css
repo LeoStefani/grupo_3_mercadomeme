@@ -19,6 +19,15 @@ div.detail h5.modal-title {
     font-weight: bolder;
 }
 
+div.detail #memePreview {
+position: absolute;
+left: 53%;
+top: 25%;
+width: 10%;
+height: 20%;
+
+}
+
 
 div.detail div.banner h3{
     font-family: "Open sans";

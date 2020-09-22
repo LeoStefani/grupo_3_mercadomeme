@@ -4,9 +4,11 @@ window.addEventListener("load", function () {
     let qsa = element => {return document.querySelectorAll(element)};
     
     let addToCart = qs("#addToShopCart");
+    let myButtonCart = qs("#myButtonCart");
     
     addToCart.addEventListener('submit', event => {
         event.preventDefault();
+        
         let dateTag = {tag: Date.now()};
 
         fetch('/memes/rename', {
@@ -18,10 +20,9 @@ window.addEventListener("load", function () {
             }).then(function(response) {
                 // console.log('11');
                 console.log(response);
-                // location.href = shopCartIcon.href;
             }).then(function(info){
                 productToCart = {
-                    id: document.documentURI.substring(document.documentURI.lastIndexOf('/') + 1),
+                    id: Number(document.documentURI.substring(document.documentURI.lastIndexOf('/') + 1)),
                     color: qs('#selectedColor').value,
                     size: qs('#selectedSize').value,
                     meme: "memeUser"+dateTag.tag+".png",
@@ -34,23 +35,26 @@ window.addEventListener("load", function () {
                     cartStorage = JSON.parse(cartStorage);
                     cartStorage.push(productToCart);
                     localStorage.setItem('cart', JSON.stringify(cartStorage));
+                    myButtonCart.innerText = cartStorage.length;
                 } else {
                     cart.push(productToCart);
                     localStorage.setItem('cart', JSON.stringify(cart));
+                    myButtonCart.innerText = cart.length;
                 }; 
-                alert('Producto agregado con éxito!!');
-            //     console.log('22');
-            //     console.log(info);
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Producto agregado con éxito!!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  }).then( results => {
+                        window.location.href = "/products/index";
+                  });
             }).catch(function (error) {
                 // console.log('33');
                 console.log(error);
             });
-        
 
-
-
-        // let items = allStorage(localStorage);
-       
     });
     
 });

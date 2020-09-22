@@ -25,7 +25,7 @@
         <div class="m-0 p-0 mb-4 rounded-lg col-12 d-flex flex-wrap justify-content-center align-items-center">
           <div class="col-12 justify-content-center align-items-center d-flex flex-wrap p-1 m-0">
             <a class="w-100 text-center" href="">
-              <img class="meme rounded-lg side col-8 p-2" src="<%= session ? "/images/memes/memeUser.png" :"/images/memes/memeUser2.png"%>">
+              <img class="meme rounded-lg side col-8 p-2" src="<%= session ? "/images/memes/memeUser.png" :"/images/noMeme.png"%>">
             </a>
           </div>
           <div class="col-12 d-flex flex-wrap p-0 m-0 justify-content-center">
@@ -94,8 +94,9 @@
 
         <div class="m-0 p-0 rounded-lg col-12 d-flex flex-wrap justify-content-center align-items-center">
           <div class="col-12 col-lg-8 col-md-10  justify-content-center align-items-center d-flex flex-wrap p-1 m-0">
-            <a class="w-100 text-center" href="">
-              <img class="productMeme rounded-lg side col-8 p-2" src="/images/tazaMemeJs.png">
+            <a class="w-100 text-center position-relative" href="">
+              <img class="productMeme rounded-lg side col-8 p-2" src="/images/products/<%= productDetail.images[0].name %>">
+              <img id="memePreview" src="<%= session ? "/images/memes/memeUser.png" : "/images/noMeme.png"%>" style="<%=productDetail.id == "64" ? "left:40%;height:30%;top:25%;width:20%" : productDetail.id == "65" ? "left:40%;height:30%;top:50%;width:20%": productDetail.id == "62" || productDetail.id == "61" ? "left:40%;height:20%;top:65%;width:20%": productDetail.id == "1"  ? "left:45%;height:35%;top:35%;width:25%" : productDetail.id == "2"  ? "left:45%;height:35%;top:35%;width:20%" : "" %>" alt="" >
             </a>
           </div>
 
