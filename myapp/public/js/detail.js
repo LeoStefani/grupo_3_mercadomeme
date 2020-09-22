@@ -31,6 +31,4 @@ window.addEventListener("load", function () {
        
     });
     
-    
-    
-    });
+});

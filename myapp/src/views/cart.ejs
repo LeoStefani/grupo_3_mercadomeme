@@ -7,8 +7,11 @@
 <body>
     <%- include('partials/header') %>
     <div class="container mainCart">
-
-        <h2 class="text-center"><%= message %></h2>
+        <div class="row m-4 d-flex flex-wrap justify-content-center">
+            <h2 class="col-12 text-center"><%= message %></h2>
+            <div class="col-12 m-2 d-flex flex-wrap justify-content-center"><a href="/products/index"><button type="button" class="btn btn-lg btn-warning">Seguir comprando</button></a></div>
+        </div>
+        
 
         <!-- products  -->
         <% for (let i = 0; i < products.length; i++) { %> 
@@ -17,18 +20,18 @@
                     <img class="w-100 p-0 shadow rounded-lg" src="/images/products/<%= products[i].image %>" alt="">
                 </div>
                 <div class="col-12 col-md-6 mt-2 pt-2 mb-2 d-inline-block cartSummary">
-                    <h5 class="mt-2"><%= products[i].name %>  </h5><p>Talle: <%= products[i].size %></p><p>Color: <%= products[i].color %></p>
+                    <h5 class="mt-2"><%= products[i].name %>  </h5><p>Talle: <%= products[i].size %></p><p class="text-capitalize">Color: <%= products[i].color %></p>
                     
                 </div>
                 <div class="col-12 col-md-4 mt-2 mb-2 cartSettings">
                         <div class="d-flex flex-wrap mt-2 mb-2 align-items-center justify-content-start">
-                            <p class="col-5 m-0 p-0 mt-2 mb-2">Cantidad: 1</p>
-                            <input class="col-2 p-0 mr-1 mt-2 mb-2" type="text">
-                            <button class="btn btn-sm btn-warning p-0 mr-3 mt-2 mb-2 col-1"><i class="far fa-check-square"></i></button>
-                            <button class="btn btn-sm btn-warning p-0 mr-1 mt-2 mb-2 col-1"><i class="far fa-minus-square"></i></button>
-                            <button class="btn btn-sm btn-warning p-0 mt-2 mb-2 col-1"><i class="far fa-plus-square"></i></button>
+                            <p class="col-5 m-0 p-0 mt-2 mb-2">Cantidad: </p>
+                            <input class="col-2 p-0 mr-1 mt-2 mb-2 everyQty" value="1" type="text">
+                            <button class="btn btn-sm btn-warning p-0 mr-1 mt-2 mb-2 col-1 minusButton"><i class="far fa-minus-square"></i></button>
+                            <button class="btn btn-sm btn-warning p-0 mt-2 mb-2 col-1 plusButton"><i class="far fa-plus-square"></i></button>
                         </div>
                         <div class="col-12 p-0 mt-2 mb-2">Precio: $<%= products[i].price %></div>
+                        <input class="everyPrice" value=<%= products[i].price %> type="text" hidden>
                         <div class="col-12 p-0 mt-2 mb-2"><a class="text-decoration-none" href="#">Eliminar</a></a></div>
                 </div> 
             </div>
@@ -37,22 +40,25 @@
         <!-- products  -->
 
 
+        <% if (products.length > 0) { %> 
         <!-- final price -->
-        <div class="row mt-4 m-0 pr-4 pl-4 d-flex flex-wrap justify-content-end ">
-            <div class="col-12 col-md-6 m-0 finalPrice shadow rounded-lg ">
-                <h3 class="finalPrice w-100 text-center mb-0">Precio Final: $9.999 </h3>
+            <div class="row mt-4 m-0 pr-4 pl-4 d-flex flex-wrap justify-content-end ">
+                <div class="col-12 col-md-6 m-0 finalPrice shadow rounded-lg ">
+                    <h3 class="finalPrice w-100 text-center mb-0" id="finalPrice">Precio Final: $xxxx </h3>
+                </div>
             </div>
-        </div>
         <!-- final price -->
 
         <!-- submit button -->
-        <div class="row mt-2 ml-4 mr-4 d-flex flex-wrap justify-content-end">
-            <a role="button" class="btn btn-warning mt-3 col-12 col-md-6 btn-block shadow rounded-lg" type="submit" href="/users/cart/settings">PAGO</a>
-        </div>
+            <div class="row mt-2 ml-4 mr-4 d-flex flex-wrap justify-content-end">
+                <a role="button" class="btn btn-warning mt-3 col-12 col-md-6 btn-block shadow rounded-lg" type="submit" href="/users/cart/settings">PAGO</a>
+            </div>
         <!-- submit button -->
+        <% } %> 
 
     </div>
     <%- include('partials/footer') %>
     <%- include('partials/scriptsBootstrap') %>
+    <script src="/js/cart.js"></script>
 </body>
 </html>
