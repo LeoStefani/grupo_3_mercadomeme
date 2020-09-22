@@ -1,5 +1,7 @@
 
-window.addEventListener("load", function () {
+window.addEventListener("load", function (e) {
+
+    console.log(e);
 
     var qs = function (element) { return document.querySelector(element) }
     var qsa = function (element) { return document.querySelectorAll(element) }
@@ -439,7 +441,10 @@ window.addEventListener("load", function () {
                         return res.text();
                     })
                     .then(function (some){
-                        location.href = "/products/index"
+                        if (location.href != e.target.referrer) {
+                        location.href = e.target.referrer} else {
+                            location.href = "/products/index"
+                        }
                     })
                     .then(console.log)
                     .catch(console.error);
@@ -485,19 +490,67 @@ inputMulter.addEventListener("change", function (event) {
 
     // ==================================================================================
 
-    // let goToProducts = qs("button#goToProducts");
+    let buttonDownload = qs("button#downloadMemeUser")
 
-    // goToProducts.addEventListener("click", function (event) {
+    buttonDownload.addEventListener("click", function (event) {
 
-    //     event.preventDefault();
+        // las coordenadas left y top surjen de aplicar la funcion anterior:
 
-    //     buttonScreenshot.click();
+        var divOffset = offset(divCapture);
+        let left = parseInt(divOffset.left);
+        let top = parseInt(divOffset.top);
 
-    // setTimeout(500);
+        // por otro lado, saco el ancho y alto del div que contiene el meme:
 
-    // form.submit();
+        let memeWidth = memeToComplete.width;
+        let memeHeight = memeToComplete.height;
 
-    // })
+        // por otro lado, para que quede bien, depende de la disposición de los elementos con responsive para que se acomode bien.
+        // Por eso defino una variable que depende del ancho de la ventana para agregar un pequeño corrimiento de corrección:
+
+        let offsetLeft = left;
+
+        if (window.innerWidth < 768) {
+            offsetLeft += 2;
+        } else {
+            offsetLeft += 7;
+        }
+
+        // Lo mismo para ajustar el ancho del canvas que se va a generar:
+
+        let finalWidth = memeWidth;
+
+        if (window.innerWidth < 768) {
+            finalWidth += 0;
+        } else {
+            finalWidth += 2;
+        }
+
+        // Aplico la funcionalidad de HTML2CANVAS. 
+
+        // AllowTaint es necesario porque como leo de la API, cambia la estructura del source y sino no lo leia.
+        // El alto funciona bien con el alto del div, lo mismo que la posicion del corte inicial.
+        // Para el ancho, le paso el corte y el ancho corregidos que setee con offsetLeft y finalWidth
+
+        // Sin el cors no podía guardar como imagen el cavnas tainted, es decir que usaba imágenes leíadas de la api.
+
+    //   Acá abajo una función auxiliar que permite a partir del URL64 generar mas adelante un FormData para que el file se guarde en server
+
+
+
+        html2canvas(document.querySelector("#capture"), { backgroundColor: null, useCORS: true, allowTaint: true, width: finalWidth, height: memeHeight, y: top, x: offsetLeft }).then(canvas => {
+            return canvas
+        })
+
+        // con la biblioteca Canvas2Image convierto el canvas en un PNG pero URL64codificado 
+            .then(result => {
+                Canvas2Image.saveAsPNG(result, finalWidth, memeHeight);
+
+            })
+
+
+
+    })
 
 
 

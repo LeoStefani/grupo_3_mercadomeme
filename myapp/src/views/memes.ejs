@@ -183,21 +183,21 @@
       <!-- MEME EDITOR -->
       <div class="d-flex flex-column justify-content-between memeEditorImage m-0 p-1 col-12 col-md-6 shaded rounded-lg">
         <div class="d-flex align-items-center justify-content-between w-100">
-          <form class="d-flex justify-content-between w-100" action="">
-            <button class="flex-grow-1 text-truncate mt-2 mb-2 mr-1 btn btn-warning btn-sm shadow" disabled>Agregar
+            <button class="flex-grow-1 text-truncate mt-2 mb-2 mr-1 btn btn-warning btn-sm shadow" hidden>Agregar
               sticker</button>
-            <button class="flex-grow-1 text-truncate mt-2 mb-2 btn btn-warning btn-sm shadow" disabled>Agregar imagen</button>
-            <button class="flex-grow-1 text-truncate mt-2 mb-2 ml-1 btn btn-warning btn-sm shadow" disabled>Dibujar</button>
-            <button class="flex-grow-1 text-truncate mt-2 mb-2 ml-1  btn btn-warning btn-sm shadow" disabled>Rotar</button>
-          </form>
-        </div>
+            <button class="flex-grow-1 text-truncate mt-2 mb-2 btn btn-warning btn-sm shadow" hidden>Agregar imagen</button>
+            <button class="flex-grow-1 text-truncate mt-2 mb-2 ml-1 btn btn-warning btn-sm shadow" hidden>Dibujar</button>
+            <button class="flex-grow-1 text-truncate mt-2 mb-2 ml-1  btn btn-warning btn-sm shadow" hidden>Rotar</button>
+            <button class="mt-2 mb-2 btn btn-warning shadow w-100" id="uploadMemeUser">Cargar mi propia imagen <i class="fas fa-cloud-upload-alt"></i></button>
+                </div>
         <div class="w-100 memeToComplete m-0 p-0" id="capture" crossorigin="anonymous">
           <img class="w-100 shadow rounded-lg memeToComplete" src="images/memeParaCompletar.png" crossorigin="anonymous" alt="">
           <p class="upperText  m-0 p-0 w-100">TEXTO SUPERIOR</p>
           <p class="lowerText  m-0 p-0 w-100">TEXTO INFERIOR</p>
         </div>
         <div>
-            <button class="mt-2 mb-2 btn btn-warning btn-sm btn-block shadow" id="uploadMemeUser">CARGAR MI PROPIA IMAGEN</button>
+            <button class="mt-2 mb-2 btn btn-warning shadow w-100" id="downloadMemeUser">Descargar mi MEME <i class="fas fa-cloud-download-alt"></i></button>
+
         </div>
 
         <form role="form" class=" d-flex flex-wrap justify-content-center"
@@ -294,7 +294,7 @@
 
     <!-- SUBMIT -->
     <div class="row  p-0 m-0">
-              <button class="btn btn-warning btn-lg btn-block mt-3 shadow" id="screenshot">Confirmar meme e ir a productos</button>
+              <button class="btn btn-warning btn-lg btn-block mt-3 shadow" id="screenshot">Confirmar meme y continuar <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></button>
     </div>
     <!-- SUBMIT -->
 
