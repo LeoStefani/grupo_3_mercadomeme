@@ -61,7 +61,10 @@ div.memes p.upperText{
     top: 15%;
     left:50%;
     word-spacing: 2px;
-    -webkit-text-stroke: 1px white;
+    color: black;
+    text-shadow: 2px 2px 2px white;
+
+    /* -webkit-text-stroke: 1px white; */
     transform: translate(-50%, -50%) rotate(0deg);
     text-transform: uppercase;
     /* overflow-wrap: inherit; */
@@ -75,7 +78,8 @@ div.memes p.lowerText{
     top: 75%;
     left:50%;
     word-spacing: 2px;
-    -webkit-text-stroke: 1px white;
+    color: black;
+    text-shadow: 2px 2px 2px white;
     transform: translate(-50%, -50%);
     text-transform: uppercase;
     /* overflow-wrap: inherit; */
@@ -85,7 +89,7 @@ div.memes p.lowerText{
 
 .dark {
     color: white !important;
-    -webkit-text-stroke: 1px black !important;
+    text-shadow: 2px 2px 2px black !important;
 }
 
 
