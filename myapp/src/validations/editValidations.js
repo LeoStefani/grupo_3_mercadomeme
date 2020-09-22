@@ -1,6 +1,6 @@
 const { check, validationResult, body } = require('express-validator');
 
-let stringRegEx =  /^[a-z\s]+$/i;
+let stringRegEx =  /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g;
 let numberRegEx = /^[0-9]+([,.][0-9]+)?$/g;
 
 
@@ -22,7 +22,7 @@ module.exports = [
             return ( (value.length > 19) && (value.length < 501) )
         })
         .withMessage("Debés ingresar una descripción del producto de entre 20 y 500 caracteres"),
-    body("imgProduct")
+    body("imgProduct0")
         .custom( (value, {req}) => {
             if (typeof req.files[0] != 'undefined') {
                 if(typeof req.files[0].error != 'undefined') {
@@ -31,8 +31,8 @@ module.exports = [
                     return true;
                 }
             } else {
-                throw new Error('Debes subir al menos una imagen válida (jpeg, jpg, png, gif)');
+                return true;
             }
-        })
+        }),
 ];
 

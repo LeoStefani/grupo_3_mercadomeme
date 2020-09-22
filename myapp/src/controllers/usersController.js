@@ -3,6 +3,7 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const { check, validationResult, body } = require("express-validator");
 const db = require("../database/models");
+const { Op } = require("sequelize");
 
 module.exports = {
     usersIndex: function (req, res, next) {
@@ -25,7 +26,7 @@ module.exports = {
                 old: req.body
             })
         })
-            .catch(function (error) { res.send(error)});
+            .catch(function (error) { res.send(error) });
 
         // res.render("usersProfile", {
         //         title: "Mi Perfil",
@@ -77,20 +78,52 @@ module.exports = {
 
     },
     cart: function (req, res, next) {
-        // console.log(req.session.userCart);
-        // console.log('perfect Get');
-        // res.json(req.session.userCart);
-        res.json(req.session.userCart);
 
-        // res.render("cart", {
-        //     title: "Carrito",
-        //     products: req.session.userCart
-        // });
+        console.log(req.session.userCart);
+
+        if (Object.keys(req.session.userCart).length === 0) {
+            res.render("cart", {
+                title: "Carrito",
+                message: "Tu carrito esta vacío :(",
+                products: req.session.userCart,
+            });
+        } else {
+            //Mapeamos en idsArray para obtener todos los ids que vinieron.
+            let idsArray = req.session.userCart.map(element => element.id);
+            //Buscamos todos los productos con esos ids de la base de datos.
+            db.Product.findAll({
+                include: [{
+                    all: true
+                }],
+                where: {
+                    id: { [Op.or]: idsArray }
+                }
+                }).then(function (productsData) {
+                    req.session.userCart = req.session.userCart.map(element => {
+                        for(let i=0; i<productsData.length; i++) {
+                            if(productsData[i].id === element.id) {
+                                return {
+                                    ...element,
+                                    name: productsData[i].name,
+                                    price: productsData[i].price,
+                                    image: productsData[i].images[0].name
+                                };
+                            };
+                        };
+                    });
+                    // res.send(req.session.userCart);
+                    res.render("cart", {
+                            title: "Carrito",
+                            message: "",
+                            products: req.session.userCart
+                        });
+                })
+        };
+
     },
-    dataCart: function (req,res,next) {
+    dataCart: function (req, res, next) {
 
         req.session.userCart = req.body;
-        // console.log(req.session.userCart);
         res.send('okPost');
 
     },
@@ -222,20 +255,20 @@ module.exports = {
                     address_1: req.body.address_1
                 },
                     { where: { id: req.params.userId } })
-                    .then(function (result) { 
-                  
+                    .then(function (result) {
+
                         res.redirect("/users/profile/" + req.params.userId)
-                     })
-                    .catch(function (errors) { 
+                    })
+                    .catch(function (errors) {
                         // res.send(errors)
                         res.render("usersProfile", {
-                        errorsDB: errors,
-                        user: users,
-                        title: "Mi Perfil - Error",
-                    })
+                            errorsDB: errors,
+                            user: users,
+                            title: "Mi Perfil - Error",
+                        })
                     })
 
-                ;
+                    ;
             }
 
         } else {
@@ -248,9 +281,9 @@ module.exports = {
                     title: "Mi Perfil",
                     user: users,
                     errors: VRerrors.mapped()
-                                   })
+                })
             })
-                .catch(function (error) { res.send(error) })   
+                .catch(function (error) { res.send(error) })
 
         }
 

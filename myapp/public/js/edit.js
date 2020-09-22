@@ -1,3 +1,4 @@
+//Esta funcion mira si hay un size checkeado que el input sea correcto.
 function sizeValidator(inputCheck, inputValue) {
     if (inputCheck.checked) {
         if(inputValue.length > 0 && inputValue.match(numberRegEx)) {
@@ -6,11 +7,11 @@ function sizeValidator(inputCheck, inputValue) {
             return false;
         };
     } else {
-        return false;
+        return true;
     }; 
-}
+};
 
-let stringRegEx =  /^[a-z\s]+$/i;
+let stringRegEx =  /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g;
 let numberRegEx = /^[0-9]+([,.][0-9]+)?$/g;
 
 
@@ -30,9 +31,10 @@ window.addEventListener("load", function () {
     for (let i=0; i<5; i++) {
 
         originalImages[i] = image[i].src;
+
     };
 
-    // imgValidator es el flag para asegurarse que haya al menos una img...
+    // imgValidator es el flag para asegurarse que haya al menos una img... Arranca con un true porque siempre traera una el producto.
     let imgValidator = [true, false, false, false, false];
 
     for (let i = 0; i < buttonEdit.length; i++) {
@@ -42,12 +44,10 @@ window.addEventListener("load", function () {
         input[i].click();
 
             input[i].addEventListener("change", function (event) {
-
-                console.log(event);
-    
+                //Checkeo las extensiones de los archivos, si esta todo bien, la renderiza y cambia el flag a true para habilitar el submit.
                 if (
-                    true
-                    // event.srcElement.files[0] != undefined && (input[i].files[0].type.slice(6) === 'jpeg' || input[i].files[0].type.slice(6) === 'jpg' || input[i].files[0].type.slice(6) === 'png' || input[i].files[0].type.slice(6) === 'gif')
+                    // true
+                    event.srcElement.files[0] != undefined && (input[i].files[0].type.slice(6) === 'jpeg' || input[i].files[0].type.slice(6) === 'jpg' || input[i].files[0].type.slice(6) === 'png' || input[i].files[0].type.slice(6) === 'gif')
                     ) {
                     image[i].src = URL.createObjectURL(event.srcElement.files[0]);
                     imgValidator[i] = true;
@@ -60,20 +60,18 @@ window.addEventListener("load", function () {
                 else {
                     URL.revokeObjectURL(image[i].src);
                     imgValidator[i] = false;
-                    
-                    // en teoría esto libera el cache subido, pero no estoy seguro que este funcionando correctamente
-                }
-            })
+                };
+            });
         });
-    }
-    console.log(imgValidator);
+    };
+
 
     for (let i = 0; i < buttonReset.length; i++) {
 
         buttonReset[i].addEventListener("click", function (event) {
 
             image[i].src = originalImages[i]
-        })
+        });
     };
 
 
@@ -135,7 +133,7 @@ window.addEventListener("load", function () {
                 colorContainerChecked = true;
                 break;
             };
-        }
+        };
 
         //Busco y checkeo que haya al menos un size checkeado.
         let sizeContainer = qsa('.editSizeCheckbox');
@@ -145,7 +143,7 @@ window.addEventListener("load", function () {
                 sizeContainerChecked = true;
                 break;
             };
-        }
+        };
 
         // El siguiente bloque valida caso por caso que si está checkeado un tamaño, tengo un valor correcto.
         let sizesValidations = {
@@ -161,77 +159,37 @@ window.addEventListener("load", function () {
             inputSizeXlValue : qs('input#xlInput')
         };
 
-
-
+        //Validaciones para cada tamaño
         let xsValidation = true;
         xsValidation = sizeValidator(sizesValidations.inputSizeXsCheck, sizesValidations.inputSizeXsValue.value);
-        // if (sizesValidations.inputSizeXsCheck.checked) {
-        //     if(sizesValidations.inputSizeXsValue.value.length > 0 && sizesValidations.inputSizeXsValue.value.match(numberRegEx)) {
-        //         xsValidation = true;
-        //     } else {
-        //         xsValidation = false;
-        //     };
-        // };
 
         let sValidation = true;
         sValidation = sizeValidator(sizesValidations.inputSizeSCheck, sizesValidations.inputSizeSValue.value);
-        // if (sizesValidations.inputSizeSCheck.checked) {
-        //     if(sizesValidations.inputSizeSValue.value.length > 0 && sizesValidations.inputSizeSValue.value.match(numberRegEx)) {
-        //         sValidation = true;
-        //     } else {
-        //         sValidation = false;
-        //     };
-        // };
-
 
         let mValidation = true;
         mValidation = sizeValidator(sizesValidations.inputSizeMCheck, sizesValidations.inputSizeMValue.value);
-        // if (sizesValidations.inputSizeMCheck.checked) {
-        //     if(sizesValidations.inputSizeMValue.value.length > 0 && sizesValidations.inputSizeMValue.value.match(numberRegEx)) {
-        //         mValidation = true;
-        //     } else {
-        //         mValidation = false;
-        //     };
-        // };
-
 
         let lValidation = true;
         lValidation = sizeValidator(sizesValidations.inputSizeLCheck, sizesValidations.inputSizeLValue.value);
-        // if (sizesValidations.inputSizeLCheck.checked) {
-        //     if(sizesValidations.inputSizeLValue.value.length > 0 && sizesValidations.inputSizeLValue.value.match(numberRegEx)) {
-        //         lValidation = true;
-        //     } else {
-        //         lValidation = false;
-        //     };
-        // };
-
 
         let xlValidation = true;
         xlValidation = sizeValidator(sizesValidations.inputSizeXlCheck, sizesValidations.inputSizeXlValue.value);
-        // if (sizesValidations.inputSizeXlCheck.checked) {
-        //     if(sizesValidations.inputSizeXlValue.value.length > 0 && sizesValidations.inputSizeXlValue.value.match(numberRegEx)) {
-        //     xlValidation = true;
-        //     } else {
-        //     xlValidation = false;
-        //     };
-        // };
-
 
         let finalErrors = qs('small#finalErrors');
 
 
         // Bloque final, recopila todas las validaciones, si esta todo Ok hace el submit, sino imprime un error.
         if (
-            true
-            // inputName.value.length > 0 && inputPrice.value.length > 0 && inputDescription.value.length > 0 && Object.keys(createErrors).length == 0 && colorContainerChecked && sizeContainerChecked && xsValidation && sValidation && mValidation && lValidation && xlValidation && imgValidator.includes(true)
+            // true
+            inputName.value.length > 0 && inputPrice.value.length > 0 && inputDescription.value.length > 0 && Object.keys(createErrors).length == 0 && colorContainerChecked && sizeContainerChecked && xsValidation && sValidation && mValidation && lValidation && xlValidation && imgValidator.includes(true)
             ) { 
             editForm.submit();
         } else { 
             finalErrors.innerText = 'Debes completar todos los campos requeridos y cargar al menos un tamaño, un color, y una imagen del producto';
         };
 
-    })
+    });
 
     // ============ VALIDATIONS ============
 
-})
+});
