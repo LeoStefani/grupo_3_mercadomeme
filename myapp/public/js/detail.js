@@ -26,6 +26,7 @@ window.addEventListener("load", function () {
                     color: qs('#selectedColor').value,
                     size: qs('#selectedSize').value,
                     meme: "memeUser"+dateTag.tag+".png",
+                    tag: dateTag.tag
                 }
                 let cart = [];
         

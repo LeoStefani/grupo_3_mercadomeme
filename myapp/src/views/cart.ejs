@@ -15,7 +15,7 @@
 
         <!-- products  -->
         <% for (let i = 0; i < products.length; i++) { %> 
-            <div class="row m-4 d-flex flex-wrap cartItem shadow rounded-lg">
+            <div class="row m-4 d-flex flex-wrap cartItem shadow rounded-lg fullCartItem">
                 <div class="col-12 col-md-4 d-flex flex-wrap image m-0 p-2">
                     <img class="w-50 p-0 shadow rounded-lg" src="/images/products/<%= products[i].image %>" alt="">
                     <img class="w-50 pl-1 shadow rounded-lg" src="/images/memes/<%= products[i].meme %>" alt="">
@@ -33,11 +33,11 @@
                         </div>
                         <div class="col-12 p-0 mt-2 mb-2">Precio: $<%= products[i].price %></div>
                         <input class="everyPrice" value=<%= products[i].price %> type="text" hidden>
-                        <div class="col-12 p-0 mt-2 mb-2"><a class="text-decoration-none" href="#">Eliminar</a></a></div>
+                        <input class="everyTag" value=<%= products[i].tag %> type="text" hidden>
+                        <div class="col-12 p-0 mt-2 mb-2"><button class="btn btn-sm btn-warning p-0 mr-1 mt-2 mb-2 col-6 deleteButton">ELIMINAR <i class="far fa-trash-alt ml-1"></i></button></div>
                 </div> 
             </div>
         <% } %> 
-
         <!-- products  -->
 
 
