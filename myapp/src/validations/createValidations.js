@@ -1,6 +1,6 @@
 const { check, validationResult, body } = require('express-validator');
 
-let stringRegEx =  /^[a-z\s]+$/i;
+let stringRegEx =  /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g;
 let numberRegEx = /^[0-9]+([,.][0-9]+)?$/g;
 
 

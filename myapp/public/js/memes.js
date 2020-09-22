@@ -26,18 +26,23 @@ window.addEventListener("load", function (e) {
     let buttonCompress = qsa("button.compress");
     let buttonRotateRight = qsa("button.rotateRight");
     let buttonRotateLeft = qsa("button.rotateLeft");
+    let buttonMoreSize = qsa("button.moreSize");
+    let buttonLessSize = qsa("button.lessSize");
+
 
 
     let upperTextInitialPosition = 15;
     let upperTextInitialSpacing = 2;
     let upperTextInitialHorizontal = 50;
     let upperTextInitialAngle = 0;
+    let upperTextInitialSize = 2.5;
 
 
     let lowerTextInitialPosition = 75;
     let lowerTextInitialSpacing = 2;
     let lowerTextInitialHorizontal = 50;
     let lowerTextInitialAngle = 0;
+    let lowerTextInitialSize = 2.5;
 
 
 
@@ -177,6 +182,18 @@ window.addEventListener("load", function (e) {
         else { upperTextInitialSpacing = -5 }
     })
 
+    buttonMoreSize[0].addEventListener("click", function (event) {
+        upperTextInitialSize += 0.25;
+        if (upperTextInitialSize < 4) { upperText.style.fontSize = upperTextInitialSize + "rem" }
+        else { upperTextInitialSize = 4 }
+    })
+
+    buttonLessSize[0].addEventListener("click", function (event) {
+        upperTextInitialSize -= 0.25;
+        if (upperTextInitialSize > 1) { upperText.style.fontSize = upperTextInitialSize + "rem" }
+        else { upperTextInitialSize = 1 }
+    })
+
     buttonReset[0].addEventListener("click", function (event) {
         upperText.style.transform = "translate(-50%, -50%) rotate(0deg)";
         upperTextInitialHorizontal = 50;
@@ -194,6 +211,8 @@ window.addEventListener("load", function (e) {
         if (upperText.classList.contains("text-left")) {
             upperText.classList.remove("text-left");
         }
+        upperText.style.fontSize = "2.5rem"
+
     })
 
     upperTextInput.addEventListener("keyup", function (event) {
@@ -323,6 +342,18 @@ window.addEventListener("load", function (e) {
         else { lowerTextInitialSpacing = -5 }
     })
 
+    buttonMoreSize[1].addEventListener("click", function (event) {
+        lowerTextInitialSize += 0.25;
+        if (lowerTextInitialSize < 4) { lowerText.style.fontSize = lowerTextInitialSize + "rem" }
+        else { lowerTextInitialSize = 4 }
+    })
+
+    buttonLessSize[1].addEventListener("click", function (event) {
+        lowerTextInitialSize -= 0.25;
+        if (lowerTextInitialSize > 1) { lowerText.style.fontSize = lowerTextInitialSize + "rem" }
+        else { lowerTextInitialSize = 1 }
+    })
+
     buttonReset[1].addEventListener("click", function (event) {
         lowerText.style.transform = "translate(-50%, -50%) rotate(0deg)";
         lowerTextInitialHorizontal = 50;
@@ -340,6 +371,7 @@ window.addEventListener("load", function (e) {
         if (lowerText.classList.contains("text-left")) {
             lowerText.classList.remove("text-left");
         }
+        lowerText.style.fontSize = "2.5rem"
     })
 
     lowerTextInput.addEventListener("keyup", function (event) {
