@@ -1,9 +1,11 @@
 div.index div.mostWanted div {
+    
     background-color: var(--colorWhite);
 
 }
 
 div.index div.carousel-inner {
+    margin-top: 1vh;
     background-color: var(--colorWhite);
 
 }
@@ -29,4 +31,37 @@ div.index div.mostWanted div.article  {
 #carouselExampleIndicators {
     height: 50%;
   }
+
+div.index div.prod-memes {
+    background-color: var(--colorWhite);
+
+}
+
+div.index div.bgProducts div.imgContainer{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+div.index div.bgProducts h1.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+/*    ANIMEJS TEXT     
+
+h1.ml13 {
+    font-size: 1.3em;
+    font-weight: 500;
+    texte-align: center;
+    color: var(--colorWhite);
+  }
   
+h1.ml13 .letter {
+    font-size: 1.3em;
+    font-weight: 500;
+  }
+
+*/ 

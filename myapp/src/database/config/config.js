@@ -5,7 +5,7 @@ module.exports = {
     "database": "mm_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "operatorAliases": false
+    "operatorAliases": false,
   },
   "test": {
     "username": "mercadomeme",

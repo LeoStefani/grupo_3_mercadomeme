@@ -14,6 +14,13 @@ div.mainCart {
     width: 100%;
 }
 
+div.mainCart h5.title {
+    font-family: "Open sans";
+    font-style: italic;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
 div.mainCart div.finalPrice{
 background-color: var(--colorWhite);
     
