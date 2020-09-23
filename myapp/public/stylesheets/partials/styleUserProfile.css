@@ -17,6 +17,9 @@ div.userProfile h5.block-title {
     font-weight: bolder;
 }
 
+div.userProfile input:disabled {
+    background: #ffffff;
+  }
 
 /*====FIRST COLUMN=====*/
 

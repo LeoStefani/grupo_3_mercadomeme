@@ -81,7 +81,7 @@
                            <div class="d-flex align-items-center  col-9 col-sm-6 input p-1 m-0">
                               <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
                                  name="nameAndLastname" id="nameAndLastname"
-                                 placeholder="<%= user.first_name ? user.first_name + ' ' + user.last_name : 'No disponible' %>">
+                                 placeholder="<%= user.first_name ? user.first_name + ' ' + user.last_name : 'No disponible' %>" disabled>
                            </div>
                            <!-- Button trigger modal -->
                            <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
@@ -103,7 +103,7 @@
                            <div class="d-flex align-items-center  col-9 col-sm-6 input p-1 m-0">
 
                               <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
-                                 name="dni" id="dni"
+                                 name="dni" id="dni" disabled
                                  placeholder="<%= user.dni ? user.dni : 'No disponible' %>">
                            </div>
                            <!-- Button trigger modal -->
@@ -123,7 +123,7 @@
                            </div>
                            <div class="d-flex flex-wrap align-items-center col-9 col-sm-6 input p-1 m-0">
                               <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
-                                 name="phone_0" id="phone_0"
+                                 name="phone_0" id="phone_0" disabled
                                  placeholder="<%= user.phone_0 ? user.phone_0 : 'No disponible' %>">
                            </div>
 
@@ -144,7 +144,7 @@
                            </div>
                            <div class="d-flex flex-wrap align-items-center col-9 col-sm-6 input p-1 m-0">
                               <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
-                                 name="phone_1" id="phone_1"
+                                 name="phone_1" id="phone_1" disabled
                                  placeholder="<%= user.phone_1 ? user.phone_1 : 'No disponible' %>">
                            </div>
 
@@ -252,7 +252,7 @@
                            </div>
                            <div class="d-flex align-items-center  col-9 col-sm-8 input p-1 m-0">
                               <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
-                                 name="nameAndLastname" id="nameAndLastname"
+                                 name="nameAndLastname" id="nameAndLastname" disabled
                                  placeholder="<%= user.address_0 ? user.address_0 : 'No disponible' %>">
                            </div>
                            <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
@@ -272,7 +272,7 @@
                               <h6 class="w-100 text-start p-1 m-0">Alternativa:</h6>
                            </div>
                            <div class="d-flex flex-wrap align-items-center  col-9 col-sm-8 input p-1 m-0">
-                              <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
+                              <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text" disabled
                                  name="nameAndLastname" id="nameAndLastname"
                                  placeholder="<%= user.address_1 ? user.address_1 : 'No disponible' %>">
                            </div>
