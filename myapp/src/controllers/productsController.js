@@ -248,6 +248,7 @@ module.exports = {
 
         let VRerrors = validationResult(req);
 
+
         let editProductSizes = [];
         let sizeValidator = [false, false, false, false, false];
 
@@ -312,7 +313,12 @@ module.exports = {
             VRerrors.errors.push({'msg': "Debes seleccionar al menos un color", "param": "color" })
         };        
 
-        let editedProductImages = req.body.oldImgEdition;
+        let editedProductImages = [];
+        if(!Array.isArray(req.body.oldImgEdition)) {
+            editedProductImages.push(req.body.oldImgEdition);
+        } else {
+            editedProductImages = req.body.oldImgEdition;
+        };
 
         //Armamos una array con las imagenes viejas. Luego recorremos el req.files para ver si alguna se actualizo. De ser asi, la reemplazamos.
         for (let i=0 ; i<5; i++) {
@@ -323,12 +329,12 @@ module.exports = {
             };
         };
 
-        //Formateamos la data para pasarsela a la base de datos.
+        // Formateamos la data para pasarsela a la base de datos.
         let editedProductImagesMapped = editedProductImages.map(function(element) { 
-            let obj = {};
-            obj.name = element;
-            return obj
-        });
+                let obj = {};
+                obj.name = element;
+                return obj
+            });
 
         if (VRerrors.isEmpty()) {
             // Asigno: name compuesto por el id + "deleted" y status 0 al producto pasado por id.    
