@@ -34,19 +34,34 @@ div.index div.mostWanted div.article  {
 
 div.index div.prod-memes {
     background-color: var(--colorWhite);
+
 }
 
-/*    ANIMEJS TEXT     */ 
+div.index div.bgProducts div.imgContainer{
+    position: relative;
+    text-align: center;
+    color: white;
+}
 
-.ml13 {
-    font-size: 1.9em;
-    text-transform: uppercase;
-    letter-spacing: 0.5em;
-    font-weight: 600;
+div.index div.bgProducts h1.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+/*    ANIMEJS TEXT     
+
+h1.ml13 {
+    font-size: 1.3em;
+    font-weight: 500;
+    texte-align: center;
+    color: var(--colorWhite);
   }
   
-  .ml13 .letter {
-    display: inline-block;
-    line-height: 1em;
+h1.ml13 .letter {
+    font-size: 1.3em;
+    font-weight: 500;
   }
 
+*/ 

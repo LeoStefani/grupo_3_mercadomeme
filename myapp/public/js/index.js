@@ -1,8 +1,12 @@
+
 window.addEventListener("load", function () {
 
 // Wrap every letter in a span
 var textWrapper = document.querySelector('.ml13');
-textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+textWrapper.addEventListener("mouseover", function() {
+
+  textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
 anime.timeline({loop: true})
   .add({
@@ -24,3 +28,7 @@ anime.timeline({loop: true})
 
 
 });
+}
+)  */ 
+
+
