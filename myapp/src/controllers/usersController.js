@@ -36,7 +36,7 @@ module.exports = {
     },
     registerDB: function (req, res, next) {
         res.render('registerDB', {
-            title: "RegistroDB"
+            title: "Registro"
         });
     },
     createUserDB: function (req, res, next) {
@@ -78,8 +78,6 @@ module.exports = {
 
     },
     cart: function (req, res, next) {
-
-        console.log(req.session.userCart);
 
         if (Object.keys(req.session.userCart).length === 0) {
             res.render("cart", {
@@ -123,7 +121,6 @@ module.exports = {
     dataCart: function (req, res, next) {
 
         req.session.userCart = req.body;
-        console.log(req.session.userCart);
         res.send('okPost');
 
     },
@@ -135,10 +132,6 @@ module.exports = {
 
             req.session.lastRef = req.header("Referer");
         }         
-
-        console.log(req.header("Referer"));
-
-        console.log("este es el req session" + req.session.lastRef);
 
         res.render('login', {
             title: 'Login'
@@ -235,7 +228,6 @@ module.exports = {
         // Aca hace el IF grande, en el cual si viene sin errores, (errors.isEmpty()), se crea el usuario y sino manda los errores a la vista.
         // if (errors.isEmpty() && db.User.Errors == undefined) {
         let VRerrors = validationResult(req);
-        console.log(req.session.loggedUser)
 
         // Aca hace el IF grande, en el cual si viene sin errores, (errors.isEmpty()), se crea el usuario y sino manda los errores a la vista.
         if (VRerrors.isEmpty()) {
