@@ -11,13 +11,6 @@ module.exports = {
     },
     usersProfile: function (req, res, next) {
 
-        //     let userProfile;
-        //     for (let i = 0; i < users.length; i++) {
-        //         if (users[i].id == req.params.userId) {
-        //                 userProfile = users[i];
-        //                 break;
-        //         };
-        // };
 
         db.User.findByPk(req.params.userId).then(function (users) {
             res.render("usersProfile", {
@@ -28,11 +21,6 @@ module.exports = {
         })
             .catch(function (error) { res.send(error) });
 
-        // res.render("usersProfile", {
-        //         title: "Mi Perfil",
-
-
-        // });
     },
     registerDB: function (req, res, next) {
         res.render('registerDB', {
