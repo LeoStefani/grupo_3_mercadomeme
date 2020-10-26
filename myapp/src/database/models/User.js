@@ -1,87 +1,87 @@
-module.exports = function(sequelize, dataTypes) {
+module.exports = function (sequelize, dataTypes) {
 
     let alias = "User";
 
     let cols = {
-        id:{
-            type: dataTypes.INTEGER, 
+        id: {
+            type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false,
             unique: true,
         },
-        username:{
+        username: {
             type: dataTypes.STRING,
             allowNull: false,
             unique: true
         },
-        email:{
+        email: {
             type: dataTypes.STRING,
             allowNull: false,
             unique: true
         },
-        password:{
+        password: {
             type: dataTypes.STRING,
             notNull: true,
         },
-        avatar:{
+        avatar: {
             type: dataTypes.STRING
         },
-        first_name:{
+        first_name: {
             type: dataTypes.STRING(65)
-            
+
         },
-        last_name:{
+        last_name: {
             type: dataTypes.STRING
         },
-        dni:{
+        dni: {
             type: dataTypes.INTEGER,
             unique: true,
             unsigned: true,
             unique: true
         },
-        phone_0:{
+        phone_0: {
             type: dataTypes.INTEGER,
             unsigned: true
         },
-        phone_1:{
+        phone_1: {
             type: dataTypes.INTEGER,
             unsigned: true
         },
-        phone_2:{
+        phone_2: {
             type: dataTypes.INTEGER,
             unsigned: true
         },
-        credit_card_0:{
+        credit_card_0: {
             type: dataTypes.INTEGER,
             unsigned: true
         },
-        credit_card_1:{
+        credit_card_1: {
             type: dataTypes.INTEGER,
             unsigned: true
         },
-        credit_card_2:{
+        credit_card_2: {
             type: dataTypes.INTEGER,
             unsigned: true
         },
-        credit_card_3:{
+        credit_card_3: {
             type: dataTypes.INTEGER,
             unsigned: true
         },
-        address_0:{
+        address_0: {
             type: dataTypes.STRING
         },
-        address_1:{
+        address_1: {
             type: dataTypes.STRING
         },
-        address_2:{
+        address_2: {
             type: dataTypes.STRING
         },
-        admin:{
+        admin: {
             type: dataTypes.INTEGER(2).UNSIGNED
-            
+
         }
-        
+
     };
 
     let config = {
@@ -96,6 +96,29 @@ module.exports = function(sequelize, dataTypes) {
     }
 
     let User = sequelize.define(alias, cols, config);
+
+    User.associate = function (models) {
+
+        User.hasMany(models.Credit_Card, {
+            as: "credit_cards",
+            foreignKey: "id_user"
+        }), 
+        User.hasMany(models.Phone, {
+            as: "phones",
+            foreignKey: "id_user"
+        }),
+        User.hasMany(models.Address, {
+            as: "addresses",
+            foreignKey: "id_user"
+        }),
+        User.hasMany(models.User_Meme, {
+            as: "user_memes",
+            foreignKey: "id_user"
+        })
+
+
+    }
+
 
     return User;
 

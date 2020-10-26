@@ -11,6 +11,11 @@ router.post('/', upload.any(), memesController.memeSave);
 
 router.post('/rename', memesController.memeRename);
 
+router.post('/memeToLibrary', upload.any(), memesController.memeToLibrary);
+
+
+
+
     
 
 module.exports = router;

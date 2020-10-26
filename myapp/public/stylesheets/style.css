@@ -34,7 +34,7 @@
 --colorGray: #e5e3e3;
 --colorYellow1: #f5cb5c;
 --colorYellow2: #ffd500;
---colorBlack: #242423;
+--colorBlack: #272727;
 --colorWarning: #ffc107;
 
 }
@@ -45,7 +45,7 @@
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  font: 14px "Lato", Helvetica, Arial, sans-serif;
+  font: 14px Helvetica, Arial, sans-serif;
 }
 
 body
