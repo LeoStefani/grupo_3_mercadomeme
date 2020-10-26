@@ -18,6 +18,40 @@ USE `mm_db`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `addresses`
+--
+
+DROP TABLE IF EXISTS `addresses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `addresses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(10) unsigned NOT NULL,
+  `address_street` varchar(100) NOT NULL,
+  `address_number` varchar(45) DEFAULT NULL,
+  `address_floor` varchar(45) DEFAULT NULL,
+  `address_door` varchar(45) DEFAULT NULL,
+  `address_city` varchar(100) DEFAULT NULL,
+  `address_country` varchar(100) DEFAULT NULL,
+  `address_zipcode` varchar(45) DEFAULT NULL,
+  `address_state` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_user_idx` (`id_user`),
+  CONSTRAINT `id_user` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `addresses`
+--
+
+LOCK TABLES `addresses` WRITE;
+/*!40000 ALTER TABLE `addresses` DISABLE KEYS */;
+INSERT INTO `addresses` VALUES (1,80,'Juncal','2473','7','D','Ciudad Autónoma de Buenos Aires','Argentina','1410','Ciudad Autónoma de Buenos Aires');
+/*!40000 ALTER TABLE `addresses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `categories`
 --
 
@@ -69,6 +103,33 @@ INSERT INTO `colors` VALUES (1,'rojo','#FF0000'),(2,'azul','#0000FF'),(3,'blanco
 UNLOCK TABLES;
 
 --
+-- Table structure for table `credit_cards`
+--
+
+DROP TABLE IF EXISTS `credit_cards`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `credit_cards` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(10) unsigned NOT NULL,
+  `number` bigint(30) unsigned NOT NULL,
+  `expire_date` date DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_user_idx` (`id_user`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `credit_cards`
+--
+
+LOCK TABLES `credit_cards` WRITE;
+/*!40000 ALTER TABLE `credit_cards` DISABLE KEYS */;
+INSERT INTO `credit_cards` VALUES (1,80,5238405683607745,'2020-10-05'),(7,80,4716644039556032,'2022-10-10');
+/*!40000 ALTER TABLE `credit_cards` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `images`
 --
 
@@ -82,7 +143,7 @@ CREATE TABLE `images` (
   PRIMARY KEY (`id`),
   KEY `id_product_image_idx` (`id_product_image`),
   CONSTRAINT `id_product_image` FOREIGN KEY (`id_product_image`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,8 +152,33 @@ CREATE TABLE `images` (
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
-INSERT INTO `images` VALUES (1,'imgProduct-1596581084823.png',1),(2,'imgProduct-1596581221067.png',2),(3,'imgProduct-1596681221067.png',2),(4,'imgProduct-1596681221068.png',2),(5,'imgProduct-1596581308555.png',53),(33,'imgProduct-1596581467913.png',54),(34,'imgProduct-1596681221069.png',54),(35,'imgProduct-1596681221070.png',54),(36,'imgProduct-1596681221071.png',54),(37,'imgProduct-1596581543118.png',55),(38,'imgProduct-1596681221075.png',55),(39,'imgProduct-1596681221076.png',55),(40,'imgProduct-1596681221077.png',55),(41,'imgProduct-1596581620394.png',56),(42,'imgProduct-1596581693167.png',57),(43,'imgProduct-1596681221072.png',57),(44,'imgProduct-1596681221073.png',57),(45,'imgProduct-1596681221074.png',57),(46,'imgProduct-1596581924218.png',58),(47,'imgProduct-1596681221078.png',58),(48,'imgProduct-1596681221079.png',58),(49,'imgProduct-1596582174297.png',59),(50,'imgProduct-1596681221080.png',59),(51,'imgProduct-1596681221081.png',59),(52,'imgProduct-1596582234992.png',60),(53,'imgProduct-1596681221082.png',60),(54,'imgProduct-1596681221083.png',60),(55,'imgProduct-1596582364103.png',61),(56,'imgProduct-1596582441137.png',62),(57,'imgProduct-1596681221084.png',62),(58,'imgProduct-1596681221085.png',62),(59,'imgProduct-1596582574462.png',63),(60,'imgProduct-1596681221086.png',63),(61,'imgProduct-1596681221087.png',63),(62,'imgProduct-1596681221088.png',63),(63,'imgProduct-1596582673660.png',64),(64,'imgProduct-1596681221089.png',64),(65,'imgProduct-1596681221090.png',64),(66,'imgProduct-1596681221091.png',64),(67,'imgProduct-1596582768415.png',65);
+INSERT INTO `images` VALUES (1,'imgProduct-1596581084823.png',1),(2,'imgProduct-1596581221067.png',2),(3,'imgProduct-1596681221067.png',2),(4,'imgProduct-1596681221068.png',2),(5,'imgProduct-1596581308555.png',53),(33,'imgProduct-1596581467913.png',54),(34,'imgProduct-1596681221069.png',54),(35,'imgProduct-1596681221070.png',54),(36,'imgProduct-1596681221071.png',54),(37,'imgProduct-1596581543118.png',55),(38,'imgProduct-1596681221075.png',55),(39,'imgProduct-1596681221076.png',55),(40,'imgProduct-1596681221077.png',55),(41,'imgProduct-1596581620394.png',56),(42,'imgProduct-1596581693167.png',57),(43,'imgProduct-1596681221072.png',57),(44,'imgProduct-1596681221073.png',57),(45,'imgProduct-1596681221074.png',57),(46,'imgProduct-1596581924218.png',58),(47,'imgProduct-1596681221078.png',58),(48,'imgProduct-1596681221079.png',58),(49,'imgProduct-1596582174297.png',59),(50,'imgProduct-1596681221080.png',59),(51,'imgProduct-1596681221081.png',59),(52,'imgProduct-1596582234992.png',60),(53,'imgProduct-1596681221082.png',60),(54,'imgProduct-1596681221083.png',60),(55,'imgProduct-1596582364103.png',61),(56,'imgProduct-1596582441137.png',62),(57,'imgProduct-1596681221084.png',62),(58,'imgProduct-1596681221085.png',62),(59,'imgProduct-1596582574462.png',63),(60,'imgProduct-1596681221086.png',63),(61,'imgProduct-1596681221087.png',63),(62,'imgProduct-1596681221088.png',63),(63,'imgProduct-1596582673660.png',64),(64,'imgProduct-1596681221089.png',64),(65,'imgProduct-1596681221090.png',64),(66,'imgProduct-1596681221091.png',64),(67,'imgProduct-1596582768415.png',65),(70,'imgProduct-1596582768415.png',72),(71,'imgProduct1-1600893148613.png',72),(72,'imgProduct2-1600893148618.png',72),(73,'imgProduct-1596582768415.png',73),(74,'imgProduct1-1600893148613.png',73),(75,'imgProduct2-1600893148618.png',73);
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `phones`
+--
+
+DROP TABLE IF EXISTS `phones`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `phones` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` varchar(45) NOT NULL,
+  `phone_number` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `phones`
+--
+
+LOCK TABLES `phones` WRITE;
+/*!40000 ALTER TABLE `phones` DISABLE KEYS */;
+INSERT INTO `phones` VALUES (1,'80','1121737238'),(4,'80','1122334455');
+/*!40000 ALTER TABLE `phones` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -112,7 +198,7 @@ CREATE TABLE `product_color` (
   KEY `id_color_idx` (`id_color`),
   CONSTRAINT `id_color` FOREIGN KEY (`id_color`) REFERENCES `colors` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_product` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +207,7 @@ CREATE TABLE `product_color` (
 
 LOCK TABLES `product_color` WRITE;
 /*!40000 ALTER TABLE `product_color` DISABLE KEYS */;
-INSERT INTO `product_color` VALUES (1,1,1,1),(2,1,2,1),(3,1,3,1),(4,2,1,1),(5,2,2,1),(6,2,4,1),(48,53,2,1),(49,53,3,1),(50,53,6,1),(51,53,8,1),(52,54,1,1),(53,54,2,1),(54,54,3,1),(55,54,8,1),(56,55,1,1),(57,55,2,1),(58,55,3,1),(59,55,4,1),(60,56,3,1),(61,56,4,1),(62,57,2,1),(63,57,3,1),(64,57,8,1),(65,58,1,1),(66,58,2,1),(67,58,7,1),(68,59,1,1),(69,59,4,1),(70,59,7,1),(71,60,1,1),(72,60,2,1),(73,60,7,1),(74,61,2,1),(75,61,4,1),(76,61,7,1),(77,62,1,1),(78,62,2,1),(79,62,6,1),(80,63,1,1),(81,63,2,1),(82,63,3,1),(83,63,6,1),(84,64,1,1),(85,64,2,1),(86,64,4,1),(87,65,1,1),(88,65,3,1),(89,65,5,1);
+INSERT INTO `product_color` VALUES (1,1,1,1),(2,1,2,1),(3,1,3,1),(4,2,1,1),(5,2,2,1),(6,2,4,1),(48,53,2,1),(49,53,3,1),(50,53,6,1),(51,53,8,1),(52,54,1,1),(53,54,2,1),(54,54,3,1),(55,54,8,1),(56,55,1,1),(57,55,2,1),(58,55,3,1),(59,55,4,1),(60,56,3,1),(61,56,4,1),(62,57,2,1),(63,57,3,1),(64,57,8,1),(65,58,1,1),(66,58,2,1),(67,58,7,1),(68,59,1,1),(69,59,4,1),(70,59,7,1),(71,60,1,1),(72,60,2,1),(73,60,7,1),(74,61,2,1),(75,61,4,1),(76,61,7,1),(77,62,1,1),(78,62,2,1),(79,62,6,1),(80,63,1,1),(81,63,2,1),(82,63,3,1),(83,63,6,1),(84,64,1,1),(85,64,2,1),(86,64,4,1),(87,65,1,0),(88,65,3,0),(89,65,5,0),(104,72,1,0),(105,72,3,0),(106,72,5,0),(107,73,1,1),(108,73,3,1),(109,73,5,1);
 /*!40000 ALTER TABLE `product_color` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +230,7 @@ CREATE TABLE `products` (
   UNIQUE KEY `name_UNIQUE` (`name`),
   KEY `id_category_idx` (`id_category`),
   CONSTRAINT `id_category` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,7 +239,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Taza cerámica','Taza cerámica estándar. Fino y suave acabado. Fácil de lavar. Con asas para tomar bebidas calientes sin quemarte!',250,15,1,1),(2,'Taza mágica','La taza mágica cambia de color con bebidas calientes. Agregale un meme y sorprendé a quien quieras!',400,250,1,1),(53,'Taza térmica','Ideal para bebidas calientes. Para tomar té o café fuera de casa, o de camino al trabajo!',350,180,1,1),(54,'Remera hombre','Remera de hombre lisa con cuello redondo. Ideal para cualquier tipo de personalización.',750,296,4,1),(55,'Remera mujer','Remera de mujer, lisa con cuello redondo. Ideal para cualquier tipo de personalización.',750,155,4,1),(56,'Musculosa','Musculosa de hombre lisa. Ideal para los días mas calurosos! 100% algodón.',950,24,4,1),(57,'Remera cuello en V','Remera de hombre cuello en \"V\". Para darle un toque mas fino y elegante. 100% algodón',1200,214,4,1),(58,'Buzo unisex','Buzo unisex 100% algodón.',1800,18,5,1),(59,'Buzo canguro','Buzo canguro unisex. 100% algodón. Amplio bolsillo para meter las manos.',2000,241,5,1),(60,'Campera unisex','Campera unisex. 100% algodón. Con capucha.',2300,96,5,1),(61,'Mochila notebook','Mochila para notebook. Amplio espacio. Apta para notebooks de hasta 17\" en su versión \"L\"',3500,109,2,1),(62,'Mochila sport','Mochila sport, ideal para el día a día. Elegila en sus dos tamaños, estandar y mini para llevar objetos personales.',1800,74,2,1),(63,'Sacola','Sacola lisa. Ideal llevar tus pertenencias de manera fácil y liviana.',900,230,2,1),(64,'Gorra unisex','Gorra bi color, unisex. Ideal para protegerte los días de mucho sol.',400,169,3,1),(65,'Totebag','Totebag de tela. Ideal para el super y las compras. Lavable y reutilizable.',250,212,3,1);
+INSERT INTO `products` VALUES (1,'Taza cerámica','Taza cerámica estándar. Fino y suave acabado. Fácil de lavar. Con asas para tomar bebidas calientes sin quemarte!',250,15,1,1),(2,'Taza mágica','La taza mágica cambia de color con bebidas calientes. Agregale un meme y sorprendé a quien quieras!',400,250,1,1),(53,'Taza térmica','Ideal para bebidas calientes. Para tomar té o café fuera de casa, o de camino al trabajo!',350,180,1,1),(54,'Remera hombre','Remera de hombre lisa con cuello redondo. Ideal para cualquier tipo de personalización.',750,296,4,1),(55,'Remera mujer','Remera de mujer, lisa con cuello redondo. Ideal para cualquier tipo de personalización.',750,155,4,1),(56,'Musculosa','Musculosa de hombre lisa. Ideal para los días mas calurosos! 100% algodón.',950,24,4,1),(57,'Remera cuello en V','Remera de hombre cuello en \"V\". Para darle un toque mas fino y elegante. 100% algodón',1200,214,4,1),(58,'Buzo unisex','Buzo unisex 100% algodón.',1800,18,5,1),(59,'Buzo canguro','Buzo canguro unisex. 100% algodón. Amplio bolsillo para meter las manos.',2000,241,5,1),(60,'Campera unisex','Campera unisex. 100% algodón. Con capucha.',2300,96,5,1),(61,'Mochila notebook','Mochila para notebook. Amplio espacio. Apta para notebooks de hasta 17\" en su versión \"L\"',3500,109,2,1),(62,'Mochila sport','Mochila sport, ideal para el día a día. Elegila en sus dos tamaños, estandar y mini para llevar objetos personales.',1800,74,2,1),(63,'Sacola','Sacola lisa. Ideal llevar tus pertenencias de manera fácil y liviana.',900,230,2,1),(64,'Gorra unisex','Gorra bi color, unisex. Ideal para protegerte los días de mucho sol.',400,169,3,1),(65,'65deleted','Totebag de tela. Ideal para el super y las compras. Lavable y reutilizable.',250,212,3,0),(72,'72deleted','Totebag de tela. Ideal para el super y las compras. Lavable y reutilizable.',250,0,3,0),(73,'Totebag','Totebag de tela. Ideal para el super y las compras. Lavable y reutilizable.',250,0,3,1);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,7 +259,7 @@ CREATE TABLE `sizes` (
   PRIMARY KEY (`id`),
   KEY `id_product_size_idx` (`id_product_size`),
   CONSTRAINT `id_product_size` FOREIGN KEY (`id_product_size`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,8 +268,33 @@ CREATE TABLE `sizes` (
 
 LOCK TABLES `sizes` WRITE;
 /*!40000 ALTER TABLE `sizes` DISABLE KEYS */;
-INSERT INTO `sizes` VALUES (1,'M',250,NULL,1),(2,'L',350,NULL,1),(3,'M',250,NULL,2),(4,'L',350,NULL,2),(53,'M',250,NULL,53),(54,'L',500,NULL,53),(55,'XL',750,NULL,53),(56,'S',60,NULL,54),(57,'M',80,NULL,54),(58,'L',110,NULL,54),(59,'S',50,NULL,55),(60,'M',65,NULL,55),(61,'L',90,NULL,55),(62,'S',60,NULL,56),(63,'M',80,NULL,56),(64,'L',110,NULL,56),(65,'S',60,NULL,57),(66,'M',80,NULL,57),(67,'L',110,NULL,57),(68,'S',70,NULL,58),(69,'M',90,NULL,58),(70,'L',120,NULL,58),(71,'S',70,NULL,59),(72,'M',90,NULL,59),(73,'L',110,NULL,59),(74,'S',70,NULL,60),(75,'M',90,NULL,60),(76,'L',110,NULL,60),(77,'M',12,NULL,61),(78,'L',18,NULL,61),(79,'XS',5,NULL,62),(80,'M',12,NULL,62),(81,'S',8,NULL,63),(82,'L',15,NULL,63),(83,'M',10,NULL,63),(84,'M',20,NULL,64),(85,'L',25,NULL,64),(86,'S',25,NULL,65),(87,'M',40,NULL,65),(88,'L',50,NULL,65);
+INSERT INTO `sizes` VALUES (1,'M',250,NULL,1),(2,'L',350,NULL,1),(3,'M',250,NULL,2),(4,'L',350,NULL,2),(53,'M',250,NULL,53),(54,'L',500,NULL,53),(55,'XL',750,NULL,53),(56,'S',60,NULL,54),(57,'M',80,NULL,54),(58,'L',110,NULL,54),(59,'S',50,NULL,55),(60,'M',65,NULL,55),(61,'L',90,NULL,55),(62,'S',60,NULL,56),(63,'M',80,NULL,56),(64,'L',110,NULL,56),(65,'S',60,NULL,57),(66,'M',80,NULL,57),(67,'L',110,NULL,57),(68,'S',70,NULL,58),(69,'M',90,NULL,58),(70,'L',120,NULL,58),(71,'S',70,NULL,59),(72,'M',90,NULL,59),(73,'L',110,NULL,59),(74,'S',70,NULL,60),(75,'M',90,NULL,60),(76,'L',110,NULL,60),(77,'M',12,NULL,61),(78,'L',18,NULL,61),(79,'XS',5,NULL,62),(80,'M',12,NULL,62),(81,'S',8,NULL,63),(82,'L',15,NULL,63),(83,'M',10,NULL,63),(84,'M',20,NULL,64),(85,'L',25,NULL,64),(86,'S',25,NULL,65),(87,'M',40,NULL,65),(88,'L',50,NULL,65),(94,'L',50,NULL,72),(95,'S',25,NULL,72),(96,'M',40,NULL,72),(97,'L',50,NULL,73),(98,'S',25,NULL,73),(99,'M',40,NULL,73);
 /*!40000 ALTER TABLE `sizes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_memes`
+--
+
+DROP TABLE IF EXISTS `user_memes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_memes` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_user` int(10) unsigned NOT NULL,
+  `meme_location` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_memes`
+--
+
+LOCK TABLES `user_memes` WRITE;
+/*!40000 ALTER TABLE `user_memes` DISABLE KEYS */;
+INSERT INTO `user_memes` VALUES (0,0,''),(1,80,'/images/memes/memeUser1603407722582.png'),(2,80,'/images/memes/memeUser1600870457748.png'),(10,80,'/images/memes/UserLibrary1603732608183.png');
+/*!40000 ALTER TABLE `user_memes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -227,7 +338,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (80,'admin','admin@admin.com','$2b$10$9F2cu41u66PZTXGrN/QFtulVCC31dpk2qbUnpm6e/beHSO9b7.//S','avatar-1598647745436.png','El','Admin',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1),(81,'aguvenditti','aguvenditti@gmail.com','$2b$10$zLr3p7vzg.A1F7y0GuHqqO3MEOv7BY0HttfnYuQa4L31HEkRX21LS','usuario.png','Agustin','Venditti',35040886,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0);
+INSERT INTO `users` VALUES (80,'admin','admin@admin.com','$2b$10$9F2cu41u66PZTXGrN/QFtulVCC31dpk2qbUnpm6e/beHSO9b7.//S','avatar-1598647745436.png','El','Admin',33087455,NULL,NULL,NULL,344052858253962,NULL,NULL,NULL,NULL,NULL,NULL,1),(81,'aguvenditti','aguvenditti@gmail.com','$2b$10$zLr3p7vzg.A1F7y0GuHqqO3MEOv7BY0HttfnYuQa4L31HEkRX21LS','usuario.png','Agustin','Venditti',35040886,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -240,4 +351,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-04 11:09:04
+-- Dump completed on 2020-10-26 14:52:25
