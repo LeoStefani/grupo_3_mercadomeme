@@ -11,15 +11,12 @@ module.exports = {
     },
     usersProfile: function (req, res, next) {
 
-        //     let userProfile;
-        //     for (let i = 0; i < users.length; i++) {
-        //         if (users[i].id == req.params.userId) {
-        //                 userProfile = users[i];
-        //                 break;
-        //         };
-        // };
-
-        db.User.findByPk(req.params.userId).then(function (users) {
+        db.User.findByPk(req.params.userId, {
+            include: [{
+                all: true
+            }]
+        }).then(function (users) {
+            // res.send(users)
             res.render("usersProfile", {
                 title: "Mi Perfil",
                 user: users,
@@ -28,11 +25,6 @@ module.exports = {
         })
             .catch(function (error) { res.send(error) });
 
-        // res.render("usersProfile", {
-        //         title: "Mi Perfil",
-
-
-        // });
     },
     registerDB: function (req, res, next) {
         res.render('registerDB', {
@@ -96,25 +88,25 @@ module.exports = {
                 where: {
                     id: { [Op.or]: idsArray }
                 }
-                }).then(function (productsData) {
-                    req.session.userCart = req.session.userCart.map(element => {
-                        for(let i=0; i<productsData.length; i++) {
-                            if(productsData[i].id === element.id) {
-                                return {
-                                    ...element,
-                                    name: productsData[i].name,
-                                    price: productsData[i].price,
-                                    image: productsData[i].images[0].name
-                                };
+            }).then(function (productsData) {
+                req.session.userCart = req.session.userCart.map(element => {
+                    for (let i = 0; i < productsData.length; i++) {
+                        if (productsData[i].id === element.id) {
+                            return {
+                                ...element,
+                                name: productsData[i].name,
+                                price: productsData[i].price,
+                                image: productsData[i].images[0].name
                             };
                         };
-                    });
-                    res.render("cart", {
-                            title: "Carrito",
-                            message: "",
-                            products: req.session.userCart
-                        });
-                })
+                    };
+                });
+                res.render("cart", {
+                    title: "Carrito",
+                    message: "",
+                    products: req.session.userCart
+                });
+            })
         };
 
     },
@@ -131,7 +123,7 @@ module.exports = {
         if (req.header("Referer") != "http://localhost:3000/users/registerDB" && req.header("Referer") != "http://localhost:3000/users/registerdb") {
 
             req.session.lastRef = req.header("Referer");
-        }         
+        }
 
         res.render('login', {
             title: 'Login'
@@ -140,7 +132,7 @@ module.exports = {
     login: function (req, res, next) {
 
         // defino una variable auxiliar para almacenar de donde vino el request cuando se fue al login por GET
-        let lastHref ;
+        let lastHref;
 
         // si vino, la seteo en con lo que vino, y sino queda al home
 
@@ -148,9 +140,9 @@ module.exports = {
             lastHref = req.session.lastRef
         }
         else {
-        lastHref = "/"
+            lastHref = "/"
         }
-       
+
         // Setea variable VRerrors con aplicar validationResult a lo que viene por el request.
         let VRerrors = validationResult(req);
 
@@ -167,6 +159,7 @@ module.exports = {
 
                             // En caso de que haya encontrado algo, lo guardo en session
                             req.session.loggedUser = user;
+
                             // Ademas, si no hay cookie guardada, en este momento se genera guardando los datos del usuario matcheado.
                             if (req.body.rememberMe != undefined) {
                                 res.cookie('rememberMe', user.id, { maxAge: 120 * 1000 * 20 })
@@ -218,9 +211,22 @@ module.exports = {
         res.send("El usuario loggeado es " + req.session.loggedUser.username);
     },
     purchaseSettings: function (req, res, next) {
-        res.render("purchaseSettings", {
-            title: "Configuración de compra"
-        });
+
+        db.User.findOne({
+            include: [{
+                all: true
+            }], where: { id: req.session.loggedUser.id }
+        })
+            .then(function (user) {
+                console.log(user);
+                res.render("purchaseSettings", {
+                    user: user,
+                    title: "Configuración de compra"
+                })
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
     },
     usersProfileEdit: function (req, res, next) {
 
@@ -228,6 +234,7 @@ module.exports = {
         // Aca hace el IF grande, en el cual si viene sin errores, (errors.isEmpty()), se crea el usuario y sino manda los errores a la vista.
         // if (errors.isEmpty() && db.User.Errors == undefined) {
         let VRerrors = validationResult(req);
+        // console.log(req.session.loggedUser)
 
         // Aca hace el IF grande, en el cual si viene sin errores, (errors.isEmpty()), se crea el usuario y sino manda los errores a la vista.
         if (VRerrors.isEmpty()) {
@@ -243,20 +250,85 @@ module.exports = {
 
             } else {
 
+                if (req.body.new_credit_card_number) {
+                    db.Credit_Card.create({
+                        id_user: req.params.userId,
+                        number: req.body.new_credit_card_number,
+                        expire_date: req.body.new_credit_card_expire_date
+                    }).then(function (second) {
+                        res.redirect("/users/profile/" + req.params.userId)
+                    })
+                        .catch(function (errors) {
+                            res.send(errors)
+                        })
+                }
+                if (req.body.new_phone_number) {
+
+                    db.Phone.create({
+                        id_user: req.params.userId,
+                        phone_number: req.body.new_phone_number,
+                    }).then(function (second) {
+                        res.redirect("/users/profile/" + req.params.userId)
+                    })
+                        .catch(function (errors) {
+                            res.send(errors)
+                        })
+                }
+
+                if (req.body.new_address_street) {
+
+                    db.Address.create({
+                        id_user: req.params.userId,
+                        address_street: req.body.new_address_street,
+                        address_number: req.body.new_address_number,
+                        address_floor: req.body.new_address_floor,
+                        address_door: req.body.new_address_door,
+                        address_city: req.body.new_address_city,
+                        address_state: req.body.new_address_state,
+                        address_country: req.body.new_address_country,
+                        address_zipcode: req.body.new_address_zipcode
+                    })
+                        .then(function (second) {
+                            res.redirect("/users/profile/" + req.params.userId)
+                        })
+                        .catch(function (errors) {
+                            res.send(errors)
+                        })
+                }
+
                 db.User.update({
                     first_name: req.body.firstName,
                     last_name: req.body.lastName,
-                    dni: req.body.dni,
-                    phone_0: req.body.phone_0,
-                    phone_1: req.body.phone_1,
-                    credit_card_0: req.body.credit_card_0,
-                    credit_card_1: req.body.credit_card_1,
-                    address_0: req.body.address_0,
-                    address_1: req.body.address_1
+                    dni: req.body.dni
                 },
                     { where: { id: req.params.userId } })
+                    .then(function (second) {
+                        db.Credit_Card.update({
+                            number: req.body.credit_card_number,
+                            expire_date: req.body.credit_card_expire_date
+                        },
+                            { where: { id: req.body.credit_card_id } })
+                    })
+                    .then(function (third) {
+                        db.Phone.update({
+                            phone_number: req.body.phone_number,
+                        },
+                            { where: { id: req.body.phone_id } })
+                    })
+                    .then(function (fourth) {
+                        db.Address.update({
+                            address_street: req.body.address_street,
+                            address_number: req.body.address_number,
+                            address_floor: req.body.address_floor,
+                            address_door: req.body.address_door,
+                            address_city: req.body.address_city,
+                            address_state: req.body.address_state,
+                            address_country: req.body.address_country,
+                            address_zipcode: req.body.address_zipcode
+                        },
+                            { where: { id: req.body.address_id } })
+                    })
                     .then(function (result) {
-
                         res.redirect("/users/profile/" + req.params.userId)
                     })
                     .catch(function (errors) {
@@ -267,26 +339,72 @@ module.exports = {
                             title: "Mi Perfil - Error",
                         })
                     })
-
                     ;
             }
-
         } else {
             // Este ELSE viene de si habia errores en el ingreso de datos, para lo cual renderiza de nuevo el register
             // pero esta vez enviando que errores hubo al llenar los campos.
-            return db.User.findByPk(req.params.userId).then(function (users) {
-
-                // res.send(VRerrors.mapped())
+            console.log(VRerrors.mapped());
+            return db.User.findByPk(req.params.userId, {
+                include: [{
+                    all: true
+                }]})
+                .then(function (users) {
+                console.log(req.body);
                 res.render("usersProfile", {
                     title: "Mi Perfil",
                     user: users,
-                    errors: VRerrors.mapped()
+                    errors: VRerrors.mapped(),
+                    old: req.body
                 })
             })
                 .catch(function (error) { res.send(error) })
+        }
+    },
+    usersProfileDelete: function (req, res, next) {
 
+        // Delete de direcciones
+
+        if (req.body.delete_address_id) {
+            db.Address.destroy({ where: { id: req.body.delete_address_id } })
+                .then(function (result) {
+                    res.redirect("/users/profile/" + req.params.userId);
+                })
+                .catch(function (error) {
+                    res.send(error)
+                })
+        }
+
+        // Delete de tarjetas de crédito
+
+        if (req.body.delete_credit_card_id) {
+
+            db.Credit_Card.destroy({ where: { id: req.body.delete_credit_card_id } })
+                .then(function (result) {
+                    res.redirect("/users/profile/" + req.params.userId);
+                })
+                .catch(function (error) {
+                    res.send(error)
+                })
+        }
+
+        
+        if (req.body.delete_phone_id) {
+
+            db.Phone.destroy({ where: { id: req.body.delete_phone_id } })
+                .then(function (result) {
+                    res.redirect("/users/profile/" + req.params.userId);
+                })
+                .catch(function (error) {
+                    res.send(error)
+                })
         }
 
 
     }
+
+
+
+
+
 }

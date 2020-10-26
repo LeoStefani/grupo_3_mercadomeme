@@ -486,6 +486,107 @@ window.addEventListener("load", function (e) {
 
     })
 
+
+
+
+// ================= ENVIAR IMAGEN A BIBLIOTECA ===================
+
+
+let buttonMemeToLibrary = qs("button#memeToLibrary");
+// let divCapture = qs("div#capture");
+
+ buttonMemeToLibrary.addEventListener("click", function (event) {
+
+        // las coordenadas left y top surjen de aplicar la funcion anterior:
+
+        var divOffset = offset(divCapture);
+        let left = parseInt(divOffset.left);
+        let top = parseInt(divOffset.top);
+
+        // por otro lado, saco el ancho y alto del div que contiene el meme:
+
+        let memeWidth = memeToComplete.width;
+        let memeHeight = memeToComplete.height;
+
+        // por otro lado, para que quede bien, depende de la disposición de los elementos con responsive para que se acomode bien.
+        // Por eso defino una variable que depende del ancho de la ventana para agregar un pequeño corrimiento de corrección:
+
+        let offsetLeft = left;
+
+        if (window.innerWidth < 768) {
+            offsetLeft += 2;
+        } else {
+            offsetLeft += 7;
+        }
+
+        // Lo mismo para ajustar el ancho del canvas que se va a generar:
+
+        let finalWidth = memeWidth;
+
+        if (window.innerWidth < 768) {
+            finalWidth += 0;
+        } else {
+            finalWidth += 2;
+        }
+
+        // Aplico la funcionalidad de HTML2CANVAS. 
+
+        // AllowTaint es necesario porque como leo de la API, cambia la estructura del source y sino no lo leia.
+        // El alto funciona bien con el alto del div, lo mismo que la posicion del corte inicial.
+        // Para el ancho, le paso el corte y el ancho corregidos que setee con offsetLeft y finalWidth
+
+        // Sin el cors no podía guardar como imagen el cavnas tainted, es decir que usaba imágenes leíadas de la api.
+
+    //   Acá abajo una función auxiliar que permite a partir del URL64 generar mas adelante un FormData para que el file se guarde en server
+
+        function srcToFile(src, fileName, mimeType) {
+            return (fetch(src)
+                .then(function (res) { return res.arrayBuffer(); })
+                .then(function (buf) { return new File([buf], fileName, { type: mimeType }); })
+            );
+        }
+
+        html2canvas(document.querySelector("#capture"), { backgroundColor: null, useCORS: true, allowTaint: true, width: finalWidth, height: memeHeight, y: top, x: offsetLeft }).then(canvas => {
+            return canvas
+        })
+
+        // con la biblioteca Canvas2Image convierto el canvas en un PNG pero URL64codificado 
+            .then(result => {
+                let memeGenerated = Canvas2Image.convertToPNG(result, finalWidth, memeHeight)
+
+                // función auxiliar para armar el FormData para que pueda ser tomado por multer y generar el archivo en el server.
+
+                srcToFile(
+                    memeGenerated.src,
+                    'meme.png',
+                    'image/png'
+                )
+                    .then(function (file) {
+                        console.log(file);
+                        var fd = new FormData();
+                        fd.append("file", file);
+
+                        // una vez que armo el formData con lo que recibió, lo manda por fetch a la ruta por post y pasa por multer
+                        // en la cual se creará un flag en session que avisa que se creo archivo. Esto servirá para que las vistas sepan que esta el creado por usuario.
+
+                        return fetch('/memes/memeToLibrary', { method: 'POST', body: fd });
+                    })
+                    .then(function (res) {
+                        return res.text();
+                    })
+                    .then(function (some){
+                               location.href = "/memes"
+                        
+                    })
+                    .then(console.log)
+                    .catch(console.error);
+            })
+
+
+
+    })
+
+
 // ================= SUBIR IMAGEN USUARIO =========================
 
 

@@ -18,11 +18,11 @@
                         class="dataBlock w-100 d-flex flex-wrap justify-content-between shadow rounded-lg p-2 mb-3 mt-2">
                         <div class="w-100 d-flex flex-wrap justify-content-end align-items-center">
                             <div class="d-flex flex-wrap productName w-100 mt-2">
-                                <p class="col-12 col-md-6 p-1"><b>Direccion:</b><%= loggedUser.address_0 %></p>
-                                <p class="col-12 col-md-6 p-1"><b>Localidad:</b> Villa Devoto </p>
-                                <p class="col-6 col-md-3 p-1"><b>Tel:</b><%= loggedUser.phone_0 %></p>
-                                <p class="col-6 col-md-3 p-1"><b>CP:</b> 1425</p>
-                                <p class="col-6 col-md-6 p-1"><b>Email:</b> <%= loggedUser.email %></p>
+                                <p class="col-12 col-md-6 p-1"><b>Direccion: </b><%=user.addresses[0].address_street+" "+user.addresses[0].address_number+" "+user.addresses[0].address_floor+" "+user.addresses[0].address_door %></p>
+                                <p class="col-12 col-md-6 p-1"><b>Localidad: </b> <%= user.addresses[0].address_city %> </p>
+                                <p class="col-6 col-md-3 p-1"><b>Tel: </b><%= user.phones[0].phone_number %></p>
+                                <p class="col-6 col-md-3 p-1"><b>CP: </b> <%= user.addresses[0].address_zipcode %></p>
+                                <p class="col-6 col-md-6 p-1"><b>Email: </b> <%= user.email %></p>
                             </div>
                             <div class="w-100 text-center">
                                 <a href="#" role="button" class="btn btn-sm col-12 col-md-6 btn-warning shadow">Elegir

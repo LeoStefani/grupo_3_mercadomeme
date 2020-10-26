@@ -36,6 +36,8 @@ router.get('/cart/settings', authMiddleware, usersController.purchaseSettings);
 router.get('/profile/:userId', authMiddleware, usersController.usersProfile);
 router.post('/profile/:userId', upload.any(), profileValidations, authMiddleware, usersController.usersProfileEdit);
 
+router.delete('/profile/:userId', authMiddleware, usersController.usersProfileDelete)
+
 
 
 

@@ -30,7 +30,7 @@
                   <div class="d-flex flex-wrap align-items-center col-12 col-sm-10 m-0 pl-2 pr-0">
                      <div class="d-flex flex-wrap align-items-center col-12 title p-1 m-0">
                         <h6 class="w-100 text-start p-1 m-0">Username: </h6>
-                           
+
                         <h6 class="bg m-0 text-start p-1 rounded-lg flex-grow-1 mr-2"><%= user.username %></h6>
 
                         <!-- Button trigger modal -->
@@ -40,7 +40,7 @@
                         </button>
                      </div>
                      <div class="d-flex flex-wrap align-items-center col-12 title p-1 m-0">
-                        <h6 class="w-100 text-start p-1 m-0">Email: 
+                        <h6 class="w-100 text-start p-1 m-0">Email:
                         </h6>
                         <h6 class="bg m-0 text-start p-1 rounded-lg flex-grow-1 mr-2"><%= user.email %></h6>
                         <!-- Button trigger modal -->
@@ -81,7 +81,8 @@
                            <div class="d-flex align-items-center  col-9 col-sm-6 input p-1 m-0">
                               <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
                                  name="nameAndLastname" id="nameAndLastname"
-                                 placeholder="<%= user.first_name ? user.first_name + ' ' + user.last_name : 'No disponible' %>" disabled>
+                                 placeholder="<%= user.first_name ? user.first_name + ' ' + user.last_name : 'No disponible' %>"
+                                 disabled>
                            </div>
                            <!-- Button trigger modal -->
                            <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
@@ -116,48 +117,40 @@
                         </div>
                      </div>
 
+                     <% for( let i = 0; i < user.phones.length; i++ ) { %>
+
                      <div>
                         <div class="d-flex flex-wrap justify-content-between w-100 m-0 p-0">
                            <div class="d-flex align-items-center col-12 col-sm-4 title p-1 m-0">
-                              <h6 class="w-100 text-start p-1 m-0">Teléfono:</h6>
+                              <h6 class="w-100 text-start p-1 m-0">Teléfono #<%=i+1%>:</h6>
                            </div>
+
                            <div class="d-flex flex-wrap align-items-center col-9 col-sm-6 input p-1 m-0">
                               <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
-                                 name="phone_0" id="phone_0" disabled
-                                 placeholder="<%= user.phone_0 ? user.phone_0 : 'No disponible' %>">
+                                 name="phone_number" id="phone_number" disabled
+                                 placeholder="<%= user.phones[i].phone_number ? user.phones[i].phone_number : 'No disponible' %>">
                            </div>
 
                            <!-- Button trigger modal -->
                            <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
                               <button type="button" class="btn btn-warning btn-sm w-100" data-toggle="modal"
-                                 data-target="#phone_0Modal">
+                                 data-target="#phone_<%=i%>Modal">
                                  Editar
                               </button>
                            </div>
                         </div>
                      </div>
 
-                     <div>
-                        <div class="d-flex flex-wrap justify-content-between w-100 m-0 p-0">
-                           <div class="d-flex align-items-center col-12 col-sm-4 title p-1 m-0">
-                              <h6 class="w-100 text-start p-1 m-0">Teléfono alternativo:</h6>
-                           </div>
-                           <div class="d-flex flex-wrap align-items-center col-9 col-sm-6 input p-1 m-0">
-                              <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
-                                 name="phone_1" id="phone_1" disabled
-                                 placeholder="<%= user.phone_1 ? user.phone_1 : 'No disponible' %>">
-                           </div>
-
-                           <!-- Button trigger modal -->
-                           <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
-                              <button type="button" class="btn btn-warning btn-sm w-100" data-toggle="modal"
-                                 data-target="#phone_1Modal">
-                                 Editar
-                              </button>
-                           </div>
-                        </div>
-                     </div>
+                     <% } %>
                   </div>
+
+                  <div class="d-flex flex-wrap align-items-center justify-content-center col-12 p-2 m-0">
+                     <button type="button" class="btn btn-warning w-75 mb-3 p-1 shadow" data-toggle="modal"
+                        data-target="#new_phone_Modal">
+                        Agregar nuevo teléfono
+                     </button>
+                  </div>
+
                </div>
             </div>
             <!-- Collapse PersonalData -->
@@ -167,70 +160,57 @@
                <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
                   data-target="#collapseCreditCards" aria-expanded="false" aria-controls="collapseCreditCards"><span
                      class=" text-danger text-center">
-                     <%= (typeof errors != "undefined" && (errors.credit_card_0 || errors.credit_card_1 || errors.credit_card_2)) ? "⚠" : "" %></span><i
+                     <%= (typeof errors != "undefined" && (errors.credit_card_number || errors.new_credit_card_number )) ? "⚠" : "" %></span><i
                      class="fas fa-chevron-down"></i> Mis tarjetas <i class="fas fa-chevron-down"></i><span
                      class=" text-danger text-center">
-                     <%= (typeof errors != "undefined" && (errors.credit_card_0 || errors.credit_card_1 || errors.credit_card_2)) ? "⚠" : "" %></span></button>
+                     <%= (typeof errors != "undefined" && (errors.credit_card_number || errors.new_credit_card_number )) ? "⚠" : "" %></span></button>
             </p>
             <div class="collapse w-100 mb-3" id="collapseCreditCards">
                <div class="card card-body w-100 m-0 p-0">
                   <div class="creditCardsData w-100 d-flex flex-wrap p-2">
+                     <span class="text-danger text-center w-100">
+                        <%= (typeof errors != "undefined" && errors.new_credit_card_number ) ? "Los datos ingresados no fueron correctos" : "" %></span>
+
+
+                     <% for( let i = 0; i < user.credit_cards.length; i++ ) { %>
+
                      <div class="w-100 d-flex flex-wrap justify-content-start align-items-between m-0 p-0 mb-2">
                         <div class="d-flex flex-wrap align-items-center col-2 m-0 p-0 ">
-
-
                            <img class="w-100 shadow m-0 p-0 mb-1"
-                              src="<%= user.credit_card_0 != undefined && user.credit_card_0.toString().split('')[0]==4 ? '/Images/logoVisa.png' : user.credit_card_0 != undefined && user.credit_card_0.toString().split('')[0]==5 ? '/Images/logoMasterCard.png' : user.credit_card_0 != undefined && user.credit_card_0.toString().split('')[0]==3 ? '/images/logoAmex.png' : '/Images/logoDesconocido.png' %>">
+                              src="<%= user.credit_cards[i].number != undefined && user.credit_cards[i].number.toString().split('')[0]==4 ? '/Images/logoVisa.png' : user.credit_cards[i].number != undefined && user.credit_cards[i].number.toString().split('')[0]==5 ? '/Images/logoMasterCard.png' : user.credit_cards[i].number != undefined && user.credit_cards[i].number.toString().split('')[0]==3 ? '/images/logoAmex.png' : '/Images/logoDesconocido.png' %>">
                            <!-- Button trigger modal -->
                            <div class="d-flex flex-wrap align-items-center w-100 m-0">
                               <button type="button" class="btn btn-warning btn-sm w-100" data-toggle="modal"
-                                 data-target="#credit_card_0Modal">
+                                 data-target="#credit_card_<%=i%>Modal">
                                  Editar
                               </button>
                            </div>
                         </div>
                         <div class="d-flex flex-wrap align-items-between col-10 m-0 p-0 pl-2">
+                           
                            <span class=" text-danger text-center">
-                              <%= (typeof errors != "undefined" && errors.credit_card_0) ? "⚠" : "" %></span>
+                              <%= (typeof errors != "undefined" && errors.credit_card_number && old.credit_card_id==user.credit_cards[i].id) ? "⚠" : "" %></span>
                            <h6 class="d-flex align-items-center flex-grow-1 text-start p-1 rounded-lg m-0">
-                              <%= user.credit_card_0 != undefined && user.credit_card_0 ? user.credit_card_0 : 'No disponible' %>
+                              <%= user.credit_cards[i].number != undefined && user.credit_cards[i].number ? user.credit_cards[i].number : 'No disponible' %>
                            </h6>
+                           <h6 class="d-flex align-items-center w-100 text-start p-1 mt-2 mb-2 rounded-lg">
+                              Emisor:
+                              <%= user.credit_cards[i].number != undefined && user.credit_cards[i].number.toString().split('')[0]==4 ? 'VISA' : user.credit_cards[i].number != undefined && user.credit_cards[i].number.toString().split('')[0]==5 ? 'Master Card' : user.credit_cards[i].number != undefined && user.credit_cards[i].number.toString().split('')[0]==3 ? 'American Express' : 'Otro' %>
+                           </h6>
+                           <h6 class="d-flex align-items-center w-100 text-start p-1 rounded-lg m-0">
+                              Vencimiento:
+                              <%= user.credit_cards[i].expire_date != undefined && user.credit_cards[i].expire_date ? user.credit_cards[i].expire_date : 'No disponible' %>
+                           </h6>
+                        </div>
+                     </div>
+                     <% } %>
 
-                           <h6 class="d-flex align-items-center w-100 text-start p-1 mt-2 mb-2 rounded-lg">
-                              Emisor:
-                              <%= user.credit_card_0 != undefined && user.credit_card_0.toString().split('')[0]==4 ? 'VISA' : user.credit_card_0 != undefined && user.credit_card_0.toString().split('')[0]==5 ? 'Master Card' : user.credit_card_0 != undefined && user.credit_card_0.toString().split('')[0]==3 ? 'American Express' : 'Otro' %>
-                           </h6>
-                           <h6 class="d-flex align-items-center w-100 text-start p-1 rounded-lg m-0">Vencimiento</h6>
-                        </div>
-                     </div>
-                     <div class="w-100 d-flex flex-wrap justify-content-start align-items-between m-0 p-0">
-                        <div class="d-flex flex-wrap align-items-center col-2 m-0 p-0 ">
-                           <img class="w-100 shadow m-0 p-0 mb-1"
-                              src="<%= user.credit_card_1 != undefined && user.credit_card_1.toString().split('')[0]==4 ? '/Images/logoVisa.png' : user.credit_card_1 != undefined && user.credit_card_1.toString().split('')[0]==5 ? '/Images/logoMasterCard.png' : user.credit_card_1 != undefined && user.credit_card_1.toString().split('')[0]==3 ? '/images/logoAmex.png' : '/Images/logoDesconocido.png' %>">
-                           <!-- Button trigger modal -->
-                           <div class="d-flex flex-wrap align-items-center w-100 m-0">
-                              <button type="button" class="btn btn-warning btn-sm w-100" data-toggle="modal"
-                                 data-target="#credit_card_1Modal">
-                                 Editar
-                              </button>
-                           </div>
-                        </div>
-                        <div class="d-flex flex-wrap align-items-between col-10 m-0 p-0 pl-2">
-                           <span class=" text-danger text-center">
-                              <%= (typeof errors != "undefined" && errors.credit_card_1) ? "⚠" : "" %></span>
-                           <h6 class="d-flex align-items-center flex-grow-1 text-start p-1 m-0 rounded-lg">
-                              <%= user.credit_card_1 != undefined && user.credit_card_1 ? user.credit_card_1 : 'No disponible' %>
-                           </h6>
-                           <h6 class="d-flex align-items-center w-100 text-start p-1 mt-2 mb-2 rounded-lg">
-                              Emisor:
-                              <%= user.credit_card_1 != undefined && user.credit_card_1.toString().split('')[0]==4 ? 'VISA' :  user.credit_card_1 != undefined && user.credit_card_1.toString().split('')[0]==5 ? 'Master Card' : user.credit_card_1 != undefined && user.credit_card_1.toString().split('')[0]==3 ? 'American Express' : 'Otro' %>
-                           </h6>
-                           <h6 class="d-flex align-items-center w-100 text-start p-1 m-0 rounded-lg">Vencimiento</h6>
-                        </div>
-                     </div>
                   </div>
-                  <div class="d-flex flex-wrap align-items-center col-12 p-2 m-0">
-                     <button class="btn btn-warning btn-block m-0 p-0 shadow" disabled>Agregar nueva tarjeta</button>
+                  <div class="d-flex flex-wrap align-items-center justify-content-center col-12 p-2 m-0">
+                     <button type="button" class="btn btn-warning w-75 mb-3 p-1 shadow" data-toggle="modal"
+                        data-target="#new_credit_card_Modal">
+                        Agregar nueva tarjeta
+                     </button>
                   </div>
                </div>
             </div>
@@ -245,50 +225,40 @@
             <div class="collapse w-100 mb-3" id="collapseUserAdresses">
                <div class="card card-body w-100 m-0 p-0">
                   <div class="userAdresses w-100 m-0 p-1">
+
+                     <% for( let i = 0; i < user.addresses.length; i++ ) { %>
+
                      <div>
                         <div class="d-flex flex-wrap justify-content-between w-100 m-0 p-0">
                            <div class="d-flex align-items-center col-12 col-sm-2 title p-1 m-0">
-                              <h6 class="w-100 text-start p-1 m-0">Principal:</h6>
+                              <h6 class="w-100 text-start p-1 m-0">Dirección #<%=i+1%></h6>
                            </div>
                            <div class="d-flex align-items-center  col-9 col-sm-8 input p-1 m-0">
                               <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
                                  name="nameAndLastname" id="nameAndLastname" disabled
-                                 placeholder="<%= user.address_0 ? user.address_0 : 'No disponible' %>">
+                                 placeholder="<%= user.addresses[i].address_street + " " + user.addresses[i].address_number + " " + user.addresses[i].address_floor + " " + user.addresses[i].address_door   %>">
                            </div>
                            <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
                               <!-- Button trigger modal -->
                               <div class="d-flex flex-wrap align-items-center w-100 m-0">
                                  <button type="button" class="btn btn-warning btn-sm w-100" data-toggle="modal"
-                                    data-target="#address_0Modal">
+                                    data-target="#address_<%=i%>Modal">
                                     Editar
                                  </button>
                               </div>
                            </div>
                         </div>
                      </div>
-                     <div>
-                        <div class="d-flex flex-wrap justify-content-between w-100 m-0 p-0">
-                           <div class="d-flex align-items-center col-12 col-sm-2 title p-1 m-0">
-                              <h6 class="w-100 text-start p-1 m-0">Alternativa:</h6>
-                           </div>
-                           <div class="d-flex flex-wrap align-items-center  col-9 col-sm-8 input p-1 m-0">
-                              <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text" disabled
-                                 name="nameAndLastname" id="nameAndLastname"
-                                 placeholder="<%= user.address_1 ? user.address_1 : 'No disponible' %>">
-                           </div>
-                           <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
-                              <!-- Button trigger modal -->
-                              <div class="d-flex flex-wrap align-items-center w-100 m-0">
-                                 <button type="button" class="btn btn-warning btn-sm w-100" data-toggle="modal"
-                                    data-target="#address_1Modal">
-                                    Editar
-                                 </button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="d-flex flex-wrap align-items-center col-12 p-1 m-0">
-                        <button class="btn btn-warning btn-block m-0 p-0 shadow" disabled>Agregar nueva dirección</button>
+
+
+                     <% } %>
+
+
+                     <div class="d-flex flex-wrap align-items-center justify-content-center col-12 p-2 m-0">
+                        <button type="button" class="btn btn-warning w-75 mb-3 p-1 shadow" data-toggle="modal"
+                           data-target="#new_address_Modal">
+                           Agregar nueva dirección
+                        </button>
                      </div>
 
                   </div>
@@ -308,20 +278,21 @@
                         </button>
                      </div>
                      <div class="modal-body col-12 d-flex flex-wrap justify-content-center">
-                        <form role="form" class=" d-flex flex-wrap justify-content-center"
-                           enctype="multipart/form-data" method="POST" action="/users/profile/<%=user.id%>"
-                           id="avatarForm">
+                        <form role="form" class=" d-flex flex-wrap justify-content-center" enctype="multipart/form-data"
+                           method="POST" action="/users/profile/<%=user.id%>" id="avatarForm">
                            <div class="col-12 justify-content-center text-center m-0 mb-2 p-0">
                               <input class="text-truncate " type="file" name="avatar" id="avatar">
                            </div>
                            <div class="col-6 m-0 p-0 justify-content-center">
-                              <img class="col-12 shadow p-0 m-0 previewAvatar rounded-lg" src="/images/users/<%= user.avatar %>" alt="">
-                          </div>
+                              <img class="col-12 shadow p-0 m-0 previewAvatar rounded-lg"
+                                 src="/images/users/<%= user.avatar %>" alt="">
+                           </div>
                         </form>
                      </div>
                      <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-warning" form="avatarForm" id="submitAvatar" disabled>Guardar
+                        <button type="submit" class="btn btn-warning" form="avatarForm" id="submitAvatar"
+                           disabled>Guardar
                            cambios</button>
                      </div>
                   </div>
@@ -334,7 +305,8 @@
                <div class="modal-dialog" role="document">
                   <div class="modal-content">
                      <div class="modal-header">
-                        <h5 class="modal-title text-center w-100" id="exampleModalLabel">Modificar username</h5>
+                        <h5 class="modal-title text-center w-100" id="exampleModalLabel">Modificar username
+                        </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
@@ -344,8 +316,7 @@
                            action="/users/profile/<%=user.id%>" id="usernameForm">
                            <div class="w-100 m-0 p-0">
                               <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
-                                 type="text" name="username" placeholder="Nombre de usuario"
-                                 value="<%=user.username%>">
+                                 type="text" name="username" placeholder="Nombre de usuario" value="<%=user.username%>">
                            </div>
                         </form>
                      </div>
@@ -375,8 +346,7 @@
                            action="/users/profile/<%=user.id%>" id="emailForm">
                            <div class="w-100 m-0 p-0">
                               <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
-                                 type="text" name="email" placeholder="Email"
-                                 value="<%=user.email%>">
+                                 type="text" name="email" placeholder="Email" value="<%=user.email%>">
                            </div>
                         </form>
                      </div>
@@ -464,74 +434,83 @@
                </div>
             </div>
 
-            <!-- Modal CollapsePersonalData TELEFONO PRINCIPAL-->
-            <div class="modal fade" id="phone_0Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-               aria-hidden="true">
+            <!-- Modal CollapsePersonalData TELEFONOS-->
+            <% for( let i = 0; i < user.phones.length; i++ ) { %>
+            <div class="modal fade" id="phone_<%=i%>Modal" tabindex="-1" role="dialog"
+               aria-labelledby="exampleModalLabel" aria-hidden="true">
                <div class="modal-dialog" role="document">
                   <div class="modal-content">
                      <div class="modal-header">
                         <h5 class="modal-title text-center w-100" id="exampleModalLabel">Modificar
-                           teléfono
-                           principal</h5>
+                           teléfono #<%=i+1%></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
                      </div>
                      <div class="modal-body">
                         <form role="form" class=" d-flex flex-wrap justify-content-between" method="POST"
-                           action="/users/profile/<%=user.id%>" id="phone_0Form">
+                           action="/users/profile/<%=user.id%>" id="phone_<%=i%>Form">
                            <div class="w-100 m-0 p-0">
                               <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
-                                 type="text" name="phone_0" placeholder="Ej: 1122334455"
-                                 value="<%= (typeof user.phone_0 != 'undefined') ? user.phone_0 : '' %>">
+                                 type="text" name="phone_number" placeholder="Ej: 1122334455"
+                                 value="<%=user.phones[i].phone_number %>">
+                              </input>
+                              <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                                 hidden type="text" name="phone_id" value="<%= user.phones[i].id%>">
                               </input>
                            </div>
                         </form>
+                        <form role="form" method="POST" hidden action="/users/profile/<%=user.id%>?_method=DELETE"
+                           id="delete_phone_<%=i%>Form">
+                           <input hidden type="text" name="delete_phone_id" value="<%=user.phones[i].id%>">
+                           </input>
+                        </form>
                      </div>
                      <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger" form="delete_phone_<%=i%>Form">Eliminar</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-warning" form="phone_0Form">Guardar
+                        <button type="submit" class="btn btn-warning" form="phone_<%=i%>Form">Guardar
                            cambios</button>
                      </div>
                   </div>
                </div>
             </div>
+            <% } %>
 
-            <!-- Modal CollapsePersonalData TELEFONO ALTERNATIVO-->
-            <div class="modal fade" id="phone_1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            <!-- Modal NEW TELEFONO-->
+            <div class="modal fade" id="new_phone_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                aria-hidden="true">
                <div class="modal-dialog" role="document">
                   <div class="modal-content">
                      <div class="modal-header">
-                        <h5 class="modal-title text-center w-100" id="exampleModalLabel">Modificar
-                           teléfono
-                           alternativo</h5>
+                        <h5 class="modal-title text-center w-100" id="exampleModalLabel">Agregar nuevo teléfono</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
                      </div>
                      <div class="modal-body">
                         <form role="form" class=" d-flex flex-wrap justify-content-between" method="POST"
-                           action="/users/profile/<%=user.id%>" id="phone_1Form">
+                           action="/users/profile/<%=user.id%>" id="new_phone_Form">
                            <div class="w-100 m-0 p-0">
                               <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
-                                 type="text" name="phone_1" placeholder="Ej: 1122334455"
-                                 value="<%= (typeof user.phone_1 != 'undefined') ? user.phone_1 : '' %>">
+                                 type="text" name="new_phone_number" placeholder="Ej: 1122334455">
+                              </input>
                               </input>
                            </div>
                         </form>
                      </div>
                      <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-warning" form="phone_1Form">Guardar
+                        <button type="submit" class="btn btn-warning" form="new_phone_Form">Guardar
                            cambios</button>
                      </div>
                   </div>
                </div>
             </div>
 
-            <!-- Modal CollapseCreditCards CARD0-->
-            <div class="modal fade" id="credit_card_0Modal" tabindex="-1" role="dialog"
+            <!-- Modal CollapseCreditCards CARDS-->
+            <% for( let i = 0; i < user.credit_cards.length; i++ ) { %>
+            <div class="modal fade" id="credit_card_<%=i%>Modal" tabindex="-1" role="dialog"
                aria-labelledby="exampleModalLabel" aria-hidden="true">
                <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -544,33 +523,51 @@
                      </div>
                      <div class="modal-body">
                         <form role="form" class=" d-flex flex-wrap justify-content-between" method="POST"
-                           action="/users/profile/<%=user.id%>" id="credit_card_0Form">
+                           action="/users/profile/<%=user.id%>" id="credit_card_<%=i%>Form">
                            <div class="w-100 m-0 p-0">
                               <small class=" text-danger text-center">
-                                 <%= (typeof errors != "undefined" && errors.credit_card_0) ? errors.credit_card_0.msg : "" %></small>
+                                 <%= (typeof errors != "undefined" && errors.credit_card_number && old.credit_card_id==user.credit_cards[i].id) ? errors.credit_card_number.msg : "" %></small>
                               <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
-                                 type="text" name="credit_card_0" placeholder="Ej: 1111222233334444"
-                                 value="<%= (typeof user.credit_card_0 != 'undefined') ? user.credit_card_0 : '' %>">
+                                 type="text" name="credit_card_number" placeholder="Ej: 1111222233334444"
+                                 value="<%= (typeof user.credit_cards[i].number != 'undefined') ? user.credit_cards[i].number : '' %>">
                               </input>
+                              <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                                 hidden type="text" name="credit_card_id" value="<%= user.credit_cards[i].id%>">
+                              </input>
+                              <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                                 type="text" name="credit_card_expire_date" placeholder="Ej: YYYY-MM-DD"
+                                 value="<%= (typeof user.credit_cards[i].expire_date != 'undefined') ? user.credit_cards[i].expire_date : '' %>">
+                              </input>
+
                            </div>
+                        </form>
+                        <form role="form" method="POST" hidden action="/users/profile/<%=user.id%>?_method=DELETE"
+                           id="delete_credit_card_<%=i%>Form">
+                           <input hidden type="text" name="delete_credit_card_id" value="<%=user.credit_cards[i].id%>">
+                           </input>
                         </form>
                      </div>
                      <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger"
+                           form="delete_credit_card_<%=i%>Form">Eliminar</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-warning" form="credit_card_0Form">Guardar
+                        <button type="submit" class="btn btn-warning" form="credit_card_<%=i%>Form">Guardar
                            cambios</button>
                      </div>
                   </div>
                </div>
             </div>
 
-            <!-- Modal CollapseCreditCards CARD1-->
-            <div class="modal fade" id="credit_card_1Modal" tabindex="-1" role="dialog"
+            <% } %>
+
+            <!-- Modal NEW Credit Cards-->
+
+            <div class="modal fade" id="new_credit_card_Modal" tabindex="-1" role="dialog"
                aria-labelledby="exampleModalLabel" aria-hidden="true">
                <div class="modal-dialog" role="document">
                   <div class="modal-content">
                      <div class="modal-header">
-                        <h5 class="modal-title text-center w-100" id="exampleModalLabel">Modificar
+                        <h5 class="modal-title text-center w-100" id="exampleModalLabel">Nueva
                            tarjeta de crédito</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
@@ -578,33 +575,39 @@
                      </div>
                      <div class="modal-body">
                         <form role="form" class=" d-flex flex-wrap justify-content-between" method="POST"
-                           action="/users/profile/<%=user.id%>" id="credit_card_1Form">
+                           action="/users/profile/<%=user.id%>" id="new_credit_card_Form">
                            <div class="w-100 m-0 p-0">
                               <small class=" text-danger text-center">
-                                 <%= (typeof errors != "undefined" && errors.credit_card_1) ? errors.credit_card_1.msg : "" %></small>
+                                 <%= (typeof errors != "undefined" && errors.credit_card_number) ? errors.credit_card_number.msg : "" %></small>
                               <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
-                                 type="text" name="credit_card_1" placeholder="Ej: 1111222233334444"
-                                 value="<%= (typeof user.credit_card_1 != 'undefined') ? user.credit_card_1 : '' %>">
+                                 type="text" name="new_credit_card_number" placeholder="Ej: 1111222233334444">
+                              </input>
+                              <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                                 type="text" name="new_credit_card_expire_date" placeholder="Ej: YYYY-MM-DD">
                               </input>
                            </div>
                         </form>
                      </div>
                      <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-warning" form="credit_card_1Form">Guardar
+                        <button type="submit" class="btn btn-warning" form="new_credit_card_Form">Guardar
                            cambios</button>
                      </div>
                   </div>
                </div>
             </div>
+
 
             <!-- Modal CollapseAddress ADDRESS0-->
-            <div class="modal fade" id="address_0Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-               aria-hidden="true">
+
+            <% for( let i = 0; i < user.addresses.length; i++ ) { %>
+
+            <div class="modal fade" id="address_<%=i%>Modal" tabindex="-1" role="dialog"
+               aria-labelledby="exampleModalLabel" aria-hidden="true">
                <div class="modal-dialog" role="document">
                   <div class="modal-content">
                      <div class="modal-header">
-                        <h5 class="modal-title text-center w-100" id="exampleModalLabel">Modificar dirección principal
+                        <h5 class="modal-title text-center w-100" id="exampleModalLabel">Modificar dirección #<%=i+1%>
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
@@ -612,52 +615,140 @@
                      </div>
                      <div class="modal-body">
                         <form role="form" class=" d-flex flex-wrap justify-content-between" method="POST"
-                           action="/users/profile/<%=user.id%>" id="address_0Form">
+                           action="/users/profile/<%=user.id%>" id="address_<%=i%>Form">
                            <div class="w-100 m-0 p-0">
+                              <label>Calle:</label>
                               <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
-                                 type="text" name="address_0"
-                                 placeholder="Ej: 308 Negra Arroyo Lane, Alburquerque, Nuevo México"
-                                 value="<%= (typeof user.address_0 != 'undefined') ? user.address_0 : '' %>">
+                                 type="text" name="address_street" placeholder="Ej: Negra Arroyo Lane"
+                                 value="<%=(typeof user.addresses[i].address_street != "undefined" )?user.addresses[i].address_street:""%>">
+                              </input>
+                              <div class="d-flex flex-wrap justify-content-between">
+                                 <div class="col-4 m-0 p-0">
+                                    <h6>Número:</h6>
+                                    <input class="border border-white rounded-lg mt-1 mb-3 p-2 w-100 shadow" type="text"
+                                       name="address_number" placeholder="Ej: 308"
+                                       value="<%=(typeof user.addresses[i].address_number != "undefined" )?user.addresses[i].address_number:""%>">
+                                    </input>
+                                 </div>
+                                 <div class="col-4 m-0 pl-2 pr-0">
+                                    <h6>Piso:</h6>
+                                    <input class="border border-white rounded-lg mt-1 mb-3 p-2 shadow w-100" type="text"
+                                       name="address_floor" placeholder="Ej: 7"
+                                       value="<%=(typeof user.addresses[i].address_floor != "undefined" )?user.addresses[i].address_floor:""%>">
+                                    </input>
+                                 </div>
+                                 <div class="col-4 m-0 pl-2 pr-0">
+                                    <h6>Departamento:</h6>
+                                    <input class="border border-white rounded-lg mt-1 mb-3 p-2 w-100 shadow" type="text"
+                                       name="address_door" placeholder="Ej: D"
+                                       value="<%=(typeof user.addresses[i].address_door != "undefined" )?user.addresses[i].address_door:""%>">
+                                    </input>
+                                 </div>
+                              </div>
+                              <h6>Ciudad:</h6>
+                              <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                                 type="text" name="address_city" placeholder="Ej: Albuquerque"
+                                 value="<%=(typeof user.addresses[i].address_city != "undefined" )?user.addresses[i].address_city:""%>">
+                              </input>
+                              <h6>Provicia / Estado:</h6>
+                              <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                                 type="text" name="address_state" placeholder="Ej: Nuevo México"
+                                 value="<%=(typeof user.addresses[i].address_state != "undefined" )?user.addresses[i].address_state:""%>">
+                              </input>
+                              <h6>País:</h6>
+                              <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                                 type="text" name="address_country" placeholder="Ej: USA"
+                                 value="<%=(typeof user.addresses[i].address_country != "undefined" )?user.addresses[i].address_country:""%>">
+                              </input>
+                              <h6>CP:</h6>
+                              <input class="border border-white rounded-lg flex-grow-1 w-50 mt-1 mb-3 p-2 shadow"
+                                 type="text" name="address_zipcode" placeholder="Ej: 1425"
+                                 value="<%=(typeof user.addresses[i].address_zipcode != "undefined" )?user.addresses[i].address_zipcode:""%>">
+                              </input>
+                              <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                                 hidden type="text" name="address_id" value="<%=user.addresses[i].id%>">
                               </input>
                            </div>
                         </form>
+                        <form role="form" method="POST" hidden action="/users/profile/<%=user.id%>?_method=DELETE"
+                           id="delete_address_<%=i%>Form">
+                           <input hidden type="text" name="delete_address_id" value="<%=user.addresses[i].id%>">
+                           </input>
+                        </form>
                      </div>
                      <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger" form="delete_address_<%=i%>Form">Eliminar</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-warning" form="address_0Form">Guardar
+                        <button type="submit" class="btn btn-warning" form="address_<%=i%>Form">Guardar
                            cambios</button>
                      </div>
                   </div>
                </div>
             </div>
 
-            <!-- Modal CollapseCreditCards ADDRESS1-->
-            <div class="modal fade" id="address_1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-               aria-hidden="true">
+            <% } %>
+
+            <!-- Modal New ADDRESS-->
+            <div class="modal fade" id="new_address_Modal" tabindex="-1" role="dialog"
+               aria-labelledby="exampleModalLabel" aria-hidden="true">
                <div class="modal-dialog" role="document">
                   <div class="modal-content">
                      <div class="modal-header">
-                        <h5 class="modal-title text-center w-100" id="exampleModalLabel">Modificar
-                           dirección alternativa</h5>
+                        <h5 class="modal-title text-center w-100" id="exampleModalLabel">Agregar nueva dirección</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
                      </div>
                      <div class="modal-body">
                         <form role="form" class=" d-flex flex-wrap justify-content-between" method="POST"
-                           action="/users/profile/<%=user.id%>" id="address_1Form">
+                           action="/users/profile/<%=user.id%>" id="new_address_Form">
                            <div class="w-100 m-0 p-0">
+                              <label>Calle:</label>
                               <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
-                                 type="text" name="address_1"
-                                 placeholder="Ej: 308 Negra Arroyo Lane, Alburquerque, Nuevo México"
-                                 value="<%= (typeof user.address_1 != 'undefined') ? user.address_1 : '' %>">
+                                 type="text" name="new_address_street" placeholder="Ej: Negra Arroyo Lane">
+                              </input>
+                              <div class="d-flex flex-wrap justify-content-between">
+                                 <div class="col-4 m-0 p-0">
+                                    <h6>Número:</h6>
+                                    <input class="border border-white rounded-lg mt-1 mb-3 p-2 w-100 shadow" type="text"
+                                       name="new_address_number" placeholder="Ej: 308">
+                                    </input>
+                                 </div>
+                                 <div class="col-4 m-0 pl-2 pr-0">
+                                    <h6>Piso:</h6>
+                                    <input class="border border-white rounded-lg mt-1 mb-3 p-2 shadow w-100" type="text"
+                                       name="new_address_floor" placeholder="Ej: 7">
+                                    </input>
+                                 </div>
+                                 <div class="col-4 m-0 pl-2 pr-0">
+                                    <h6>Departamento:</h6>
+                                    <input class="border border-white rounded-lg mt-1 mb-3 p-2 w-100 shadow" type="text"
+                                       name="new_address_door" placeholder="Ej: D">
+                                    </input>
+                                 </div>
+                              </div>
+                              <h6>Ciudad:</h6>
+                              <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                                 type="text" name="new_address_city" placeholder="Ej: Albuquerque">
+                              </input>
+                              <h6>Provicia / Estado:</h6>
+                              <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                                 type="text" name="new_address_state" placeholder="Ej: Nuevo México">
+                              </input>
+                              <h6>País:</h6>
+                              <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                                 type="text" name="new_address_country" placeholder="Ej: USA">
+                              </input>
+                              <h6>CP:</h6>
+                              <input class="border border-white rounded-lg flex-grow-1 w-50 mt-1 mb-3 p-2 shadow"
+                                 type="text" name="new_address_zipcode" placeholder="Ej: 1425">
                               </input>
                            </div>
                         </form>
                      </div>
                      <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-warning" form="address_1Form">Guardar
+                        <button type="submit" class="btn btn-warning" form="new_address_Form">Guardar
                            cambios</button>
                      </div>
                   </div>
@@ -677,14 +768,15 @@
             <!-- Meme library -->
             <div class="library w-100 position-relative p-1 rounded-lg shadow">
                <h5 class="text-center m-0 p-0 block-title">Mi bilioteca</h5>
-               <h6><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>----------</h6>
+               <h6><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>----------
+               </h6>
                <div class="d-flex flex-wrap justify-items-between col-12 m-0 p-0">
-                  <img class="col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1" src="/images/memes/memeUser1.png" alt="">
-                  <img class="col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1" src="/images/memes/memeUser2.jpg" alt="">
-                  <img class="col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1" src="/images/memes/memeUser3.png" alt="">
-                  <img class="col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1" src="/images/memes/memeUser4.png" alt="">
-                  <img class="col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1" src="/images/memes/memeUser1.png" alt="">
-                  <img class="col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1" src="/images/memes/memeUser2.jpg" alt="">
+                  <% for( let i = 0; i < 6; i++ ) { %>
+
+                     <img class="col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1" src="<%= user.user_memes[i] ? user.user_memes[i].meme_location : `/images/memes/memeUser${i}.png` %>" alt="">
+                  
+                  <% } %>
+
                   <div class="col-12 d-flex flex-wrap justify-content-end">
                      <h6>----------<i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
                      </h6>

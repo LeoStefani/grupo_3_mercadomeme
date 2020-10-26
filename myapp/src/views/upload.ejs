@@ -111,11 +111,11 @@
                                 <% for (let i=0; i< products.length; i++) { %>
 
                                     <tr class="clickable-row">
-                                        <td class="p-1" scope="row"><%= products[i].id %></td>
-                                        <td class="p-1"  ><%= products[i].categories.name %></td>
-                                        <td class="p-1"  ><%= products[i].name %></td>
-                                        <td class="p-1"  >$ <%= products[i].price %></td>
-                                        <td class="d-none p-1"><form action="/products/delete/<%= products[i].id %>" method="GET"><button class="btn btn-warning btn-sm w-100">Eliminar</button></form></td>
+                                        <td class="p-1 align-middle" scope="row"><%= products[i].id %></td>
+                                        <td class="p-1 align-middle"  ><%= products[i].categories.name %></td>
+                                        <td class="p-1 align-middle"  ><%= products[i].name %></td>
+                                        <td class="p-1 align-middle"  >$ <%= products[i].price %></td>
+                                        <td class="d-none p-1 "><form action="/products/delete/<%= products[i].id %>" method="GET"><button class="btn btn-warning btn-sm w-100">Eliminar</button></form></td>
                                         <td class="p-1"  ><form action="/products/edit/<%= products[i].id %>" method="GET"><button class="btn btn-warning btn-sm w-100">Editar</i></button></form></td>
                                         <td class="p-1"  ><form action="/products/delete/<%= products[i].id %>" method="GET"><button class="btn btn-warning btn-sm w-100"><i class="far fa-trash-alt"></i></button></form></td>
                                     </tr>
