@@ -11,7 +11,10 @@ window.addEventListener("load", function () {
     let buttonRight = qs("#buttonRight");
     let buttonPlus = qs("#buttonPlus");
     let buttonMinus = qs("#buttonMinus");
-    let memePreview = qs("img#memePreview")
+    let memePreview = qs("img#memePreview");
+    let userLibraryMeme = qsa("img#userLibraryMeme");
+    let selectedMeme = qs("img#selectedMeme");
+
 
     let initialLeft = 50;
     let initialTop = 50;
@@ -71,6 +74,16 @@ window.addEventListener("load", function () {
             initialHeight = 0
         }
     })
+
+  // memeToComplete
+
+    for (let i = 0; i < userLibraryMeme.length; i++) {
+        userLibraryMeme[i].addEventListener("click", function (event) {
+            memePreview.src = event.srcElement.currentSrc;
+            selectedMeme.src = event.srcElement.currentSrc;
+
+        })
+    }
 
 
     addToCart.addEventListener('submit', event => {

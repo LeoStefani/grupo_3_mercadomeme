@@ -686,6 +686,20 @@ inputMulter.addEventListener("change", function (event) {
     })
 
 
+    // ============ MEME DE LIBRERIA DE USUARIO PARA EDITAR =====================
+
+    let userMemeLibrary = qsa("img#userMemeLibrary");
+
+    // memeToComplete
+
+    for (let i = 0; i < userMemeLibrary.length; i++) {
+        userMemeLibrary[i].addEventListener("click", function (event) {
+            memeToComplete.src = event.srcElement.currentSrc
+        })
+    }
+
+
+
 
 })
 

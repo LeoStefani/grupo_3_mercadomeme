@@ -39,7 +39,4 @@ router.post('/profile/:userId', upload.any(), profileValidations, authMiddleware
 router.delete('/profile/:userId', authMiddleware, usersController.usersProfileDelete)
 
 
-
-
-
 module.exports = router;

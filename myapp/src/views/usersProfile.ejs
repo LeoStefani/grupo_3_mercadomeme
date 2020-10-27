@@ -527,13 +527,15 @@
                            <div class="w-100 m-0 p-0">
                               <small class=" text-danger text-center">
                                  <%= (typeof errors != "undefined" && errors.credit_card_number && old.credit_card_id==user.credit_cards[i].id) ? errors.credit_card_number.msg : "" %></small>
-                              <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                                 <h6>Número:</h6>
+                                 <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
                                  type="text" name="credit_card_number" placeholder="Ej: 1111222233334444"
                                  value="<%= (typeof user.credit_cards[i].number != 'undefined') ? user.credit_cards[i].number : '' %>">
                               </input>
                               <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
                                  hidden type="text" name="credit_card_id" value="<%= user.credit_cards[i].id%>">
                               </input>
+                              <h6>Fecha de vencimiento:</h6>
                               <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
                                  type="text" name="credit_card_expire_date" placeholder="Ej: YYYY-MM-DD"
                                  value="<%= (typeof user.credit_cards[i].expire_date != 'undefined') ? user.credit_cards[i].expire_date : '' %>">
@@ -579,9 +581,11 @@
                            <div class="w-100 m-0 p-0">
                               <small class=" text-danger text-center">
                                  <%= (typeof errors != "undefined" && errors.credit_card_number) ? errors.credit_card_number.msg : "" %></small>
+                                 <h6>Número:</h6>
                               <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
                                  type="text" name="new_credit_card_number" placeholder="Ej: 1111222233334444">
                               </input>
+                              <h6>Fecha de vencimiento:</h6>
                               <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
                                  type="text" name="new_credit_card_expire_date" placeholder="Ej: YYYY-MM-DD">
                               </input>

@@ -57,6 +57,19 @@ div.detail img.productMeme{
     height: 30vh;
 }  
 
+div.detail img#tryme{
+    height: 50px;
+    width: auto;
+    position: absolute;
+    transform: translate(-50%, -50%) rotate(0deg);
+    left:75%;
+    top:75%;
+}  
+
+div.detail img#userLibraryMeme{
+    height: 20vh;
+    width: auto;
+}
 
 @media (min-width: 992px) {
     div.detail img.meme{

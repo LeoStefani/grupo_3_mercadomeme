@@ -66,7 +66,7 @@ module.exports = {
     });
 
     db.User_Meme.create({
-      id_user: 80,
+      id_user: req.session.loggedUser.id,
       number: req.body.new_credit_card_number,
       meme_location: newName
     }).then(function (second) {

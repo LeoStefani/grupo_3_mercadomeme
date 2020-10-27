@@ -45,7 +45,7 @@
       <% for (let i=0; i<12; i++) { %>
 
       <div class="dropdown col-3 col-sm-2 col-md-1 m-0 p-0 shadow">
-        <a class="text-center text-decoration-none memeCategory"><img class="col-12 rounded-lg m-0 p-1 memeCategory"
+        <a class="text-center text-decoration-none memeCategory rounded"><img class="col-12 rounded m-0 p-1 memeCategory"
             src="<%= memes[i].url %>">
         </a>
       </div>
@@ -112,70 +112,48 @@
 
     <!-- MAIN -->
     <div class="row main shadow rounded-lg m-0 p-0 d-flex flex-wrap">
-      <!-- ARRAY MEMES -->
-      <!-- <div class="arrayMemesExample d-flex justify-content-start m-0 p-0 col-12 col-md-3 shaded rounded-lg">
-        <div class="d-flex flex-wrap m-0 p-0 text-center arrayImage">
-          <h5 class="text-center col-12 pt-2">Ejemplos</h5>
-          <div class="col-12 col-sm-6 col-md-12 d-flex flex-wrap justify-content-between m-0 p-0">
-            <img class="col-4 m-0 p-1" src="../images/memes/ejemplosMemes1.png" alt="">
-            <img class="col-4 m-0 p-1" src="../images/memes/ejemplosMemes2.png" alt="">
-            <img class="col-4 m-0 p-1" src="../images/memes/ejemplosMemes3.png" alt="">
-          </div>
-          <div class="secondPack d-none d-sm-flex col-6 col-md-12 m-0 p-0 flex-wrap justify-content-between">
-            <img class="col-4 m-0 p-1" src="../images/memes/ejemplosMemes4.png" alt="">
-            <img class="col-4 m-0 p-1" src="../images/memes/ejemplosMemes5.png" alt="">
-            <img class="col-4 m-0 p-1" src="../images/memes/ejemplosMemes6.png" alt="">
-          </div>
-          <div class="thirdPack d-none d-md-flex col-12 m-0 p-0 flex-wrap justify-content-between">
-            <img class="col-4 m-0 p-1 " src="../images/memes/ejemplosMemes6.png" alt="">
-            <img class="col-4 m-0 p-1 " src="../images/memes/ejemplosMemes5.png" alt="">
-            <img class="col-4 m-0 p-1 " src="../images/memes/ejemplosMemes4.png" alt="">
-          </div>
-          <div class="fourthPack d-none d-md-flex col-12 m-0 p-0 flex-wrap justify-content-between">
-            <img class="col-4 m-0 p-1" src="../images/memes/ejemplosMemes3.png" alt="">
-            <img class="col-4 m-0 p-1" src="../images/memes/ejemplosMemes2.png" alt="">
-            <img class="col-4 m-0 p-1" src="../images/memes/ejemplosMemes1.png" alt="">
-          </div>
-        </div>
-      </div> -->
-      <!-- ARRAY MEMES -->
 
       <!-- MEME LIBRARY -->
 
 
-<% if (user != "random") { %>
+      <% if (user != "random") { %>
 
-  <div
-  class="memeLibrary d-flex flex-wrap justify-content-between text-center align-items-center m-0 p-1 col-12 shaded col-md-2 rounded-lg">
-  <div class="w-100">
-    <h5 class="mb-1 mt-2 p-0">Mi Biblioteca</h5>
-  </div>
+      <div
+        class="memeLibrary d-flex flex-wrap justify-content-between text-center align-items-center m-0 p-1 col-12 shaded col-md-2 rounded-lg">
+        <div class="w-100">
+          <h5 class="mb-1 mt-2 p-0 title font-weight-bold">Mi Biblioteca</h5>
+        </div>
 
-  <% for( let i = 0; i < 4; i++ ) { %>
+        <% for( let i = 0; i < 4; i++ ) { %>
 
-    <div class="col-4 col-sm-2 col-md-12 m-0 p-0 rounded-lg">
-      <a class="text-center text-decoration-none"><img class="col-12 col-md-8 shadow rounded-lg m-0 p-1"
-        src="<%= user.user_memes[i] ? user.user_memes[i].meme_location : `/images/memes/memeUser${i}.png` %>">
-      </a>
-      
-    </div>
-  
-  <% } %>
+        <div class="col-4 col-sm-2 col-md-12 m-0 p-0 rounded-lg">
+          <a class="text-center text-decoration-none rounded-lg"><img class="col-12 col-md-8 shadow rounded-lg m-0 p-1"
+              id="userMemeLibrary"
+              src="<%= user.user_memes[i] ? user.user_memes[i].meme_location : `/images/memes/memeUser${i}.png` %>">
+          </a>
 
-</div>
- 
-<% } else { %>
+        </div>
 
-  <div
-  class="memeLibrary d-flex flex-wrap justify-content-between text-center align-items-center m-0 p-1 col-12 shaded col-md-2 rounded-lg">
-  <div class="w-100">
-    <h5 class="mb-1 mt-2 p-0">¿Aún no eres parte de MercadoMEME?</h5>
-    <a class="text-decoration-none text-reset" href="/users/registerDB">Registrate y gestiona tu propia biblioteca de memes!</a>
-  </div>
-</div>
+        <% } %>
 
-  <% } %>
-      
+      </div>
+
+      <% } else { %>
+
+      <div
+        class="memeLibrary d-flex flex-wrap justify-content-between text-center align-items-center m-0 p-1 col-12 shaded col-md-2 rounded-lg">
+        <div class="col-12 text-center noUser rounded-lg">
+          <h6 class="mb-1 mt-2 p-0 font-weight-bold">¿Aún no eres parte de MercadoMEME?</h6>
+          <h6 class="mb-1 w-100">Registrate y gestiona tu propia biblioteca de memes!</h6>
+          <a class="text-decoration-none text-reset mb-3 mr-2 font-weight-bold" href="/users/registerDB"><i
+              class="far fa-hand-point-right"></i> Register</a>
+          <a class="text-decoration-none text-reset mb-3 ml-2 font-weight-bold" href="/users/login"><i
+              class="far fa-hand-point-right"></i> Login</a>
+        </div>
+      </div>
+
+      <% } %>
+
       <!-- MEME LIBRARY -->
 
       <!-- MEME EDITOR -->
@@ -187,23 +165,24 @@
             imagen</button>
           <button class="flex-grow-1 text-truncate mt-2 mb-2 ml-1 btn btn-warning btn-sm shadow" hidden>Dibujar</button>
           <button class="flex-grow-1 text-truncate mt-2 mb-2 ml-1  btn btn-warning btn-sm shadow" hidden>Rotar</button>
-          <button class="mt-2 mb-2 btn btn-warning shadow w-100 btn-sm" id="uploadMemeUser">Cargar mi propia imagen <i
-              class="fas fa-cloud-upload-alt"></i></button>
+          <button class="mt-2 mb-2 btn btn-warning shadow w-100 btn-sm font-weight-bold" id="uploadMemeUser"> Cargar mi
+            propia imagen <i class="fas fa-cloud-upload-alt"></i></button>
         </div>
         <div class="w-100 memeToComplete m-0 p-0" id="capture" crossorigin="anonymous">
-          <img class="w-100 shadow rounded-lg memeToComplete" src="/images/memeParaCompletar.png" crossorigin="anonymous"
-            alt="">
-          <p class="upperText  m-0 p-0 w-100">TEXTO SUPERIOR</p>
-          <p class="lowerText  m-0 p-0 w-100">TEXTO INFERIOR</p>
+          <img class="w-100 shadow rounded-lg memeToComplete" src="/images/memeParaCompletar.png"
+            crossorigin="anonymous" alt="">
+          <p class="upperText  m-0 p-0 w-100"></p>
+          <p class="lowerText  m-0 p-0 w-100"></p>
         </div>
         <div class="d-flex flex-wrap justify-content-around">
           <div class="col-6 pl-1 pr-1 m-0">
-            <button class="col-12 mt-2 mb-0 btn btn-sm btn-warning shadow" id="memeToLibrary" <%= user != "random" ? "" : "disabled" %>>Enviar a
+            <button class="col-12 mt-2 mb-0 btn btn-sm btn-warning shadow font-weight-bold" id="memeToLibrary"
+              <%= user != "random" ? "" : "disabled" %>>Enviar a
               biblioteca</button>
           </div>
           <div class="col-6 pl-1 pr-1 m-0">
-            <button class="col-12 mt-2 mb-0 btn btn-sm btn-warning shadow" id="downloadMemeUser">Descargar MEME <i
-                class="fas fa-cloud-download-alt"></i></button>
+            <button class="col-12 mt-2 mb-0 btn btn-sm btn-warning shadow font-weight-bold"
+              id="downloadMemeUser">Descargar MEME <i class="fas fa-cloud-download-alt"></i></button>
           </div>
         </div>
 
@@ -317,9 +296,9 @@
 
     <!-- SUBMIT -->
     <div class="row  p-0 m-0">
-      <button class="btn btn-warning btn-lg btn-block mt-3 shadow font-weight-bold font-italic" id="screenshot">Confirmar meme y continuar <i
-          class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i><i
-          class="fas fa-chevron-right"></i></button>
+      <button class="btn btn-warning btn-lg btn-block mt-3 shadow font-weight-bold font-italic"
+        id="screenshot">Confirmar meme y continuar <i class="fas fa-chevron-right"></i><i
+          class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></button>
     </div>
     <!-- SUBMIT -->
 

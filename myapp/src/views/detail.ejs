@@ -25,7 +25,7 @@
         <div class="m-0 p-0 mb-4 rounded-lg col-12 d-flex flex-wrap justify-content-center align-items-center">
           <div class="col-12 justify-content-center align-items-center d-flex flex-wrap p-1 m-0">
             <a class="w-100 text-center" href="">
-              <img class="meme rounded-lg side col-8 p-2"
+              <img id="selectedMeme" class="meme rounded-lg side col-8 p-2"
                 src="<%= session ? "/images/memes/memeUser.png" :"/images/noMeme.png"%>">
             </a>
           </div>
@@ -101,7 +101,7 @@
           <div class="col-12 col-lg-8 col-md-10  justify-content-center align-items-center d-flex flex-wrap p-1 m-0">
             <img class="productMeme rounded-lg side col-8 p-2"
               src="/images/products/<%= productDetail.images[0].name %>">
-            <img id="memePreview" src="<%= session ? "/images/memes/memeUser.png" : "/images/noMeme.png"%>" alt="">        
+            <img id="memePreview" src="<%= session ? "/images/memes/memeUser.png" : "/images/noMeme.png"%>" alt="">
           </div>
           <div class="col-12 col-lg-8 col-md-10  justify-content-center align-items-center d-flex flex-wrap p-1 m-0">
             <button class="mt-1 btn btn-sm btn-warning shadow pt-2 mr-1" id="buttonPlus"><i
@@ -129,8 +129,8 @@
                 <h6 class="p-0 m-0 w-75">Seleccionar color: </h6>
                 <select class="w-25 text-capitalize" name="colors" id="selectedColor">
                   <% for(let i=0; i < productDetail.colors.length; i++) { %>
-                  <option class="w-100 text-capitalize" name="colors"
-                    id="<%= productDetail.colors[i].name %>" value="<%= productDetail.colors[i].name %>">
+                  <option class="w-100 text-capitalize" name="colors" id="<%= productDetail.colors[i].name %>"
+                    value="<%= productDetail.colors[i].name %>">
                     <%= productDetail.colors[i].name%></option>
 
                   <% } %>
@@ -211,6 +211,8 @@
       </div>
 
       <!-- Modal Biblioteca Memes -->
+      <% if (user != "randomUser") { %>
+
       <div class="modal fade" id="memeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -224,22 +226,18 @@
             <div class="modal-body">
 
               <!-- Meme library -->
-              <div class="library w-100 position-relative p-1 rounded-lg ">
-
+              <div class="library w-100 position-relative p-1 rounded-lg shadow">
                 <div class="d-flex flex-wrap justify-items-between col-12 m-0 p-0">
-                  <img class="memeLibrary col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1"
-                    src="/images/memes/memeUser1.png" alt="">
-                  <img class="memeLibrary col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1"
-                    src="/images/memes/memeUser2.jpg" alt="">
-                  <img class="memeLibrary col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1"
-                    src="/images/memes/memeUser3.png" alt="">
-                  <img class="memeLibrary col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1"
-                    src="/images/memes/memeUser4.png" alt="">
-                  <img class="memeLibrary col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1"
-                    src="/images/memes/memeUser1.png" alt="">
-                  <img class="memeLibrary col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1"
-                    src="/images/memes/memeUser2.jpg" alt="">
+                  <% for( let i = 0; i < 6; i++ ) { %>
 
+                  <img class="col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1"
+                    src="<%= user.user_memes[i] ? user.user_memes[i].meme_location : `/images/memes/memeUser${i}.png` %>"
+                    alt="" id="userLibraryMeme">
+
+                  <% } %>
+
+                  <div class="col-12 d-flex flex-wrap justify-content-end">
+                  </div>
                 </div>
                 <p class="w-100 shadow rounded-lg">
                   <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
@@ -249,28 +247,46 @@
                 <div class="collapse w-100 m-0 p-0" id="collapseLibrary">
                   <div class="card card-body w-100 m-0 p-0">
                     <div class="d-flex flex-wrap justify-items-between col-12 m-0 p-0">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj1.png" alt="">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj2.png" alt="">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj3.png" alt="">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj4.png" alt="">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj5.png" alt="">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj6.png" alt="">
+                      <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj1.png" al
+                        id="userLibraryMeme" t="">
+                      <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj2.png" alt=""
+                        id="userLibraryMeme">
+                      <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj3.png" alt=""
+                        id="userLibraryMeme">
+                      <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj4.png" alt=""
+                        id="userLibraryMeme">
+                      <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj5.png" alt=""
+                        id="userLibraryMeme">
+                      <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj6.png" alt=""
+                        id="userLibraryMeme">
                     </div>
                     <div class="d-flex flex-wrap justify-items-between col-12 m-0 p-0">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj7.png" alt="">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj8.png" alt="">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj9.png" alt="">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj10.png" alt="">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj1.png" alt="">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj2.png" alt="">
+                      <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj7.png" alt=""
+                        id="userLibraryMeme">
+                      <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj8.png" alt=""
+                        id="userLibraryMeme">
+                      <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj9.png" alt=""
+                        id="userLibraryMeme">
+                      <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj10.png" alt=""
+                        id="userLibraryMeme">
+                      <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj1.png" alt=""
+                        id="userLibraryMeme">
+                      <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj2.png" alt=""
+                        id="userLibraryMeme">
                     </div>
                     <div class="d-flex flex-wrap justify-items-between col-12 m-0 p-0">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1" src="/images/memes/memeEj3.png" alt="">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj4.png" alt="">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj5.png" alt="">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj6.png" alt="">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj7.png" alt="">
-                      <img class="memeLibrary col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj8.png" alt="">
+                      <img class="col-2 shadow rounded-lg m-0 p-1" src="/images/memes/memeEj3.png" alt=""
+                        id="userLibraryMeme">
+                      <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj4.png" alt=""
+                        id="userLibraryMeme">
+                      <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj5.png" alt=""
+                        id="userLibraryMeme">
+                      <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj6.png" alt=""
+                        id="userLibraryMeme">
+                      <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj7.png" alt=""
+                        id="userLibraryMeme">
+                      <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj8.png" alt=""
+                        id="userLibraryMeme">
                     </div>
 
                   </div>
@@ -285,6 +301,59 @@
           </div>
         </div>
       </div>
+
+      <% }else{ %>
+
+      <div class="modal fade" id="memeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center w-100 font-weight-bold " id="exampleModalLabel">Mi biblioteca</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <!-- Meme library -->
+              <div class="library w-100 position-relative p-1 rounded-lg">
+                <div class="d-flex flex-wrap justify-content-around col-12 m-0 p-0">
+                  <div class="col-12 text-center">
+                    <h6 class="mb-1 mt-2 p-0 font-weight-bold">¿Aún no eres parte de MercadoMEME?</h6>
+                    <h6 class="mb-1 w-100">Registrate y gestiona tu propia biblioteca de memes!</h6>
+                    <a class="text-decoration-none text-reset mb-3 mr-2 font-weight-bold" href="/users/registerDB"><i
+                        class="far fa-hand-point-right"></i> Register</a>
+                    <a class="text-decoration-none text-reset mb-3 ml-2 font-weight-bold" href="/users/login"><i
+                        class="far fa-hand-point-right"></i> Login</a>
+                  </div>
+                  <div class="col-4 rounded-lg m-0 p-1 ">
+                    <img class="col-12 shadow rounded-lg m-0 p-1" src="/images/memes/memeUser2.png" alt=""
+                      id="userLibraryMeme">
+                    <img src="/images/tryme.png" alt="" id="tryme">
+                  </div>
+                  <div class="col-4 rounded-lg m-0 p-1 ">
+                    <img class="col-12 shadow rounded-lg m-0 p-1" src="/images/memes/memeUser6.png" alt=""
+                      id="userLibraryMeme">
+                    <img src="/images/tryme.png" alt="" id="tryme">
+                  </div>
+
+                  <div class="col-12 d-flex flex-wrap justify-content-end">
+                  </div>
+                </div>
+
+              </div>
+              <!-- Meme library -->
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary font-italic" data-dismiss="modal">Volver</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <% } %>
 
     </div>
   </div>

@@ -124,6 +124,11 @@ div.memes div.memeLibrary img{
     height: 12vh;
 }
 
+div.memes h5.title {
+    font-family: "Open sans";
+    font-style: italic;
+    font-weight: bolder;
+}
 
 
 /*====MEDIA QUERIES=====*/

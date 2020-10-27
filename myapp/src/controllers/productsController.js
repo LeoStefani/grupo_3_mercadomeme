@@ -41,17 +41,44 @@ module.exports = {
     },
 
     detail: function (req, res, next) {
+
         // DATABASE - Este bloque se encarga de buscar el producto segun el id recibido, y guardarlo en productDetail
-        db.Product.findByPk(req.params.id, {
+
+        // Dado que en el detalle de producto, se debe poder acceder a la biblioteca de usuario, se debe buscar tambien en la base de datos el usuario que se encuentre loggeado
+        // Luego, se hace un promise all con las dos búsquedas para enviar los datos a la vista.
+
+        let productsToDetail = db.Product.findByPk(req.params.id, {
             include: [{
                 all: true
             }]
-        }).then(function (productDetail) {
-            if (productDetail.status == 1) {
+        });
+
+// Defino usersToDetail. Si hay usuario loggeado, va con el valor de req session a la base de datos. Si no hay loggeado, manda como valor "randomUser" y resuelve la promesa, para que pueda actuar el promise.All
+
+        let usersToDetail;
+
+        if (req.session.loggedUser) {
+
+            usersToDetail = db.User.findByPk(req.session.loggedUser.id, {
+                include: [{
+                    all: true
+                }]
+            });
+        } else {
+
+            usersToDetail = Promise.resolve("randomUser")
+        }
+
+// en caso de que no haya nadie loggeado, en user viaja el string "randomUser" 
+
+        Promise.all([productsToDetail, usersToDetail])
+        .then(function (values) {
+            if (values[0].status == 1) {
                  res.render("detail", {
                     title: 'Detalle de productos',
-                    productDetail: productDetail, 
-                    session: req.session.memeCreated
+                    productDetail: values[0], 
+                    session: req.session.memeCreated,
+                    user: values[1]
                 });
             } else {
                 res.redirect('/');
@@ -59,6 +86,7 @@ module.exports = {
 
         })
             .catch(function (error) { console.log(error) });
+
     },
 
     upload: function (req, res, next) {
