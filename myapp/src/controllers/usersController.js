@@ -1,7 +1,5 @@
-const fs = require('fs');
-const path = require('path');
 const bcrypt = require('bcrypt');
-const { check, validationResult, body } = require("express-validator");
+const { validationResult } = require("express-validator");
 const db = require("../database/models");
 const { Op } = require("sequelize");
 
@@ -28,7 +26,7 @@ module.exports = {
     },
     registerDB: function (req, res, next) {
         res.render('registerDB', {
-            title: "RegistroDB"
+            title: "Registro"
         });
     },
     createUserDB: function (req, res, next) {
@@ -39,8 +37,6 @@ module.exports = {
         let VRerrors = validationResult(req);
         // Aca hace el IF grande, en el cual si viene sin errores, (errors.isEmpty()), se crea el usuario y sino manda los errores a la vista.
         if (VRerrors.isEmpty()) {
-
-
             db.User.create({
                 username: req.body.userName,
                 email: req.body.userEmail,
@@ -52,12 +48,7 @@ module.exports = {
                 })
                 .catch(function (errors) {
                     res.send(errors)
-                    // res.render("registerDB", {
-                    //     errors: errors,
-                    //     title: "Registro - Error",
-                    //     old: req.body
-                    // })
-                })
+                });
         } else {
             // Este ELSE viene de si habia errores en el ingreso de datos, para lo cual renderiza de nuevo el register
             // pero esta vez enviando que errores hubo al llenar los campos. Tambien con OLD retiene lo que habian enviado bien
@@ -65,13 +56,10 @@ module.exports = {
                 errors: VRerrors.mapped(),
                 title: "Registro - Error",
                 old: req.body
-            })
+            });
         };
-
     },
     cart: function (req, res, next) {
-
-        console.log(req.session.userCart);
 
         if (Object.keys(req.session.userCart).length === 0) {
             res.render("cart", {
@@ -115,7 +103,6 @@ module.exports = {
     dataCart: function (req, res, next) {
 
         req.session.userCart = req.body;
-        console.log(req.session.userCart);
         res.send('okPost');
 
     },
@@ -127,10 +114,6 @@ module.exports = {
 
             req.session.lastRef = req.header("Referer");
         }
-
-        console.log(req.header("Referer"));
-
-        console.log("este es el req session" + req.session.lastRef);
 
         res.render('login', {
             title: 'Login'
@@ -355,16 +338,17 @@ module.exports = {
             return db.User.findByPk(req.params.userId, {
                 include: [{
                     all: true
-                }]})
-                .then(function (users) {
-                console.log(req.body);
-                res.render("usersProfile", {
-                    title: "Mi Perfil",
-                    user: users,
-                    errors: VRerrors.mapped(),
-                    old: req.body
-                })
+                }]
             })
+                .then(function (users) {
+                    console.log(req.body);
+                    res.render("usersProfile", {
+                        title: "Mi Perfil",
+                        user: users,
+                        errors: VRerrors.mapped(),
+                        old: req.body
+                    })
+                })
                 .catch(function (error) { res.send(error) })
         }
     },
@@ -395,7 +379,7 @@ module.exports = {
                 })
         }
 
-        
+
         if (req.body.delete_phone_id) {
 
             db.Phone.destroy({ where: { id: req.body.delete_phone_id } })
@@ -408,6 +392,24 @@ module.exports = {
         }
 
 
+    },
+    exist: (req, res) => {
+        if (typeof (req.query.user_name) != "undefined") {
+            db.User.findOne(
+                {
+                    where: { username: req.query.user_name }
+                })
+                .then(function (result) {
+                    (result) ? res.json(false) : res.json(true)
+                });
+        } else if (typeof (req.query.email) != "undefined") {
+            db.User.findOne(
+                {
+                    where: { email: req.query.email }
+                })
+                .then(function (result) {
+                    (result) ? res.json(false) : res.json(true)
+                });
+        };
     }
-
-}
+};

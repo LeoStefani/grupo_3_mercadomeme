@@ -14,27 +14,30 @@
                         <div class="mt-0 p-0 mb-3 text-center w-100">
                             <h4 class="text-center font-weight-bold">Registrate!</h4>
                         </div>
+                        <!-- Username input -->
                         <div class="w-100 m-0 p-0">
                             <small class=" text-danger text-center">
                                 <%= (typeof errors != "undefined" && typeof errors.errors != "undefined" && errors.errors[0].message == "username_UNIQUE must be unique") ? "El usuario ya se encuentra registrado en la base de datos." : "" %></small>
                             <small class=" text-danger text-center username">
                                 <%= (typeof errors != "undefined" && errors.userName) ? errors.userName.msg : "" %></small>
-                            <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                            <input class="border border-white rounded-lg flex-grow-1 w-100 mb-1 mt-1 p-2 shadow"
                                 type="text" name="userName" placeholder="Username"
-                                value="<%= (typeof old != 'undefined' && !errors.username) ? old.userName : '' %>">
+                                value="<%= (typeof old != 'undefined' && !errors.username) ? old.userName : '' %>"><i class="d-none ml-2 mr-2 errorUserNameIcon fas"></i><small class="text-center" id="errorUserName" ></small>
 
                         </div>
-                        <div class="w-100 m-0 p-0">
+                        <!-- Email input -->
+                        <div class="w-100 mt-2 m-0 p-0">
                             <small class=" text-danger text-center">
                                 <%= (typeof errors != "undefined" && typeof errors.errors != "undefined" && errors.errors[0].message == "email_UNIQUE must be unique") ? "El email ingresado ya se encuentra registrado en la base de datos." : "" %></small>
                             <small class=" text-danger text-center email">
                                 <%= (typeof errors != "undefined" && errors.userEmail) ? errors.userEmail.msg : "" %></small>
 
-                            <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                            <input class="border border-white rounded-lg flex-grow-1 w-100 mb-1 mt-1 p-2 shadow"
                                 type="email" name="userEmail" placeholder="Email"
-                                value="<%= (typeof old != 'undefined' && !errors.email) ? old.userEmail : '' %>">
+                                value="<%= (typeof old != 'undefined' && !errors.email) ? old.userEmail : '' %>"><i class="d-none ml-2 mr-2 errorEmailIcon fas"></i><small class="text-center" id="errorEmail" ></small>
                         </div>
-                        <div class="w-100 m-0 p-0">
+                        <!-- First password input -->
+                        <div class="w-100 mt-2 m-0 p-0">
                             <small class=" text-danger text-center password">
                                 <%= (typeof errors != "undefined" && errors.userPassword) ? errors.userPassword.msg : "" %></small>
                             <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"

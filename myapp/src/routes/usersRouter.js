@@ -1,13 +1,10 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const usersController = require('../controllers/usersController');
-const fs = require('fs');
-const path = require('path');
 const registerValidations = require("../validations/registerValidations");
 const loginValidations = require('../validations/loginValidations');
 const profileValidations = require('../validations/profileValidations');
 
-const multer = require('multer');
 const authMiddleware = require('../middlewares/authMiddleware');
 const profileAuthMW = require('../middlewares/profileAuthMW');
 let upload = require('../middlewares/multerUsersMW');
@@ -15,6 +12,7 @@ let upload = require('../middlewares/multerUsersMW');
 
 router.get('/', usersController.usersIndex);
 router.get('/check', usersController.check);
+router.get('/exist', usersController.exist);
 
 router.get('/registerDB', usersController.registerDB);
 router.post('/registerDB', upload.any(), registerValidations, usersController.createUserDB);
