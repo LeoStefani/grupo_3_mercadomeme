@@ -1,5 +1,5 @@
 const axios = require('axios');
-const  defaultsMemes  = require('./defaults');
+const  {defaultsMemes}  = require('./defaults');
 
 const url = "/"
 

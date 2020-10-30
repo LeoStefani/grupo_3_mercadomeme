@@ -1,5 +1,5 @@
 const axios = require('axios');
-const  defaultsProvincias  = require('./defaults');
+const  {defaultsProvincias}  = require('./defaults');
 
 const url = "/"
 
