@@ -10,8 +10,18 @@ div.mainLogin div.containerColumn{
     background-color: var(--colorWhite);    
 }
 
-div.mainLogin div.containerColumn div.containerBlock a{
+div.mainLogin div.containerColumn div.containerBlock a.registered {
     color: var(--colorOrange);
+}
+
+div.mainLogin a.showPassword {
+    transform: translate(50%, 50%) rotate(0deg);
+    position: absolute;
+    bottom: 58%;
+    right: 5%;
+    z-index: 10;
+    text-decoration: none;
+    color: var(--colorBlack);
 }
 
 

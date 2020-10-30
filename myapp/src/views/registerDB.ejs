@@ -40,14 +40,20 @@
                         <div class="w-100 mt-2 m-0 p-0">
                             <small class=" text-danger text-center password">
                                 <%= (typeof errors != "undefined" && errors.userPassword) ? errors.userPassword.msg : "" %></small>
-                            <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
-                                type="password" placeholder="Contraseña" name="userPassword"
-                                value="<%= (typeof old != 'undefined' && !errors.userPassword) ? old.userPassword : '' %>">
+                                <div class="d-flex flex-wrap justify-content-between w-100 position-relative">
+                                    <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                                        type="password" placeholder="Contraseña" name="userPassword"
+                                        value="<%= (typeof old != 'undefined' && !errors.userPassword) ? old.userPassword : '' %>">
+                                    <a class="showPassword showPasswordStyles" href=""><i class="iconEyePassword far fa-eye"></i></a>
+                                </div>
                         </div>
                         <div class="w-100 m-0 p-0">
                             <small class=" text-danger text-center rePassword"></small>
-                            <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
-                                type="password" placeholder="Confirmar contraseña" name="userRePassword">
+                            <div class="d-flex flex-wrap justify-content-between w-100 position-relative">
+                                <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                                    type="password" placeholder="Confirmar contraseña" name="userRePassword">
+                                <a class="showRePassword showPasswordStyles" href=""><i class="iconEyeRePassword far fa-eye"></i></a>
+                            </div>
                         </div>
                         <div class="mt-1 mb-1 p-0 text-center col-12">
                             <h5 class="m-0 text-center font-weight-bold">Sube una foto!</h5>
@@ -57,12 +63,10 @@
                             <div class="d-flex flex-wrap justify-content-center col-12 text-truncate">
                                 <input class="text-truncate" type="file" name="userImg" id="userImage1" hidden>
                             </div>
-                            <div>
-                                <button class="btn btn-sm btn-warning userImg rounded-lg" action="" type="button"><i class="fas fa-plus-circle"></i></button>
-                            </div>
                         </div>
-                        <div class="d-flex flex-wrap justify-content-center p-2 col-12">
+                        <div class="d-flex flex-wrap justify-content-center p-2 col-12 ">
                             <img class="col-4 m-0 shadow p-0 m-auto previewAvatar" src="/images/users/usuario.png" alt="">
+                            <button class="p-2 btn btn-sm btn-light userImg rounded-lg" action="" type="button"><i class="fas fa-plus-circle"></i></button>
                         </div>
 
                         <button class="btn btn-warning mt-3 mb-3  flex-grow-1 col-5 shadow">Seguir con <i
@@ -74,7 +78,7 @@
                             type="submit">REGISTRARSE</button>
                     </form>
                     <div class="d-flex flex-wrap justify-content-center w-100">
-                        <a class="text-center mt-3 text-decoration-none" href="/users/login">
+                        <a class="text-center mt-3 text-decoration-none registered" href="/users/login">
                             <h6 class="text-center m-2">¿Ya estás registrado?</h6>
                         </a>
                     </div>

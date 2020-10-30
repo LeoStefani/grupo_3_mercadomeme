@@ -25,8 +25,12 @@
                                 </div>
                                 <div class="w-100 m-0 p-0">
                                     <small class=" text-danger text-center"> <%= (typeof errors != "undefined" && errors.loginPassword) ? errors.loginPassword.msg : "" %></small>
-                                    <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
+                                    <div class="d-flex flex-wrap justify-content-between w-100 position-relative">
+                                        <input class="border border-white rounded-lg flex-grow-1 w-100 mt-1 mb-3 p-2 shadow"
                                         type="password" placeholder="Contraseña" name="loginPassword">
+                                        <a class="showPassword" href=""><i class="iconEye far fa-eye"></i></a>
+                                    </div>
+                                    
                                 </div>
                                 <small class=" text-danger text-center"> <%= (typeof error != "undefined" && error) ? error : "" %></small>
                                 <div class="w-100 m-0 p-0">
@@ -37,7 +41,7 @@
                             <button class="btn btn-warning mt-3 mb-3 col-12 shadow" type="submit">Login</button>
                             </form>
                             <div class="d-flex flex-wrap justify-content-center w-100">
-                                <a href="/users/registerDB"><h6 class="text-center m-2">¿Aun no estás registrado?</h6></a>
+                                <a class="registered" href="/users/registerDB"><h6 class="text-center m-2">¿Aun no estás registrado?</h6></a>
                             </div>
                         </div>
                     </div>
@@ -54,7 +58,7 @@
     <!-- </scripts bootstrap> -->
     <%- include('partials/scriptsBootstrap') %>
     <!-- </scripts bootstrap> -->
-
+    <script src="/js/login.js"></script>
 </body>
 
 </html>

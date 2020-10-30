@@ -161,10 +161,9 @@ module.exports = {
 
                             // Ademas, si no hay cookie guardada, en este momento se genera guardando los datos del usuario matcheado.
                             if (req.body.rememberMe != undefined) {
-                                res.cookie('rememberMe', user.id, { maxAge: 120 * 1000 * 20 })
+                                res.cookie('rememberMe', user.id, { maxAge: 60 * 1000 * 60 * 24 })
                             }
                             // Por úlitmo se lo redirigiria al último sitio de donde haya venido el request.   
-
                             res.redirect(lastHref)
                         } else {
                             res.render("login", {

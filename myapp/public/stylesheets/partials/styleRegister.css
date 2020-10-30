@@ -1,4 +1,3 @@
-
 div.mainRegister {
     max-width: 1200px;
     margin: 0 auto;
@@ -18,8 +17,27 @@ div.mainRegister div.containerColumn{
     background-color: var(--colorWhite);    
 }
 
-div.mainRegister div.containerColumn div.containerBlock a{
+div.mainRegister div.containerColumn div.containerBlock a.registered {
     color: var(--colorOrange);
+}
+
+div.mainRegister button.userImg {
+    transform: translate(50%, 50%) rotate(0deg);
+    position: absolute;
+    bottom: 15%;
+    right: 35%;
+    opacity: 0.8;
+    border: 2px solid var(--colorGray);
+}
+
+div.mainRegister a.showPasswordStyles {
+    transform: translate(50%, 50%) rotate(0deg);
+    position: absolute;
+    bottom: 58%;
+    right: 5%;
+    z-index: 10;
+    text-decoration: none;
+    color: var(--colorBlack);
 }
 
 

@@ -22,6 +22,35 @@ window.addEventListener("load", function () {
     let errorUserNameIcon = qs('i.errorUserNameIcon');
     let errorEmail = qs('small#errorEmail');
     let errorEmailIcon = qs('i.errorEmailIcon');
+    let showPassword = qs("a.showPassword");
+    let showRePassword = qs("a.showRePassword");
+    let iconEyePassword = qs("i.iconEyePassword");
+    let iconEyeRePassword = qs("i.iconEyeRePassword");
+    
+
+    // ======================== Passwords text viewer ===================================
+    showPassword.addEventListener('click', (event) => {
+        event.preventDefault();
+        // Escribo en type el valor contrario al que tiene el atributo.
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        //Se lo pego al input
+        password.setAttribute('type', type);
+        //Cambio la clase del icono para que tache el ojo
+        iconEyePassword.classList.toggle('fa-eye-slash');
+        iconEyePassword.classList.toggle('fa-eye');
+    });
+
+    showRePassword.addEventListener('click', (event) => {
+        event.preventDefault();
+        // Escribo en type el valor contrario al que tiene el atributo.
+        const type = rePassword.getAttribute('type') === 'password' ? 'text' : 'password';
+        //Se lo pego al input
+        rePassword.setAttribute('type', type);
+        //Cambio la clase del icono para que tache el ojo
+        iconEyeRePassword.classList.toggle('fa-eye-slash');
+        iconEyeRePassword.classList.toggle('fa-eye');
+    });
+
 
     // ======================== BUTTON/INPUT USER IMAGE ===================================
     buttonUserImg.addEventListener("click", () => {
