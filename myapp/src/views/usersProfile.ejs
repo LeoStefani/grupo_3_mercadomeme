@@ -10,6 +10,7 @@
             <div class="col-12 d-flex flex-wrap justify-content-center p-4">
                 <h2 class="userName text-center p-0 m-0"><%= user.username %>!</h1>
             </div>
+<<<<<<< HEAD
             <div
                 class="firstColumn d-flex flex-wrap flex-column justify-content-start align-items-center col-12 col-md-6">
 
@@ -25,6 +26,196 @@
                             <div class="d-flex flex-wrap align-items-center justify-content-center col-12 mt-2 p-0">
                                 <button type="button" class="btn btn-warning btn-sm col-4 col-sm-12 m-0"
                                     data-toggle="modal" data-target="#avatarModal">
+=======
+
+            <!-- AccountData Block -->
+
+            <!-- Collapse PersonalData -->
+            <p class="w-100 shadow rounded-lg">
+               <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
+                  data-target="#collapsePersonalData" aria-expanded="false" aria-controls="collapsePersonalData"><span
+                     class=" text-danger text-center">
+                     <%= (typeof errors != "undefined" && (errors.dni || errors.firstName || errors.lastName )) ? "⚠" : "" %></span><i
+                     class="fas fa-chevron-down"></i> Datos personales <i class="fas fa-chevron-down"></i><span
+                     class=" text-danger text-center">
+                     <%= (typeof errors != "undefined" && (errors.dni || errors.firstName || errors.lastName )) ? "⚠" : "" %></span></button>
+            </p>
+            <div class="collapse w-100 mb-3" id="collapsePersonalData">
+               <div class="card card-body w-100 m-0 p-0">
+                  <div class="PersonalData w-100 m-0 p-1">
+                     <div>
+                        <div class="d-flex flex-wrap justify-content-between w-100 m-0 p-0">
+                           <div class="d-flex align-items-center col-12 col-sm-4 title p-1 m-0">
+                              <h6 class="w-100 text-start p-1 m-0">Nombre y apellido:</h6>
+                              <span class=" text-danger text-center">
+                                 <%= (typeof errors != "undefined" && (errors.firstName || errors.lastName ) ) ? "⚠" : "" %></span>
+                           </div>
+                           <div class="d-flex align-items-center  col-9 col-sm-6 input p-1 m-0">
+                              <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
+                                 name="nameAndLastname" id="nameAndLastname"
+                                 placeholder="<%= user.first_name ? user.first_name + ' ' + user.last_name : 'No disponible' %>"
+                                 disabled>
+                           </div>
+                           <!-- Button trigger modal -->
+                           <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
+                              <button type="button" class="btn btn-warning btn-sm w-100" data-toggle="modal"
+                                 data-target="#nameModal">
+                                 Editar
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div>
+                        <div class="d-flex flex-wrap justify-content-between w-100 m-0 p-0">
+                           <div class="d-flex align-items-center col-12 col-sm-4 title p-1 m-0">
+                              <h6 class="w-100 text-start p-1 m-0">Documento:</h6>
+                              <span class=" text-danger text-center">
+                                 <%= (typeof errors != "undefined" && errors.dni) ? "⚠" : "" %></span>
+                           </div>
+                           <div class="d-flex align-items-center  col-9 col-sm-6 input p-1 m-0">
+
+                              <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
+                                 name="dni" id="dni" disabled
+                                 placeholder="<%= user.dni ? user.dni : 'No disponible' %>">
+                           </div>
+                           <!-- Button trigger modal -->
+                           <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
+                              <button type="button" class="btn btn-warning btn-sm w-100" data-toggle="modal"
+                                 data-target="#dniModal">
+                                 Editar
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+
+                     <% for( let i = 0; i < user.phones.length; i++ ) { %>
+
+                     <div>
+                        <div class="d-flex flex-wrap justify-content-between w-100 m-0 p-0">
+                           <div class="d-flex align-items-center col-12 col-sm-4 title p-1 m-0">
+                              <h6 class="w-100 text-start p-1 m-0">Teléfono #<%=i+1%>:</h6>
+                           </div>
+
+                           <div class="d-flex flex-wrap align-items-center col-9 col-sm-6 input p-1 m-0">
+                              <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
+                                 name="phone_number" id="phone_number" disabled
+                                 placeholder="<%= user.phones[i].phone_number ? user.phones[i].phone_number : 'No disponible' %>">
+                           </div>
+
+                           <!-- Button trigger modal -->
+                           <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
+                              <button type="button" class="btn btn-warning btn-sm w-100" data-toggle="modal"
+                                 data-target="#phone_<%=i%>Modal">
+                                 Editar
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+
+                     <% } %>
+                  </div>
+
+                  <div class="d-flex flex-wrap align-items-center justify-content-center col-12 p-2 m-0">
+                     <button type="button" class="btn btn-warning w-75 mb-3 mt-2 p-1 shadow" data-toggle="modal"
+                        data-target="#new_phone_Modal">
+                        Agregar nuevo teléfono
+                     </button>
+                  </div>
+
+               </div>
+            </div>
+            <!-- Collapse PersonalData -->
+
+            <!-- Collapse CreditCards -->
+            <p class="w-100 shadow rounded-lg">
+               <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
+                  data-target="#collapseCreditCards" aria-expanded="false" aria-controls="collapseCreditCards"><span
+                     class=" text-danger text-center">
+                     <%= (typeof errors != "undefined" && (errors.credit_card_number || errors.new_credit_card_number )) ? "⚠" : "" %></span><i
+                     class="fas fa-chevron-down"></i> Mis tarjetas <i class="fas fa-chevron-down"></i><span
+                     class=" text-danger text-center">
+                     <%= (typeof errors != "undefined" && (errors.credit_card_number || errors.new_credit_card_number )) ? "⚠" : "" %></span></button>
+            </p>
+            <div class="collapse w-100 mb-3" id="collapseCreditCards">
+               <div class="card card-body w-100 m-0 p-0">
+                  <div class="creditCardsData w-100 d-flex flex-wrap p-2">
+                     <span class="text-danger text-center w-100">
+                        <%= (typeof errors != "undefined" && errors.new_credit_card_number ) ? "Los datos ingresados no fueron correctos" : "" %></span>
+
+
+                     <% for( let i = 0; i < user.credit_cards.length; i++ ) { %>
+
+                     <div class="w-100 d-flex flex-wrap justify-content-start align-items-between m-0 p-0 mb-2">
+                        <div class="d-flex flex-wrap align-items-center col-2 m-0 p-0 ">
+                           <img class="w-100 shadow m-0 p-0 mb-1"
+                              src="<%= user.credit_cards[i].number != undefined && user.credit_cards[i].number.toString().split('')[0]==4 ? '/Images/logoVisa.png' : user.credit_cards[i].number != undefined && user.credit_cards[i].number.toString().split('')[0]==5 ? '/Images/logoMasterCard.png' : user.credit_cards[i].number != undefined && user.credit_cards[i].number.toString().split('')[0]==3 ? '/images/logoAmex.png' : '/Images/logoDesconocido.png' %>">
+                           <!-- Button trigger modal -->
+                           <div class="d-flex flex-wrap align-items-center w-100 m-0">
+                              <button type="button" class="btn btn-warning btn-sm w-100" data-toggle="modal"
+                                 data-target="#credit_card_<%=i%>Modal">
+                                 Editar
+                              </button>
+                           </div>
+                        </div>
+                        <div class="d-flex flex-wrap align-items-between col-10 m-0 p-0 pl-2">
+                           
+                           <span class=" text-danger text-center">
+                              <%= (typeof errors != "undefined" && errors.credit_card_number && old.credit_card_id==user.credit_cards[i].id) ? "⚠" : "" %></span>
+                           <h6 class="d-flex align-items-center flex-grow-1 text-start p-1 rounded-lg m-0">
+                              <%= user.credit_cards[i].number != undefined && user.credit_cards[i].number ? user.credit_cards[i].number : 'No disponible' %>
+                           </h6>
+                           <h6 class="d-flex align-items-center w-100 text-start p-1 mt-2 mb-2 rounded-lg">
+                              Emisor:
+                              <%= user.credit_cards[i].number != undefined && user.credit_cards[i].number.toString().split('')[0]==4 ? 'VISA' : user.credit_cards[i].number != undefined && user.credit_cards[i].number.toString().split('')[0]==5 ? 'Master Card' : user.credit_cards[i].number != undefined && user.credit_cards[i].number.toString().split('')[0]==3 ? 'American Express' : 'Otro' %>
+                           </h6>
+                           <h6 class="d-flex align-items-center w-100 text-start p-1 rounded-lg m-0">
+                              Vencimiento:
+                              <%= user.credit_cards[i].expire_date != undefined && user.credit_cards[i].expire_date ? user.credit_cards[i].expire_date : 'No disponible' %>
+                           </h6>
+                        </div>
+                     </div>
+                     <% } %>
+
+                  </div>
+                  <div class="d-flex flex-wrap align-items-center justify-content-center col-12 p-2 m-0">
+                     <button type="button" class="btn btn-warning w-75 mb-3 p-1 shadow" data-toggle="modal"
+                        data-target="#new_credit_card_Modal">
+                        Agregar nueva tarjeta
+                     </button>
+                  </div>
+               </div>
+            </div>
+            <!-- Collapse CreditCards -->
+
+            <!-- Collapse UserAdresses -->
+            <p class="w-100 shadow rounded-lg">
+               <button class="btn btn-light btn-block" type="button" data-toggle="collapse"
+                  data-target="#collapseUserAdresses" aria-expanded="false" aria-controls="collapseUserAdresses"><i
+                     class="fas fa-chevron-down"></i> Mis direcciones <i class="fas fa-chevron-down"></i></button>
+            </p>
+            <div class="collapse w-100 mb-3" id="collapseUserAdresses">
+               <div class="card card-body w-100 m-0 p-0">
+                  <div class="userAdresses w-100 m-0 p-1">
+
+                     <% for( let i = 0; i < user.addresses.length; i++ ) { %>
+
+                     <div>
+                        <div class="d-flex flex-wrap justify-content-between w-100 m-0 p-0">
+                           <div class="d-flex align-items-center col-12 col-sm-2 title p-1 m-0">
+                              <h6 class="w-100 text-start p-1 m-0">Dirección #<%=i+1%></h6>
+                           </div>
+                           <div class="d-flex align-items-center  col-9 col-sm-8 input p-1 m-0">
+                              <input class="border flex-grow-1 border-light rounded-lg p-1 m-0" size="15" type="text"
+                                 name="nameAndLastname" id="nameAndLastname" disabled
+                                 placeholder="<%= user.addresses[i].address_street + " " + user.addresses[i].address_number + " " + user.addresses[i].address_floor + " " + user.addresses[i].address_door   %>">
+                           </div>
+                           <div class="d-flex flex-wrap align-items-center col-3 col-sm-2 p-1 m-0">
+                              <!-- Button trigger modal -->
+                              <div class="d-flex flex-wrap align-items-center w-100 m-0">
+                                 <button type="button" class="btn btn-warning btn-sm w-100" data-toggle="modal"
+                                    data-target="#address_<%=i%>Modal">
+>>>>>>> f21058d31f2c6daeb5b7c4f4928bcd026709831f
                                     Editar
                                 </button>
                             </div>
@@ -33,7 +224,16 @@
                             <div class="d-flex flex-wrap align-items-center col-12 title p-1 m-0">
                                 <h6 class="w-100 text-start p-1 m-0">Username: </h6>
 
+<<<<<<< HEAD
                                 <h6 class="bg m-0 text-start p-1 rounded-lg flex-grow-1 mr-2"><%= user.username %></h6>
+=======
+                     <div class="d-flex flex-wrap align-items-center justify-content-center col-12 p-2 m-0">
+                        <button type="button" class="btn btn-warning w-75 mb-2 p-1 shadow mt-2" data-toggle="modal"
+                           data-target="#new_address_Modal">
+                           Agregar nueva dirección
+                        </button>
+                     </div>
+>>>>>>> f21058d31f2c6daeb5b7c4f4928bcd026709831f
 
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-warning btn-sm pl-2 pr-2 " data-toggle="modal"
@@ -802,6 +1002,7 @@
 
             </div>
 
+<<<<<<< HEAD
             <!-- SECOND COLUMN -->
 
             <div class="secondColumn col-12 col-md-6 d-flex flex-wrap align-items-start">
@@ -853,6 +1054,96 @@
                                 <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj7.png" alt="">
                                 <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj8.png" alt="">
                             </div>
+=======
+         </div>
+
+         <!-- SECOND COLUMN -->
+         <!-- SECOND COLUMN -->
+         <!-- SECOND COLUMN -->
+         <!-- SECOND COLUMN -->
+         <!-- SECOND COLUMN -->
+
+         <div class="secondColumn col-12 col-md-6 d-flex flex-wrap align-items-start">
+
+            <!-- Meme library -->
+            <div class="library w-100 position-relative p-1 rounded-lg shadow">
+               <h5 class="text-center m-0 p-0 mt-2 block-title">Mi bilioteca</h5>
+               <h6><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>----------
+               </h6>
+               <div class="d-flex flex-wrap justify-items-between col-12 m-0 p-0">
+                  <% for( let i = 0; i < 6; i++ ) { %>
+
+                     <img class="col-4 col-sm-2 shadow rounded-lg m-0 mb-2 p-1" src="<%= user.user_memes[i] ? user.user_memes[i].meme_location : `/images/memes/memeUser${i}.png` %>" alt="">
+                  
+                  <% } %>
+
+                  <div class="col-12 d-flex flex-wrap justify-content-end">
+                     <h6>----------<i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                     </h6>
+                  </div>
+               </div>
+               <p class="w-100 shadow rounded-lg mb-0">
+                  <button class="btn btn-light btn-block mb-0" type="button" data-toggle="collapse"
+                     data-target="#collapseLibrary" aria-expanded="false" aria-controls="collapseLibrary"><i
+                        class="fas fa-chevron-down"></i> Ver más <i class="fas fa-chevron-down"></i></button>
+               </p>
+               <div class="collapse w-100 m-0 p-0" id="collapseLibrary">
+                  <div class="card card-body w-100 m-0 p-0">
+                     <div class="d-flex flex-wrap justify-items-between col-12 m-0 p-0">
+                        <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj1.png" alt="">
+                        <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj2.png" alt="">
+                        <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj3.png" alt="">
+                        <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj4.png" alt="">
+                        <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj5.png" alt="">
+                        <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj6.png" alt="">
+                     </div>
+                     <div class="d-flex flex-wrap justify-items-between col-12 m-0 p-0">
+                        <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj7.png" alt="">
+                        <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj8.png" alt="">
+                        <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj9.png" alt="">
+                        <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj10.png" alt="">
+                        <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj1.png" alt="">
+                        <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj2.png" alt="">
+                     </div>
+                     <div class="d-flex flex-wrap justify-items-between col-12 m-0 p-0">
+                        <img class="col-2 shadow rounded-lg m-0 p-1" src="/images/memes/memeEj3.png" alt="">
+                        <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj4.png" alt="">
+                        <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj5.png" alt="">
+                        <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj6.png" alt="">
+                        <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj7.png" alt="">
+                        <img class="col-2 shadow rounded-lg m-0 p-1 " src="/images/memes/memeEj8.png" alt="">
+                     </div>
+
+                  </div>
+               </div>
+            </div>
+            <!-- Meme library -->
+
+            <!-- Others Block -->
+            <div class="othersBlock w-100 d-flex flex-wrap shadow rounded-lg p-2 mb-0 mt-2">
+               <div class="w-100 d-flex flex-wrap justify-content-between align-items-between">
+                  <h5 class="w-100 text-center block-title">Opciones de cuenta</h5>
+                  <div class="d-flex flex-wrap align-items-center justify-content-around col-12 m-0 p-0 mt-2">
+                     <a href="">
+                        <h6>Mis compras</h6>
+                     </a>
+                     <a href="">
+                        <h6>Seguridad</h6>
+                     </a>
+                     <a href="">
+                        <h6>Otras#1</h6>
+                     </a>
+                     <a href="">
+                        <h6>Otras#2</h6>
+                     </a>
+                     <a href="">
+                        <h6>Otras#3</h6>
+                     </a>
+                  </div>
+               </div>
+            </div>
+            <!-- Others Block -->
+>>>>>>> f21058d31f2c6daeb5b7c4f4928bcd026709831f
 
                         </div>
                     </div>

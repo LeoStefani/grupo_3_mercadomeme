@@ -3,8 +3,6 @@ div.memes{
     margin: 0 auto;
 }
 
-/*======FIRST BANNER===*/
-
 /*======NAV BAR===*/
 
 div.memes nav.memesNav {
@@ -38,6 +36,39 @@ div.memes div.product-selector img {
     height: 15vh;
 }
 
+div.memes i.arrowLeft{
+    font-size: 4rem;
+    transform: translate(-50%, -50%) rotate(0deg);
+    color: var(--colorBlack);
+    opacity: 0.85;
+    z-index: 50;
+    position: absolute;
+    left:0;
+    top:50%
+}
+
+div.memes i.arrowRight{
+    font-size: 4rem;
+    transform: translate(+50%, -50%) rotate(0deg);
+    color: var(--colorBlack);
+    opacity: 0.85;
+    z-index: 50;
+    position: absolute;
+    right:0;
+    top:50%
+}
+
+
+div.memes img.memeCategory{
+
+    border-radius: 10px;
+}
+
+div.memes img#userMemeLibrary{
+
+    border-radius: 10px;
+}
+
 
 /*====MEME EDITOR=====*/
 
@@ -63,11 +94,8 @@ div.memes p.upperText{
     word-spacing: 2px;
     color: black;
     text-shadow: 2px 2px 2px white;
-
-    /* -webkit-text-stroke: 1px white; */
     transform: translate(-50%, -50%) rotate(0deg);
     text-transform: uppercase;
-    /* overflow-wrap: inherit; */
     }
 
 div.memes p.lowerText{
@@ -82,8 +110,6 @@ div.memes p.lowerText{
     text-shadow: 2px 2px 2px white;
     transform: translate(-50%, -50%);
     text-transform: uppercase;
-    /* overflow-wrap: inherit; */
-
 
 }
 
@@ -111,6 +137,23 @@ div.memes div.arrayMemesExample img{
 div.memes div.textEditor{
     background-color: var(--colorWhite);
 }
+
+div.memes div.dragscroll{
+    overflow: auto;
+    cursor: grab;
+    cursor : -o-grab;
+    cursor : -moz-grab;
+    cursor : -webkit-grab;
+}
+
+.dragscroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dragscroll {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 
 /*====MEME LIBRARY=====*/ 
 
@@ -148,6 +191,17 @@ div.memes h5.title {
     }
     div.memes div.arrayMemesExample img{
         height: 15vh;
+    }
+    div.memes i.arrowLeft{
+
+        transform: translate(-0%, -50%) rotate(0deg);
+    }
+    
+    div.memes i.arrowRight{
+    
+        transform: translate(+0%, -50%) rotate(0deg);
+     
+
     }
 
 }
