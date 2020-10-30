@@ -66,7 +66,7 @@ window.addEventListener("load", function () {
         item.addEventListener('click', event => {
             Swal.fire({
                 title: 'Eliminar producto',
-                text: "Estás seguro que deseas eliminar este producto?",
+                text: "¿Estás seguro que deseas eliminar este producto?",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

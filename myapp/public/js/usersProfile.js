@@ -8,7 +8,8 @@ window.addEventListener("load", function () {
     // variables 
     let inputMulter = qs("input[name='avatar']");
     let previewAvatar = qs("img.previewAvatar");
-    let submitAvatar = qs("button#submitAvatar")
+    let submitAvatar = qs("button#submitAvatar");
+    let deleteButtons = qsa("button.btn-danger");
 
     // ====================================================================================
     // ======================== PREVIEW AVATAR ============================================
@@ -35,6 +36,46 @@ window.addEventListener("load", function () {
         }
 
     })
+
+    for (let i = 0; i < deleteButtons.length; i++) {
+
+    
+
+        deleteButtons[i].addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            console.log(event.toElement.form.id);
+
+         var form = qs("form#"+event.toElement.form.id);
+
+
+             Swal.fire({
+                title: 'Eliminar',
+                text: "¿Estás seguro?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, eliminar!',
+                cancelButtonText: 'Cancelar',
+                            }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire(
+                    'Eliminado!',
+                    '',
+                    'success'
+                  );
+
+                form.submit()
+
+                }})
+
+        
+        
+    })
+}
+
 
 
 

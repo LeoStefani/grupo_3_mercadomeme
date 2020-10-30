@@ -3,6 +3,8 @@ div.memes{
     margin: 0 auto;
 }
 
+/*======FIRST BANNER===*/
+
 /*======NAV BAR===*/
 
 div.memes nav.memesNav {
@@ -96,6 +98,7 @@ div.memes p.upperText{
     text-shadow: 2px 2px 2px white;
     transform: translate(-50%, -50%) rotate(0deg);
     text-transform: uppercase;
+
     }
 
 div.memes p.lowerText{

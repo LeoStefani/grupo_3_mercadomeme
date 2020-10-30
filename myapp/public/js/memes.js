@@ -1,8 +1,6 @@
 
 window.addEventListener("load", function (e) {
 
-    console.log(e);
-
     var qs = function (element) { return document.querySelector(element) }
     var qsa = function (element) { return document.querySelectorAll(element) }
 
@@ -51,15 +49,20 @@ window.addEventListener("load", function (e) {
 
 
     for (let i = 0; i < memeCategory.length; i++) {
-        memeCategory[i].addEventListener("click", function (event) {
-            memeToComplete.src = event.srcElement.currentSrc
+        memeCategory[i].addEventListener("mousedown", function (event) {
+            let initialX = event.pageX;
+            memeCategory[i].addEventListener("mouseup", function (event) {
+            console.log(event);
+            if (event.pageX - initialX == 0) {memeToComplete.src = event.srcElement.currentSrc}
+            
         })
+    })
+
     }
 
     // ======================================UPPER TEXT========================================================
 
     buttonColorToggle[0].addEventListener("click", function (event) {
-        // console.log(event);
         upperText.classList.toggle("dark");
 
     })
@@ -98,14 +101,6 @@ window.addEventListener("load", function (e) {
         if (upperTextInitialHorizontal < 80) { upperText.style.left = upperTextInitialHorizontal + "%" }
         else { upperTextInitialHorizontal = 80 }
     })
-
-    // buttonLeft[0].addEventListener("click", function (event) {
-    //     upperText.innerText += "\u00A0";
-    // })
-
-    // buttonRight[0].addEventListener("click", function (event) {
-    //     upperText.insertAdjacentText('afterbegin', "\u00A0")
-    // })
 
     buttonRotateRight[0].addEventListener("click", function (event) {
         upperTextInitialAngle += 3;
@@ -257,14 +252,6 @@ window.addEventListener("load", function (e) {
         if (lowerTextInitialHorizontal < 80) { lowerText.style.left = lowerTextInitialHorizontal + "%" }
         else { lowerTextInitialHorizontal = 80 }
     })
-
-    // buttonLeft[1].addEventListener("click", function (event) {
-    //     lowerText.innerText += "\u00A0";
-    // })
-
-    // buttonRight[1].addEventListener("click", function (event) {
-    //     lowerText.insertAdjacentText('afterbegin', "\u00A0")
-    // })
 
     buttonRotateRight[1].addEventListener("click", function (event) {
         lowerTextInitialAngle += 3;
