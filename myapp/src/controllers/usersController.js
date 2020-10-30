@@ -2,26 +2,35 @@ const bcrypt = require('bcrypt');
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
 const { Op } = require("sequelize");
+const provinciasResources = require('../requests/provinciasResources');
+const countriesResources = require('../requests/countriesResources');
+
 
 module.exports = {
     usersIndex: function (req, res, next) {
         res.send("Acá no se bien que va a ir, deberíamos esperar a ver que pasa con eso de session en clase");
     },
     usersProfile: function (req, res, next) {
+        // Pedidos a la API de paises y a la base de datos por los datos de usuario.
+        let countries = countriesResources.getCountries()
+        .then(values => values.data)
+        .catch( err => console.log(err) );
 
-        db.User.findByPk(req.params.userId, {
+        let userData = db.User.findByPk(req.params.userId, {
             include: [{
                 all: true
             }]
-        }).then(function (users) {
-            // res.send(users)
+        }).catch( err => console.log(err) );
+
+        //Luego de los pedidos, se renderiza la vista con la informacion disponible.
+        Promise.all([ userData, countries]).then( values => {
             res.render("usersProfile", {
-                title: "Mi Perfil",
-                user: users,
-                old: req.body
-            })
-        })
-            .catch(function (error) { res.send(error) });
+                        title: "Mi Perfil",
+                        countries: values[1],
+                        user: values[0],
+                        old: req.body
+                    })
+        }).catch( err => console.log(err) );
 
     },
     registerDB: function (req, res, next) {

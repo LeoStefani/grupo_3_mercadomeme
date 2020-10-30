@@ -1,5 +1,5 @@
 const axios = require('axios');
-const defaults = require('./defaults');
+const { defaultsMemes } = require('./defaults');
 
 const url = "/"
 
@@ -8,7 +8,7 @@ let memeResources = {
     trending: function () {
         
         return axios({
-            ...defaults,
+            ...defaultsMemes,
             method: "GET",
             url: url + "get_memes"         
         })
