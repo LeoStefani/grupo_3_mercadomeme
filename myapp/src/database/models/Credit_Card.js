@@ -9,7 +9,7 @@ module.exports = function(sequelize, dataTypes) {
             allowNull: false,
             autoIncrement: true,
         },
-        id_user:{
+        id_user_credit_card:{
             type: dataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
@@ -33,7 +33,7 @@ module.exports = function(sequelize, dataTypes) {
     Credit_Card.associate = function(models) {
             Credit_Card.belongsTo(models.User, {
                     as: "credit_card",
-                    foreignKey: "id_user"
+                    foreignKey: "id_user_credit_card"
             })
     }
 

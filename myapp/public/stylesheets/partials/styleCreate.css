@@ -15,12 +15,10 @@ div.create div.firstColumn div.dataBlock form button{
 }
 
 div.create div.firstColumn div.card{
-    /* border: gray 1px solid; */
     background-color: var(--colorWhite);
 }
 
 div.create div.firstColumn div.size{
-    /* border: gray 1px solid; */
     background-color: var(--colorWhite);
 }
 
@@ -39,7 +37,6 @@ div.create div.firstColumn div.size div form div input {
     margin-bottom: 5px;
 }
 div.create div.firstColumn div.colors{
-    /* border: gray 1px solid; */
     margin-bottom: 5px;
     background-color: var(--colorWhite);
 
@@ -53,7 +50,6 @@ div.create div.firstColumn div.colors form div {
     width: 26%;
 }
 div.create div.firstColumn div.anotherParameters{
-    /* border: gray 1px solid; */
     background-color: var(--colorWhite);
 
 }
@@ -75,9 +71,6 @@ div.create img.image {
 div.create button.editImage {
   position: absolute;
   transform: translate(-115%, 250%);
-  /* top:57.5%; */
-  /* bottom:0; */
-
 
 }
 

@@ -9,7 +9,7 @@ module.exports = function(sequelize, dataTypes) {
             allowNull: false,
             autoIncrement: true,
         },
-        id_user:{
+        id_user_phone:{
             type: dataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
@@ -29,7 +29,7 @@ module.exports = function(sequelize, dataTypes) {
     Phone.associate = function(models) {
             Phone.belongsTo(models.User, {
                     as: "phone",
-                    foreignKey: "id_user"
+                    foreignKey: "id_user_phone"
             })
     }
 
