@@ -9,7 +9,7 @@ module.exports = function(sequelize, dataTypes) {
             allowNull: false,
             autoIncrement: true,
         },
-        id_user:{
+        id_user_address:{
             type: dataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
@@ -50,7 +50,7 @@ module.exports = function(sequelize, dataTypes) {
     Address.associate = function(models) {
             Address.belongsTo(models.User, {
                     as: "address",
-                    foreignKey: "id_user"
+                    foreignKey: "id_user_address"
             })
     }
 

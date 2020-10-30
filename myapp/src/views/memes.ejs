@@ -6,8 +6,14 @@
   <%- include('partials/header') %>
   <div class="memes container p-0">
 
+    <!--  title -->
+    <div class="col-12 d-flex flex-wrap justify-content-center p-4">
+      <h2 class="title text-center m-0 p-0">Armá tu meme!</h2>
+    </div>
+    <!--  title -->
+
     <!-- Div con barra de buscador y boton-->
-    <div class="row p-0 m-0">
+    <!-- <div class="row p-0 m-0">
       <div class="search mb-3 w-100">
         <form class="d-flex align-items-center w-100">
           <input class="form-control mr-2 flex-grow-1 shadow border border-white rounded-lg " type="search"
@@ -15,11 +21,11 @@
           <button class="btn btn-warning my-2 my-sm-0 shadow" type="submit">Buscar</button>
         </form>
       </div>
-    </div>
+    </div> -->
     <!-- Div con barra de buscador y boton-->
 
     <!-- Navbar con categorias de memes-->
-    <div class="row p-0 m-0">
+    <!-- <div class="row p-0 m-0">
       <div class="d-flex col-12 w-100 m-0 p-0 justify-content-center shaded rounded-lg align-items-center">
         <nav class="memesNav d-flex justify-content-center w-100 align-items-center shadow rounded-lg flex-wrap">
           <ul class="d-flex flex-wrap justify-content-around w-100 m-0 mb-1 mt-1 p-0 align-items-center ">
@@ -33,13 +39,13 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </div> -->
     <!-- Navbar con categorias de memes-->
 
     <!-- Selector de memes con desplegable -->
 
     <!-- banner con categorias -->
-    <div class="row w-100 m-0 mb-3 p-1 mt-3 product-selector shadow rounded-lg">
+    <div class="row w-100 m-0 mb-3 p-1 mt-0 product-selector shadow rounded-lg">
 
       <!-- Cada una de las categorias que va a desplegar el collapsable -->
       <% for (let i=0; i<12; i++) { %>
@@ -303,7 +309,9 @@
 
   <%- include('partials/footer') %>
   <%- include('partials/scriptsBootstrap') %>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dragscroll/0.0.8/dragscroll.min.js" integrity="sha512-/ncZdOhQm5pgj5KHy720Ck7XF5RzYK6rtUsLNnGcitXrKT3wUYzTrPlOSG7SdL2kDzkuLEOFvrQRyllcZkeAlg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dragscroll/0.0.8/dragscroll.min.js"
+    integrity="sha512-/ncZdOhQm5pgj5KHy720Ck7XF5RzYK6rtUsLNnGcitXrKT3wUYzTrPlOSG7SdL2kDzkuLEOFvrQRyllcZkeAlg=="
+    crossorigin="anonymous"></script>
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
   <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
   <script src="/js/memes.js"></script>

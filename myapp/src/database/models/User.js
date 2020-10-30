@@ -40,43 +40,7 @@ module.exports = function (sequelize, dataTypes) {
             unsigned: true,
             unique: true
         },
-        phone_0: {
-            type: dataTypes.INTEGER,
-            unsigned: true
-        },
-        phone_1: {
-            type: dataTypes.INTEGER,
-            unsigned: true
-        },
-        phone_2: {
-            type: dataTypes.INTEGER,
-            unsigned: true
-        },
-        credit_card_0: {
-            type: dataTypes.INTEGER,
-            unsigned: true
-        },
-        credit_card_1: {
-            type: dataTypes.INTEGER,
-            unsigned: true
-        },
-        credit_card_2: {
-            type: dataTypes.INTEGER,
-            unsigned: true
-        },
-        credit_card_3: {
-            type: dataTypes.INTEGER,
-            unsigned: true
-        },
-        address_0: {
-            type: dataTypes.STRING
-        },
-        address_1: {
-            type: dataTypes.STRING
-        },
-        address_2: {
-            type: dataTypes.STRING
-        },
+        
         admin: {
             type: dataTypes.INTEGER(2).UNSIGNED
 
@@ -101,19 +65,19 @@ module.exports = function (sequelize, dataTypes) {
 
         User.hasMany(models.Credit_Card, {
             as: "credit_cards",
-            foreignKey: "id_user"
+            foreignKey: "id_user_credit_card"
         }), 
         User.hasMany(models.Phone, {
             as: "phones",
-            foreignKey: "id_user"
+            foreignKey: "id_user_phone"
         }),
         User.hasMany(models.Address, {
             as: "addresses",
-            foreignKey: "id_user"
+            foreignKey: "id_user_address"
         }),
         User.hasMany(models.User_Meme, {
             as: "user_memes",
-            foreignKey: "id_user"
+            foreignKey: "id_user_meme"
         })
 
 

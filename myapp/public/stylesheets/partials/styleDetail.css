@@ -29,6 +29,14 @@ height: 50%;
 
 }
 
+div.detail h2.title {
+    font-size: 2.5rem;
+    -webkit-text-stroke: 1px white;
+   color: black;
+   font-family: 'Bungee';
+
+}
+
 
 div.detail div.banner h3{
     font-family: "Open sans";

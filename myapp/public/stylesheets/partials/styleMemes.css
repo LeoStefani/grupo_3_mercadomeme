@@ -17,6 +17,16 @@ div.memes nav.memesNav ul li{
     padding-bottom: 5px;
     margin: 0px 5px;
 }
+
+div.memes h2.title {
+    font-size: 2.5rem;
+    -webkit-text-stroke: 1px white;
+   color: black;
+   font-family: 'Bungee';
+
+}
+
+
 div.memes nav.memesNav ul li a{
     font-size: 1rem;
     color: var(--colorBlack);

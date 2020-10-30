@@ -9,7 +9,7 @@ module.exports = function(sequelize, dataTypes) {
             allowNull: false,
             autoIncrement: true,
         },
-        id_user:{
+        id_user_meme:{
             type: dataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
@@ -30,7 +30,7 @@ module.exports = function(sequelize, dataTypes) {
     User_Meme.associate = function(models) {
             User_Meme.belongsTo(models.User, {
                     as: "user_meme",
-                    foreignKey: "id_user"
+                    foreignKey: "id_user_meme"
             })
     }
 
